@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2014-2015 DataStax
+  Copyright (c) 2014-2016 DataStax
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -55,7 +55,7 @@ public:
     ENCODE_ERROR_PARAMETER_UNSET = -3
   };
 
-  static const CassConsistency DEFAULT_CONSISTENCY = CASS_CONSISTENCY_LOCAL_QUORUM;
+  static const CassConsistency DEFAULT_CONSISTENCY = CASS_CONSISTENCY_LOCAL_ONE;
 
   typedef std::map<const void*, Buffer> EncodingCache;
 

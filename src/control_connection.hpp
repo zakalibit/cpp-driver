@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2014-2015 DataStax
+  Copyright (c) 2014-2016 DataStax
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -71,7 +71,7 @@ private:
   template<class T>
   class ControlMultipleRequestHandler : public MultipleRequestHandler {
   public:
-    typedef void (*ResponseCallback)(ControlConnection*, const T&, const MultipleRequestHandler::ResponseVec&);
+    typedef void (*ResponseCallback)(ControlConnection*, const T&, const MultipleRequestHandler::ResponseMap&);
 
     ControlMultipleRequestHandler(ControlConnection* control_connection,
                                   ResponseCallback response_callback,
@@ -81,7 +81,7 @@ private:
         , response_callback_(response_callback)
         , data_(data) {}
 
-    virtual void on_set(const MultipleRequestHandler::ResponseVec& responses);
+    virtual void on_set(const MultipleRequestHandler::ResponseMap& responses);
 
     virtual void on_error(CassError code, const std::string& message) {
       control_connection_->handle_query_failure(code, message);
@@ -101,12 +101,12 @@ private:
     RefreshTableData(const std::string& keyspace_name,
                      const std::string& table_name)
       : keyspace_name(keyspace_name)
-      , table_name(table_name) {}
+      , table_or_view_name(table_name) {}
     std::string keyspace_name;
-    std::string table_name;
+    std::string table_or_view_name;
   };
 
-  struct QueryMetadataAllData {};
+  struct UnusedData {};
 
   template<class T>
   class ControlHandler : public Handler {
@@ -180,38 +180,42 @@ private:
   virtual void on_availability_change(Connection* connection) {}
   virtual void on_event(EventResponse* response);
 
-  //TODO: possibly reorder callback functions to pair with initiator
-  static void on_query_meta_all(ControlConnection* control_connection,
-                                const QueryMetadataAllData& data,
-                                const MultipleRequestHandler::ResponseVec& responses);
-  static void on_refresh_node_info(ControlConnection* control_connection,
-                                   const RefreshNodeData& data,
-                                   Response* response);
-  static void on_refresh_node_info_all(ControlConnection* control_connection,
-                                       const RefreshNodeData& data,
-                                       Response* response);
-  void on_local_query(ResponseMessage* response);
-  void on_peer_query(ResponseMessage* response);
   static void on_reconnect(Timer* timer);
 
   bool handle_query_invalid_response(Response* response);
   void handle_query_failure(CassError code, const std::string& message);
   void handle_query_timeout();
 
-  void query_meta_all();
+  void query_meta_hosts();
+  static void on_query_hosts(ControlConnection* control_connection,
+                             const UnusedData& data,
+                             const MultipleRequestHandler::ResponseMap& responses);
+
+  void query_meta_schema();
+  static void on_query_meta_schema(ControlConnection* control_connection,
+                                const UnusedData& data,
+                                const MultipleRequestHandler::ResponseMap& responses);
+
   void refresh_node_info(SharedRefPtr<Host> host,
                          bool is_new_node,
                          bool query_tokens = false);
+  static void on_refresh_node_info(ControlConnection* control_connection,
+                                   const RefreshNodeData& data,
+                                   Response* response);
+  static void on_refresh_node_info_all(ControlConnection* control_connection,
+                                       const RefreshNodeData& data,
+                                       Response* response);
+
   void update_node_info(SharedRefPtr<Host> host, const Row* row);
 
   void refresh_keyspace(const StringRef& keyspace_name);
   static void on_refresh_keyspace(ControlConnection* control_connection, const std::string& keyspace_name, Response* response);
 
-  void refresh_table(const StringRef& keyspace_name,
+  void refresh_table_or_view(const StringRef& keyspace_name,
                      const StringRef& table_name);
-  static void on_refresh_table(ControlConnection* control_connection,
+  static void on_refresh_table_or_view(ControlConnection* control_connection,
                                const RefreshTableData& data,
-                               const MultipleRequestHandler::ResponseVec& responses);
+                               const MultipleRequestHandler::ResponseMap& responses);
 
   void refresh_type(const StringRef& keyspace_name,
                     const StringRef& type_name);

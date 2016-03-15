@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2014-2015 DataStax
+  Copyright (c) 2014-2016 DataStax
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -37,10 +37,10 @@ class UserTypeValue;
 class Tuple {
 public:
   explicit Tuple(size_t item_count)
-    : data_type_(new TupleType())
+    : data_type_(new TupleType(false))
     , items_(item_count) { }
 
-  explicit Tuple(const SharedRefPtr<const DataType>& data_type)
+  explicit Tuple(const DataType::ConstPtr& data_type)
     : data_type_(data_type)
     , items_(data_type_->types().size()) { }
 

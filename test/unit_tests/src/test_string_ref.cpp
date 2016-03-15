@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2014-2015 DataStax
+  Copyright (c) 2014-2016 DataStax
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -71,6 +71,23 @@ BOOST_AUTO_TEST_CASE(substr)
 
   // More tests in "starts_with" and "ends_with"
 }
+
+BOOST_AUTO_TEST_CASE(find)
+{
+  cass::StringRef s("abcxyz");
+
+  BOOST_CHECK(s.find("") == 0);
+  BOOST_CHECK(s.find("abc") == 0);
+  BOOST_CHECK(s.find("xyz") == 3);
+  BOOST_CHECK(s.find("z") == 5);
+
+  BOOST_CHECK(s.find("invalid") == cass::StringRef::npos);
+  BOOST_CHECK(s.find("abcxyza") == cass::StringRef::npos);
+
+  BOOST_CHECK(s.find("") == 0);
+  BOOST_CHECK(cass::StringRef("").find("") == 0);
+}
+
 
 BOOST_AUTO_TEST_CASE(starts_with)
 {

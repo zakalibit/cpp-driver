@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2014-2015 DataStax
+  Copyright (c) 2014-2016 DataStax
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -33,12 +33,12 @@ CassDataType* cass_data_type_new(CassValueType type) {
     case CASS_VALUE_TYPE_SET:
     case CASS_VALUE_TYPE_TUPLE:
     case CASS_VALUE_TYPE_MAP:
-      data_type = new cass::CollectionType(type);
+      data_type = new cass::CollectionType(type, false);
       data_type->inc_ref();
       break;
 
     case CASS_VALUE_TYPE_UDT:
-      data_type = new cass::UserType();
+      data_type = new cass::UserType(false);
       data_type->inc_ref();
       break;
 
@@ -84,10 +84,10 @@ const CassDataType* cass_data_type_sub_data_type(const CassDataType* data_type,
                                                  size_t index) {
   const cass::DataType* sub_type = NULL;
   if (data_type->is_collection() || data_type->is_tuple()) {
-    const cass::SubTypesDataType* sub_types
-        = static_cast<const cass::SubTypesDataType*>(data_type->from());
-    if (index < sub_types->types().size()) {
-      sub_type = sub_types->types()[index].get();
+    const cass::CompositeType* composite_type
+        = static_cast<const cass::CompositeType*>(data_type->from());
+    if (index < composite_type->types().size()) {
+      sub_type = composite_type->types()[index].get();
     }
   } else if (data_type->is_user_type()) {
     const cass::UserType* user_type
@@ -125,6 +125,10 @@ const CassDataType* cass_data_type_sub_data_type_by_name_n(const CassDataType* d
 
 CassValueType cass_data_type_type(const CassDataType* data_type) {
   return data_type->value_type();
+}
+
+cass_bool_t cass_data_type_is_frozen(const CassDataType* data_type) {
+  return data_type->is_frozen() ? cass_true : cass_false;
 }
 
 CassError cass_data_type_type_name(const CassDataType* data_type,
@@ -238,6 +242,23 @@ CassError cass_data_type_set_class_name_n(CassDataType* data_type,
   return CASS_OK;
 }
 
+size_t cass_data_sub_type_count(const CassDataType* data_type) {
+  return cass_data_type_sub_type_count(data_type);
+}
+
+size_t cass_data_type_sub_type_count(const CassDataType* data_type) {
+  if (data_type->is_collection() || data_type->is_tuple()) {
+    const cass::CompositeType* composite_type
+        = static_cast<const cass::CompositeType*>(data_type->from());
+    return composite_type->types().size();
+  } else if (data_type->is_user_type()) {
+    const cass::UserType* user_type
+        = static_cast<const cass::UserType*>(data_type->from());
+    return user_type->fields().size();
+  }
+  return 0;
+}
+
 CassError cass_data_type_sub_type_name(const CassDataType* data_type,
                                        size_t index,
                                        const char** name,
@@ -267,27 +288,27 @@ CassError cass_data_type_add_sub_type(CassDataType* data_type,
     return CASS_ERROR_LIB_INVALID_VALUE_TYPE;
   }
 
-  cass::SubTypesDataType* sub_types
-      = static_cast<cass::SubTypesDataType*>(data_type->from());
+  cass::CompositeType* composite_type
+      = static_cast<cass::CompositeType*>(data_type->from());
 
-  switch (sub_types->value_type()) {
+  switch (composite_type->value_type()) {
     case CASS_VALUE_TYPE_LIST:
     case CASS_VALUE_TYPE_SET:
-      if (sub_types->types().size() >= 1) {
+      if (composite_type->types().size() >= 1) {
         return CASS_ERROR_LIB_BAD_PARAMS;
       }
-      sub_types->types().push_back(cass::SharedRefPtr<const cass::DataType>(sub_data_type));
+      composite_type->types().push_back(cass::SharedRefPtr<const cass::DataType>(sub_data_type));
       break;
 
     case CASS_VALUE_TYPE_MAP:
-      if (sub_types->types().size() >= 2) {
+      if (composite_type->types().size() >= 2) {
         return CASS_ERROR_LIB_BAD_PARAMS;
       }
-      sub_types->types().push_back(cass::SharedRefPtr<const cass::DataType>(sub_data_type));
+      composite_type->types().push_back(cass::SharedRefPtr<const cass::DataType>(sub_data_type));
       break;
 
     case CASS_VALUE_TYPE_TUPLE:
-      sub_types->types().push_back(cass::SharedRefPtr<const cass::DataType>(sub_data_type));
+      composite_type->types().push_back(cass::SharedRefPtr<const cass::DataType>(sub_data_type));
       break;
 
     default:
@@ -360,20 +381,81 @@ void cass_data_type_free(CassDataType* data_type) {
 
 namespace cass {
 
-const SharedRefPtr<const DataType> DataType::NIL;
+const DataType::ConstPtr DataType::NIL;
+
+void NativeDataTypes::init_class_names() {
+  if (!by_class_names_.empty()) return;
+  by_class_names_["org.apache.cassandra.db.marshal.AsciiType"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_ASCII));
+  by_class_names_["org.apache.cassandra.db.marshal.BooleanType"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_BOOLEAN));
+  by_class_names_["org.apache.cassandra.db.marshal.ByteType"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_TINY_INT));
+  by_class_names_["org.apache.cassandra.db.marshal.BytesType"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_BLOB));
+  by_class_names_["org.apache.cassandra.db.marshal.CounterColumnType"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_COUNTER));
+  by_class_names_["org.apache.cassandra.db.marshal.DateType"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_TIMESTAMP));
+  by_class_names_["org.apache.cassandra.db.marshal.DecimalType"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_DECIMAL));
+  by_class_names_["org.apache.cassandra.db.marshal.DoubleType"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_DOUBLE));
+  by_class_names_["org.apache.cassandra.db.marshal.FloatType"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_FLOAT));
+  by_class_names_["org.apache.cassandra.db.marshal.InetAddressType"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_INET));
+  by_class_names_["org.apache.cassandra.db.marshal.Int32Type"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_INT));
+  by_class_names_["org.apache.cassandra.db.marshal.IntegerType"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_INT));
+  by_class_names_["org.apache.cassandra.db.marshal.LongType"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_BIGINT));
+  by_class_names_["org.apache.cassandra.db.marshal.ShortType"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_SMALL_INT));
+  by_class_names_["org.apache.cassandra.db.marshal.SimpleDateType"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_DATE));
+  by_class_names_["org.apache.cassandra.db.marshal.TimeType"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_TIME));
+  by_class_names_["org.apache.cassandra.db.marshal.TimestampType"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_TIMESTAMP));
+  by_class_names_["org.apache.cassandra.db.marshal.TimeUUIDType"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_TIMEUUID));
+  by_class_names_["org.apache.cassandra.db.marshal.UTF8Type"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_TEXT));
+  by_class_names_["org.apache.cassandra.db.marshal.UUIDType"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_UUID));
+}
+
+const DataType::ConstPtr& NativeDataTypes::by_class_name(const std::string& name) const {
+  DataTypeMap::const_iterator i = by_class_names_.find(name);
+  if (i == by_class_names_.end()) return DataType::NIL;
+  return i->second;
+}
+
+void NativeDataTypes::init_cql_names() {
+  if (!by_cql_names_.empty()) return;
+  by_cql_names_["ascii"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_ASCII));
+  by_cql_names_["bigint"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_BIGINT));
+  by_cql_names_["blob"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_BLOB));
+  by_cql_names_["boolean"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_BOOLEAN));
+  by_cql_names_["counter"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_COUNTER));
+  by_cql_names_["date"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_DATE));
+  by_cql_names_["decimal"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_DECIMAL));
+  by_cql_names_["double"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_DOUBLE));
+  by_cql_names_["float"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_FLOAT));
+  by_cql_names_["inet"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_INET));
+  by_cql_names_["int"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_INT));
+  by_cql_names_["smallint"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_SMALL_INT));
+  by_cql_names_["time"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_TIME));
+  by_cql_names_["timestamp"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_TIMESTAMP));
+  by_cql_names_["timeuuid"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_TIMEUUID));
+  by_cql_names_["tinyint"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_TINY_INT));
+  by_cql_names_["text"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_TEXT));
+  by_cql_names_["uuid"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_UUID));
+  by_cql_names_["varchar"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_VARCHAR));
+  by_cql_names_["varint"] = DataType::ConstPtr(new DataType(CASS_VALUE_TYPE_VARINT));
+}
+
+const DataType::ConstPtr& NativeDataTypes::by_cql_name(const std::string& name) const {
+  DataTypeMap::const_iterator i = by_cql_names_.find(name);
+  if (i == by_cql_names_.end()) return DataType::NIL;
+  return i->second;
+}
+
 
 bool cass::IsValidDataType<const Collection*>::operator()(const Collection* value,
-                                                          const SharedRefPtr<const DataType>& data_type) const {
+                                                          const DataType::ConstPtr& data_type) const {
   return value->data_type()->equals(data_type);
 }
 
 bool cass::IsValidDataType<const Tuple*>::operator()(const Tuple* value,
-                                                     const SharedRefPtr<const DataType>& data_type) const {
+                                                     const DataType::ConstPtr& data_type) const {
   return value->data_type()->equals(data_type);
 }
 
 bool cass::IsValidDataType<const UserTypeValue*>::operator()(const UserTypeValue* value,
-                                                             const SharedRefPtr<const DataType>& data_type) const {
+                                                             const DataType::ConstPtr& data_type) const {
   return value->data_type()->equals(data_type);
 }
 

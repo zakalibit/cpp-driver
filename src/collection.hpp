@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2014-2015 DataStax
+  Copyright (c) 2014-2016 DataStax
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -37,11 +37,11 @@ class Collection : public RefCounted<Collection> {
 public:
   Collection(CassCollectionType type,
              size_t item_count)
-    : data_type_(new CollectionType(static_cast<CassValueType>(type))) {
+    : data_type_(new CollectionType(static_cast<CassValueType>(type), false)) {
     items_.reserve(item_count);
   }
 
-  Collection(const SharedRefPtr<const CollectionType>& data_type,
+  Collection(const CollectionType::ConstPtr& data_type,
              size_t item_count)
     : data_type_(data_type) {
     items_.reserve(item_count);
@@ -51,7 +51,7 @@ public:
     return static_cast<CassCollectionType>(data_type_->value_type());
   }
 
-  const SharedRefPtr<const CollectionType>& data_type() const { return data_type_; }
+  const CollectionType::ConstPtr& data_type() const { return data_type_; }
   const BufferVec& items() const { return items_; }
 
 #define APPEND_TYPE(Type)                  \
@@ -129,7 +129,7 @@ private:
   void encode_items_uint16(char* buf) const;
 
 private:
-  SharedRefPtr<const CollectionType> data_type_;
+  CollectionType::ConstPtr data_type_;
   BufferVec items_;
 
 private:

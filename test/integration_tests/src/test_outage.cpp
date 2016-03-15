@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2014-2015 DataStax
+  Copyright (c) 2014-2016 DataStax
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -177,7 +177,7 @@ struct OutageTests : public test_utils::MultipleNodesTest {
     test_utils::CassStatementPtr statement(cass_statement_new(query.c_str(), 3));
 
     // Determine if bound parameters can be used based on C* version
-    if (version.major == 1) {
+    if (version.major_version == 1) {
       test_utils::CassPreparedPtr prepared = test_utils::prepare(session, query.c_str());
       statement = test_utils::CassStatementPtr(cass_prepared_bind(prepared.get()));
     }

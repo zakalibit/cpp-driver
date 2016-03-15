@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2014-2015 DataStax
+  Copyright (c) 2014-2016 DataStax
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -76,7 +76,7 @@ void Host::LatencyTracker::update(uint64_t latency_ns) {
 }
 
 bool VersionNumber::parse(const std::string& version) {
-  return sscanf(version.c_str(), "%d.%d.%d", &major_, &minor_, &patch_) == 3;
+  return sscanf(version.c_str(), "%d.%d.%d", &major_version_, &minor_version_, &patch_version_) >= 2;
 }
 
 } // namespace cass

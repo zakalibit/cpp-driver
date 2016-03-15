@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2014-2015 DataStax
+  Copyright (c) 2014-2016 DataStax
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -35,10 +35,12 @@ namespace CCM {
      * Local deployment type; commands are executed through local process
      */
     static const DeploymentType LOCAL;
+#ifdef CASS_USE_LIBSSH2
     /**
      * Remote deployment type; commands are executed though libssh2
      */
     static const DeploymentType REMOTE;
+#endif
 
     /**
      * Name of constant

@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2014-2015 DataStax
+  Copyright (c) 2014-2016 DataStax
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -98,7 +98,7 @@ struct StressTests : public test_utils::MultipleNodesTest {
   bool insert_task(const std::string& query, CassConsistency consistency, int rows_per_id) {
     bool is_successful = true;
     for (int i = 0; i < rows_per_id; ++i) {
-      if (version.major == 1) {
+      if (version.major_version == 1) {
         if (!create_and_execute_insert(query, consistency)) {
           is_successful = false;
         }

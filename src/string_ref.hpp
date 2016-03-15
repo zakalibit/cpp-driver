@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2014-2015 DataStax
+  Copyright (c) 2014-2016 DataStax
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -97,6 +97,14 @@ public:
   StringRef substr(size_t pos = 0, size_t length = npos) {
     assert(pos < length_);
     return StringRef(ptr_ + pos, std::min(length_ - pos, length));
+  }
+
+  size_t find(const StringRef& ref) const {
+    if (ref.length_ == 0) return 0;
+    if (length_ == 0) return npos;
+    const_iterator i = std::search(ptr_, ptr_ + length_, ref.ptr_, ref.ptr_ + ref.length_);
+    if (i == end()) return npos;
+    return i - begin();
   }
 
   int compare(const StringRef& ref) const {

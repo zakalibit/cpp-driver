@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2014-2015 DataStax
+  Copyright (c) 2014-2016 DataStax
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -129,7 +129,7 @@ int BatchRequest::encode(int version, Handler* handler, BufferVec* bufs) const {
 
     Buffer buf(buf_size);
 
-    size_t pos = buf.encode_uint16(0, consistency());
+    size_t pos = buf.encode_uint16(0, handler->consistency());
     if (version >= 3) {
       pos = buf.encode_byte(pos, flags);
 

@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2014-2015 DataStax
+  Copyright (c) 2014-2016 DataStax
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -26,23 +26,23 @@ namespace cass {
 
 class UserTypeValue : public AbstractData {
 public:
-  UserTypeValue(const SharedRefPtr<const UserType>& data_type)
+  UserTypeValue(const UserType::ConstPtr& data_type)
     : AbstractData(data_type->fields().size())
     , data_type_(data_type) { }
 
-  const SharedRefPtr<const UserType>& data_type() const { return data_type_; }
+  const UserType::ConstPtr& data_type() const { return data_type_; }
 
 protected:
   virtual size_t get_indices(StringRef name, IndexVec* indices) {
     return data_type_->get_indices(name, indices);
   }
 
-  virtual const SharedRefPtr<const DataType>& get_type(size_t index) const {
+  virtual const DataType::ConstPtr& get_type(size_t index) const {
     return data_type_->fields()[index].type;
   }
 
 private:
-  SharedRefPtr<const UserType> data_type_;
+  UserType::ConstPtr data_type_;
 
 private:
   DISALLOW_COPY_AND_ASSIGN(UserTypeValue);

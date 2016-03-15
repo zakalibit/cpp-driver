@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2014-2015 DataStax
+  Copyright (c) 2014-2016 DataStax
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -125,7 +125,6 @@ BOOST_AUTO_TEST_CASE(reprepared_on_new_node)
   boost::this_thread::sleep_for(boost::chrono::seconds(5));
   test_utils::execute_query(session, str(boost::format(insert_query) % table_name % "123456789" % 20));
   ccm->enable_node_gossip(2);
-
 
   for (int i = 0; i < 10; ++i) {
     test_utils::CassStatementPtr statement(cass_prepared_bind(prepared.get()));

@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2014-2015 DataStax
+  Copyright (c) 2014-2016 DataStax
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -66,7 +66,7 @@ private:
   virtual size_t get_indices(StringRef name,
                              IndexVec* indices);
 
-  virtual const SharedRefPtr<const DataType>& get_type(size_t index) const {
+  virtual const DataType::ConstPtr& get_type(size_t index) const {
     return DataType::NIL;
   }
 

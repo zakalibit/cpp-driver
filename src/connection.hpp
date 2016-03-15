@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2014-2015 DataStax
+  Copyright (c) 2014-2016 DataStax
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -65,7 +65,8 @@ public:
     CONNECTION_ERROR_TIMEOUT,
     CONNECTION_ERROR_INVALID_PROTOCOL,
     CONNECTION_ERROR_AUTH,
-    CONNECTION_ERROR_SSL
+    CONNECTION_ERROR_SSL,
+    CONNECTION_ERROR_KEYSPACE
   };
 
   class Listener {
@@ -129,12 +130,6 @@ public:
   bool is_auth_error() const { return error_code_ == CONNECTION_ERROR_AUTH; }
   bool is_ssl_error() const { return error_code_ == CONNECTION_ERROR_SSL; }
   bool is_timeout_error() const { return error_code_ == CONNECTION_ERROR_TIMEOUT; }
-
-  bool is_critical_failure() const {
-    return error_code_ == CONNECTION_ERROR_INVALID_PROTOCOL ||
-        error_code_ == CONNECTION_ERROR_AUTH ||
-        error_code_ == CONNECTION_ERROR_SSL;
-  }
 
   ConnectionError error_code() const { return error_code_; }
   const std::string& error_message() const { return error_message_; }

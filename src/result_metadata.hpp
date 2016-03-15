@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2014-2015 DataStax
+  Copyright (c) 2014-2016 DataStax
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -38,7 +38,7 @@ struct ColumnDefinition : public HashTableEntry<ColumnDefinition> {
   StringRef name;
   StringRef keyspace;
   StringRef table;
-  SharedRefPtr<const DataType> data_type;
+  DataType::ConstPtr data_type;
 };
 
 class ResultMetadata : public RefCounted<ResultMetadata> {

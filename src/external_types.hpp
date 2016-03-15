@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2014-2015 DataStax
+  Copyright (c) 2014-2016 DataStax
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -74,7 +74,9 @@ EXTERNAL_TYPE(cass::SslContext, CassSsl);
 EXTERNAL_TYPE(cass::Metadata::SchemaSnapshot, CassSchemaMeta);
 EXTERNAL_TYPE(cass::KeyspaceMetadata, CassKeyspaceMeta);
 EXTERNAL_TYPE(cass::TableMetadata, CassTableMeta);
+EXTERNAL_TYPE(cass::ViewMetadata, CassMaterializedViewMeta);
 EXTERNAL_TYPE(cass::ColumnMetadata, CassColumnMeta);
+EXTERNAL_TYPE(cass::IndexMetadata, CassIndexMeta);
 EXTERNAL_TYPE(cass::FunctionMetadata, CassFunctionMeta);
 EXTERNAL_TYPE(cass::AggregateMetadata, CassAggregateMeta);
 EXTERNAL_TYPE(cass::UuidGen, CassUuidGen);

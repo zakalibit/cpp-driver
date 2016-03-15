@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2014-2015 DataStax
+  Copyright (c) 2014-2016 DataStax
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -143,7 +143,7 @@ public:
 protected:
   virtual size_t get_indices(StringRef name,
                              IndexVec* indices) = 0;
-  virtual const SharedRefPtr<const DataType>& get_type(size_t index) const = 0;
+  virtual const DataType::ConstPtr& get_type(size_t index) const = 0;
 
 private:
   template <class T>
@@ -152,7 +152,7 @@ private:
       return CASS_ERROR_LIB_INDEX_OUT_OF_BOUNDS;
     }
     IsValidDataType<T> is_valid_type;
-    SharedRefPtr<const DataType> data_type(get_type(index));
+    DataType::ConstPtr data_type(get_type(index));
     if (data_type && !is_valid_type(value, data_type)) {
       return CASS_ERROR_LIB_INVALID_VALUE_TYPE;
     }

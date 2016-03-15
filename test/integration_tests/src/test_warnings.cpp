@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2014-2015 DataStax
+  Copyright (c) 2014-2016 DataStax
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ BOOST_AUTO_TEST_SUITE(warnings)
 BOOST_AUTO_TEST_CASE(aggregate_without_partition_key)
 {
   CCM::CassVersion version = test_utils::get_version();
-  if ((version.major >= 2 && version.minor >= 2) || version.major >= 3) {
+  if ((version.major_version >= 2 && version.minor_version >= 2) || version.major_version >= 3) {
     WarningsTests tester;
     test_utils::CassStatementPtr statement(cass_statement_new("SELECT sum(gossip_generation) FROM system.local", 0));
     test_utils::CassLog::reset("Server-side warning: Aggregation query used without partition key");

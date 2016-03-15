@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2014-2015 DataStax
+  Copyright (c) 2014-2016 DataStax
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ public:
       : Iterator(CASS_ITERATOR_TYPE_USER_TYPE_FIELD)
       , user_type_value_(user_type_value)
       , position_(user_type_value->data()) {
-    SharedRefPtr<const UserType> user_type(user_type_value->data_type());
+    UserType::ConstPtr user_type(user_type_value->data_type());
     next_ = user_type->fields().begin();
     end_ = user_type->fields().end();
   }

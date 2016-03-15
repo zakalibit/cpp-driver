@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2014-2015 DataStax
+  Copyright (c) 2014-2016 DataStax
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -20,31 +20,18 @@
 #include "load_balancing.hpp"
 #include "host.hpp"
 #include "scoped_ptr.hpp"
+#include "list_policy.hpp"
 
 namespace cass {
 
-class WhitelistPolicy : public ChainedLoadBalancingPolicy {
+class WhitelistPolicy : public ListPolicy {
 public:
   WhitelistPolicy(LoadBalancingPolicy* child_policy,
                   const ContactPointList& hosts)
-    : ChainedLoadBalancingPolicy(child_policy)
+    : ListPolicy(child_policy)
     , hosts_(hosts) {}
 
   virtual ~WhitelistPolicy() {}
-
-  virtual void init(const SharedRefPtr<Host>& connected_host, const HostMap& hosts);
-
-  virtual CassHostDistance distance(const SharedRefPtr<Host>& host) const;
-
-  virtual QueryPlan* new_query_plan(const std::string& connected_keyspace,
-                                    const Request* request,
-                                    const TokenMap& token_map,
-                                    Request::EncodingCache* cache);
-
-  virtual void on_add(const SharedRefPtr<Host>& host);
-  virtual void on_remove(const SharedRefPtr<Host>& host);
-  virtual void on_up(const SharedRefPtr<Host>& host);
-  virtual void on_down(const SharedRefPtr<Host>& host);
 
   WhitelistPolicy* new_instance() {
     return new WhitelistPolicy(child_policy_->new_instance(), hosts_);

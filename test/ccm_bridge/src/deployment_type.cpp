@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2014-2015 DataStax
+  Copyright (c) 2014-2016 DataStax
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -21,7 +21,9 @@ using namespace CCM;
 
 // Constant value definitions for deployment type
 const DeploymentType DeploymentType::LOCAL("LOCAL", 0, "Local");
+#ifdef CASS_USE_LIBSSH2
 const DeploymentType DeploymentType::REMOTE("REMOTE", 1, "Remote");
+#endif
 
 // Static declarations for deployment type
 std::set<DeploymentType> DeploymentType::constants_;
@@ -41,7 +43,9 @@ const std::string& DeploymentType::to_string() const {
 const std::set<DeploymentType>& DeploymentType::get_constants() {
   if (constants_.empty()) {
     constants_.insert(LOCAL);
+#ifdef CASS_USE_LIBSSH2
     constants_.insert(REMOTE);
+#endif
   }
 
   return constants_;

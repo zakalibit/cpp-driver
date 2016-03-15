@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2014-2015 DataStax
+  Copyright (c) 2014-2016 DataStax
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -157,7 +157,7 @@ private:
     if (collection_type == CASS_VALUE_TYPE_MAP) {
       types.push_back(decode());
     }
-    return SharedRefPtr<DataType>(new CollectionType(collection_type, types));
+    return SharedRefPtr<DataType>(new CollectionType(collection_type, types, false));
   }
 
   SharedRefPtr<DataType> decode_user_type() {
@@ -178,7 +178,8 @@ private:
     }
     return SharedRefPtr<DataType>(new UserType(keyspace.to_string(),
                                                type_name.to_string(),
-                                               fields));
+                                               fields,
+                                               false));
   }
 
   SharedRefPtr<DataType> decode_tuple() {
@@ -189,7 +190,7 @@ private:
     for (uint16_t i = 0; i < n; ++i) {
       types.push_back(decode());
     }
-    return SharedRefPtr<DataType>(new TupleType(types));
+    return SharedRefPtr<DataType>(new TupleType(types, false));
   }
 
 private:
@@ -277,7 +278,7 @@ char* ResultResponse::decode_metadata(char* input, SharedRefPtr<ResultMetadata>*
       buffer = decode_string(buffer, &def.name);
 
       DataTypeDecoder type_decoder(buffer);
-      def.data_type = SharedRefPtr<const DataType>(type_decoder.decode());
+      def.data_type = DataType::ConstPtr(type_decoder.decode());
       buffer = type_decoder.buffer();
 
       (*metadata)->add(def);
