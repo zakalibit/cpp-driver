@@ -20,6 +20,7 @@
 #include "bridge_exception.hpp"
 #include "cass_version.hpp"
 #include "deployment_type.hpp"
+#include "dse_credentials_type.hpp"
 #include "socket.hpp"
 
 #include <map>
@@ -41,9 +42,13 @@ typedef struct _LIBSSH2_CHANNEL LIBSSH2_CHANNEL;
 #endif
 
 // Default values
-#define DEFAULT_CASSANDRA_VERSION CassVersion("3.0.0")
-#define DEFAULT_USE_ASFGIT false
+#define DEFAULT_CASSANDRA_VERSION CassVersion("3.7")
+#define DEFAULT_DSE_VERSION DseVersion("4.8.8")
+#define DEFAULT_USE_GIT false
+#define DEFAULT_USE_DSE false
+#define DEFAULT_DSE_WORKLOAD DSE_WORKLOAD_CASSANDRA
 #define DEFAULT_CLUSTER_PREFIX "cpp-driver"
+#define DEFAULT_DSE_CREDENTIALS DseCredentialsType::USERNAME_PASSWORD
 #define DEFAULT_DEPLOYMENT DeploymentType::LOCAL
 #define DEFAULT_AUTHENTICATION AuthenticationType::USERNAME_PASSWORD
 #define DEFAULT_HOST "127.0.0.1"
@@ -88,6 +93,42 @@ struct ClusterStatus {
 
 namespace CCM {
 
+  /**
+   * Enumeration for a DSE workload
+   */
+  enum DseWorkload {
+    /**
+     * Cassandra
+     */
+    DSE_WORKLOAD_CASSANDRA = 0,
+    /**
+     * CFS - Cassandra file system (Hadoop Distributed File System (HDFS)
+     * replacement
+     */
+    DSE_WORKLOAD_CFS,
+    /**
+     * DSEFS - DataStax Enterprise file system (Spark streaming and Write Ahead
+     * Logging (WAL))
+     */
+    DSE_WORKLOAD_DSEFS,
+    /**
+     * Graph
+     */
+    DSE_WORKLOAD_GRAPH,
+    /**
+     * Hadoop
+     */
+    DSE_WORKLOAD_HADOOP,
+    /**
+     * Solr
+     */
+    DSE_WORKLOAD_SOLR,
+    /**
+     * Spark
+     */
+    DSE_WORKLOAD_SPARK
+  };
+
   class Bridge {
   public:
     /**
@@ -95,11 +136,27 @@ namespace CCM {
      *
      * @param cassandra_version Cassandra version to use
      *                          (default: DEFAULT_CASSANDRA_VERSION)
-     * @param use_asfgit True if version should be obtained from ASF git; false
-     *                otherwise (default: DEFAULT_USE_ASFGIT). Prepends
-          *           `cassandra-` to version when creating cluster through CCM
+     * @param use_git True if version should be obtained from ASF/GitHub; false
+     *                otherwise (default: DEFAULT_USE_GIT). Prepends
+     *                `cassandra-` to version when creating cluster through CCM
+     *                if using Cassandra; otherwise passes version information
+     *                to CCM for git download of DSE. Set branch_tag to
+     *                override default action.
+     * @param branch_tag Branch/Tag to use when use_git is enabled
+     *                   (default: Empty). This value is independent of the
+     *                   version specified.
+     * @param use_dse True if CCM should load DSE for provided version; false
+     *               otherwise (default: DEFAULT_USE_DSE)
+     * @param dse_workload DSE workload to utilize
+     *                     (default: DSE_WORKLOAD_CASSANDRA)
      * @param cluster_prefix Prefix to use when creating a cluster name
      *                       (default: DEFAULT_CLUSTER_PREFIX)
+     * @param dse_credentials_type Username|Password/INI file credentials
+     *                             (default: DEFAULT_DSE_CREDENTIALS)
+     * @param dse_username Username for DSE download authentication; empty if
+     *                     using INI file credentials (default: Empty)
+     * @param dse_password Password for DSE download authentication; empty if
+     *                     using INI file credentials (default: Empty)
      * @param deployment_type Local|Remote deployment (execute command locally
      *                        or remote (default: DEFAULT_DEPLOYMENT)
      * @param authentication_type Username|Password/Public key authentication
@@ -119,8 +176,14 @@ namespace CCM {
      * @throws BridgeException
      */
     Bridge(CassVersion cassandra_version = DEFAULT_CASSANDRA_VERSION,
-      bool use_asfgit = DEFAULT_USE_ASFGIT,
+      bool use_git = DEFAULT_USE_GIT,
+      const std::string& branch_tag = "",
+      bool use_dse = DEFAULT_USE_DSE,
+      DseWorkload dse_workload = DSE_WORKLOAD_CASSANDRA,
       const std::string& cluster_prefix = DEFAULT_CLUSTER_PREFIX,
+      DseCredentialsType dse_credentials_type = DEFAULT_DSE_CREDENTIALS,
+      const std::string& dse_username = "",
+      const std::string& dse_password = "",
       DeploymentType deployment_type = DEFAULT_DEPLOYMENT,
       AuthenticationType authentication_type = DEFAULT_AUTHENTICATION,
       const std::string& host = DEFAULT_HOST,
@@ -178,19 +241,40 @@ namespace CCM {
     ClusterStatus cluster_status();
 
     /**
-     * Create a Cassandra cluster
+     * Create a Cassandra cluster with nodes in multiple data centers
      *
-     * @param data_center_one_nodes Number of nodes for DC1 (default: 1)
-     * @param data_center_two_nodes Number of nodes for DC2 (default: 0)
+     * @param data_center_nodes Vector of data center nodes
+     * @param with_vnodes True if vnodes tokens should be used; false otherwise
+     *                   (default: false)
      * @param is_ssl True if SSL should be enabled; false otherwise
      *               (default: false)
      * @param is_client_authentication True if client authentication should be
      *                                enabled; false otherwise (default: false)
      * @return True if cluster was created or switched; false otherwise
+     * @throws BridgeException
      */
-    bool create_cluster(unsigned short data_center_one_nodes = 1,
-      unsigned short data_center_two_node = 0,
-      bool is_ssl = false, bool is_client_authentication = false);
+    bool create_cluster(std::vector<unsigned short> data_center_nodes,
+      bool with_vnodes = false, bool is_ssl = false,
+      bool is_client_authentication = false);
+
+    /**
+     * Create a Cassandra cluster
+     *
+     * @param data_center_one_nodes Number of nodes for DC1 (default: 1)
+     * @param data_center_two_nodes Number of nodes for DC2 (default: 0)
+     * @param with_vnodes True if vnodes tokens should be used; false otherwise
+     *                   (default: false)
+     * @param is_ssl True if SSL should be enabled; false otherwise
+     *               (default: false)
+     * @param is_client_authentication True if client authentication should be
+     *                                enabled; false otherwise (default: false)
+     * @return True if cluster was created or switched; false otherwise
+     * @deprecated More than two data centers are needed; will be removed after
+     *             refactor of test harness
+     */
+    bool CCM_BRIDGE_DEPRECATED(create_cluster(unsigned short data_center_one_nodes = 1,
+      unsigned short data_center_two_nodes = 0, bool with_vnodes = false,
+      bool is_ssl = false, bool is_client_authentication = false));
 
     /**
      * Check to see if the active cluster is no longer accepting connections
@@ -276,10 +360,38 @@ namespace CCM {
     /**
      * Update the cluster configuration
      *
+     * @param key_value_pairs Key:Value to update
+     * @param is_dse True if key/value pair should update the dse.yaml file;
+     *               otherwise false (default: false)
+     */
+    void update_cluster_configuration(std::vector<std::string> key_value_pairs, bool is_dse = false);
+
+    /**
+     * Update the cluster configuration
+     *
+     * @param key Key to update
+     * @param value Value to apply to key configuration
+     * @param is_dse True if key/value pair should update the dse.yaml file;
+     *               otherwise false (default: false)
+     */
+    void update_cluster_configuration(const std::string& key, const std::string& value, bool is_dse = false);
+
+    /**
+     * Update the node configuration
+     *
+     * @param node Node to update configuration on
+     * @param key_value_pairs Key:Value to update
+     */
+    void update_node_configuration(unsigned int node, std::vector<std::string> key_value_pairs);
+
+    /**
+     * Update the node configuration
+     *
+     * @param node Node to update configuration on
      * @param key Key to update
      * @param value Value to apply to key configuration
      */
-    void update_cluster_configuration(const std::string& key, const std::string& value);
+    void update_node_configuration(unsigned int node, const std::string& key, const std::string& value);
 
     /**
      * Add a node on the active Cassandra cluster
@@ -435,6 +547,51 @@ namespace CCM {
     CCM_BRIDGE_DEPRECATED(static CassVersion get_cassandra_version(const std::string& configuration_file));
 
     /**
+     * Get the DSE version from the active cluster
+     *
+     * @return DSE version
+     * @throws BridgeException
+     */
+    DseVersion get_dse_version();
+
+    /**
+     * Get the DSE version indicated in the configuration file
+     *
+     * @param configuration_file Full path to configuration file
+     * @return DSE version from the configuration file
+     * @deprecated Configuration file will be removed after new test framework
+     *             is fully implemented
+     */
+    CCM_BRIDGE_DEPRECATED(static DseVersion get_dse_version(const std::string& configuration_file));
+
+    /**
+     * Set the DSE workload on a node
+     *
+     * NOTE: This operation should be performed before starting the node;
+     *       otherwise the node will be stopped and restarted
+     *
+     * @param node Node to set DSE workload on
+     * @param workload Workload to be set
+     * @param is_kill True if forced termination requested; false otherwise
+     *                (default: false)
+     * @return True if node was restarted; false otherwise
+     */
+    bool set_dse_workload(unsigned int node, DseWorkload workload, bool is_kill = false);
+
+    /**
+     * Set the DSE workload on the cluster
+     *
+     * NOTE: This operation should be performed before starting the cluster;
+     *       otherwise the cluster will be stopped and restarted
+     *
+     * @param workload Workload to be set
+     * @param is_kill True if forced termination requested; false otherwise
+     *                (default: false)
+     * @return True if cluster was restarted; false otherwise
+     */
+    bool set_dse_workload(DseWorkload workload, bool is_kill = false);
+
+    /**
      * Check to see if a node has been decommissioned
      *
      * @param node Node to check `DECOMMISSION` status
@@ -463,6 +620,66 @@ namespace CCM {
     bool is_node_up(unsigned int node);
 
   private:
+    /**
+     * Cassandra version to use
+     */
+    CassVersion cassandra_version_;
+    /**
+     * DSE version to use
+     */
+    DseVersion dse_version_;
+    /**
+     * Flag to determine if Cassandra/DSE should be built from ASF/GitHub
+     */
+    bool use_git_;
+    /**
+     * Branch/Tag to retrieve from ASF/GitHub
+     */
+    std::string branch_tag_;
+    /**
+     * Flag to determine if DSE is being used
+     */
+    bool use_dse_;
+    /**
+     * Workload to apply to the DSE cluster
+     */
+    DseWorkload dse_workload_;
+    /**
+     * Cluster prefix to apply to cluster name during create command
+     */
+    std::string cluster_prefix_;
+    /**
+     * Authentication type (username|password/public key)
+     *
+     * Flag to indicate how SSH authentication should be established
+     */
+    AuthenticationType authentication_type_;
+    /**
+     * DSE credentials type (username|password/INI file)
+     *
+     * Flag to indicate how DSE credentials should be obtained
+     */
+    DseCredentialsType dse_credentials_type_;
+    /**
+     * Username to use when authenticating download access for DSE
+     */
+    std::string dse_username_;
+    /**
+     * Password to use when authenticating download access for DSE
+     */
+    std::string dse_password_;
+    /**
+     * Deployment type (local|ssh)
+     *
+     * Flag to indicate how CCM commands should be executed
+     */
+    DeploymentType deployment_type_;
+    /**
+     * IP address to use when establishing SSH connection for remote CCM
+     * command execution and/or IP address to use for server connection IP
+     * generation
+     */
+    std::string host_;
 #ifdef CASS_USE_LIBSSH2
     /**
      * SSH session handle for establishing connection
@@ -472,41 +689,15 @@ namespace CCM {
      * SSH channel handle for interacting with the session
      */
     LIBSSH2_CHANNEL* channel_;
-#endif
     /**
      * Socket instance
      */
     Socket* socket_;
+#endif
     /**
-     * Cassandra version to use
+     * Workload values to use when setting the workload via CCM
      */
-    CassVersion cassandra_version_;
-    /**
-     * Flag to determine if Cassandra should be built from ASF git
-     */
-    bool use_asfgit_;
-    /**
-     * Cluster prefix to apply to cluster name during create command
-     */
-    std::string cluster_prefix_;
-    /**
-     * Deployment type (local|ssh)
-     *
-     * Flag to indicate how CCM commands should be executed
-     */
-    DeploymentType deployment_type_;
-    /**
-     * Authentication type (username|password/public key)
-     *
-     * Flag to indicate how SSH authentication should be established
-     */
-    AuthenticationType authentication_type_;
-    /**
-     * IP address to use when establishing SSH connection for remote CCM
-     * command execution and/or IP address to use for server connection IP
-     * generation
-     */
-    std::string host_;
+    static const std::vector<std::string> dse_workloads_;
 
 #ifdef CASS_USE_LIBSSH2
     /**
@@ -573,7 +764,7 @@ namespace CCM {
     std::string execute_libssh2_command(const std::vector<std::string>& command);
 #endif
 
-	/**
+    /**
      * Execute a local command
      *
      * @param command Command array to execute ([0] = command, [1-n] arguments)
@@ -631,25 +822,27 @@ namespace CCM {
      * in each data center
      *
      * @param cassandra_version Cassandra version being used
-     * @param data_center_one_nodes Number of nodes for DC1
-     * @param data_center_two_nodes Number of nodes for DC2
+     * @param data_center_nodes Vector of nodes for each data center
+     * @param with_vnodes True if vnodes are enabled; false otherwise
      * @param is_ssl True if SSL is enabled; false otherwise
-     * @param is_client_authentiction True if client authentication is enabled;
+     * @param is_client_authentication True if client authentication is enabled;
      *                                false otherwise
+     * @return Cluster name
      */
     std::string generate_cluster_name(CassVersion cassandra_version,
-      unsigned short data_center_one_nodes,
-      unsigned short data_center_two_nodes,
-      bool is_ssl, bool is_client_authentication);
+      std::vector<unsigned short> data_center_nodes,
+      bool with_vnodes, bool is_ssl, bool is_client_authentication);
 
     /**
      * Generate the nodes parameter for theCassandra cluster based on the number
      * of nodes in each data center
      *
-     * @param data_center_one_nodes Number of nodes for DC1
-     * #param data_center_two_nodes Number of nodes for DC2
+     * @param data_center_nodes Vector of nodes for each data center
+     * @param separator Separator to use between cluster nodes
+     * @return String of nodes separated by separator
      */
-    std::string generate_cluster_nodes(unsigned short data_center_one_nodes, unsigned short data_center_two_nodes);
+    std::string generate_cluster_nodes(std::vector<unsigned short> data_center_nodes,
+      char separator = ':');
 
     /**
      * Generate the CCM update configuration command based on the Cassandra

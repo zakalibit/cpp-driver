@@ -44,6 +44,10 @@ CassStatement* cass_statement_new_n(const char* query,
   return CassStatement::to(query_request);
 }
 
+CassError cass_statement_reset_parameters(CassStatement* statement, size_t count) {
+  statement->reset(count);
+  return CASS_OK;
+}
 
 CassError cass_statement_add_key_index(CassStatement* statement, size_t index) {
   if (statement->kind() != CASS_BATCH_KIND_QUERY) return CASS_ERROR_LIB_BAD_PARAMS;
@@ -108,6 +112,13 @@ CassError cass_statement_set_retry_policy(CassStatement* statement,
 CassError cass_statement_set_timestamp(CassStatement* statement,
                                        cass_int64_t timestamp)  {
   statement->set_timestamp(timestamp);
+  return CASS_OK;
+}
+
+CassError
+cass_statement_set_request_timeout(CassStatement* statement,
+                                   cass_uint64_t timeout_ms) {
+  statement->set_request_timeout_ms(timeout_ms);
   return CASS_OK;
 }
 
@@ -180,6 +191,49 @@ CassError cass_statement_bind_string_by_name_n(CassStatement* statement,
                                                size_t value_length) {
   return statement->set(cass::StringRef(name, name_length),
                         cass::CassString(value, strlen(value)));
+}
+
+CassError cass_statement_bind_custom(CassStatement* statement,
+                                     size_t index,
+                                     const char* class_name,
+                                     const cass_byte_t* value,
+                                     size_t value_size) {
+  return statement->set(index,
+                        cass::CassCustom(cass::StringRef(class_name),
+                                         value, value_size));
+}
+
+CassError cass_statement_bind_custom_n(CassStatement* statement,
+                                       size_t index,
+                                       const char* class_name,
+                                       size_t class_name_length,
+                                       const cass_byte_t* value,
+                                       size_t value_size) {
+  return statement->set(index,
+                        cass::CassCustom(cass::StringRef(class_name, class_name_length),
+                                         value, value_size));
+}
+
+CassError cass_statement_bind_custom_by_name(CassStatement* statement,
+                                             const char* name,
+                                             const char* class_name,
+                                             const cass_byte_t* value,
+                                             size_t value_size) {
+  return statement->set(cass::StringRef(name),
+                        cass::CassCustom(cass::StringRef(class_name),
+                                         value, value_size));
+}
+
+CassError cass_statement_bind_custom_by_name_n(CassStatement* statement,
+                                               const char* name,
+                                               size_t name_length,
+                                               const char* class_name,
+                                               size_t class_name_length,
+                                               const cass_byte_t* value,
+                                               size_t value_size) {
+  return statement->set(cass::StringRef(name, name_length),
+                        cass::CassCustom(cass::StringRef(class_name, class_name_length),
+                                         value, value_size));
 }
 
 } // extern "C"

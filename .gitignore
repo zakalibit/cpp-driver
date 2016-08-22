@@ -14,6 +14,7 @@ libcassandra.so*
 *.a
 
 # cmake output
+src/third_party/sparsehash/src/sparsehash/internal/sparseconfig.h
 *.cmake
 !Find*.cmake
 *.build
@@ -49,6 +50,7 @@ Testing
 Debug
 demo/cassandra_demo
 test/unit_tests/cassandra_test
+src/cassconfig.hpp
 
 # API docs files
 Doxyfile

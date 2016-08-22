@@ -56,16 +56,10 @@ const CassResult* cass_future_get_result(CassFuture* future) {
   cass::ResponseFuture* response_future =
       static_cast<cass::ResponseFuture*>(future->from());
 
-  if (response_future->is_error()) return NULL;
-
   cass::SharedRefPtr<cass::ResultResponse> result(response_future->response());
-
-  if (result) {
-    result->decode_first_row();
-  }
+  if (!result) return NULL;
 
   result->inc_ref();
-
   return CassResult::to(result.get());
 }
 
@@ -76,16 +70,16 @@ const CassPrepared* cass_future_get_prepared(CassFuture* future) {
   cass::ResponseFuture* response_future =
       static_cast<cass::ResponseFuture*>(future->from());
 
-  if (response_future->is_error()) return NULL;
-
   cass::SharedRefPtr<cass::ResultResponse> result(response_future->response());
-  if (result && result->kind() == CASS_RESULT_KIND_PREPARED) {
-    cass::Prepared* prepared =
-        new cass::Prepared(result, response_future->statement, response_future->schema_metadata);
-    prepared->inc_ref();
-    return CassPrepared::to(prepared);
+  if (!result || result->kind() != CASS_RESULT_KIND_PREPARED) {
+    return NULL;
   }
-  return NULL;
+
+  cass::Prepared* prepared = new cass::Prepared(result,
+                                                response_future->statement,
+                                                response_future->schema_metadata);
+  if (prepared) prepared->inc_ref();
+  return CassPrepared::to(prepared);
 }
 
 const CassErrorResult* cass_future_get_error_result(CassFuture* future) {
@@ -95,11 +89,14 @@ const CassErrorResult* cass_future_get_error_result(CassFuture* future) {
   cass::ResponseFuture* response_future =
       static_cast<cass::ResponseFuture*>(future->from());
 
-  if (!response_future->is_error()) return NULL;
+  cass::SharedRefPtr<cass::Response> response(response_future->response());
+  if (!response || response->opcode() != CQL_OPCODE_ERROR) {
+    return NULL;
+  }
 
-  cass::SharedRefPtr<cass::ErrorResponse> error_result(response_future->response());
-  error_result->inc_ref();
-  return CassErrorResult::to(error_result.get());
+  response->inc_ref();
+  return CassErrorResult::to(
+        static_cast<cass::ErrorResponse*>(response.get()));
 }
 
 CassError cass_future_error_code(CassFuture* future) {
@@ -131,6 +128,7 @@ size_t cass_future_custom_payload_item_count(CassFuture* future) {
   }
   cass::SharedRefPtr<cass::Response> response(
         static_cast<cass::ResponseFuture*>(future->from())->response());
+  if (!response) return 0;
   return response->custom_payload().size();
 }
 
@@ -145,11 +143,14 @@ CassError cass_future_custom_payload_item(CassFuture* future,
   }
   cass::SharedRefPtr<cass::Response> response(
         static_cast<cass::ResponseFuture*>(future->from())->response());
-  const cass::Response::CustomPayloadVec& custom_payload
-      = response->custom_payload();
+  if (!response) return CASS_ERROR_LIB_NO_CUSTOM_PAYLOAD;
+
+  const cass::Response::CustomPayloadVec& custom_payload =
+      response->custom_payload();
   if (index >= custom_payload.size()) {
     return CASS_ERROR_LIB_INDEX_OUT_OF_BOUNDS;
   }
+
   const cass::Response::CustomPayloadItem& item = custom_payload[index];
   *name = item.name.data();
   *name_length = item.name.size();

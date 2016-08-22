@@ -51,7 +51,7 @@ namespace CCM {
     /**
      * Ordinal of constant
      *
-     * @return Ordianl of constant
+     * @return Ordinal of constant
      */
     short ordinal() const;
     /**
@@ -96,9 +96,15 @@ namespace CCM {
      */
     static std::set<AuthenticationType>::iterator end();
 
+    /**
+     * Default constructor to handle issues with static initialization of
+     * constant authentication types
+     */
+    AuthenticationType();
+
   private:
     /**
-     * Deployment type constants
+     * Authentication type constants
      */
     static std::set<AuthenticationType> constants_;
     /**

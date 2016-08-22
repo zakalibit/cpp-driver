@@ -31,6 +31,7 @@
 #include <math.h>
 #include <set>
 #include <sstream>
+#include <stdint.h>
 #include <vector>
 
 namespace cass {
@@ -39,7 +40,7 @@ struct TimestampedAverage {
   TimestampedAverage()
     : average(-1)
     , timestamp(0)
-    , num_measured(0) {}
+    , num_measured(0) { }
 
   int64_t average;
   uint64_t timestamp;
@@ -93,9 +94,12 @@ private:
 
 class Host : public RefCounted<Host> {
 public:
+  typedef SharedRefPtr<Host> Ptr;
+  typedef SharedRefPtr<const Host> ConstPtr;
+
   class StateListener {
   public:
-    virtual ~StateListener() {}
+    virtual ~StateListener() { }
     virtual void on_add(const SharedRefPtr<Host>& host) = 0;
     virtual void on_remove(const SharedRefPtr<Host>& host) = 0;
     virtual void on_up(const SharedRefPtr<Host>& host) = 0;
@@ -110,19 +114,40 @@ public:
 
   Host(const Address& address, bool mark)
       : address_(address)
+      , rack_id_(0)
+      , dc_id_(0)
       , mark_(mark)
-      , state_(ADDED) {}
+      , state_(ADDED)
+      , address_string_(address.to_string()) { }
 
   const Address& address() const { return address_; }
+  const std::string& address_string() const { return address_string_; }
 
   bool mark() const { return mark_; }
   void set_mark(bool mark) { mark_ = mark; }
+
+  const std::string hostname() const { return hostname_; }
+  void set_hostname(const std::string& hostname) {
+    if (!hostname.empty() && hostname[hostname.size() - 1] == '.') {
+      // Strip off trailing dot for hostcheck comparison
+      hostname_ = hostname.substr(0, hostname.size() - 1);
+    } else {
+      hostname_ = hostname;
+    }
+  }
 
   const std::string& rack() const { return rack_; }
   const std::string& dc() const { return dc_; }
   void set_rack_and_dc(const std::string& rack, const std::string& dc) {
     rack_ = rack;
     dc_ = dc;
+  }
+
+  uint32_t rack_id() const { return rack_id_; }
+  uint32_t dc_id() const { return dc_id_; }
+  void set_rack_and_dc_ids(uint32_t rack_id, uint32_t dc_id) {
+    rack_id_ = rack_id;
+    dc_id_ = dc_id;
   }
 
   const std::string& listen_address() const { return listen_address_; }
@@ -144,7 +169,7 @@ public:
 
   std::string to_string() const {
     std::ostringstream ss;
-    ss << address_.to_string();
+    ss << address_string_;
     if (!rack_.empty() || !dc_.empty()) {
       ss << " [" << rack_ << ':' << dc_ << "]";
     }
@@ -176,7 +201,7 @@ private:
   public:
     LatencyTracker(uint64_t scale_ns, uint64_t threshold_to_account)
       : scale_ns_(scale_ns)
-      , threshold_to_account_(threshold_to_account) {}
+      , threshold_to_account_(threshold_to_account) { }
 
     void update(uint64_t latency_ns);
 
@@ -204,10 +229,14 @@ private:
   }
 
   Address address_;
+  uint32_t rack_id_;
+  uint32_t dc_id_;
   bool mark_;
   Atomic<HostState> state_;
+  std::string address_string_;
   std::string listen_address_;
   VersionNumber cassandra_version_;
+  std::string hostname_;
   std::string rack_;
   std::string dc_;
 
@@ -218,11 +247,16 @@ private:
 };
 
 typedef std::map<Address, SharedRefPtr<Host> > HostMap;
+struct GetHost {
+  typedef std::pair<Address, Host::Ptr> Pair;
+  Host::Ptr operator()(const Pair& pair) const {
+    return pair.second;
+  }
+};
 typedef std::pair<Address, SharedRefPtr<Host> > HostPair;
 typedef std::vector<SharedRefPtr<Host> > HostVec;
 typedef CopyOnWritePtr<HostVec> CopyOnWriteHostVec;
 
-void copy_hosts(const HostMap& from_hosts, CopyOnWriteHostVec& to_hosts);
 void add_host(CopyOnWriteHostVec& hosts, const SharedRefPtr<Host>& host);
 void remove_host(CopyOnWriteHostVec& hosts, const SharedRefPtr<Host>& host);
 

@@ -19,17 +19,13 @@
 
 #include "cassandra.h"
 #include "connection.hpp"
+#include "host.hpp"
 #include "metrics.hpp"
 #include "ref_counted.hpp"
 #include "request.hpp"
 #include "request_handler.hpp"
 #include "scoped_ptr.hpp"
 #include "timer.hpp"
-
-#include <algorithm>
-#include <functional>
-#include <set>
-#include <string>
 
 namespace cass {
 
@@ -50,7 +46,7 @@ public:
   };
 
   Pool(IOWorker* io_worker,
-       const Address& address,
+       const Host::ConstPtr& host,
        bool is_initial_connection);
   virtual ~Pool();
 
@@ -64,20 +60,20 @@ public:
   void wait_for_connection(RequestHandler* request_handler);
   Connection* borrow_connection();
 
-  const Address& address() const { return address_; }
-
-  Connection::ConnectionError connection_error() const { return connection_error_; }
+  const Host::ConstPtr& host() const { return host_; }
 
   bool is_initial_connection() const { return is_initial_connection_; }
   bool is_ready() const { return state_ == POOL_STATE_READY; }
   bool is_keyspace_error() const {
-    return connection_error_ == Connection::CONNECTION_ERROR_KEYSPACE;
+    return error_code_ == Connection::CONNECTION_ERROR_KEYSPACE;
   }
+
   bool is_critical_failure() const {
-    return connection_error_ == Connection::CONNECTION_ERROR_INVALID_PROTOCOL ||
-        connection_error_ == Connection::CONNECTION_ERROR_AUTH ||
-        connection_error_ == Connection::CONNECTION_ERROR_SSL;
+    return error_code_ == Connection::CONNECTION_ERROR_INVALID_PROTOCOL ||
+        error_code_ == Connection::CONNECTION_ERROR_AUTH ||
+        error_code_ == Connection::CONNECTION_ERROR_SSL;
   }
+
   bool cancel_reconnect() const { return cancel_reconnect_; }
 
   void return_connection(Connection* connection);
@@ -105,19 +101,18 @@ private:
   Connection* find_least_busy();
 
 private:
-  typedef std::set<Connection*> ConnectionSet;
   typedef std::vector<Connection*> ConnectionVec;
 
   IOWorker* io_worker_;
-  Address address_;
+  Host::ConstPtr host_;
   uv_loop_t* loop_;
   const Config& config_;
   Metrics* metrics_;
 
   PoolState state_;
-  Connection::ConnectionError connection_error_;
+  Connection::ConnectionError error_code_;
   ConnectionVec connections_;
-  ConnectionSet connections_pending_;
+  ConnectionVec pending_connections_;
   List<Handler> pending_requests_;
   int available_connection_count_;
   bool is_available_;

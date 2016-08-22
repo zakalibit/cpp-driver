@@ -21,7 +21,6 @@
 #include "logger.hpp"
 #include "prepare_request.hpp"
 #include "request_handler.hpp"
-#include "resolver.hpp"
 #include "scoped_lock.hpp"
 #include "timer.hpp"
 #include "external_types.hpp"
@@ -93,7 +92,7 @@ CassFuture* cass_session_execute_batch(CassSession* session, const CassBatch* ba
 }
 
 const CassSchemaMeta* cass_session_get_schema_meta(const CassSession* session) {
-  return CassSchemaMeta::to(new cass::Metadata::SchemaSnapshot(session->metadata().schema_snapshot()));
+  return CassSchemaMeta::to(new cass::Metadata::SchemaSnapshot(session->metadata().schema_snapshot(session->protocol_version(), session->cassandra_version())));
 }
 
 void  cass_session_get_metrics(const CassSession* session,
@@ -138,7 +137,6 @@ Session::Session()
     : state_(SESSION_STATE_CLOSED)
     , connect_error_code_(CASS_OK)
     , current_host_mark_(true)
-    , pending_resolve_count_(0)
     , pending_pool_count_(0)
     , pending_workers_count_(0)
     , current_io_worker_(0)
@@ -155,6 +153,7 @@ Session::~Session() {
 
 void Session::clear(const Config& config) {
   config_ = config;
+  random_.reset();
   metrics_.reset(new Metrics(config_.thread_count_io() + 1));
   load_balancing_policy_.reset(config.load_balancing_policy());
   connect_future_.reset();
@@ -168,7 +167,6 @@ void Session::clear(const Config& config) {
   metadata_.clear();
   control_connection_.clear();
   current_host_mark_ = true;
-  pending_resolve_count_ = 0;
   pending_pool_count_ = 0;
   pending_workers_count_ = 0;
   current_io_worker_ = 0;
@@ -400,8 +398,8 @@ void Session::close_handles() {
 }
 
 void Session::on_run() {
-  LOG_INFO("Creating %u IO worker threads",
-           static_cast<unsigned int>(io_workers_.size()));
+  LOG_DEBUG("Creating %u IO worker threads",
+            static_cast<unsigned int>(io_workers_.size()));
 
   for (IOWorkerVec::iterator it = io_workers_.begin(), end = io_workers_.end();
        it != end; ++it) {
@@ -422,6 +420,19 @@ void Session::on_event(const SessionEvent& event) {
     case SessionEvent::CONNECT: {
       int port = config_.port();
 
+      // This needs to be done on the session thread because it could pause
+      // generating a new random seed.
+      if (config_.use_randomized_contact_points()) {
+        random_.reset(new Random());
+      }
+
+      MultiResolver<Session*>::Ptr resolver(
+            new MultiResolver<Session*>(this, on_resolve,
+#if UV_VERSION_MAJOR >= 1
+                                        on_resolve_name,
+#endif
+                                        on_resolve_done));
+
       const ContactPointList& contact_points = config_.contact_points();
       for (ContactPointList::const_iterator it = contact_points.begin(),
                                                     end = contact_points.end();
@@ -429,15 +440,18 @@ void Session::on_event(const SessionEvent& event) {
         const std::string& seed = *it;
         Address address;
         if (Address::from_string(seed, port, &address)) {
-          add_host(address);
+#if UV_VERSION_MAJOR >= 1
+          if (config_.use_hostname_resolution()) {
+            resolver->resolve_name(loop(), address, config_.resolve_timeout_ms());
+          } else {
+#endif
+            add_host(address);
+#if UV_VERSION_MAJOR >= 1
+          }
+#endif
         } else {
-          pending_resolve_count_++;
-          Resolver::resolve(loop(), seed, port, this, on_resolve);
+          resolver->resolve(loop(), seed, port, config_.resolve_timeout_ms());
         }
-      }
-
-      if (pending_resolve_count_ == 0) {
-        internal_connect();
       }
 
       break;
@@ -484,17 +498,25 @@ void Session::on_event(const SessionEvent& event) {
   }
 }
 
-void Session::on_resolve(Resolver* resolver) {
-  Session* session = static_cast<Session*>(resolver->data());
+void Session::on_resolve(MultiResolver<Session*>::Resolver* resolver) {
+  Session* session = resolver->data()->data();
   if (resolver->is_success()) {
-    session->add_host(resolver->address());
+    AddressVec addresses = resolver->addresses();
+    for (AddressVec::iterator it = addresses.begin(); it != addresses.end(); ++it) {
+      SharedRefPtr<Host> host = session->add_host(*it);
+      host->set_hostname(resolver->hostname());
+    }
+  } else if (resolver->is_timed_out()) {
+    LOG_ERROR("Timed out attempting to resolve address for %s:%d\n",
+              resolver->hostname().c_str(), resolver->port());
   } else {
-    LOG_ERROR("Unable to resolve host %s:%d\n",
-              resolver->host().c_str(), resolver->port());
+    LOG_ERROR("Unable to resolve address for %s:%d\n",
+              resolver->hostname().c_str(), resolver->port());
   }
-  if (--session->pending_resolve_count_ == 0) {
-    session->internal_connect();
-  }
+}
+
+void Session::on_resolve_done(MultiResolver<Session*>* resolver) {
+  resolver->data()->internal_connect();
 }
 
 void Session::execute(RequestHandler* request_handler) {
@@ -507,9 +529,33 @@ void Session::execute(RequestHandler* request_handler) {
   }
 }
 
+#if UV_VERSION_MAJOR >= 1
+void Session::on_resolve_name(MultiResolver<Session*>::NameResolver* resolver) {
+  Session* session = resolver->data()->data();
+  if (resolver->is_success()) {
+    SharedRefPtr<Host> host = session->add_host(resolver->address());
+    host->set_hostname(resolver->hostname());
+  } else if (resolver->is_timed_out()) {
+    LOG_ERROR("Timed out attempting to resolve hostname for host %s\n",
+              resolver->address().to_string().c_str());
+  } else {
+    LOG_ERROR("Unable to resolve hostname for host %s\n",
+              resolver->address().to_string().c_str());
+  }
+}
+
+void Session::on_add_resolve_name(NameResolver* resolver) {
+  ResolveNameData& data = resolver->data();
+  if (resolver->is_success() && !resolver->hostname().empty()) {
+    data.host->set_hostname(resolver->hostname());
+  }
+  data.session->internal_on_add(data.host, data.is_initial_connection);
+}
+#endif
+
 void Session::on_control_connection_ready() {
   // No hosts lock necessary (only called on session thread and read-only)
-  load_balancing_policy_->init(control_connection_.connected_host(), hosts_);
+  load_balancing_policy_->init(control_connection_.connected_host(), hosts_, random_.get());
   load_balancing_policy_->register_handles(loop());
   for (IOWorkerVec::iterator it = io_workers_.begin(),
        end = io_workers_.end(); it != end; ++it) {
@@ -533,7 +579,7 @@ Future* Session::prepare(const char* statement, size_t length) {
   PrepareRequest* prepare = new PrepareRequest();
   prepare->set_query(statement, length);
 
-  ResponseFuture* future = new ResponseFuture(metadata_);
+  ResponseFuture* future = new ResponseFuture(protocol_version(), cassandra_version(), metadata_);
   future->inc_ref(); // External reference
   future->statement.assign(statement, length);
 
@@ -546,6 +592,21 @@ Future* Session::prepare(const char* statement, size_t length) {
 }
 
 void Session::on_add(SharedRefPtr<Host> host, bool is_initial_connection) {
+#if UV_VERSION_MAJOR >= 1
+  if (config_.use_hostname_resolution() && host->hostname().empty()) {
+    NameResolver::resolve(loop(),
+                          host->address(),
+                          ResolveNameData(this, host, is_initial_connection),
+                          on_add_resolve_name, config_.resolve_timeout_ms());
+  } else {
+#endif
+    internal_on_add(host, is_initial_connection);
+#if UV_VERSION_MAJOR >= 1
+  }
+#endif
+}
+
+void Session::internal_on_add(SharedRefPtr<Host> host, bool is_initial_connection) {
   host->set_up();
 
   if (load_balancing_policy_->distance(host) == CASS_HOST_DISTANCE_IGNORE) {
@@ -560,7 +621,7 @@ void Session::on_add(SharedRefPtr<Host> host, bool is_initial_connection) {
 
   for (IOWorkerVec::iterator it = io_workers_.begin(),
        end = io_workers_.end(); it != end; ++it) {
-    (*it)->add_pool_async(host->address(), is_initial_connection);
+    (*it)->add_pool_async(host, is_initial_connection);
   }
 }
 
@@ -572,7 +633,7 @@ void Session::on_remove(SharedRefPtr<Host> host) {
   }
   for (IOWorkerVec::iterator it = io_workers_.begin(),
        end = io_workers_.end(); it != end; ++it) {
-    (*it)->remove_pool_async(host->address(), true);
+    (*it)->remove_pool_async(host, true);
   }
 }
 
@@ -587,7 +648,7 @@ void Session::on_up(SharedRefPtr<Host> host) {
 
   for (IOWorkerVec::iterator it = io_workers_.begin(),
        end = io_workers_.end(); it != end; ++it) {
-    (*it)->add_pool_async(host->address(), false);
+    (*it)->add_pool_async(host, false);
   }
 }
 
@@ -603,12 +664,12 @@ void Session::on_down(SharedRefPtr<Host> host) {
   }
   for (IOWorkerVec::iterator it = io_workers_.begin(),
        end = io_workers_.end(); it != end; ++it) {
-    (*it)->remove_pool_async(host->address(), cancel_reconnect);
+    (*it)->remove_pool_async(host, cancel_reconnect);
   }
 }
 
 Future* Session::execute(const RoutableRequest* request) {
-  ResponseFuture* future = new ResponseFuture(metadata_);
+  ResponseFuture* future = new ResponseFuture(protocol_version(), cassandra_version(), metadata_);
   future->inc_ref(); // External reference
 
   RetryPolicy* retry_policy
@@ -684,8 +745,7 @@ void Session::on_execute(uv_async_t* data) {
 
 QueryPlan* Session::new_query_plan(const Request* request, Request::EncodingCache* cache) {
   const CopyOnWritePtr<std::string> keyspace(keyspace_);
-  return load_balancing_policy_->new_query_plan(*keyspace, request,
-                                                metadata_.token_map(), cache);
+  return load_balancing_policy_->new_query_plan(*keyspace, request, token_map_.get(), cache);
 }
 
 } // namespace cass

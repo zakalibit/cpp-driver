@@ -66,14 +66,17 @@ struct TestSchemaMetadata : public test_utils::SingleSessionTest {
   const CassSchemaMeta* schema_meta_;
 
   TestSchemaMetadata()
-    : SingleSessionTest(1, 0)
-    , schema_meta_(NULL) {}
+    : SingleSessionTest(1, 0, false)
+    , schema_meta_(NULL) {
+    cass_cluster_set_token_aware_routing(cluster, cass_false);
+    create_session();
+  }
 
-	~TestSchemaMetadata() {
+  ~TestSchemaMetadata() {
     if (schema_meta_) {
       cass_schema_meta_free(schema_meta_);
-		}
-	}
+    }
+  }
 
   void verify_keyspace_created(const std::string& ks) {
     test_utils::CassResultPtr result;
@@ -110,23 +113,23 @@ struct TestSchemaMetadata : public test_utils::SingleSessionTest {
     } else {
       schema_meta_ = cass_session_get_schema_meta(session);
     }
-	}
+  }
 
   void create_simple_strategy_keyspace(unsigned int replication_factor = 1, bool durable_writes = true) {
-		test_utils::execute_query_with_error(session, str(boost::format(test_utils::DROP_KEYSPACE_FORMAT) % SIMPLE_STRATEGY_KEYSPACE_NAME));
+    test_utils::execute_query_with_error(session, str(boost::format(test_utils::DROP_KEYSPACE_FORMAT) % SIMPLE_STRATEGY_KEYSPACE_NAME));
     test_utils::execute_query(session, str(boost::format("CREATE KEYSPACE %s WITH replication = { 'class' : 'SimpleStrategy', 'replication_factor' : %s } AND durable_writes = %s")
                                            % SIMPLE_STRATEGY_KEYSPACE_NAME % replication_factor % (durable_writes ? "true" : "false")));
     refresh_schema_meta();
-	}
+  }
 
   void create_network_topology_strategy_keyspace(unsigned int replicationFactorDataCenterOne = 3, unsigned int replicationFactorDataCenterTwo = 2, bool isDurableWrites = true) {
-		test_utils::execute_query_with_error(session, str(boost::format(test_utils::DROP_KEYSPACE_FORMAT) % NETWORK_TOPOLOGY_KEYSPACE_NAME));
+    test_utils::execute_query_with_error(session, str(boost::format(test_utils::DROP_KEYSPACE_FORMAT) % NETWORK_TOPOLOGY_KEYSPACE_NAME));
     test_utils::execute_query(session, str(boost::format("CREATE KEYSPACE %s WITH replication = { 'class' : 'NetworkTopologyStrategy',  'dc1' : %d, 'dc2' : %d } AND durable_writes = %s")
                                            % NETWORK_TOPOLOGY_KEYSPACE_NAME % replicationFactorDataCenterOne % replicationFactorDataCenterTwo
                                            % (isDurableWrites ? "true" : "false")));
 
     refresh_schema_meta();
-	}
+  }
 
   const CassKeyspaceMeta* schema_get_keyspace(const std::string& ks_name) {
     const CassKeyspaceMeta* ks_meta = cass_schema_meta_keyspace_by_name(schema_meta_, ks_name.c_str());
@@ -675,6 +678,7 @@ struct TestSchemaMetadata : public test_utils::SingleSessionTest {
 
     test_utils::execute_query(session, "USE " SIMPLE_STRATEGY_KEYSPACE_NAME);
     test_utils::execute_query(session, str(boost::format(test_utils::CREATE_TABLE_ALL_TYPES) % ALL_DATA_TYPES_TABLE_NAME));
+    refresh_schema_meta();
     test_utils::execute_query(session, "ALTER TABLE " ALL_DATA_TYPES_TABLE_NAME " WITH comment='" COMMENT "'");
     refresh_schema_meta();
 
@@ -1413,6 +1417,94 @@ BOOST_AUTO_TEST_CASE(frozen_types) {
 }
 
 /**
+ * Ensure UDA/UDF lookups are possible against C* 2.2+
+ *
+ * This test will ensure that UDA and UDF metadata can be accessed through the
+ * by_name lookup methods. C* 2.2.x does not augment the arguments or return
+ * types of collections with the frozen<> where C* 3.x does. This tests ensures
+ * that regardless of the version of C*, lookup is still possible given the
+ * correct arguments (frozen<> or not) for aggregates and functions.
+ *
+ * @test_category functions
+ * @since 2.4.0
+ * @expected_result UDA and UDF can be looked up correctly
+ */
+BOOST_AUTO_TEST_CASE(lookup) {
+  if (version < "2.2.0") return;
+
+  test_utils::execute_query(session, "CREATE KEYSPACE lookup WITH replication = "
+    "{ 'class' : 'SimpleStrategy', 'replication_factor' : 3 }");
+  refresh_schema_meta();
+
+  // See https://docs.datastax.com/en/cql/3.3/cql/cql_using/useCreateUDF.html
+  // and https://docs.datastax.com/en/cql/3.3/cql/cql_using/useCreateUDA.html
+  {
+    // Frozen added to arguments and return types in C* 3.0.0 by default for collections
+    test_utils::execute_query(session, "CREATE OR REPLACE FUNCTION lookup.avg_state(state tuple<int, bigint>, val int) "
+      "CALLED ON NULL INPUT RETURNS tuple<int, bigint> "
+      "LANGUAGE java AS 'if (val !=null) { state.setInt(0, state.getInt(0) + 1); state.setLong(1, state.getLong(1) + val.intValue()); } return state;'");
+    refresh_schema_meta();
+
+    // Create the function arguments for the avg_state function
+    std::string func_args = "tuple<int, bigint>";
+    if (version >= "3.0.0") {
+      // Argument data stored in C* 3.0.0 is frozen<tuple<int, bigint>>, int
+      func_args = "frozen<" + func_args + ">";
+    }
+    func_args += ", int";
+
+    // Ensure the function can be looked up and validate arguments and return
+    const CassFunctionMeta* func_meta = cass_keyspace_meta_function_by_name(
+      schema_get_keyspace("lookup"),
+      "avg_state",
+      func_args.c_str());
+    BOOST_REQUIRE(func_meta);
+    const CassDataType* datatype = cass_function_meta_argument_type_by_name(func_meta, "state");
+    BOOST_CHECK_EQUAL(CASS_VALUE_TYPE_TUPLE, cass_data_type_type(datatype));
+    BOOST_CHECK(cass_data_type_is_frozen(datatype));
+    BOOST_CHECK_EQUAL(CASS_VALUE_TYPE_INT, cass_data_type_type(cass_data_type_sub_data_type(datatype, 0)));
+    BOOST_CHECK_EQUAL(CASS_VALUE_TYPE_BIGINT, cass_data_type_type(cass_data_type_sub_data_type(datatype, 1)));
+    datatype = cass_function_meta_argument_type_by_name(func_meta, "val");
+    BOOST_CHECK_EQUAL(CASS_VALUE_TYPE_INT, cass_data_type_type(datatype));
+    datatype = cass_function_meta_return_type(func_meta);
+    BOOST_CHECK_EQUAL(CASS_VALUE_TYPE_TUPLE, cass_data_type_type(datatype));
+    BOOST_CHECK_EQUAL(CASS_VALUE_TYPE_INT, cass_data_type_type(cass_data_type_sub_data_type(datatype, 0)));
+    BOOST_CHECK_EQUAL(CASS_VALUE_TYPE_BIGINT, cass_data_type_type(cass_data_type_sub_data_type(datatype, 1)));
+
+    test_utils::execute_query(session, "CREATE OR REPLACE FUNCTION lookup.avg_final(state tuple<int, bigint>) "
+      "CALLED ON NULL INPUT RETURNS double "
+      "LANGUAGE java AS 'double r = 0; if (state.getInt(0) == 0) return null; r = state.getLong(1); r /= state.getInt(0); return Double.valueOf(r);'");
+    test_utils::execute_query(session, "CREATE AGGREGATE IF NOT EXISTS lookup.average (int) "
+      "SFUNC avg_state STYPE tuple<int, bigint> "
+      "FINALFUNC avg_final INITCOND (0, 0);");
+    refresh_schema_meta();
+
+    // Ensure the aggregate can be looked up and validated
+    const CassAggregateMeta* agg_meta = cass_keyspace_meta_aggregate_by_name(
+      schema_get_keyspace("lookup"),
+      "average",
+      "int");
+    BOOST_REQUIRE(agg_meta);
+    datatype = cass_aggregate_meta_argument_type(agg_meta, 0);
+    BOOST_CHECK_EQUAL(CASS_VALUE_TYPE_INT, cass_data_type_type(datatype));
+    datatype = cass_aggregate_meta_state_type(agg_meta);
+    BOOST_CHECK_EQUAL(CASS_VALUE_TYPE_TUPLE, cass_data_type_type(datatype));
+    BOOST_CHECK(cass_data_type_is_frozen(datatype));
+    BOOST_CHECK_EQUAL(CASS_VALUE_TYPE_INT, cass_data_type_type(cass_data_type_sub_data_type(datatype, 0)));
+    BOOST_CHECK_EQUAL(CASS_VALUE_TYPE_BIGINT, cass_data_type_type(cass_data_type_sub_data_type(datatype, 1)));
+    datatype = cass_aggregate_meta_return_type(agg_meta);
+    BOOST_CHECK_EQUAL(CASS_VALUE_TYPE_DOUBLE, cass_data_type_type(datatype));
+    func_meta = cass_aggregate_meta_final_func(agg_meta);
+    BOOST_CHECK_EQUAL(1, cass_function_meta_argument_count(func_meta));
+    datatype = cass_function_meta_argument_type_by_name(func_meta, "state");
+    BOOST_CHECK_EQUAL(CASS_VALUE_TYPE_TUPLE, cass_data_type_type(datatype));
+    BOOST_CHECK(cass_data_type_is_frozen(datatype));
+    BOOST_CHECK_EQUAL(CASS_VALUE_TYPE_INT, cass_data_type_type(cass_data_type_sub_data_type(datatype, 0)));
+    BOOST_CHECK_EQUAL(CASS_VALUE_TYPE_BIGINT, cass_data_type_type(cass_data_type_sub_data_type(datatype, 1)));
+  }
+}
+
+/**
  * Test secondary indexes
  *
  * Verifies that index metadata is correctly updated and returned.
@@ -1455,25 +1547,27 @@ BOOST_AUTO_TEST_CASE(indexes) {
                  "index1", CASS_INDEX_TYPE_COMPOSITES, "value1", index_options);
   }
 
-  // Index on map keys
+  // Index on map keys (C* >= 2.1)
   {
-    test_utils::execute_query(session, "CREATE INDEX index2 ON indexes.table1 (KEYS(value2))");
+    if (version >= "2.1.0") {
+      test_utils::execute_query(session, "CREATE INDEX index2 ON indexes.table1 (KEYS(value2))");
 
-    refresh_schema_meta();
-    const CassTableMeta* table_meta = schema_get_table("indexes", "table1");
+      refresh_schema_meta();
+      const CassTableMeta* table_meta = schema_get_table("indexes", "table1");
 
-    BOOST_REQUIRE(cass_table_meta_index_count(table_meta) == 2);
+      BOOST_REQUIRE(cass_table_meta_index_count(table_meta) == 2);
 
-    std::map<std::string, std::string> index_options;
-    if (version >= "3.0.0") {
-      index_options["target"] = "keys(value2)";
-    } else {
-      index_options["index_keys"] = "";
+      std::map<std::string, std::string> index_options;
+      if (version >= "3.0.0") {
+        index_options["target"] = "keys(value2)";
+      } else {
+        index_options["index_keys"] = "";
+      }
+      verify_index(cass_table_meta_index_by_name(table_meta, "index2"),
+        "index2", CASS_INDEX_TYPE_COMPOSITES, "keys(value2)", index_options);
+      verify_index(cass_table_meta_index(table_meta, 1),
+        "index2", CASS_INDEX_TYPE_COMPOSITES, "keys(value2)", index_options);
     }
-    verify_index(cass_table_meta_index_by_name(table_meta, "index2"),
-                 "index2", CASS_INDEX_TYPE_COMPOSITES, "keys(value2)", index_options);
-    verify_index(cass_table_meta_index(table_meta, 1),
-                 "index2", CASS_INDEX_TYPE_COMPOSITES, "keys(value2)", index_options);
   }
 
   // Iterator
@@ -1717,6 +1811,51 @@ BOOST_AUTO_TEST_CASE(materialized_view_clustering_order) {
     BOOST_REQUIRE_EQUAL(cass_materialized_view_meta_clustering_key_count(view_meta), 2);
     BOOST_CHECK_EQUAL(cass_materialized_view_meta_clustering_key_order(view_meta, 0), CASS_CLUSTERING_ORDER_DESC);
     BOOST_CHECK_EQUAL(cass_materialized_view_meta_clustering_key_order(view_meta, 1), CASS_CLUSTERING_ORDER_ASC);
+  }
+}
+
+/**
+ * Test duplicate table name in mulitple keyspaces.
+ *
+ * Verifies the case where two tables have the same name and their keyspaces
+ * are adjacent. There was an issue where columns and indexes from the second
+ * table would be added to previous keyspace's table.
+ *
+ * @since 2.3.0
+ * @jira_ticket CPP-348
+ * @test_category schema
+ * @cassandra_version 1.2.x
+ */
+BOOST_AUTO_TEST_CASE(duplicate_table_name) {
+  test_utils::execute_query(session, "CREATE KEYSPACE test14 WITH replication = "
+                                     "{ 'class' : 'SimpleStrategy', 'replication_factor' : 3 }");
+
+  test_utils::execute_query(session, "CREATE TABLE test14.table1 (key1 TEXT PRIMARY KEY, value1 INT)" );
+
+  test_utils::execute_query(session, "CREATE INDEX index1 ON test14.table1 (value1)");
+
+  test_utils::execute_query(session, "CREATE KEYSPACE test15 WITH replication = "
+                                     "{ 'class' : 'SimpleStrategy', 'replication_factor' : 3 }");
+
+  test_utils::execute_query(session, "CREATE TABLE test15.table1 (key1 TEXT PRIMARY KEY, value1 INT)" );
+
+  test_utils::execute_query(session, "CREATE INDEX index1 ON test15.table1 (value1)");
+
+  close_session();
+  create_session();
+
+  refresh_schema_meta();
+
+  {
+    const CassTableMeta* table_meta = schema_get_table("test14", "table1");
+    BOOST_CHECK(cass_table_meta_column_by_name(table_meta, "key1") != NULL);
+    BOOST_CHECK(cass_table_meta_index_by_name(table_meta, "index1") != NULL);
+  }
+
+  {
+    const CassTableMeta* table_meta = schema_get_table("test15", "table1");
+    BOOST_CHECK(cass_table_meta_column_by_name(table_meta, "key1") != NULL);
+    BOOST_CHECK(cass_table_meta_index_by_name(table_meta, "index1") != NULL);
   }
 }
 

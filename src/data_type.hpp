@@ -148,6 +148,8 @@ private:
 
 class CustomType : public DataType {
 public:
+  typedef SharedRefPtr<const CustomType> ConstPtr;
+
   CustomType()
     : DataType(CASS_VALUE_TYPE_CUSTOM) { }
 
@@ -195,16 +197,21 @@ public:
   const DataType::Vec& types() const { return types_; }
 
   virtual std::string to_string() const {
-    std::string str(DataType::to_string());
+    std::string str;
+    if (is_frozen()) str.append("frozen<");
+    str.append(DataType::to_string());
     str.push_back('<');
-    bool first = true;
     for (DataType::Vec::const_iterator i = types_.begin(),
          end = types_.end();
          i != end; ++i) {
-      if (!first) str.append(", ");
+      if (i != types_.begin()) str.append(", ");
       str.append((*i)->to_string());
     }
-    str.push_back('>');
+    if (is_frozen()) {
+      str.append(">>");
+    } else {
+      str.push_back('>');
+    }
     return str;
   }
 
@@ -429,7 +436,11 @@ public:
   }
 
   virtual std::string to_string() const {
-    return type_name_;
+    std::string str;
+    if (is_frozen()) str.append("frozen<");
+    str.append(type_name_);
+    if (is_frozen()) str.push_back('>');
+    return str;
   }
 
 private:
@@ -530,6 +541,15 @@ template<>
 struct IsValidDataType<CassBytes> {
   bool operator()(CassBytes, const DataType::ConstPtr& data_type) const {
     return is_bytes_type(data_type->value_type());
+  }
+};
+
+template<>
+struct IsValidDataType<CassCustom> {
+  bool operator()(const CassCustom& custom, const DataType::ConstPtr& data_type) const {
+    if (!data_type->is_custom()) return false;
+    CustomType::ConstPtr custom_type(data_type);
+    return custom.class_name == custom_type->class_name();
   }
 };
 

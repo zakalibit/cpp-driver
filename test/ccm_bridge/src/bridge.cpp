@@ -111,8 +111,14 @@ typedef SSIZE_T ssize_t;
 
 // Configuration file setting keys
 #define CCM_CONFIGURATION_KEY_CASSANDRA_VERSION "cassandra_version"
-#define CCM_CONFIGURATION_KEY_USE_ASFGIT "use_asfgit"
+#define CCM_CONFIGURATION_KEY_USE_GIT "use_git"
+#define CCM_CONFIGURATION_KEY_BRANCH_TAG "branch_tag"
 #define CCM_CONFIGURATION_KEY_DEPLOYMENT_TYPE "deployment_type"
+#define CCM_CONFIGURATION_KEY_USE_DSE "use_dse"
+#define CCM_CONFIGURATION_KEY_DSE_VERSION "dse_version"
+#define CCM_CONFIGURATION_KEY_DSE_CREDENTIALS_TYPE "dse_credentials_type"
+#define CCM_CONFIGURATION_KEY_DSE_USERNAME "dse_username"
+#define CCM_CONFIGURATION_KEY_DSE_PASSWORD "dse_password"
 #define CCM_CONFIGURATION_KEY_AUTHENTICATION_TYPE "authentication_type"
 #define CCM_CONFIGURATION_KEY_HOST "host"
 #define CCM_CONFIGURATION_KEY_SSH_PORT "ssh_port"
@@ -121,11 +127,30 @@ typedef SSIZE_T ssize_t;
 #define CCM_CONFIGURATION_KEY_SSH_PUBLIC_KEY "ssh_public_key"
 #define CCM_CONFIGURATION_KEY_SSH_PRIVATE_KEY "ssh_private_key"
 
+// Workload value initialization
+const std::string DSE_WORKLOADS[] = {
+  "cassandra",
+  "cfs",
+  "dsefs",
+  "graph",
+  "hadoop",
+  "solr",
+  "spark"
+};
+const std::vector<std::string> CCM::Bridge::dse_workloads_(DSE_WORKLOADS,
+  DSE_WORKLOADS + sizeof(DSE_WORKLOADS) / sizeof(DSE_WORKLOADS[0]));
+
 using namespace CCM;
 
-CCM::Bridge::Bridge(CassVersion cassandra_version /*= DEFAULT_CASSANDRA_VERSION*/,
-  bool use_asfgit /*= DEFAULT_USE_ASFGIT*/,
+CCM::Bridge::Bridge(CassVersion server_version /*= DEFAULT_CASSANDRA_VERSION*/,
+  bool use_git /*= DEFAULT_USE_GIT*/,
+  const std::string& branch_tag /* ""*/,
+  bool use_dse /*= DEFAULT_USE_DSE*/,
+  DseWorkload dse_workload /*= DEFAULT_DSE_WORKLOAD*/,
   const std::string& cluster_prefix /*= DEFAULT_CLUSTER_PREFIX*/,
+  DseCredentialsType dse_credentials_type /*= DEFAULT_DSE_CREDENTIALS*/,
+  const std::string& dse_username /*= ""*/,
+  const std::string& dse_password /*= ""*/,
   DeploymentType deployment_type /*= DEFAULT_DEPLOYMENT*/,
   AuthenticationType authentication_type /*= DEFAULT_AUTHENTICATION*/,
   const std::string& host /*= DEFAULT_HOST*/,
@@ -134,16 +159,23 @@ CCM::Bridge::Bridge(CassVersion cassandra_version /*= DEFAULT_CASSANDRA_VERSION*
   const std::string& password /*= DEFAULT_PASSWORD*/,
   const std::string& public_key /*= ""*/,
   const std::string& private_key /*= ""*/)
-  : socket_(NULL)
-  , cassandra_version_(cassandra_version)
-  , use_asfgit_(use_asfgit)
+  : cassandra_version_(server_version)
+  , dse_version_(DEFAULT_DSE_VERSION)
+  , use_git_(use_git)
+  , branch_tag_(branch_tag)
+  , use_dse_(use_dse)
+  , dse_workload_(dse_workload)
   , cluster_prefix_(cluster_prefix)
   , authentication_type_(authentication_type)
+  , dse_credentials_type_(dse_credentials_type)
+  , dse_username_(dse_username)
+  , dse_password_(dse_password)
 #ifdef CASS_USE_LIBSSH2
+  , deployment_type_(deployment_type)
+  , host_(host)
   , session_(NULL)
   , channel_(NULL)
-  , deployment_type_(deployment_type)
-  , host_(host) {
+  , socket_(NULL) {
 #else
   // Force local deployment only
   , deployment_type_(DeploymentType::LOCAL)
@@ -155,6 +187,11 @@ CCM::Bridge::Bridge(CassVersion cassandra_version /*= DEFAULT_CASSANDRA_VERSION*
   _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 # endif
 #endif
+  // Determine if DSE is being used
+  if (use_dse_) {
+    dse_version_ = DseVersion(server_version.to_string());
+    cassandra_version_ = dse_version_.get_cass_version();
+  }
 #ifdef CASS_USE_LIBSSH2
   // Determine if libssh2 needs to be initialized
   if (deployment_type_ == DeploymentType::REMOTE) {
@@ -177,16 +214,20 @@ CCM::Bridge::Bridge(CassVersion cassandra_version /*= DEFAULT_CASSANDRA_VERSION*
 }
 
 CCM::Bridge::Bridge(const std::string& configuration_file)
-  : socket_(NULL)
-  , cassandra_version_(DEFAULT_CASSANDRA_VERSION)
-  , use_asfgit_(DEFAULT_USE_ASFGIT)
+  : cassandra_version_(DEFAULT_CASSANDRA_VERSION)
+  , dse_version_(DEFAULT_DSE_VERSION)
+  , use_git_(DEFAULT_USE_GIT)
+  , use_dse_(DEFAULT_USE_DSE)
+  , dse_workload_(DEFAULT_DSE_WORKLOAD)
   , cluster_prefix_(DEFAULT_CLUSTER_PREFIX)
   , authentication_type_(DEFAULT_AUTHENTICATION)
+  , dse_credentials_type_(DEFAULT_DSE_CREDENTIALS)
 #ifdef CASS_USE_LIBSSH2
+  , deployment_type_(DEFAULT_DEPLOYMENT)
+  , host_(DEFAULT_HOST)
   , session_(NULL)
   , channel_(NULL)
-  , deployment_type_(DEFAULT_DEPLOYMENT)
-  , host_(DEFAULT_HOST) {
+  , socket_(NULL) {
 #else
   // Force local
   , deployment_type_(DeploymentType::LOCAL)
@@ -217,15 +258,45 @@ CCM::Bridge::Bridge(const std::string& configuration_file)
           // Find and apply the configuration setting
           if (key.compare(CCM_CONFIGURATION_KEY_CASSANDRA_VERSION) == 0) {
             cassandra_version_ = CassVersion(value);
-          } else if (key.compare(CCM_CONFIGURATION_KEY_USE_ASFGIT) == 0) {
+          } else if (key.compare(CCM_CONFIGURATION_KEY_DSE_VERSION) == 0) {
+            dse_version_ = DseVersion(value);
+          } else if (key.compare(CCM_CONFIGURATION_KEY_USE_GIT) == 0) {
             //Convert the value
             std::stringstream valueStream(value);
-            if (!(valueStream >> std::boolalpha >> use_asfgit_).fail()) {
+            if (!(valueStream >> std::boolalpha >> use_git_).fail()) {
               continue;
             } else {
-              LOG_ERROR("Invalid Flag [" << value << "] for Use ASF git: Using default [" << DEFAULT_USE_ASFGIT << "]");
-              use_asfgit_ = DEFAULT_USE_ASFGIT;
+              LOG_ERROR("Invalid Flag [" << value << "] for Use git: Using default [" << DEFAULT_USE_GIT << "]");
+              use_git_ = DEFAULT_USE_GIT;
             }
+          } else if (key.compare(CCM_CONFIGURATION_KEY_BRANCH_TAG) == 0) {
+            branch_tag_ = value;
+          } else if (key.compare(CCM_CONFIGURATION_KEY_USE_DSE) == 0) {
+            //Convert the value
+            std::stringstream valueStream(value);
+            if (!(valueStream >> std::boolalpha >> use_dse_).fail()) {
+              continue;
+            } else {
+              LOG_ERROR("Invalid Flag [" << value << "] for Use DSE: Using default [" << DEFAULT_USE_DSE << "]");
+              use_dse_ = DEFAULT_USE_DSE;
+            }
+          } else if (key.compare(CCM_CONFIGURATION_KEY_DSE_CREDENTIALS_TYPE) == 0) {
+            // Determine the DSE credentials type
+            bool is_found = false;
+            for (DseCredentialsType::iterator iterator = DseCredentialsType::begin(); iterator != DseCredentialsType::end(); ++iterator) {
+              if (*iterator == value) {
+                dse_credentials_type_ = *iterator;
+                is_found = true;
+                break;
+              }
+            }
+            if (!is_found) {
+              LOG_ERROR("Invalid DSE Credentials Type [" << value << "]: Using default " << DEFAULT_DSE_CREDENTIALS.to_string());
+            }
+          } else if (key.compare(CCM_CONFIGURATION_KEY_DSE_USERNAME) == 0) {
+            dse_username_ = value;
+          } else if (key.compare(CCM_CONFIGURATION_KEY_DSE_PASSWORD) == 0) {
+            dse_password_ = value;
 #ifdef CASS_USE_LIBSSH2
           } else if (key.compare(CCM_CONFIGURATION_KEY_DEPLOYMENT_TYPE) == 0) {
             // Determine the deployment type
@@ -289,9 +360,21 @@ CCM::Bridge::Bridge(const std::string& configuration_file)
     LOG_WARN("Unable to Open Configuration File [" << configuration_file << "]: Defaults will be used");
   }
 
+  // Determine if DSE is being used
+  if (use_dse_) {
+    dse_version_ = DseVersion(dse_version_.to_string());
+    cassandra_version_ = dse_version_.get_cass_version();
+  }
+
   // Display the configuration settings being used
   LOG("Host: " << host_);
   LOG("Cassandra Version: " << cassandra_version_.to_string());
+  if (use_dse_) {
+    LOG("DSE Version: " << dse_version_.to_string());
+  }
+  if (use_git_ && !branch_tag_.empty()) {
+    LOG("  Branch/Tag: " << branch_tag_);
+  }
   LOG("Cluster Prefix: " << cluster_prefix_);
   LOG("Deployment Type: " << deployment_type_.to_string());
 #ifdef CASS_USE_LIBSSH2
@@ -434,12 +517,16 @@ ClusterStatus CCM::Bridge::cluster_status() {
   return status;
 }
 
-bool CCM::Bridge::create_cluster(unsigned short data_center_one_nodes /*= 1*/,
-  unsigned short data_center_two_node /*= 0*/,
-  bool is_ssl /* = false */, bool is_client_authentication /* = false */) {
+bool CCM::Bridge::create_cluster(std::vector<unsigned short> data_center_nodes,
+  bool with_vnodes /*= false*/, bool is_ssl /*= false*/,
+  bool is_client_authentication /*= false*/) {
   // Generate the cluster name and determine if it needs to be created
   std::string active_cluster_name = get_active_cluster();
-  std::string cluster_name = generate_cluster_name(cassandra_version_, data_center_one_nodes, data_center_two_node, is_ssl, is_client_authentication);
+  std::string cluster_name = generate_cluster_name(cassandra_version_, data_center_nodes,
+    with_vnodes, is_ssl, is_client_authentication);
+  if (use_dse_ && dse_workload_ != DSE_WORKLOAD_CASSANDRA) {
+    cluster_name.append("-").append(dse_workloads_[dse_workload_]);
+  }
   if (!switch_cluster(cluster_name)) {
     // Ensure any active cluster is stopped
     if (!get_active_cluster().empty()) {
@@ -450,10 +537,31 @@ bool CCM::Bridge::create_cluster(unsigned short data_center_one_nodes /*= 1*/,
     std::vector<std::string> create_command;
     create_command.push_back("create");
     create_command.push_back("-v");
-    if (use_asfgit_) {
-      create_command.push_back("git:cassandra-" + cassandra_version_.to_string());
+    if (use_dse_) {
+      if (use_git_) {
+        if (branch_tag_.empty()) {
+          create_command.push_back("git:" + dse_version_.to_string());
+        } else {
+          create_command.push_back("git:" + branch_tag_);
+        }
+      } else {
+        create_command.push_back(dse_version_.to_string());
+      }
+      create_command.push_back("--dse");
+      if (dse_credentials_type_ == DseCredentialsType::USERNAME_PASSWORD) {
+        create_command.push_back("--dse-username=" + dse_username_);
+        create_command.push_back("--dse-password=" + dse_password_);
+      }
     } else {
-      create_command.push_back(cassandra_version_.to_string());
+      if (use_git_) {
+        if (branch_tag_.empty()) {
+          create_command.push_back("git:cassandra-" + cassandra_version_.to_string());
+        } else {
+          create_command.push_back("git:" + branch_tag_);
+        }
+      } else {
+        create_command.push_back(cassandra_version_.to_string());
+      }
     }
     create_command.push_back("-b");
 
@@ -475,7 +583,7 @@ bool CCM::Bridge::create_cluster(unsigned short data_center_one_nodes /*= 1*/,
     execute_ccm_command(generate_create_updateconf_command(cassandra_version_));
 
     // Create the cluster populate command and execute
-    std::string cluster_nodes = generate_cluster_nodes(data_center_one_nodes, data_center_two_node);
+    std::string cluster_nodes = generate_cluster_nodes(data_center_nodes);
     std::string cluster_ip_prefix = get_ip_prefix();
     std::vector<std::string> populate_command;
     populate_command.push_back("populate");
@@ -483,11 +591,37 @@ bool CCM::Bridge::create_cluster(unsigned short data_center_one_nodes /*= 1*/,
     populate_command.push_back(cluster_nodes);
     populate_command.push_back("-i");
     populate_command.push_back(cluster_ip_prefix);
+    if (with_vnodes) {
+      populate_command.push_back("--vnodes");
+    }
     execute_ccm_command(populate_command);
+
+    // Update the cluster configuration (set num_tokens)
+    if (with_vnodes) {
+      // Maximum number of tokens is 1536
+      update_cluster_configuration("num_tokens", "1536");
+    }
+
+    // Set the DSE workload (if applicable)
+    if (use_dse_ && dse_workload_ != DSE_WORKLOAD_CASSANDRA) {
+      set_dse_workload(dse_workload_);
+    }
   }
 
   // Indicate if the cluster was created or switched
   return !(active_cluster_name.compare(cluster_name) == 0);
+}
+
+bool CCM::Bridge::create_cluster(unsigned short data_center_one_nodes /*= 1*/,
+  unsigned short data_center_two_nodes /*= 0*/, bool with_vnodes /*= false*/,
+  bool is_ssl /*= false*/, bool is_client_authentication /*= false*/) {
+  // Create the data center nodes from the two data centers
+  std::vector<unsigned short> data_center_nodes;
+  data_center_nodes.push_back(data_center_one_nodes);
+  data_center_nodes.push_back(data_center_two_nodes);
+
+  return create_cluster(data_center_nodes, with_vnodes, is_ssl,
+    is_client_authentication);
 }
 
 bool CCM::Bridge::is_cluster_down() {
@@ -621,13 +755,40 @@ bool CCM::Bridge::switch_cluster(const std::string& cluster_name) {
   return false;
 }
 
-void CCM::Bridge::update_cluster_configuration(const std::string& key, const std::string& value) {
+void CCM::Bridge::update_cluster_configuration(std::vector<std::string> key_value_pairs, bool is_dse /*= false*/) {
+  // Create the update configuration command
+  key_value_pairs.insert(key_value_pairs.begin(), (is_dse ? "updatedseconf" : "updateconf"));
+  execute_ccm_command(key_value_pairs);
+
+}
+
+void CCM::Bridge::update_cluster_configuration(const std::string& key, const std::string& value, bool is_dse /*= false*/) {
   // Create the configuration to be updated
   std::stringstream configuration;
   configuration << key << ":" << value;
 
   // Create the update configuration command
   std::vector<std::string> updateconf_command;
+  updateconf_command.push_back(is_dse ? "updatedseconf" : "updateconf");
+  updateconf_command.push_back(configuration.str());
+  execute_ccm_command(updateconf_command);
+}
+
+void CCM::Bridge::update_node_configuration(unsigned int node, std::vector<std::string> key_value_pairs) {
+  // Create the update configuration command
+  key_value_pairs.insert(key_value_pairs.begin(), generate_node_name(node));
+  key_value_pairs.insert(key_value_pairs.begin(), "updateconf");
+  execute_ccm_command(key_value_pairs);
+}
+
+void CCM::Bridge::update_node_configuration(unsigned int node, const std::string& key, const std::string& value) {
+  // Create the configuration to be updated
+  std::stringstream configuration;
+  configuration << key << ":" << value;
+
+  // Create the update configuration command
+  std::vector<std::string> updateconf_command;
+  updateconf_command.push_back(generate_node_name(node));
   updateconf_command.push_back("updateconf");
   updateconf_command.push_back(configuration.str());
   execute_ccm_command(updateconf_command);
@@ -656,6 +817,9 @@ unsigned int CCM::Bridge::add_node(const std::string& data_center /*= ""*/) {
   if (!data_center.empty()) {
     add_node_command.push_back("-d");
     add_node_command.push_back(data_center);
+  }
+  if (use_dse_) {
+    add_node_command.push_back("--dse");
   }
   add_node_command.push_back(generate_node_name(node));
   execute_ccm_command(add_node_command);
@@ -849,6 +1013,8 @@ CassVersion CCM::Bridge::get_cassandra_version() {
 CassVersion CCM::Bridge::get_cassandra_version(const std::string& configuration_file) {
   // Open the file and parse each configuration line looking for the version
   CassVersion cassandra_version(DEFAULT_CASSANDRA_VERSION);
+  DseVersion dse_version(DEFAULT_DSE_VERSION);
+  bool use_dse = false;
   std::ifstream file(configuration_file.c_str(), std::ifstream::in);
   if (file.is_open()) {
     std::string current_line;
@@ -864,6 +1030,14 @@ CassVersion CCM::Bridge::get_cassandra_version(const std::string& configuration_
           // Find and apply the configuration setting
           if (key.compare(CCM_CONFIGURATION_KEY_CASSANDRA_VERSION) == 0) {
             cassandra_version = CassVersion(value);
+          } else if (key.compare(CCM_CONFIGURATION_KEY_DSE_VERSION) == 0) {
+            dse_version = DseVersion(value);
+          } else if (key.compare(CCM_CONFIGURATION_KEY_USE_DSE) == 0) {
+            //Convert the value
+            std::stringstream valueStream(value);
+            if (!(valueStream >> std::boolalpha >> use_dse).fail()) {
+              continue;
+            }
           }
         }
       }
@@ -871,7 +1045,110 @@ CassVersion CCM::Bridge::get_cassandra_version(const std::string& configuration_
   }
 
   // Return the Cassandra version
+  if (use_dse) {
+    return dse_version.get_cass_version();
+  }
   return cassandra_version;
+}
+
+DseVersion CCM::Bridge::get_dse_version() {
+  // Get the version string from CCM
+  std::vector<std::string> active_cluster_version_command;
+  active_cluster_version_command.push_back(generate_node_name(1));
+  active_cluster_version_command.push_back("dse");
+  active_cluster_version_command.push_back("-v");
+  std::string ccm_output = execute_ccm_command(active_cluster_version_command);
+
+  // Ensure the version release information exists and return the version
+  ccm_output = trim(ccm_output);
+  if (!ccm_output.empty()) {
+    return DseVersion(ccm_output);
+  }
+
+  // Unable to determine version information from active cluster
+  throw BridgeException("Unable to Determine Version Information from Active Cluster: " + get_active_cluster());
+}
+
+DseVersion CCM::Bridge::get_dse_version(const std::string& configuration_file) {
+  // Open the file and parse each configuration line looking for the version
+  DseVersion dse_version(DEFAULT_DSE_VERSION);
+  std::ifstream file(configuration_file.c_str(), std::ifstream::in);
+  if (file.is_open()) {
+    std::string current_line;
+    while (std::getline(file, current_line)) {
+      // Ignore lines that start with '#'
+      if (!current_line.empty() && current_line.at(0) != '#') {
+        std::vector<std::string> tokens = explode(trim(current_line), '=');
+        // Ensure the configuration is a key/value pair
+        if (tokens.size() == 2) {
+          std::string key = to_lower(trim(tokens[0]));
+          std::string value = trim(tokens[1]);
+
+          // Find and apply the configuration setting
+          if (key.compare(CCM_CONFIGURATION_KEY_DSE_VERSION) == 0) {
+            dse_version = DseVersion(value);
+          }
+        }
+      }
+    }
+  }
+
+  // Return the DSE version
+  return dse_version;
+}
+
+bool CCM::Bridge::set_dse_workload(unsigned int node, DseWorkload workload, bool is_kill /*= false */) {
+  // Update the member variable
+  dse_workload_ = workload;
+
+  // Determine if the node is currently active/up
+  bool was_node_active = false;
+  if (!is_node_down(node)) {
+    LOG("Stopping Active Node to Set Workload: " << dse_workloads_[workload]
+      << " workload on node " << node);
+    stop_node(node, is_kill);
+    was_node_active = true;
+  }
+
+  // Create the node DSE workload command and execute
+  std::vector<std::string> dse_workload_command;
+  dse_workload_command.push_back(generate_node_name(node));
+  dse_workload_command.push_back("setworkload");
+  dse_workload_command.push_back(dse_workloads_[workload]);
+  execute_ccm_command(dse_workload_command);
+
+  // Determine if the node should be restarted
+  if (was_node_active) {
+    LOG("Restarting Node to Apply Workload: " << dse_workloads_[workload]
+      << " workload on node " << node);
+    start_node(node);
+  }
+
+  return was_node_active;
+}
+
+bool CCM::Bridge::set_dse_workload(DseWorkload workload, bool is_kill /*= false */) {
+  // Determine if the cluster is currently active/up
+  bool was_cluster_active = false;
+  if (!is_cluster_down()) {
+    LOG("Stopping Active Cluster to Set Workload: " << dse_workloads_[workload] << " workload");
+    stop_cluster(is_kill);
+    was_cluster_active = true;
+  }
+
+  // Iterate over each node and set the DSE workload
+  ClusterStatus status = cluster_status();
+  for (unsigned int i = 1; i <= status.node_count; ++i) {
+    set_dse_workload(i, workload);
+  }
+
+  // Determine if the cluster should be restarted
+  if (was_cluster_active) {
+    LOG("Restarting Cluster to Apply Workload: " << dse_workloads_[workload] << " workload");
+    start_cluster();
+  }
+
+  return was_cluster_active;
 }
 
 bool CCM::Bridge::is_node_decommissioned(unsigned int node) {
@@ -1056,7 +1333,7 @@ void CCM::Bridge::establish_libssh2_connection(AuthenticationType authentication
 
 void CCM::Bridge::open_libssh2_terminal() {
   // Open a channel; request a shell
-  while ((channel_ = libssh2_channel_open_session(session_)) == NULL
+  while (session_ != NULL && (channel_ = libssh2_channel_open_session(session_)) == NULL
     && libssh2_session_last_error(session_, NULL, NULL, FALSE) == LIBSSH2_ERROR_EAGAIN) {
     synchronize_socket();
   }
@@ -1088,7 +1365,7 @@ void CCM::Bridge::close_libssh2_terminal() {
     }
     if (error_code == 0) {
       char* exit_signal = NULL;
-      int exit_code = libssh2_channel_get_exit_status(channel_);
+      libssh2_channel_get_exit_status(channel_);
       libssh2_channel_get_exit_signal(channel_, &exit_signal, NULL, NULL, NULL, NULL, NULL);
       if (exit_signal) {
         LOG_ERROR("libssh2 Unable to Close Channel: " << exit_signal);
@@ -1150,6 +1427,11 @@ void CCM::Bridge::finalize_libssh2() {
 }
 
 std::string CCM::Bridge::execute_libssh2_command(const std::vector<std::string>& command) {
+  // Make sure the libssh2 session wasn't terminated
+  if (!session_) {
+    throw BridgeException("Command Cannot be Executed: libssh2 session is invalid/terminated");
+  }
+
   // Create/Open libssh2 terminal
   open_libssh2_terminal();
 
@@ -1190,37 +1472,47 @@ std::string CCM::Bridge::execute_libssh2_command(const std::vector<std::string>&
 
 std::string CCM::Bridge::execute_local_command(const std::vector<std::string>& command) {
   // Execute the command locally
-  std::string output;
-  std::string full_command = implode(command) + " 2>&1";
-  FILE* pipe = POPEN(full_command.c_str(), "r"); // stdout only
-  int file_descriptor = FILENO(pipe);
+#ifdef _WIN32
+  if (!use_dse_) {
+#endif
+    std::string output;
+    std::string full_command = implode(command) + " 2>&1";
+    FILE* pipe = POPEN(full_command.c_str(), "r"); // stdout only
+    int file_descriptor = FILENO(pipe);
 
 #ifndef _WIN32
   // Ensure the pipe is non-blocking
-  fcntl(file_descriptor, F_SETFL, O_NONBLOCK);
+    fcntl(file_descriptor, F_SETFL, O_NONBLOCK);
 #endif
 
   // Ensure the command was execute (ignoring error codes)
-  if (pipe) {
-    // Get the command output
-    while (!feof(pipe)) {
-      char buffer[128];
-      memset(buffer, '\0', sizeof(char) * sizeof(buffer));
-      ssize_t bytes_read = READ(file_descriptor, buffer, sizeof(buffer));
-      if (bytes_read == -1 && errno == EAGAIN) {
-        msleep(CCM_NAP);
-        continue;
-      } else if (bytes_read > 0) {
-        output += std::string(buffer, bytes_read);
-      } else {
-        break;
+    if (pipe) {
+      // Get the command output
+      while (!feof(pipe)) {
+        char buffer[128];
+        memset(buffer, '\0', sizeof(char) * sizeof(buffer));
+        ssize_t bytes_read = READ(file_descriptor, buffer, sizeof(buffer));
+        if (bytes_read == -1 && errno == EAGAIN) {
+          msleep(CCM_NAP);
+          continue;
+        } else if (bytes_read > 0) {
+          output += std::string(buffer, bytes_read);
+        } else {
+          break;
+        }
       }
     }
+
+    // Close the pip and return the output
+    PCLOSE(pipe);
+    return output;
+#ifdef _WIN32
+  } else {
+    LOG_ERROR("DSE v" << dse_version_.to_string() << " cannot be launched on Windows platform");
   }
 
-  // Close the pip and return the output
-  PCLOSE(pipe);
-  return output;
+  return "";
+#endif
 }
 
 #ifdef CASS_USE_LIBSSH2
@@ -1318,11 +1610,15 @@ std::vector<std::string> CCM::Bridge::get_available_clusters(std::string& active
 }
 
 std::string CCM::Bridge::generate_cluster_name(CassVersion cassandra_version,
-  unsigned short data_center_one_nodes,
-  unsigned short data_center_two_nodes,
-  bool is_ssl, bool is_client_authentication) {
+  std::vector<unsigned short> data_center_nodes,
+  bool with_vnodes, bool is_ssl, bool is_client_authentication) {
   std::stringstream cluster_name;
-  cluster_name << cluster_prefix_ << "_" << cassandra_version.to_string(false) << "_" << data_center_one_nodes << "-" << data_center_two_nodes;
+  cluster_name << cluster_prefix_ << "_"
+               << (use_dse_ ? dse_version_.to_string(false) : cassandra_version.to_string(false))
+               << "_" << generate_cluster_nodes(data_center_nodes, '-');
+  if (with_vnodes) {
+    cluster_name << "-vnodes";
+  }
   if (is_ssl) {
     cluster_name << "-ssl";
     if (is_client_authentication) {
@@ -1332,9 +1628,16 @@ std::string CCM::Bridge::generate_cluster_name(CassVersion cassandra_version,
   return cluster_name.str();
 }
 
-std::string CCM::Bridge::generate_cluster_nodes(unsigned short data_center_one_nodes, unsigned short data_center_two_nodes) {
+std::string CCM::Bridge::generate_cluster_nodes(std::vector<unsigned short> data_center_nodes,
+  char separator /* = ':'*/) {
   std::stringstream cluster_nodes;
-  cluster_nodes << data_center_one_nodes << ":" << data_center_two_nodes;
+  for (std::vector<unsigned short>::iterator iterator = data_center_nodes.begin();
+    iterator != data_center_nodes.end(); ++iterator) {
+    cluster_nodes << *iterator;
+    if ((iterator + 1) != data_center_nodes.end()) {
+      cluster_nodes << separator;
+    }
+  }
   return cluster_nodes.str();
 }
 
@@ -1363,7 +1666,7 @@ std::vector<std::string> CCM::Bridge::generate_create_updateconf_command(CassVer
   updateconf_command.push_back("max_hints_delivery_threads:1");
 
   // Create Cassandra version specific updates (C* v1.2.x)
-  if (cassandra_version < CassVersion("2.0.0")) {
+  if (cassandra_version < "2.0.0") {
     updateconf_command.push_back("reduce_cache_sizes_at:0");
     updateconf_command.push_back("reduce_cache_capacity_to:0");
     updateconf_command.push_back("flush_largest_memtables_at:0");
@@ -1374,17 +1677,17 @@ std::vector<std::string> CCM::Bridge::generate_create_updateconf_command(CassVer
   }
 
   // Create Cassandra version specific updates (C* < v2.1)
-  if (cassandra_version < CassVersion("2.1.0")) {
+  if (cassandra_version < "2.1.0") {
     updateconf_command.push_back("in_memory_compaction_limit_in_mb:1");
   }
 
   // Create Cassandra version specific updated (C* 2.2+)
-  if (cassandra_version >= CassVersion("2.2.0")) {
+  if (cassandra_version >= "2.2.0") {
     updateconf_command.push_back("enable_user_defined_functions:true");
   }
 
   // Create Cassandra version specific updated (C* 3.0+)
-  if (cassandra_version >= CassVersion("3.0.0")) {
+  if (cassandra_version >= "3.0.0") {
     updateconf_command.push_back("enable_scripted_user_defined_functions:true");
   }
 
@@ -1473,11 +1776,11 @@ void CCM::Bridge::msleep(unsigned int milliseconds) {
   Sleep(milliseconds);
 #else
   //Convert the milliseconds into a proper timespec structure
-  struct timespec requested = { 0 };
   time_t seconds = static_cast<int>(milliseconds / 1000);
   long int nanoseconds = static_cast<long int>((milliseconds - (seconds * 1000)) * 1000000);
 
   //Assign the requested time and perform sleep
+  struct timespec requested;
   requested.tv_sec = seconds;
   requested.tv_nsec = nanoseconds;
   while (nanosleep(&requested, &requested) == -1) {

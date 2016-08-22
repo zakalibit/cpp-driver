@@ -1,3 +1,78 @@
+2.4.3
+===========
+August 22, 2016
+
+Features
+--------
+* Contact points are now randomized by default (CPP-193)
+* Token-aware routing can be used without enabling schema metadata (CPP-387)
+* Multiple IP addresses can be resolved from a single domain (CPP-364)
+
+Other
+--------
+* Fixed issue that would cause quadradic ring processing with invalid
+  replilcation factors (CPP-298)
+* Fixed issue where schema change handler could hang if an error is returned by
+  Cassandra (CPP-381)
+* Fixed crash caused by connecting seperate sessions in multiple threads
+  (CPP-385)
+* Fixed issue where the control connection could timeout as a result of schema
+  or token map processing (CPP-388)
+* Greatly improved the performance of building the token map for token aware
+  routing (CPP-389)
+* Fixed issue where heartbeats were restarted on unresponseive connections and
+  prevented the connection from being terminated (CPP-392)
+
+2.4.2
+===========
+June 24, 2016
+
+Features
+--------
+* Added the per-request timeouts to statement and batch
+* Added the ability to remove custom payload items
+
+Other
+--------
+* Fixed issue where cass_date_time_to_epoch() unable to handle dates before
+  Cassandra date epoch (value: 2147483648)
+
+2.4.1
+===========
+June 9, 2016
+
+Other
+--------
+* Fixed issue where `cass_future_get_result()` and similiar methods would
+  dereference a NULL pointer if a future is set to an error.
+
+2.4.0
+===========
+June 1, 2016
+
+Features
+--------
+* Added the ability to add a custom SASL authenticator
+* Added reverse DNS lookup for IP addresses which can be enabled using
+ `cass_cluster_set_use_hostname_resolution()`.
+* Added a DNS resolve timeout that can be set using
+  `cass_cluster_set_resolve_timeout()`.
+* Added the ability for SSL peer identity to be verified by hostname.
+  (`CASS_SSL_VERIFY_PEER_IDENTITY_DNS`)
+* Added the ability to bind/set/append custom types with a class name.
+* Added `CassStatement` function to clear/resize parameters
+  `cass_statement_reset_parameters()`.
+
+Other
+--------
+* Fixed crash caused by tables with the same name in adjacent keyspaces.
+* Fixed an invalid memory read in processing strategy options metadata.
+* Fixed issue where `null` values didn''t have proper datatypes.
+* Fixed issue where an "UP" event could cause the session connection process
+  to hang.
+* Reduced reconnection log chatter at the `CASS_LOG_ERROR` level. A failed
+  reconnection attempt is only logged one time as an error.
+
 2.3.0
 ===========
 March 14, 2016

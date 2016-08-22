@@ -121,7 +121,7 @@ BOOST_AUTO_TEST_CASE(no_hosts_backpressure)
 BOOST_AUTO_TEST_CASE(connection_spawn)
 {
   TestPool tester;
-  const std::string SPAWN_MSG = "Spawning new connection to host " + tester.ccm->get_ip_prefix() + "1:9042";
+  const std::string SPAWN_MSG = "Spawning new connection to host " + tester.ccm->get_ip_prefix() + "1";
   test_utils::CassLog::reset(SPAWN_MSG);
 
   test_utils::MultipleNodesTest inst(1, 0);
@@ -202,8 +202,8 @@ BOOST_AUTO_TEST_CASE(dont_recycle_pool_on_timeout) {
     ConnectionInterruptionData ci_data = { tester.ccm.get(), 2, 0, 0 };
 
     std::string ip_prefix = tester.ccm->get_ip_prefix();
-    test_utils::initialize_contact_points(tester.cluster, ip_prefix, 2, 0);
-    cass_cluster_set_connect_timeout(tester.cluster, 1000);
+    test_utils::initialize_contact_points(tester.cluster, ip_prefix, 2);
+    cass_cluster_set_connect_timeout(tester.cluster, 100);
     cass_cluster_set_num_threads_io(tester.cluster, 32);
     cass_cluster_set_core_connections_per_host(tester.cluster, 4);
     cass_cluster_set_load_balance_round_robin(tester.cluster);
@@ -221,6 +221,7 @@ BOOST_AUTO_TEST_CASE(dont_recycle_pool_on_timeout) {
     BOOST_CHECK_GE(test_utils::CassLog::message_count(), 1);
 
     // Handle partial reconnects
+    cass_cluster_set_connect_timeout(tester.cluster, 5 * test_utils::ONE_SECOND_IN_MILLISECONDS);
     cass_cluster_set_connection_idle_timeout(tester.cluster, 1);
     cass_cluster_set_connection_heartbeat_interval(tester.cluster, 2);
     test_utils::CassLog::reset("already present attempting to initiate immediate connection");

@@ -121,6 +121,7 @@ class cql_ccm_bridge_t;
 /** Random, reusable tools for testing. */
 namespace test_utils {
 
+extern const cass_duration_t ONE_SECOND_IN_MILLISECONDS;
 extern const cass_duration_t ONE_MILLISECOND_IN_MICROS;
 extern const cass_duration_t ONE_SECOND_IN_MICROS;
 
@@ -136,6 +137,7 @@ public:
 
   static void reset(const std::string& msg) {
     log_data_.reset(msg);
+    log_data_.expected_log_level_ = CASS_LOG_DISABLED;
   }
 
   static void add(const std::string& msg) {
@@ -148,10 +150,15 @@ public:
     log_data_.output_log_level = log_level;
   }
 
+  static void set_expected_log_level(CassLogLevel log_level) {
+    log_data_.expected_log_level_ = log_level;
+  }
+
 private:
   struct LogData : public boost::basic_lockable_adapter<boost::mutex> {
     LogData()
       : message_count(0)
+      , expected_log_level_(CASS_LOG_DISABLED)
       , output_log_level(CASS_LOG_DISABLED) {}
 
     void reset(const std::string& msg) {
@@ -168,6 +175,7 @@ private:
     boost::mutex m;
     std::vector<std::string> messages;
     size_t message_count;
+    CassLogLevel expected_log_level_;
     CassLogLevel output_log_level;
   };
 
@@ -1104,7 +1112,10 @@ struct Value<CassDecimal> {
     parametrized ctor. Derive from it to use it in your tests.
  */
 struct MultipleNodesTest {
-  MultipleNodesTest(unsigned int num_nodes_dc1, unsigned int num_nodes_dc2, unsigned int protocol_version = 4, bool is_ssl = false);
+  MultipleNodesTest(unsigned int num_nodes_dc1, unsigned int num_nodes_dc2,
+    unsigned int protocol_version = 4, bool with_vnodes = false,
+    bool is_ssl = false);
+
   virtual ~MultipleNodesTest();
 
   boost::shared_ptr<CCM::Bridge> ccm;
@@ -1114,7 +1125,10 @@ struct MultipleNodesTest {
 };
 
 struct SingleSessionTest : public MultipleNodesTest {
-  SingleSessionTest(unsigned int num_nodes_dc1, unsigned int num_nodes_dc2, unsigned int protocol_version = 4, bool is_ssl = false);
+  SingleSessionTest(unsigned int num_nodes_dc1, unsigned int num_nodes_dc2,
+    bool with_session = true, unsigned int protocol_version = 4,
+    bool with_vnodes = false, bool is_ssl = false);
+
   virtual ~SingleSessionTest();
   void create_session();
   void close_session();
@@ -1123,7 +1137,8 @@ struct SingleSessionTest : public MultipleNodesTest {
   CassSsl* ssl;
 };
 
-void initialize_contact_points(CassCluster* cluster, std::string prefix, unsigned int num_nodes_dc1, unsigned int num_nodes_dc2);
+void initialize_contact_points(CassCluster* cluster, std::string prefix,
+  unsigned int num_of_nodes);
 
 const char* get_value_type(CassValueType type);
 

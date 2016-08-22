@@ -16,6 +16,10 @@
 
 #include "token_aware_policy.hpp"
 
+#include "random.hpp"
+
+#include <algorithm>
+
 namespace cass {
 
 // The number of replicas is bounded by replication factor per DC. In practice, the number
@@ -30,9 +34,18 @@ static inline bool contains(const CopyOnWriteHostVec& replicas, const Address& a
   return false;
 }
 
+void TokenAwarePolicy::init(const SharedRefPtr<Host>& connected_host,
+                            const HostMap& hosts,
+                            Random* random) {
+  if (random != NULL) {
+    index_ = random->next(std::max(static_cast<size_t>(1), hosts.size()));
+  }
+  ChainedLoadBalancingPolicy::init(connected_host, hosts, random);
+}
+
 QueryPlan* TokenAwarePolicy::new_query_plan(const std::string& connected_keyspace,
                                             const Request* request,
-                                            const TokenMap& token_map,
+                                            const TokenMap* token_map,
                                             Request::EncodingCache* cache) {
   if (request != NULL) {
     switch (request->opcode()) {
@@ -46,12 +59,14 @@ QueryPlan* TokenAwarePolicy::new_query_plan(const std::string& connected_keyspac
                                       ? connected_keyspace : statement_keyspace;
         std::string routing_key;
         if (rr->get_routing_key(&routing_key, cache) && !keyspace.empty()) {
-          CopyOnWriteHostVec replicas = token_map.get_replicas(keyspace, routing_key);
-          if (!replicas->empty()) {
-            return new TokenAwareQueryPlan(child_policy_.get(),
-                                           child_policy_->new_query_plan(connected_keyspace, request, token_map, cache),
-                                           replicas,
-                                           index_++);
+          if (token_map != NULL) {
+            CopyOnWriteHostVec replicas = token_map->get_replicas(keyspace, routing_key);
+            if (replicas && !replicas->empty()) {
+              return new TokenAwareQueryPlan(child_policy_.get(),
+                                             child_policy_->new_query_plan(connected_keyspace, request, token_map, cache),
+                                             replicas,
+                                             index_++);
+            }
           }
         }
         break;

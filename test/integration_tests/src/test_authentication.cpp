@@ -36,7 +36,7 @@ struct AthenticationTests {
     ccm->kill_cluster();
     ccm->update_cluster_configuration("authenticator", "PasswordAuthenticator");
     ccm->start_cluster("-Dcassandra.superuser_setup_delay_ms=0");
-    test_utils::initialize_contact_points(cluster.get(), CCM::Bridge::get_ip_prefix("config.txt"), 1, 0);
+    test_utils::initialize_contact_points(cluster.get(), CCM::Bridge::get_ip_prefix("config.txt"), 1);
   }
 
   ~AthenticationTests() {
@@ -111,7 +111,7 @@ BOOST_AUTO_TEST_CASE(empty_credentials)
 BOOST_AUTO_TEST_CASE(bad_credentials)
 {
   const char* expected_error
-      = "had the following error on startup: Username and/or password are incorrect";
+      = "Username and/or password are incorrect";
   // Handle deprecated and removed protocol versions [CASSANDRA-10146]
   // https://issues.apache.org/jira/browse/CASSANDRA-10146
   if (version < "2.2.0") {

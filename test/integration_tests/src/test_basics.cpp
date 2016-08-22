@@ -277,6 +277,13 @@ struct BasicTests : public test_utils::SingleSessionTest {
     // Ensure the test value is NULL
     const CassValue* column_value = cass_row_get_column(cass_result_first_row(result.get()), 1);
     BOOST_REQUIRE(cass_value_is_null(column_value));
+    // Handle text alias case
+    CassValueType check_type = type;
+    if (type == CASS_VALUE_TYPE_TEXT) {
+      check_type = CASS_VALUE_TYPE_VARCHAR;
+    }
+    BOOST_REQUIRE_EQUAL(check_type, cass_data_type_type(cass_value_data_type(column_value)));
+    BOOST_REQUIRE_EQUAL(check_type, cass_value_type(column_value));
     T value;
     BOOST_REQUIRE(test_utils::Value<T>::get(column_value, &value) == CASS_ERROR_LIB_NULL_VALUE);
 
@@ -530,7 +537,7 @@ BOOST_AUTO_TEST_CASE(rows_in_rows_out)
     // Create insert statement for bound parameters
     std::string insert_query(boost::str(boost::format("INSERT INTO %s (tweet_id, t1, t2, t3) VALUES (?, ?, ?, ?);") % test_utils::SIMPLE_TABLE));
 
-    const size_t num_rows = 100000;
+    const size_t num_rows = 1000;
     for (size_t i = 0; i < num_rows; ++i) {
       test_utils::CassStatementPtr statement(cass_statement_new(insert_query.c_str(), 4));
 
@@ -635,7 +642,7 @@ BOOST_AUTO_TEST_CASE(empty_results)
 /**
  * Unset Parameters
  *
- * This test ensures that unset paremeters return an error for C* 2.2 or less
+ * This test ensures that unset parameters return an error for C* 2.2 or less
  * and correctly uses the UNSET values for C*2.2 or greater.
  *
  * @since 2.2.0-beta1

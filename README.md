@@ -1,6 +1,7 @@
 # DataStax C/C++ Driver for Apache Cassandra
 
-[![Build Status](https://travis-ci.org/datastax/cpp-driver.svg?branch=master)](https://travis-ci.org/datastax/cpp-driver)
+[![Build Status: Linux](https://travis-ci.org/datastax/cpp-driver.svg?branch=master)](https://travis-ci.org/datastax/cpp-driver)
+[![Build Status: Windows](https://ci.appveyor.com/api/projects/status/ec0x0vuk59as28r6/branch/master?svg=true)](https://ci.appveyor.com/project/DataStax/cpp-driver)
 
 A modern, [feature-rich](#features), and highly tunable C/C++ client library for
 Apache Cassandra (1.2+) and DataStax Enterprise (3.1+) using exclusively
@@ -13,11 +14,14 @@ Cassandra's native protocol and Cassandra Query Language v3.
 - Mailing List: https://groups.google.com/a/lists.datastax.com/forum/#!forum/cpp-driver-user
 - IRC: [#datastax-drivers on `irc.freenode.net <http://freenode.net>`](http://webchat.freenode.net/?channels=datastax-drivers)
 
-## What's New in 2.3
+## What's New in 2.3 and 2.4
 
 - Support for materialized view and secondary index metadata
 - Support for clustering key order, `frozen<>` and Cassandra version metadata
-- Blacklist, whitelist DC, and blacklist DC load balancing policies
+- [Blacklist], [whitelist DC], and [blacklist DC] load balancing policies
+- [Custom] authenticators
+- [Reverse DNS] with SSL peer identity verification support
+- Randomized contact points
 
 More information about features included in 2.3 can be found in this [blog
 post](http://www.datastax.com/dev/blog/datastax-c-driver-2-3-ga-released).
@@ -57,7 +61,7 @@ There were a couple breaking API changes between 1.0 and 2.0 that are documented
 
 ## Compatibility
 
-This release is compatible with Apache Cassandra 1.2, 2.0, 2.1, and 2.2 and 3.0.
+This release is compatible with Apache Cassandra 1.2, 2.0, 2.1, 2.2 and 3.0.
 
 A complete compatibility matrix for both Apache Cassandra and DataStax
 Enterprise can be found
@@ -66,8 +70,8 @@ Enterprise can be found
 ## Installation
 
 Binary packages are [available](http://downloads.datastax.com/cpp-driver/) for
-CentOS, Ubuntu and Windows. Packages for the dependencies, libuv (1.x) and OpenSSL, are also
-provided and can be found under the "dependencies" directory for each
+CentOS, Ubuntu and Windows. Packages for the driver's dependencies, libuv (1.x)
+and OpenSSL, are also provided under the `dependencies` directory for each
 platform e.g. [CentOS 7](http://downloads.datastax.com/cpp-driver/centos/7/dependencies/),
 [Ubuntu 14.04](http://downloads.datastax.com/cpp-driver/ubuntu/14.04/dependencies/),
 [Windows](http://downloads.datastax.com/cpp-driver/windows/dependencies/).
@@ -90,14 +94,18 @@ There are several examples provided here: [examples](https://github.com/datastax
 #include <cassandra.h>
 #include <stdio.h>
 
-int main() {
+int main(int argc, char* argv[]) {
   /* Setup and connect to cluster */
   CassFuture* connect_future = NULL;
   CassCluster* cluster = cass_cluster_new();
   CassSession* session = cass_session_new();
+  char* hosts = "127.0.0.1";
+  if (argc > 1) {
+    hosts = argv[1];
+  }
 
   /* Add contact points */
-  cass_cluster_set_contact_points(cluster, "127.0.0.1,127.0.0.2,127.0.0.3");
+  cass_cluster_set_contact_points(cluster, hosts);
 
   /* Provide the cluster object as configuration to connect the session */
   connect_future = cass_session_connect(session, cluster);
@@ -106,37 +114,32 @@ int main() {
     CassFuture* close_future = NULL;
 
     /* Build statement and execute query */
-    CassStatement* statement
-      = cass_statement_new("SELECT keyspace_name "
-                           "FROM system.schema_keyspaces", 0);
+    const char* query = "SELECT release_version FROM system.local";
+    CassStatement* statement = cass_statement_new(query, 0);
 
     CassFuture* result_future = cass_session_execute(session, statement);
 
-    if(cass_future_error_code(result_future) == CASS_OK) {
-      /* Retrieve result set and iterate over the rows */
+    if (cass_future_error_code(result_future) == CASS_OK) {
+      /* Retrieve result set and get the first row */
       const CassResult* result = cass_future_get_result(result_future);
-      CassIterator* rows = cass_iterator_from_result(result);
+      const CassRow* row = cass_result_first_row(result);
 
-      while(cass_iterator_next(rows)) {
-        const CassRow* row = cass_iterator_get_row(rows);
-        const CassValue* value = cass_row_get_column_by_name(row, "keyspace_name");
+      if (row) {
+        const CassValue* value = cass_row_get_column_by_name(row, "release_version");
 
-        const char* keyspace;
-        size_t keyspace_length;
-        cass_value_get_string(value, &keyspace, &keyspace_length);
-        printf("keyspace_name: '%.*s'\n",
-               (int)keyspace_length, keyspace);
+        const char* release_version;
+        size_t release_version_length;
+        cass_value_get_string(value, &release_version, &release_version_length);
+        printf("release_version: '%.*s'\n", (int)release_version_length, release_version);
       }
 
       cass_result_free(result);
-      cass_iterator_free(rows);
     } else {
       /* Handle error */
       const char* message;
       size_t message_length;
       cass_future_error_message(result_future, &message, &message_length);
-      fprintf(stderr, "Unable to run query: '%.*s'\n",
-              (int)message_length, message);
+      fprintf(stderr, "Unable to run query: '%.*s'\n", (int)message_length, message);
     }
 
     cass_statement_free(statement);
@@ -151,8 +154,7 @@ int main() {
     const char* message;
     size_t message_length;
     cass_future_error_message(connect_future, &message, &message_length);
-    fprintf(stderr, "Unable to connect: '%.*s'\n",
-            (int)message_length, message);
+    fprintf(stderr, "Unable to connect: '%.*s'\n", (int)message_length, message);
   }
 
   cass_future_free(connect_future);
@@ -201,3 +203,8 @@ limitations under the License.
 [Authentication]: http://datastax.github.io/cpp-driver/topics/security/#authentication
 [load balancing]: http://datastax.github.io/cpp-driver/topics/configuration/#load-balancing
 [SSL]: http://datastax.github.io/cpp-driver/topics/security/ssl/
+[Blacklist]: http://datastax.github.io/cpp-driver/topics/configuration/#blacklist
+[whitelist DC]: http://datastax.github.io/cpp-driver/topics/configuration/#datacenter
+[blacklist DC]: http://datastax.github.io/cpp-driver/topics/configuration/#datacenter
+[Custom]: http://datastax.github.io/cpp-driver/topics/security/#custom
+[Reverse DNS]: http://datastax.github.io/cpp-driver/topics/security/ssl/#enabling-cassandra-identity-verification

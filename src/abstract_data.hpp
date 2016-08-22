@@ -91,6 +91,11 @@ public:
   const ElementVec& elements() const { return elements_; }
   size_t elements_count() const { return elements_.size(); }
 
+  void reset(size_t count) {
+    elements_.clear();
+    elements_.resize(count);
+  }
+
 #define SET_TYPE(Type)                                  \
   CassError set(size_t index, const Type value) {       \
     CASS_CHECK_INDEX_AND_TYPE(index, value);            \
@@ -108,6 +113,7 @@ public:
   SET_TYPE(cass_bool_t)
   SET_TYPE(CassString)
   SET_TYPE(CassBytes)
+  SET_TYPE(CassCustom)
   SET_TYPE(CassUuid)
   SET_TYPE(CassInet)
   SET_TYPE(CassDecimal)

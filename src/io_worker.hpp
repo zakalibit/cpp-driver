@@ -23,12 +23,14 @@
 #include "copy_on_write_ptr.hpp"
 #include "constants.hpp"
 #include "event_thread.hpp"
+#include "host.hpp"
 #include "logger.hpp"
 #include "metrics.hpp"
 #include "spsc_queue.hpp"
 #include "timer.hpp"
 
-#include <map>
+#include <sparsehash/dense_hash_map>
+
 #include <string>
 #include <uv.h>
 
@@ -49,10 +51,12 @@ struct IOWorkerEvent {
   };
 
   IOWorkerEvent()
-    : type(INVALID) {}
+    : type(INVALID)
+    , is_initial_connection(false)
+    , cancel_reconnect(false) {}
 
   Type type;
-  Address address;
+  Host::ConstPtr host;
   bool is_initial_connection;
   bool cancel_reconnect;
 };
@@ -94,8 +98,8 @@ public:
 
   bool is_host_up(const Address& address) const;
 
-  bool add_pool_async(const Address& address, bool is_initial_connection);
-  bool remove_pool_async(const Address& address, bool cancel_reconnect);
+  bool add_pool_async(const Host::ConstPtr& host, bool is_initial_connection);
+  bool remove_pool_async(const Host::ConstPtr& host, bool cancel_reconnect);
   void close_async();
 
   bool execute(RequestHandler* request_handler);
@@ -109,7 +113,7 @@ public:
   void add_pending_flush(Pool* pool);
 
 private:
-  void add_pool(const Address& address, bool is_initial_connection);
+  void add_pool(const Host::ConstPtr& host, bool is_initial_connection);
   void maybe_close();
   void maybe_notify_closed();
   void close_handles();
@@ -127,10 +131,10 @@ private:
 #endif
 
 private:
-  typedef std::map<Address, SharedRefPtr<Pool> > PoolMap;
+  typedef sparsehash::dense_hash_map<Address, SharedRefPtr<Pool>, AddressHash> PoolMap;
   typedef std::vector<SharedRefPtr<Pool> > PoolVec;
 
-  void schedule_reconnect(const Address& address);
+  void schedule_reconnect(const Host::ConstPtr& host);
 
 private:
   State state_;

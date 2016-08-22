@@ -17,8 +17,9 @@
 #ifndef __CASS_SSL_HPP_INCLUDED__
 #define __CASS_SSL_HPP_INCLUDED__
 
-#include "address.hpp"
 #include "cassandra.h"
+#include "cassconfig.hpp"
+#include "host.hpp"
 #include "ref_counted.hpp"
 #include "ring_buffer.hpp"
 
@@ -29,9 +30,9 @@ namespace cass {
 
 class SslSession {
 public:
-  SslSession(const Address& address,
+  SslSession(const Host::ConstPtr& host,
              int flags)
-    : addr_(address)
+    : host_(host)
     , verify_flags_(flags)
     , error_code_(CASS_OK) {}
 
@@ -60,7 +61,7 @@ public:
   rb::RingBuffer& outgoing() { return outgoing_; }
 
 protected:
-  Address addr_;
+  Host::ConstPtr host_;
   int verify_flags_;
   rb::RingBuffer incoming_;
   rb::RingBuffer outgoing_;
@@ -79,7 +80,7 @@ public:
     verify_flags_ = flags;
   }
 
-  virtual SslSession* create_session(const Address& address) = 0;
+  virtual SslSession* create_session(const Host::ConstPtr& host) = 0;
   virtual CassError add_trusted_cert(const char* cert, size_t cert_length) = 0;
   virtual CassError set_cert(const char* cert, size_t cert_length) = 0;
   virtual CassError set_private_key(const char* key,
@@ -100,7 +101,7 @@ public:
 
 } // namespace cass
 
-#ifdef CASS_USE_OPENSSL
+#ifdef HAVE_OPENSSL
 #include "ssl/ssl_openssl_impl.hpp"
 #else
 #include "ssl/ssl_no_impl.hpp"

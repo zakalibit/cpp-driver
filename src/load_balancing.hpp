@@ -51,6 +51,7 @@ typedef enum CassHostDistance_ {
 
 namespace cass {
 
+class Random;
 class RoutableRequest;
 class TokenMap;
 
@@ -80,7 +81,7 @@ public:
 
   virtual ~LoadBalancingPolicy() {}
 
-  virtual void init(const SharedRefPtr<Host>& connected_host, const HostMap& hosts) = 0;
+  virtual void init(const SharedRefPtr<Host>& connected_host, const HostMap& hosts, Random* random) = 0;
 
   virtual void register_handles(uv_loop_t* loop) {}
   virtual void close_handles() {}
@@ -89,7 +90,7 @@ public:
 
   virtual QueryPlan* new_query_plan(const std::string& connected_keyspace,
                                     const Request* request,
-                                    const TokenMap& token_map,
+                                    const TokenMap* token_map,
                                     Request::EncodingCache* cache) = 0;
 
   virtual LoadBalancingPolicy* new_instance() = 0;
@@ -103,8 +104,8 @@ public:
 
   virtual ~ChainedLoadBalancingPolicy() {}
 
-  virtual void init(const SharedRefPtr<Host>& connected_host, const HostMap& hosts) {
-    return child_policy_->init(connected_host, hosts);
+  virtual void init(const SharedRefPtr<Host>& connected_host, const HostMap& hosts, Random* random) {
+    return child_policy_->init(connected_host, hosts, random);
   }
 
   virtual CassHostDistance distance(const SharedRefPtr<Host>& host) const { return child_policy_->distance(host); }

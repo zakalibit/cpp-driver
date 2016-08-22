@@ -17,10 +17,11 @@
 #ifndef __CASS_CONNECTION_HPP_INCLUDED__
 #define __CASS_CONNECTION_HPP_INCLUDED__
 
-#include "address.hpp"
 #include "buffer.hpp"
 #include "cassandra.h"
 #include "handler.hpp"
+#include "hash.hpp"
+#include "host.hpp"
 #include "list.hpp"
 #include "macros.hpp"
 #include "metrics.hpp"
@@ -95,7 +96,7 @@ public:
   Connection(uv_loop_t* loop,
              const Config& config,
              Metrics* metrics,
-             const Address& address,
+             const Host::ConstPtr& host,
              const std::string& keyspace,
              int protocol_version,
              Listener* listener);
@@ -110,9 +111,9 @@ public:
 
   const Config& config() const { return config_; }
   Metrics* metrics() { return metrics_; }
-  const Address& address() { return address_; }
-  const std::string& address_string() { return addr_string_; }
-  const std::string& keyspace() { return keyspace_; }
+  const Address& address() const { return host_->address(); }
+  const std::string& address_string() const { return host_->address_string(); }
+  const std::string& keyspace() const { return keyspace_; }
 
   void close();
   void defunct();
@@ -253,7 +254,7 @@ private:
     Timer timer;
   };
 
-  bool internal_write(Handler* request, bool flush_immediately, bool reset_idle_time);
+  bool internal_write(Handler* request, bool flush_immediately = true);
   void internal_close(ConnectionState close_state);
   void set_state(ConnectionState state);
   void consume(char* input, size_t size);
@@ -279,7 +280,7 @@ private:
 #endif
 
   void on_connected();
-  void on_authenticate();
+  void on_authenticate(const std::string& class_name);
   void on_auth_challenge(const AuthResponseRequest* auth_response, const std::string& token);
   void on_auth_success(const AuthResponseRequest* auth_response, const std::string& token);
   void on_ready();
@@ -289,15 +290,16 @@ private:
 
   void notify_ready();
   void notify_error(const std::string& message, ConnectionError code = CONNECTION_ERROR_GENERIC);
-  void log_error(const std::string& error);
 
   void ssl_handshake();
 
-  void send_credentials();
-  void send_initial_auth_response();
+  void send_credentials(const std::string& class_name);
+  void send_initial_auth_response(const std::string& class_name);
 
   void restart_heartbeat_timer();
   static void on_heartbeat(Timer* timer);
+  void restart_terminate_timer();
+  static void on_terminate(Timer* timer);
 
 private:
   ConnectionState state_;
@@ -313,8 +315,7 @@ private:
   uv_loop_t* loop_;
   const Config& config_;
   Metrics* metrics_;
-  Address address_;
-  std::string addr_string_;
+  Host::ConstPtr host_;
   std::string keyspace_;
   const int protocol_version_;
   Listener* listener_;
@@ -326,9 +327,9 @@ private:
   Timer connect_timer_;
   ScopedPtr<SslSession> ssl_session_;
 
-  uint64_t idle_start_time_ms_;
   bool heartbeat_outstanding_;
   Timer heartbeat_timer_;
+  Timer terminate_timer_;
 
   // buffer reuse for libuv
   std::stack<uv_buf_t> buffer_reuse_list_;

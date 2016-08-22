@@ -51,14 +51,14 @@ public:
 
   virtual ~LatencyAwarePolicy() {}
 
-  virtual void init(const SharedRefPtr<Host>& connected_host, const HostMap& hosts);
+  virtual void init(const SharedRefPtr<Host>& connected_host, const HostMap& hosts, Random* random);
 
   virtual void register_handles(uv_loop_t* loop);
   virtual void close_handles();
 
   virtual QueryPlan* new_query_plan(const std::string& connected_keyspace,
                                     const Request* request,
-                                    const TokenMap& token_map,
+                                    const TokenMap* token_map,
                                     Request::EncodingCache* cache);
 
   virtual LoadBalancingPolicy* new_instance() {

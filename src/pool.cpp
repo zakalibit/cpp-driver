@@ -27,6 +27,8 @@
 #include "result_response.hpp"
 #include "timer.hpp"
 
+#include <algorithm>
+
 namespace cass {
 
 static bool least_busy_comp(Connection* a, Connection* b) {
@@ -34,15 +36,15 @@ static bool least_busy_comp(Connection* a, Connection* b) {
 }
 
 Pool::Pool(IOWorker* io_worker,
-           const Address& address,
+           const Host::ConstPtr& host,
            bool is_initial_connection)
     : io_worker_(io_worker)
-    , address_(address)
+    , host_(host)
     , loop_(io_worker->loop())
     , config_(io_worker->config())
     , metrics_(io_worker->metrics())
     , state_(POOL_STATE_NEW)
-    , connection_error_(Connection::CONNECTION_OK)
+    , error_code_(Connection::CONNECTION_OK)
     , available_connection_count_(0)
     , is_available_(false)
     , is_initial_connection_(is_initial_connection)
@@ -50,9 +52,9 @@ Pool::Pool(IOWorker* io_worker,
     , cancel_reconnect_(false) { }
 
 Pool::~Pool() {
-  LOG_DEBUG("Pool dtor with %u pending requests pool(%p)",
-            static_cast<unsigned int>(pending_requests_.size()),
-            static_cast<void*>(this));
+  LOG_DEBUG("Pool(%p) dtor with %u pending requests",
+            static_cast<void*>(this),
+            static_cast<unsigned int>(pending_requests_.size()));
   while (!pending_requests_.is_empty()) {
     RequestHandler* request_handler
         = static_cast<RequestHandler*>(pending_requests_.front());
@@ -66,8 +68,9 @@ Pool::~Pool() {
 void Pool::connect() {
   if (state_ == POOL_STATE_NEW ||
       state_ == POOL_STATE_WAITING_TO_CONNECT) {
-    LOG_DEBUG("Connect %s pool(%p)",
-              address_.to_string().c_str(), static_cast<void*>(this));
+    LOG_DEBUG("Connect pool(%p) for host %s",
+              static_cast<void*>(this),
+              host_->address_string().c_str());
 
     connect_timer.stop(); // There could be a delayed connect waiting
 
@@ -90,7 +93,9 @@ void Pool::delayed_connect() {
 
 void Pool::close(bool cancel_reconnect) {
   if (state_ != POOL_STATE_CLOSING && state_ != POOL_STATE_CLOSED) {
-    LOG_DEBUG("Closing pool(%p)", static_cast<void*>(this));
+    LOG_DEBUG("Closing pool(%p) for host %s",
+              static_cast<void*>(this),
+              host_->address_string().c_str());
 
     connect_timer.stop();
 
@@ -111,8 +116,8 @@ void Pool::close(bool cancel_reconnect) {
          it != end; ++it) {
       (*it)->close();
     }
-    for (ConnectionSet::iterator it = connections_pending_.begin(),
-                                 end = connections_pending_.end();
+    for (ConnectionVec::iterator it = pending_connections_.begin(),
+                                 end = pending_connections_.end();
          it != end; ++it) {
       (*it)->close();
     }
@@ -159,7 +164,7 @@ void Pool::add_pending_request(RequestHandler* request_handler) {
     LOG_DEBUG("%u request%s pending on %s pool(%p)",
               static_cast<unsigned int>(pending_requests_.size() + 1),
               pending_requests_.size() > 0 ? "s":"",
-              address_.to_string().c_str(),
+              host_->address_string().c_str(),
               static_cast<void*>(this));
   }
 
@@ -167,7 +172,7 @@ void Pool::add_pending_request(RequestHandler* request_handler) {
     LOG_WARN("Exceeded pending requests water mark (current: %u water mark: %u) for host %s",
              static_cast<unsigned int>(pending_requests_.size()),
              config_.pending_requests_high_water_mark(),
-             address_.to_string().c_str());
+             host_->address_string().c_str());
     set_is_available(false);
     metrics_->exceeded_pending_requests_water_mark.inc();
   }
@@ -183,12 +188,12 @@ void Pool::set_is_available(bool is_available) {
     if (!is_available_ &&
         available_connection_count_ > 0 &&
         pending_requests_.size() < config_.pending_requests_low_water_mark()) {
-      io_worker_->set_host_is_available(address_, true);
+      io_worker_->set_host_is_available(host_->address(), true);
       is_available_ = true;
     }
   } else {
     if (is_available_) {
-      io_worker_->set_host_is_available(address_, false);
+      io_worker_->set_host_is_available(host_->address(), false);
       is_available_ = false;
     }
   }
@@ -228,7 +233,10 @@ void Pool::flush() {
 void Pool::maybe_notify_ready() {
   // This will notify ready even if all the connections fail.
   // it is up to the holder to inspect state
-  if (state_ == POOL_STATE_CONNECTING && connections_pending_.empty()) {
+  if (state_ == POOL_STATE_CONNECTING && pending_connections_.empty()) {
+    LOG_DEBUG("Pool(%p) connected to host %s",
+              static_cast<void*>(this),
+              host_->address_string().c_str());
     state_ = POOL_STATE_READY;
     io_worker_->notify_pool_ready(this);
   }
@@ -236,7 +244,11 @@ void Pool::maybe_notify_ready() {
 
 void Pool::maybe_close() {
   if (state_ == POOL_STATE_CLOSING && connections_.empty() &&
-      connections_pending_.empty()) {
+      pending_connections_.empty()) {
+
+    LOG_DEBUG("Pool(%p) closed connections to host %s",
+              static_cast<void*>(this),
+              host_->address_string().c_str());
     state_ = POOL_STATE_CLOSED;
     io_worker_->notify_pool_closed(this);
   }
@@ -246,24 +258,26 @@ void Pool::spawn_connection() {
   if (state_ != POOL_STATE_CLOSING && state_ != POOL_STATE_CLOSED) {
     Connection* connection =
         new Connection(loop_, config_, metrics_,
-                       address_,
+                       host_,
                        *io_worker_->keyspace(),
                        io_worker_->protocol_version(),
                        this);
 
-    LOG_INFO("Spawning new connection to host %s", address_.to_string(true).c_str());
+    LOG_DEBUG("Spawning new connection to host %s for pool(%p)",
+              host_->address_string().c_str(),
+              static_cast<void*>(this));
     connection->connect();
 
-    connections_pending_.insert(connection);
+    pending_connections_.push_back(connection);
   }
 }
 
 void Pool::maybe_spawn_connection() {
-  if (connections_pending_.size() >= config_.max_concurrent_creation()) {
+  if (pending_connections_.size() >= config_.max_concurrent_creation()) {
     return;
   }
 
-  if (connections_.size() + connections_pending_.size() >=
+  if (connections_.size() + pending_connections_.size() >=
       config_.max_connections_per_host()) {
     return;
   }
@@ -285,7 +299,8 @@ Connection* Pool::find_least_busy() {
 }
 
 void Pool::on_ready(Connection* connection) {
-  connections_pending_.erase(connection);
+  pending_connections_.erase(std::remove(pending_connections_.begin(), pending_connections_.end(), connection),
+                             pending_connections_.end());
   connections_.push_back(connection);
   return_connection(connection);
 
@@ -295,7 +310,8 @@ void Pool::on_ready(Connection* connection) {
 }
 
 void Pool::on_close(Connection* connection) {
-  connections_pending_.erase(connection);
+  pending_connections_.erase(std::remove(pending_connections_.begin(), pending_connections_.end(), connection),
+                             pending_connections_.end());
 
   ConnectionVec::iterator it =
       std::find(connections_.begin(), connections_.end(), connection);
@@ -314,11 +330,30 @@ void Pool::on_close(Connection* connection) {
     }
     maybe_notify_ready();
   } else if (connection->is_defunct()) {
+    // Log only the first connection failure as an error or warning.
+    if (state_ != POOL_STATE_CLOSING) {
+      // Log as an error if the connection pool was either estabilished or
+      // it's the first attempt, otherwise log as a warning.
+      if (state_ == POOL_STATE_READY) {
+        LOG_ERROR("Closing established connection pool to host %s because of the following error: %s",
+                 host_->address_string().c_str(),
+                 connection->error_message().c_str());
+      } else if (is_initial_connection_) {
+        LOG_ERROR("Connection pool was unable to connect to host %s because of the following error: %s",
+                  host_->address_string().c_str(),
+                  connection->error_message().c_str());
+      } else {
+        LOG_WARN("Connection pool was unable to reconnect to host %s because of the following error: %s",
+                 host_->address_string().c_str(),
+                 connection->error_message().c_str());
+      }
+    }
+
     // If at least one connection has a critical failure then don't try to
     // reconnect automatically. Also, don't set the error to something else if
     // it has already been set to something critical.
     if (!is_critical_failure()) {
-      connection_error_ = connection->error_code();
+      error_code_ = connection->error_code();
     }
 
     close();
@@ -353,7 +388,7 @@ void Pool::on_pending_request_timeout(Timer* timer) {
   request_handler->next_host();
   request_handler->retry();
   LOG_DEBUG("Timeout waiting for connection to %s pool(%p)",
-            pool->address_.to_string().c_str(),
+            pool->host_->address_string().c_str(),
             static_cast<void*>(pool));
   pool->maybe_close();
 }
@@ -371,7 +406,7 @@ void Pool::on_partial_reconnect(Timer* timer) {
   Pool* pool = static_cast<Pool*>(timer->data());
 
   size_t current = pool->connections_.size() +
-                   pool->connections_pending_.size();
+                   pool->pending_connections_.size();
 
   size_t want = pool->config_.core_connections_per_host();
 
