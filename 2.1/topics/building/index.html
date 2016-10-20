@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="DataStax C++ Driver for Apache Cassandra Documentation">
+    <meta name="author" content="DataStax">
+
+    <title>DataStax C/C++ Driver - Building</title>
+
+    <link rel="icon" href="../../../favicon.ico">
+    <link rel="apple-touch-icon" href="../../../favicon.png">
+    <link href="../../../css/style.css" rel="stylesheet">
+    <link href="../../../css/pygments.css" rel="stylesheet">
+    <link href="../../../css/hotkeys.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body ng-app="docs">
+    <div class="navbar">
+      <div class="container-fluid">
+        <div class="row row-offcanvas row-offcanvas-left">
+          <div class="col-sm-3 text-center">
+            <a class="ds-home" href="../../"><img alt="Brand" src="../../../img/logo.png"></a>
+            <ul class="list-inline ds-sites" role="nav">
+              <li><a href="https://academy.datastax.com/" class="navbar-link">DataStax Academy</a></li>
+              <li><a href="http://www.datastax.com/dev/blog" class="navbar-link">Tech Blog</a></li>
+              <li><a href="http://www.datastax.com/what-we-offer/products-services/support" class="navbar-link">Support</a></li>
+            </ul>
+          </div>
+          <div class="col-md-5">
+            <p class="lead pubtitle">DataStax C/C++ Driver</p>
+            
+            <div class="text-info">
+              <span class="text-warning">Attention:</span> Viewing documentation for version
+              <div class="btn-group">
+                <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  2.1
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
+                
+                  <li><a href="../../../topics/building/">2.5</a></li>
+                
+                  <li><a href="../../../2.4/topics/building/">2.4</a></li>
+                
+                  <li><a href="../../../2.3/topics/building/">2.3</a></li>
+                
+                  <li><a href="../../../2.2/topics/building/">2.2</a></li>
+                
+                  <li class="disabled"><a href="./">2.1</a></li>
+                
+                  <li><a href="../../../2.0/topics/building/">2.0</a></li>
+                
+                  <li><a href="../../../1.0/topics/building/">1.0</a></li>
+                
+                </ul>
+              </div>
+            </div>
+            
+          </div>
+          <div class="col-md-4">
+            <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
+              <div class="form-group has-feedback">
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.1')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+              </div>
+              <ul class="dropdown-menu search-results" role="menu">
+                <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
+              </ul>
+            </form>
+            <a href="http://www.datastax.com/download" class="btn btn-primary btn-sm">Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid" id="content">
+      <div class="row">
+        <div class="col-md-3">
+          <div id="navigation" class="side-nav" role="tablist" aria-multiselectable="true">
+            <h3><a href="../../">Contents</a></h3>
+            <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li class="active">
+    <a href="../">
+      Getting Started <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-minus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li class="active">
+    <a href="./" class="current">
+      Building <small>page</small>
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../basics/">
+      Basics <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../security/">
+      Security <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../logging/">
+      Logging <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../configuration/">
+      Configuration <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../faq/">
+      FAQ <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../metrics/">
+      Metrics <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../testing/">
+      Testing <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../../api/">
+      API docs <small>index</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+          </div>
+        </div>
+        <div class="col-md-9 content">
+          <div class="crumbs-wrapper">
+            <nav id="crumbs" data-spy="affix" data-offset-top="130">
+              <ol class="breadcrumb">
+                
+                
+                
+                <li><a href="../../">Home</a></li>
+                
+                
+                
+                
+                
+                <li><a href="../">Getting Started</a></li>
+                
+                
+                
+                
+                
+                <li class="active">Building</li>
+                
+                
+                
+              </ol>
+            </nav>
+          </div>
+          
+
+<h1 id="building" class="target">Building<a class="anchor" href="#building" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<h2 id="supported-platforms" class="target">Supported Platforms<a class="anchor" href="#supported-platforms" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>The driver is known to work on CentOS/RHEL 5/6/7, Mac OS X 10.8/10.9 (Mavericks and Yosemite), Ubuntu 12.04/14.04 LTS, and Windows 7 SP1.</p>
+
+<p>It has been built using GCC 4.1.2+, Clang 3.4+, and MSVC 2010/2012/2013.</p>
+
+<h2 id="dependencies" class="target">Dependencies<a class="anchor" href="#dependencies" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<h3 id="driver" class="target">Driver<a class="anchor" href="#driver" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+
+<ul>
+<li><a href="http://www.cmake.org">CMake</a></li>
+<li><a href="https://github.com/libuv/libuv">libuv (1.x or 0.10.x)</a></li>
+<li>
+<a href="http://www.openssl.org/">OpenSSL</a> (optional)</li>
+</ul>
+
+<p><strong>NOTE:</strong> Utilizing the default package manager configuration to install dependencies on *nix based operating systems may result in older versions of dependencies being installed.</p>
+
+<h3 id="test-dependencies" class="target">Test Dependencies<a class="anchor" href="#test-dependencies" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+
+<ul>
+<li><a href="http://www.boost.org">boost 1.55+</a></li>
+<li><a href="http://www.libssh2.org">libssh2</a></li>
+</ul>
+
+<h2 id="linux-os-x" class="target">Linux/OS X<a class="anchor" href="#linux-os-x" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>The driver has been built using both Clang (Ubuntu 12.04/14.04 and OS X) and GCC (Linux).</p>
+
+<h3 id="obtaining-dependencies" class="target">Obtaining Dependencies<a class="anchor" href="#obtaining-dependencies" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+
+<h4 id="centos-rhel" class="target">CentOS/RHEL<a class="anchor" href="#centos-rhel" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h4>
+
+<h5 id="additional-requirements-for-centos-rhel-5" class="target">Additional Requirements for CentOS/RHEL 5<a class="anchor" href="#additional-requirements-for-centos-rhel-5" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h5>
+
+<p>CentOS/RHEL 5 does not contain <code>git</code> in its repositories; however RepoForge (formerly RPMforge) has a RPM for this dependency. It can be found <a href="https://dl.fedoraproject.org/pub/epel/">here</a>.</p>
+
+<h6 id="download-the-appropriate-repo-forge-release-package" class="target">Download the Appropriate RepoForge Release Package<a class="anchor" href="#download-the-appropriate-repo-forge-release-package" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h6>
+
+<ul>
+<li><a href="http://dl.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm">32-bit</a></li>
+<li><a href="http://dl.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm">64-bit</a></li>
+</ul>
+
+<h6 id="install-key-and-rpm-package" class="target">Install Key and RPM Package<a class="anchor" href="#install-key-and-rpm-package" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h6>
+<pre class="highlight"><code>sudo rpm --import http://apt.sw.be/RPM-GPG-KEY.dag.txt
+sudo rpm -i rpmforge-release-0.5.3-1.el5.rf.<span class="k">*</span>.rpm
+</code></pre>
+<h5 id="dependencies-and-libuv-installation" class="target">Dependencies and libuv Installation<a class="anchor" href="#dependencies-and-libuv-installation" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h5>
+<pre class="highlight"><code>sudo yum install automake cmake gcc-c++ git libtool openssl-devel wget
+<span class="nb">pushd</span> /tmp
+wget http://libuv.org/dist/v1.4.2/libuv-v1.4.2.tar.gz
+tar xzf libuv-v1.4.2.tar.gz
+<span class="nb">pushd </span>libuv-v1.4.2
+sh autogen.sh
+./configure
+sudo make install
+<span class="nb">popd
+popd</span>
+</code></pre>
+<h4 id="os-x" class="target">OS X<a class="anchor" href="#os-x" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h4>
+
+<p>The driver has been built and tested using the Clang compiler provided by XCode 5.1+. The dependencies were obtained using <a href="http://brew.sh">Homebrew</a>.</p>
+<pre class="highlight"><code>brew install libuv cmake
+</code></pre>
+<p><strong>NOTE:</strong> The driver utilizes the OpenSSL library included with XCode.</p>
+
+<h4 id="ubuntu" class="target">Ubuntu<a class="anchor" href="#ubuntu" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h4>
+
+<h5 id="additional-requirements-for-ubuntu-12-04" class="target">Additional Requirements for Ubuntu 12.04<a class="anchor" href="#additional-requirements-for-ubuntu-12-04" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h5>
+
+<p>Ubuntu 12.04 does not contain libuv in its repositories; however the LinuxJedi PPA has a backport from Ubuntu 14.04 which can be found <a href="https://launchpad.net/%7Elinuxjedi/+archive/ubuntu/ppa">here</a>.</p>
+<pre class="highlight"><code>sudo apt-add-repository ppa:linuxjedi/ppa
+sudo apt-get update
+</code></pre>
+<h5 id="gcc" class="target">GCC<a class="anchor" href="#gcc" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h5>
+<pre class="highlight"><code>sudo apt-get install g++ make cmake libuv-dev libssl-dev
+</code></pre>
+<h5 id="clang" class="target">Clang<a class="anchor" href="#clang" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h5>
+<pre class="highlight"><code>sudo apt-get install clang make cmake libuv-dev libssl-dev
+</code></pre>
+<h3 id="building-the-driver" class="target">Building the Driver<a class="anchor" href="#building-the-driver" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+<pre class="highlight"><code>git clone https://github.com/datastax/cpp-driver.git
+mkdir cpp-driver/build
+<span class="nb">cd </span>cpp-driver/build
+cmake ..
+make
+</code></pre>
+<h3 id="test-dependencies-and-building-the-tests-not-required" class="target">Test Dependencies and Building the Tests (<u>NOT REQUIRED</u>)<a class="anchor" href="#test-dependencies-and-building-the-tests-not-required" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+
+<h4 id="obtaining-test-dependencies" class="target">Obtaining Test Dependencies<a class="anchor" href="#obtaining-test-dependencies" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h4>
+
+<h5 id="centos-rhel" class="target">CentOS/RHEL<a class="anchor" href="#centos-rhel" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h5>
+
+<p>CentOS/RHEL does not contain Boost v1.55+ libraries in its repositories; however these can be easily installed from source. Ensure previous version of Boost has been removed by executing the command <code>sudo yum remove boost*</code> before proceeding.</p>
+<pre class="highlight"><code>sudo yum install libssh2-devel
+<span class="nb">pushd</span> /tmp
+wget http://sourceforge.net/projects/boost/files/boost/1.57.0/boost_1_57_0.tar.gz/download -O boost_1_57_0.tar.gz
+tar xzf boost_1_57_0.tar.gz
+<span class="nb">pushd </span>boost_1_57_0
+./bootstrap.sh --with-libraries<span class="o">=</span>atomic,chrono,date_time,log,program_options,random,regex,system,thread,test
+sudo ./b2 <span class="nv">cxxflags</span><span class="o">=</span><span class="s2">"-fPIC"</span> install
+<span class="nb">popd
+popd</span>
+</code></pre>
+<p><strong>NOTE:</strong> CentOS/RHEL 5 has known issues when compiling tests with GCC 4.1.2 as it is not a supported Boost compiler.</p>
+
+<h5 id="os-x" class="target">OS X<a class="anchor" href="#os-x" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h5>
+<pre class="highlight"><code>brew install boost libssh2
+</code></pre>
+<h5 id="ubuntu" class="target">Ubuntu<a class="anchor" href="#ubuntu" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h5>
+
+<h6 id="additional-requirements-for-ubuntu-12-04" class="target">Additional Requirements for Ubuntu 12.04<a class="anchor" href="#additional-requirements-for-ubuntu-12-04" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h6>
+
+<p>Ubuntu 12.04 does not contain Boost v1.55+ C++ libraries in its repositories; however it can be obtained from the Boost PPA which can be found <a href="https://launchpad.net/%7Eboost-latest/+archive/ubuntu/ppa">here</a>.</p>
+<pre class="highlight"><code>sudo add-apt-repository ppa:boost-latest/ppa
+sudo apt-get update
+</code></pre>
+<h5 id="install-dependencies" class="target">Install Dependencies<a class="anchor" href="#install-dependencies" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h5>
+<pre class="highlight"><code>sudo apt-get install libboost1.55-all-dev libssh2-1-dev
+</code></pre>
+<h4 id="building-the-driver-with-the-tests" class="target">Building the Driver with the Tests<a class="anchor" href="#building-the-driver-with-the-tests" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h4>
+<pre class="highlight"><code>git clone https://github.com/datastax/cpp-driver.git
+mkdir cpp-driver/build
+<span class="nb">cd </span>cpp-driver/build
+cmake -DCASS_BUILD_TESTS<span class="o">=</span>ON ..
+make
+</code></pre>
+<h2 id="windows" class="target">Windows<a class="anchor" href="#windows" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>The driver has been built and tested using Microsoft Visual Studio 2010, 2012 and 2013 (using the “Express” and Professional versions) and Windows SDK v7.1, 8.0, and 8.1 on Windows 7 SP1. The library dependencies will automatically download and build; however the following build dependencies will need to be installed.</p>
+
+<h3 id="obtaining-build-dependencies" class="target">Obtaining Build Dependencies<a class="anchor" href="#obtaining-build-dependencies" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+
+<ul>
+<li>Download and install <a href="http://www.cmake.org/download">CMake</a>.
+
+<ul>
+<li>Make sure to select the option “Add CMake to the system PATH for all users” or “Add CMake to the system PATH for current user”.</li>
+</ul>
+</li>
+<li>Download and install <a href="http://git-scm.com/download/win">Git</a>
+
+<ul>
+<li>Make sure to select the option “Use Git from Windows Command Prompt” or manually add the git executable to the system PATH.</li>
+</ul>
+</li>
+<li>Download and install <a href="https://www.perl.org/get.html#win32">ActiveState Perl</a>
+
+<ul>
+<li>Make sure to select the option “Add Perl to PATH environment variable”.</li>
+<li>
+<strong>NOTE:</strong> This build dependency is required if building with OpenSSL support</li>
+</ul>
+</li>
+<li>Download and install <a href="https://www.python.org/downloads">Python v2.7.x</a>
+
+<ul>
+<li>Make sure to select/install the feature “Add python.exe to Path”</li>
+</ul>
+</li>
+</ul>
+
+<h3 id="building-the-driver" class="target">Building the Driver<a class="anchor" href="#building-the-driver" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+
+<p>A batch script has been created to detect installed versions of Visual Studio (and/or Windows SDK installations) to simplify the build process on Windows. If you have more than one version of Visual Studio (and/or Windows SDK) installed you will be prompted to select which version to use when compiling the driver.</p>
+
+<p>First you will need to open a “Command Prompt” (or Windows SDK Command Prompt) to execute the batch script.</p>
+<pre><code class="dos">Usage: VC_BUILD.BAT [OPTION...]
+
+    --DEBUG                           Enable debug build
+    --RELEASE                         Enable release build (default)
+    --DISABLE-CLEAN                   Disable clean build
+    --TARGET-COMPILER [version]       120, 110, 100, or WINSDK
+    --DISABLE-OPENSSL                 Disable OpenSSL support
+    --ENABLE-EXAMPLES                 Enable example builds
+    --ENABLE-PACKAGES [version]       Enable package generation (*)
+    --ENABLE-TESTS [boost-root-dir]   Enable test builds
+    --ENABLE-ZLIB                     Enable zlib
+    --GENERATE-SOLUTION               Generate Visual Studio solution (**)
+    --INSTALL-DIR [install-dir]       Override installation directory
+    --SHARED                          Build shared library (default)
+    --STATIC                          Build static library
+    --X86                             Target 32-bit build (***)
+    --X64                             Target 64-bit build (***)
+    --USE-BOOST-ATOMIC                Use Boost atomic
+
+    --HELP                            Display this message
+
+*   Packages are only generated using detected installations of Visual Studio
+**  Dependencies are built before generation of Visual Studio solution
+*** Default target architecture is determined based on system architecture
+</code></pre>
+<p>To build 32-bit shared library:</p>
+<pre><code class="dos">VC_BUILD.BAT --X86
+</code></pre>
+<p>To build 64-bit shared library:</p>
+<pre><code class="dos">VC_BUILD.BAT --X64
+</code></pre>
+<p>To build using Boost atomic implementation:</p>
+<pre><code class="dos">VC_BUILD.BAT --USE-BOOST-ATOMIC
+</code></pre>
+<p>To build static library:</p>
+<pre><code class="dos">VC_BUILD.BAT --STATIC
+</code></pre>
+<p>To build examples:</p>
+<pre><code class="dos">VC_BUILD.BAT --ENABLE-EXAMPLES
+</code></pre>
+<p>To build library without OpenSSL support:</p>
+<pre><code class="dos">VC_BUILD.BAT --DISABLE-OPENSSL
+</code></pre>
+<p>To build 32-bit static library without OpenSSL support:</p>
+<pre><code class="dos">VC_BUILD.BAT --DISABLE-OPENSSL --STATIC --X86
+</code></pre>
+<p>To generate Visual Studio solution file:</p>
+<pre><code class="dos">VC_BUILD.BAT --GENERATE-SOLUTION
+</code></pre>
+<p>To use vc_build.bat for easy inclusion into a project:</p>
+<pre><code class="dos">VC_BUILD.BAT --TARGET-COMPILER 120 --INSTALL-DIR C:\myproject\dependencies\libs\cpp-driver
+</code></pre>
+<p><strong>NOTE:</strong> When overriding installation directory using <code>--INSTALL-DIR</code>, the
+driver dependencies will also be copied (e.g. C:\myproject\dependencies\libs)</p>
+
+<h3 id="test-dependencies-and-building-the-tests-not-required" class="target">Test Dependencies and Building the Tests (<u>NOT REQUIRED</u>)<a class="anchor" href="#test-dependencies-and-building-the-tests-not-required" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+
+<h4 id="obtaining-test-dependencies" class="target">Obtaining Test Dependencies<a class="anchor" href="#obtaining-test-dependencies" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h4>
+
+<p>Boost v1.55+ is the only external dependency that will need to be obtained in order to build the unit and integration tests.</p>
+
+<p>To simplify the process; pre-built binaries can be obtained <a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.57.0/">here</a>. Ensure the proper Visual Studio (or Windows SDK) version and architecture is obtained and select from the following list:</p>
+
+<ul>
+<li>Visual Studio 2010 (Windows SDK 7.1)
+
+<ul>
+<li>Boost v1.55 <a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.55.0/boost_1_55_0-msvc-10.0-32.exe/download">32-bit</a>/<a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.55.0/boost_1_55_0-msvc-10.0-64.exe/download">64-bit</a>
+</li>
+<li>Boost v1.56 <a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.56.0/boost_1_56_0-msvc-10.0-32.exe/download">32-bit</a>/<a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.56.0/boost_1_56_0-msvc-10.0-64.exe/download">64-bit</a>
+</li>
+<li>Boost v1.57 <a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.57.0/boost_1_57_0-msvc-10.0-32.exe/download">32-bit</a>/<a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.57.0/boost_1_57_0-msvc-10.0-64.exe/download">64-bit</a>
+</li>
+</ul>
+</li>
+<li>Visual Studio 2012 (Windows SDK 8.0)
+
+<ul>
+<li>Boost v1.55 <a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.55.0/boost_1_55_0-msvc-11.0-32.exe/download">32-bit</a>/<a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.55.0/boost_1_55_0-msvc-11.0-64.exe/download">64-bit</a>
+</li>
+<li>Boost v1.56 <a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.56.0/boost_1_56_0-msvc-11.0-32.exe/download">32-bit</a>/<a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.56.0/boost_1_56_0-msvc-11.0-64.exe/download">64-bit</a>
+</li>
+<li>Boost v1.57 <a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.57.0/boost_1_57_0-msvc-11.0-32.exe/download">32-bit</a>/<a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.57.0/boost_1_57_0-msvc-11.0-64.exe/download">64-bit</a>
+</li>
+</ul>
+</li>
+<li>Visual Studio 2013 (Windows SDK 8.1)
+
+<ul>
+<li>Boost v1.55 <a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.55.0/boost_1_55_0-msvc-12.0-32.exe/download">32-bit</a>/<a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.55.0/boost_1_55_0-msvc-12.0-64.exe/download">64-bit</a>
+</li>
+<li>Boost v1.56 <a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.56.0/boost_1_56_0-msvc-12.0-32.exe/download">32-bit</a>/<a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.56.0/boost_1_56_0-msvc-12.0-64.exe/download">64-bit</a>
+</li>
+<li>Boost v1.57 <a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.57.0/boost_1_57_0-msvc-12.0-32.exe/download">32-bit</a>/<a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.57.0/boost_1_57_0-msvc-12.0-64.exe/download">64-bit</a>
+</li>
+</ul>
+</li>
+</ul>
+
+<p><strong>NOTE:</strong> Ensure the Boost library directory structure is configured correctly by renaming the library directory to <u>lib</u> (e.g. lib64-msvc-12.0 to lib).</p>
+
+<h4 id="building-the-driver-with-the-tests" class="target">Building the Driver with the Tests<a class="anchor" href="#building-the-driver-with-the-tests" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h4>
+<pre><code class="dos">VC_BUILD.BAT --STATIC --ENABLE-TESTS &lt;ABSOLUTE-PATH-TO-BOOST&gt;
+
+[e.g. C:\local\boost_1_57_0]
+</code></pre>
+<p><strong>NOTE:</strong> When enabling tests, –USE-BOOST-ATOMIC will use the Boost atomic implementation supplied by <absolute-path-to-boost></absolute-path-to-boost></p>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script src="../../../js/jquery.js"></script>
+    <script src="../../../js/bootstrap.js"></script>
+    <script src="../../../js/angular.js"></script>
+    <script src="../../../js/mousetrap.js"></script>
+    <script src="../../../js/hotkeys.js"></script>
+    <script src="../../../js/ZeroClipboard.js"></script>
+    <script src="../../../js/lunr.js"></script>
+    <script src="../../../js/app.js"></script>
+  </body>
+</html>

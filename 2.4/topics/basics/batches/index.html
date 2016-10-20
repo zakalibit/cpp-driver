@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="DataStax C++ Driver for Apache Cassandra Documentation">
+    <meta name="author" content="DataStax">
+
+    <title>DataStax C/C++ Driver - Batches</title>
+
+    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="apple-touch-icon" href="../../../../favicon.png">
+    <link href="../../../../css/style.css" rel="stylesheet">
+    <link href="../../../../css/pygments.css" rel="stylesheet">
+    <link href="../../../../css/hotkeys.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body ng-app="docs">
+    <div class="navbar">
+      <div class="container-fluid">
+        <div class="row row-offcanvas row-offcanvas-left">
+          <div class="col-sm-3 text-center">
+            <a class="ds-home" href="../../../"><img alt="Brand" src="../../../../img/logo.png"></a>
+            <ul class="list-inline ds-sites" role="nav">
+              <li><a href="https://academy.datastax.com/" class="navbar-link">DataStax Academy</a></li>
+              <li><a href="http://www.datastax.com/dev/blog" class="navbar-link">Tech Blog</a></li>
+              <li><a href="http://www.datastax.com/what-we-offer/products-services/support" class="navbar-link">Support</a></li>
+            </ul>
+          </div>
+          <div class="col-md-5">
+            <p class="lead pubtitle">DataStax C/C++ Driver</p>
+            
+            <div class="text-info">
+              <span class="text-warning">Attention:</span> Viewing documentation for version
+              <div class="btn-group">
+                <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  2.4
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
+                
+                  <li><a href="../../../../topics/basics/batches/">2.5</a></li>
+                
+                  <li class="disabled"><a href="./">2.4</a></li>
+                
+                  <li><a href="../../../../2.3/topics/basics/batches/">2.3</a></li>
+                
+                  <li><a href="../../../../2.2/topics/basics/batches/">2.2</a></li>
+                
+                  <li><a href="../../../../2.1/topics/basics/batches/">2.1</a></li>
+                
+                  <li><a href="../../../../2.0/topics/basics/batches/">2.0</a></li>
+                
+                  <li><a href="../../../../1.0/topics/basics/batches/">1.0</a></li>
+                
+                </ul>
+              </div>
+            </div>
+            
+          </div>
+          <div class="col-md-4">
+            <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
+              <div class="form-group has-feedback">
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.4')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+              </div>
+              <ul class="dropdown-menu search-results" role="menu">
+                <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
+              </ul>
+            </form>
+            <a href="http://www.datastax.com/download" class="btn btn-primary btn-sm">Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid" id="content">
+      <div class="row">
+        <div class="col-md-3">
+          <div id="navigation" class="side-nav" role="tablist" aria-multiselectable="true">
+            <h3><a href="../../../">Contents</a></h3>
+            <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li class="active">
+    <a href="../../">
+      Getting Started <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-minus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li>
+    <a href="../../building/">
+      Building <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li class="active">
+    <a href="../">
+      Basics <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-minus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li>
+    <a href="../keyspaces/">
+      Keyspaces <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../futures/">
+      Futures <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../binding_parameters/">
+      Binding Parameters <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../handling_results/">
+      Handling Results <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../schema_metadata/">
+      Schema Metadata <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../uuids/">
+      UUIDs <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li class="active">
+    <a href="./" class="current">
+      Batches <small>page</small>
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../client_side_timestamps/">
+      Client-side timestamps <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../consistency/">
+      Consistency <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../data_types/">
+      Data Types <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../prepared_statements/">
+      Prepared Statements <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../date_and_time/">
+      The date and time Types <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../tuples/">
+      Tuples <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../user_defined_types/">
+      User Defined Types (UDTs) <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../../security/">
+      Security <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../logging/">
+      Logging <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../configuration/">
+      Configuration <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../faq/">
+      FAQ <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../metrics/">
+      Metrics <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../testing/">
+      Testing <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../../../api/">
+      API docs <small>index</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+          </div>
+        </div>
+        <div class="col-md-9 content">
+          <div class="crumbs-wrapper">
+            <nav id="crumbs" data-spy="affix" data-offset-top="130">
+              <ol class="breadcrumb">
+                
+                
+                
+                <li><a href="../../../">Home</a></li>
+                
+                
+                
+                
+                
+                <li><a href="../../">Getting Started</a></li>
+                
+                
+                
+                
+                
+                <li><a href="../">Basics</a></li>
+                
+                
+                
+                
+                
+                <li class="active">Batches</li>
+                
+                
+                
+              </ol>
+            </nav>
+          </div>
+          
+
+<h1 id="batches" class="target">Batches<a class="anchor" href="#batches" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p><strong>Note</strong>: Cassandra 2.0+ is required.</p>
+
+<p>Batches can be used to group multiple mutations (<code>UPDATE</code>, <code>INSERT</code>, <code>DELETE</code>) together into a single statement; simple or prepared. There are three different types of batches supported by Cassandra 2.0 or later.</p>
+
+<ul>
+<li>
+<code>CASS_BATCH_TYPE_LOGGED</code> is used to make sure that multiple mutations across multiple partitions happen atomically, that is, all the included mutations will eventually succeed. However, there is a performance penalty imposed by atomicity guarantee.</li>
+<li>
+<code>CASS_BATCH_TYPE_UNLOGGED</code> is generally used to group mutations for a single partition and do not suffer from the performance penalty imposed by logged batches, but there is no atomicity guarantee for  multi-partition updates.</li>
+<li>
+<code>CASS_BATCH_TYPE_COUNTER</code> is used to group counters updates.</li>
+</ul>
+
+<p><strong>Important</strong>: Be careful when using batches as a <a href="http://www.datastax.com/documentation/cql/3.1/cql/cql_using/useBatch.html">performance optimization</a>.</p>
+<pre class="highlight"><code><span class="cm">/* This logged batch will makes sure that all the mutations eventually succeed */</span>
+<span class="nc">CassBatch</span><span class="o">*</span> <span class="n">batch</span> <span class="o">=</span> <span class="nb">cass_batch_new</span><span class="p">(</span><span class="n">CASS_BATCH_TYPE_LOGGED</span><span class="p">);</span>
+
+<span class="cm">/* Statements can be immediately freed after being added to the batch */</span>
+
+<span class="p">{</span>
+  <span class="nc">CassStatement</span><span class="o">*</span> <span class="n">statement</span>
+    <span class="o">=</span> <span class="nb">cass_statement_new</span><span class="p">(</span><span class="s">"INSERT INTO example1(key, value) VALUES ('a', '1')"</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="nb">cass_batch_add_statement</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">statement</span><span class="p">);</span>
+  <span class="nb">cass_statement_free</span><span class="p">(</span><span class="n">statement</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="p">{</span>
+  <span class="nc">CassStatement</span><span class="o">*</span> <span class="n">statement</span>
+    <span class="o">=</span> <span class="nb">cass_statement_new</span><span class="p">(</span><span class="s">"UPDATE example2 set value = '2' WHERE key = 'b'"</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="nb">cass_batch_add_statement</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">statement</span><span class="p">);</span>
+  <span class="nb">cass_statement_free</span><span class="p">(</span><span class="n">statement</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="p">{</span>
+  <span class="nc">CassStatement</span><span class="o">*</span> <span class="n">statement</span>
+    <span class="o">=</span> <span class="nb">cass_statement_new</span><span class="p">(</span><span class="s">"DELETE FROM example3 WHERE key = 'c'"</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="nb">cass_batch_add_statement</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">statement</span><span class="p">);</span>
+  <span class="nb">cass_statement_free</span><span class="p">(</span><span class="n">statement</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nc">CassFuture</span><span class="o">*</span> <span class="n">batch_future</span> <span class="o">=</span> <span class="nb">cass_session_execute_batch</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">batch</span><span class="p">);</span>
+
+<span class="cm">/* Batch objects can be freed immediately after being executed */</span>
+<span class="nb">cass_batch_free</span><span class="p">(</span><span class="n">batch</span><span class="p">);</span>
+
+<span class="cm">/* This will block until the query has finished */</span>
+<span class="nc">CassError</span> <span class="n">rc</span> <span class="o">=</span> <span class="nb">cass_future_error_code</span><span class="p">(</span><span class="n">batch_future</span><span class="p">);</span>
+
+<span class="n">printf</span><span class="p">(</span><span class="s">"Batch result: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="nb">cass_error_desc</span><span class="p">(</span><span class="n">rc</span><span class="p">));</span>
+
+<span class="nb">cass_future_free</span><span class="p">(</span><span class="n">batch_future</span><span class="p">);</span>
+</code></pre>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script src="../../../../js/jquery.js"></script>
+    <script src="../../../../js/bootstrap.js"></script>
+    <script src="../../../../js/angular.js"></script>
+    <script src="../../../../js/mousetrap.js"></script>
+    <script src="../../../../js/hotkeys.js"></script>
+    <script src="../../../../js/ZeroClipboard.js"></script>
+    <script src="../../../../js/lunr.js"></script>
+    <script src="../../../../js/app.js"></script>
+  </body>
+</html>

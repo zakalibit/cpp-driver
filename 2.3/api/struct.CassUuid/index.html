@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="DataStax C++ Driver for Apache Cassandra Documentation">
+    <meta name="author" content="DataStax">
+
+    <title>DataStax C/C++ Driver - CassUuid</title>
+
+    <link rel="icon" href="../../../favicon.ico">
+    <link rel="apple-touch-icon" href="../../../favicon.png">
+    <link href="../../../css/style.css" rel="stylesheet">
+    <link href="../../../css/pygments.css" rel="stylesheet">
+    <link href="../../../css/hotkeys.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body ng-app="docs">
+    <div class="navbar">
+      <div class="container-fluid">
+        <div class="row row-offcanvas row-offcanvas-left">
+          <div class="col-sm-3 text-center">
+            <a class="ds-home" href="../../"><img alt="Brand" src="../../../img/logo.png"></a>
+            <ul class="list-inline ds-sites" role="nav">
+              <li><a href="https://academy.datastax.com/" class="navbar-link">DataStax Academy</a></li>
+              <li><a href="http://www.datastax.com/dev/blog" class="navbar-link">Tech Blog</a></li>
+              <li><a href="http://www.datastax.com/what-we-offer/products-services/support" class="navbar-link">Support</a></li>
+            </ul>
+          </div>
+          <div class="col-md-5">
+            <p class="lead pubtitle">DataStax C/C++ Driver</p>
+            
+            <div class="text-info">
+              <span class="text-warning">Attention:</span> Viewing documentation for version
+              <div class="btn-group">
+                <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  2.3
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
+                
+                  <li><a href="../../../api/struct.CassUuid/">2.5</a></li>
+                
+                  <li><a href="../../../2.4/api/struct.CassUuid/">2.4</a></li>
+                
+                  <li class="disabled"><a href="./">2.3</a></li>
+                
+                  <li><a href="../../../2.2/api/struct.CassUuid/">2.2</a></li>
+                
+                  <li><a href="../../../2.1/api/struct.CassUuid/">2.1</a></li>
+                
+                  <li><a href="../../../2.0/api/struct.CassUuid/">2.0</a></li>
+                
+                  <li><a href="../../../1.0/api/struct.CassUuid/">1.0</a></li>
+                
+                </ul>
+              </div>
+            </div>
+            
+          </div>
+          <div class="col-md-4">
+            <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
+              <div class="form-group has-feedback">
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.3')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+              </div>
+              <ul class="dropdown-menu search-results" role="menu">
+                <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
+              </ul>
+            </form>
+            <a href="http://www.datastax.com/download" class="btn btn-primary btn-sm">Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid" id="content">
+      <div class="row">
+        <div class="col-md-3">
+          <div id="navigation" class="side-nav" role="tablist" aria-multiselectable="true">
+            <h3><a href="../../">Contents</a></h3>
+            <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li>
+    <a href="../../topics/">
+      Getting Started <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+  
+  <li class="active">
+    <a href="../">
+      API docs <small>index</small>
+      
+      
+      <span class="glyphicon glyphicon-minus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li>
+    <a href="../struct.CassAggregateMeta/">
+      CassAggregateMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassBatch/">
+      CassBatch <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassCluster/">
+      CassCluster <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassCollection/">
+      CassCollection <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassColumnMeta/">
+      CassColumnMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassCustomPayload/">
+      CassCustomPayload <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassDataType/">
+      CassDataType <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassErrorResult/">
+      CassErrorResult <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassFunctionMeta/">
+      CassFunctionMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassFuture/">
+      CassFuture <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassIndexMeta/">
+      CassIndexMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassInet/">
+      CassInet <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassIterator/">
+      CassIterator <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassKeyspaceMeta/">
+      CassKeyspaceMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassLogMessage/">
+      CassLogMessage <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassMaterializedViewMeta/">
+      CassMaterializedViewMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassMetrics/">
+      CassMetrics <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassPrepared/">
+      CassPrepared <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassResult/">
+      CassResult <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassRetryPolicy/">
+      CassRetryPolicy <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassRow/">
+      CassRow <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassSchemaMeta/">
+      CassSchemaMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassSession/">
+      CassSession <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassSsl/">
+      CassSsl <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassStatement/">
+      CassStatement <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassTableMeta/">
+      CassTableMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassTimestampGen/">
+      CassTimestampGen <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassTuple/">
+      CassTuple <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassUserType/">
+      CassUserType <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li class="active">
+    <a href="./" class="current">
+      CassUuid <small>struct</small>
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassUuidGen/">
+      CassUuidGen <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassValue/">
+      CassValue <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassVersion/">
+      CassVersion <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../cassandra.h/">
+      cassandra.h <small>file</small>
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          </div>
+        </div>
+        <div class="col-md-9 content">
+          <div class="crumbs-wrapper">
+            <nav id="crumbs" data-spy="affix" data-offset-top="130">
+              <ol class="breadcrumb">
+                
+                
+                
+                <li><a href="../../">Home</a></li>
+                
+                
+                
+                
+                
+                <li><a href="../">API docs</a></li>
+                
+                
+                
+                
+                
+                <li class="active">CassUuid</li>
+                
+                
+                
+              </ol>
+            </nav>
+          </div>
+          
+
+<div class="page-header">
+  <h1 id="struct-CassUuid" class="target">
+    <small>struct</small>
+    CassUuid
+  <a class="anchor" href="#struct-CassUuid" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+</div>
+
+<p>Version 1 (time-based) or version 4 (random) UUID.</p>
+
+<h2 id="attributes" class="target">Attributes<a class="anchor" href="#attributes" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<div class="attributes-content">
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading attribute-heading">
+      <code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code> <h3 id="attribute-time_and_version" class="target">time_and_version<a class="anchor" href="#attribute-time_and_version" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body attribute-body">
+      <p>Represents the time and version part of a UUID. The most significant 4 bits represent the version and the bottom 60 bits representing the time part. For version 1 the time part represents the number of 100 nanosecond periods since 00:00:00 UTC, January 1, 1970 (the Epoch). For version 4 the time part is randomly generated.</p>
+
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading attribute-heading">
+      <code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code> <h3 id="attribute-clock_seq_and_node" class="target">clock_seq_and_node<a class="anchor" href="#attribute-clock_seq_and_node" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body attribute-body">
+      <p>Represents the clock sequence and the node part of a UUID. The most significant 16 bits represent the clock sequence (except for the most significant bit which is always set) and the bottom 48 bits represent the node part. For version 1 (time-based) the clock sequence part is randomly generated and the node part can be explicitly set, otherwise, it’s generated from node unique information. For version 4 both the clock sequence and the node parts are randomly generated.</p>
+
+      
+    </div>
+  </div>
+</div>
+
+<h2 id="functions" class="target">Functions<a class="anchor" href="#functions" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<div class="attributes-content">
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code>void</code> <h3 id="function-cass_uuid_min_from_time" class="target">cass_uuid_min_from_time<a class="anchor" href="#function-cass_uuid_min_from_time" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code> time, <code><a href="./">CassUuid</a> *</code> output <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets the UUID to the minimum V1 (time) value for the specified time.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>time</var>
+</td>
+<td><code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>output</var>
+</td>
+<td><code><a href="./">CassUuid</a> *</code></td>
+<td>
+<p>A minimum V1 UUID for the specified time.</p>
+</td>
+</tr>
+</tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code>void</code> <h3 id="function-cass_uuid_max_from_time" class="target">cass_uuid_max_from_time<a class="anchor" href="#function-cass_uuid_max_from_time" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code> time, <code><a href="./">CassUuid</a> *</code> output <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets the UUID to the maximum V1 (time) value for the specified time.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>time</var>
+</td>
+<td><code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>output</var>
+</td>
+<td><code><a href="./">CassUuid</a> *</code></td>
+<td>
+<p>A maximum V1 UUID for the specified time.</p>
+</td>
+</tr>
+</tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code> <h3 id="function-cass_uuid_timestamp" class="target">cass_uuid_timestamp<a class="anchor" href="#function-cass_uuid_timestamp" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="./">CassUuid</a></code> uuid <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets the timestamp for a V1 UUID</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td>
+<small>in</small> <var>uuid</var>
+</td>
+<td><code><a href="./">CassUuid</a></code></td>
+<td></td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code></td>
+<td>
+<p>The timestamp in milliseconds since the Epoch (00:00:00 UTC on 1 January 1970). 0 returned if the UUID is not V1.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#type-cass_uint8_t">cass_uint8_t</a></code> <h3 id="function-cass_uuid_version" class="target">cass_uuid_version<a class="anchor" href="#function-cass_uuid_version" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="./">CassUuid</a></code> uuid <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets the version for a UUID</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td>
+<small>in</small> <var>uuid</var>
+</td>
+<td><code><a href="./">CassUuid</a></code></td>
+<td></td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#type-cass_uint8_t">cass_uint8_t</a></code></td>
+<td>
+<p>The version of the UUID (1 or 4)</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code>void</code> <h3 id="function-cass_uuid_string" class="target">cass_uuid_string<a class="anchor" href="#function-cass_uuid_string" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="./">CassUuid</a></code> uuid, <code>char *</code> output <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Returns a null-terminated string for the specified UUID.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>uuid</var>
+</td>
+<td><code><a href="./">CassUuid</a></code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>output</var>
+</td>
+<td><code>char *</code></td>
+<td>
+<p>A null-terminated string of length CASS_UUID_STRING_LENGTH.</p>
+</td>
+</tr>
+</tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_uuid_from_string" class="target">cass_uuid_from_string<a class="anchor" href="#function-cass_uuid_from_string" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>const char *</code> str, <code><a href="./">CassUuid</a> *</code> output <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Returns a UUID for the specified string.</p>
+
+<p>Example: “550e8400-e29b-41d4-a716-446655440000”</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>str</var>
+</td>
+<td><code>const char *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>output</var>
+</td>
+<td><code><a href="./">CassUuid</a> *</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_uuid_from_string_n" class="target">cass_uuid_from_string_n<a class="anchor" href="#function-cass_uuid_from_string_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>const char *</code> str, <code>size_t</code> str_length, <code><a href="./">CassUuid</a> *</code> output <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_uuid_from_string">CassUuid::cass_uuid_from_string</a></code>, but with lengths for string parameters.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>str</var>
+</td>
+<td><code>const char *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>str_length</var>
+</td>
+<td><code>size_t</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>output</var>
+</td>
+<td><code><a href="./">CassUuid</a> *</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>same as <code><a href="#function-cass_uuid_from_string">CassUuid::cass_uuid_from_string</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_uuid_from_string">CassUuid::cass_uuid_from_string</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script src="../../../js/jquery.js"></script>
+    <script src="../../../js/bootstrap.js"></script>
+    <script src="../../../js/angular.js"></script>
+    <script src="../../../js/mousetrap.js"></script>
+    <script src="../../../js/hotkeys.js"></script>
+    <script src="../../../js/ZeroClipboard.js"></script>
+    <script src="../../../js/lunr.js"></script>
+    <script src="../../../js/app.js"></script>
+  </body>
+</html>

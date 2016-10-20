@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="DataStax C++ Driver for Apache Cassandra Documentation">
+    <meta name="author" content="DataStax">
+
+    <title>DataStax C/C++ Driver - Futures</title>
+
+    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="apple-touch-icon" href="../../../../favicon.png">
+    <link href="../../../../css/style.css" rel="stylesheet">
+    <link href="../../../../css/pygments.css" rel="stylesheet">
+    <link href="../../../../css/hotkeys.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body ng-app="docs">
+    <div class="navbar">
+      <div class="container-fluid">
+        <div class="row row-offcanvas row-offcanvas-left">
+          <div class="col-sm-3 text-center">
+            <a class="ds-home" href="../../../"><img alt="Brand" src="../../../../img/logo.png"></a>
+            <ul class="list-inline ds-sites" role="nav">
+              <li><a href="https://academy.datastax.com/" class="navbar-link">DataStax Academy</a></li>
+              <li><a href="http://www.datastax.com/dev/blog" class="navbar-link">Tech Blog</a></li>
+              <li><a href="http://www.datastax.com/what-we-offer/products-services/support" class="navbar-link">Support</a></li>
+            </ul>
+          </div>
+          <div class="col-md-5">
+            <p class="lead pubtitle">DataStax C/C++ Driver</p>
+            
+            <div class="text-info">
+              <span class="text-warning">Attention:</span> Viewing documentation for version
+              <div class="btn-group">
+                <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  2.1
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
+                
+                  <li><a href="../../../../topics/basics/futures/">2.5</a></li>
+                
+                  <li><a href="../../../../2.4/topics/basics/futures/">2.4</a></li>
+                
+                  <li><a href="../../../../2.3/topics/basics/futures/">2.3</a></li>
+                
+                  <li><a href="../../../../2.2/topics/basics/futures/">2.2</a></li>
+                
+                  <li class="disabled"><a href="./">2.1</a></li>
+                
+                  <li><a href="../../../../2.0/topics/basics/futures/">2.0</a></li>
+                
+                  <li><a href="../../../../1.0/topics/basics/futures/">1.0</a></li>
+                
+                </ul>
+              </div>
+            </div>
+            
+          </div>
+          <div class="col-md-4">
+            <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
+              <div class="form-group has-feedback">
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.1')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+              </div>
+              <ul class="dropdown-menu search-results" role="menu">
+                <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
+              </ul>
+            </form>
+            <a href="http://www.datastax.com/download" class="btn btn-primary btn-sm">Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid" id="content">
+      <div class="row">
+        <div class="col-md-3">
+          <div id="navigation" class="side-nav" role="tablist" aria-multiselectable="true">
+            <h3><a href="../../../">Contents</a></h3>
+            <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li class="active">
+    <a href="../../">
+      Getting Started <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-minus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li>
+    <a href="../../building/">
+      Building <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li class="active">
+    <a href="../">
+      Basics <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-minus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li>
+    <a href="../keyspaces/">
+      Keyspaces <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li class="active">
+    <a href="./" class="current">
+      Futures <small>page</small>
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../binding_parameters/">
+      Binding Parameters <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../handling_results/">
+      Handling Results <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../schema_metadata/">
+      Schema Metadata <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../uuids/">
+      UUIDs <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../batches/">
+      Batches <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../client_side_timestamps/">
+      Client-side timestamps <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../consistency/">
+      Consistency <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../data_types/">
+      Data Types <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../prepared_statements/">
+      Prepared Statements <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../tuples/">
+      Tuples <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../user_defined_types/">
+      User Defined Types (UDTs) <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../../security/">
+      Security <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../logging/">
+      Logging <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../configuration/">
+      Configuration <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../faq/">
+      FAQ <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../metrics/">
+      Metrics <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../testing/">
+      Testing <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../../../api/">
+      API docs <small>index</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+          </div>
+        </div>
+        <div class="col-md-9 content">
+          <div class="crumbs-wrapper">
+            <nav id="crumbs" data-spy="affix" data-offset-top="130">
+              <ol class="breadcrumb">
+                
+                
+                
+                <li><a href="../../../">Home</a></li>
+                
+                
+                
+                
+                
+                <li><a href="../../">Getting Started</a></li>
+                
+                
+                
+                
+                
+                <li><a href="../">Basics</a></li>
+                
+                
+                
+                
+                
+                <li class="active">Futures</li>
+                
+                
+                
+              </ol>
+            </nav>
+          </div>
+          
+
+<h1 id="futures" class="target">Futures<a class="anchor" href="#futures" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>Futures are returned from any driver call that would result in blocking the client application/thread. This allows the client application to continue processing and/or also submit multiple queries in succession. Although the driver has an asynchronous design it can be used synchronously by immediately attempting to get result or explicitly waiting on the future.</p>
+
+<h2 id="waiting-for-results" class="target">Waiting for Results<a class="anchor" href="#waiting-for-results" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>Futures results can be waited on indefinitely by either calling a wait method or by attempting to get the result. They can also be waited on for an explicit amount of time or periodically polled without waiting to execute application code.</p>
+
+<h3 id="synchronously-waiting-on-the-future" class="target">Synchronously Waiting on the Future<a class="anchor" href="#synchronously-waiting-on-the-future" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+<pre class="highlight"><code><span class="nc">CassFuture</span><span class="o">*</span> <span class="n">future</span> <span class="o">=</span> <span class="cm">/* Some operation */</span>
+
+<span class="cm">/* Block until a result or error is set */</span>
+<span class="nb">cass_future_wait</span><span class="p">(</span><span class="n">future</span><span class="p">);</span>
+
+<span class="nb">cass_future_free</span><span class="p">(</span><span class="n">future</span><span class="p">);</span>
+</code></pre>
+<h3 id="synchronously-waiting-for-the-result" class="target">Synchronously Waiting for the Result<a class="anchor" href="#synchronously-waiting-for-the-result" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+<pre class="highlight"><code><span class="nc">CassFuture</span><span class="o">*</span> <span class="n">future</span> <span class="o">=</span> <span class="nb">cass_session_execute</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">statement</span><span class="p">);</span>
+
+<span class="cm">/* Blocks and gets a result */</span>
+<span class="k">const</span> <span class="nc">CassResult</span><span class="o">*</span> <span class="n">result</span> <span class="o">=</span> <span class="nb">cass_future_get_result</span><span class="p">(</span><span class="n">future</span><span class="p">);</span>
+
+<span class="cm">/* If there was an error then the result won't be available */</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="nx">NULL</span><span class="p">)</span> <span class="p">{</span>
+  <span class="cm">/* The error code and message will be set instead */</span>
+  <span class="nc">CassError</span> <span class="n">error_code</span> <span class="o">=</span> <span class="nb">cass_future_error_code</span><span class="p">(</span><span class="n">future</span><span class="p">);</span>
+  <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">error_message</span><span class="p">;</span>
+  <span class="kt">size_t</span> <span class="n">error_message_length</span><span class="p">;</span>
+  <span class="nb">cass_future_error_message</span><span class="p">(</span><span class="n">future</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">error_message</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">error_message_length</span><span class="p">);</span>
+
+  <span class="cm">/* Handle error */</span>
+<span class="p">}</span>
+
+<span class="nb">cass_future_free</span><span class="p">(</span><span class="n">future</span><span class="p">);</span>
+</code></pre>
+<h3 id="timed-wait" class="target">Timed Wait<a class="anchor" href="#timed-wait" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+<pre class="highlight"><code><span class="nc">CassFuture</span><span class="o">*</span> <span class="n">future</span> <span class="o">=</span> <span class="cm">/* Some operation */</span>
+
+<span class="nb">cass_duration_t</span> <span class="n">microseconds</span> <span class="o">=</span> <span class="mi">30</span> <span class="o">*</span> <span class="mi">1000000</span><span class="p">;</span> <span class="cm">/* 30 seconds */</span>
+
+<span class="cm">/* Block for a fixed amount of time */</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">cass_future_wait_timed</span><span class="p">(</span><span class="n">future</span><span class="p">,</span> <span class="n">microseconds</span><span class="p">)</span> <span class="p">{</span>
+  <span class="cm">/* A result or error was set during the wait call */</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="cm">/* The operation hasn't completed yet */</span>
+<span class="p">}</span>
+
+<span class="nb">cass_future_free</span><span class="p">(</span><span class="n">future</span><span class="p">);</span>
+</code></pre>
+<h3 id="polling" class="target">Polling<a class="anchor" href="#polling" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+<pre class="highlight"><code><span class="nc">CassFuture</span><span class="o">*</span> <span class="n">future</span> <span class="o">=</span> <span class="cm">/* Some operation */</span>
+
+<span class="cm">/* Poll to see if the future is ready */</span>
+<span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nb">cass_future_ready</span><span class="p">(</span><span class="n">future</span><span class="p">))</span> <span class="p">{</span>
+  <span class="cm">/* Run other application logic or wait*/</span>
+<span class="p">}</span>
+
+<span class="cm">/* A result or error was set */</span>
+
+<span class="nb">cass_future_free</span><span class="p">(</span><span class="n">future</span><span class="p">);</span>
+</code></pre>
+<h2 id="callbacks" class="target">Callbacks<a class="anchor" href="#callbacks" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>A callback can be set on a future to notify the client application when a request has completed. Using a future callback is the lowest latency method of notification when waiting for several asynchronous operations.</p>
+
+<p><strong>Important</strong>: The driver may run the callback on thread that’s different from the application’s calling thread. Any data accessed in the callback must be immutable or synchronized with a mutex, semaphore, etc.</p>
+<pre class="highlight"><code><span class="kt">void</span> <span class="nf">on_result</span><span class="p">(</span><span class="nc">CassFuture</span><span class="o">*</span> <span class="n">future</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="cm">/* This result will now return immediately */</span>
+  <span class="nc">CassError</span> <span class="n">rc</span> <span class="o">=</span> <span class="nb">cass_future_error_code</span><span class="p">(</span><span class="n">future</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="nb">cass_error_desc</span><span class="p">(</span><span class="n">rc</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="p">...</span>
+
+<span class="nc">CassFuture</span><span class="o">*</span> <span class="n">future</span> <span class="o">=</span> <span class="cm">/* Some operation */</span><span class="p">;</span>
+
+<span class="cm">/* Set a callback instead of waiting for the result to be returned */</span>
+<span class="nb">cass_future_set_callback</span><span class="p">(</span><span class="n">on_result</span><span class="p">,</span> <span class="nx">NULL</span><span class="p">);</span>
+
+<span class="cm">/* The application's reference to the future can be freed immediately */</span>
+<span class="nb">cass_future_free</span><span class="p">(</span><span class="n">future</span><span class="p">);</span>
+
+<span class="cm">/* Run other application logic */</span>
+</code></pre>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script src="../../../../js/jquery.js"></script>
+    <script src="../../../../js/bootstrap.js"></script>
+    <script src="../../../../js/angular.js"></script>
+    <script src="../../../../js/mousetrap.js"></script>
+    <script src="../../../../js/hotkeys.js"></script>
+    <script src="../../../../js/ZeroClipboard.js"></script>
+    <script src="../../../../js/lunr.js"></script>
+    <script src="../../../../js/app.js"></script>
+  </body>
+</html>

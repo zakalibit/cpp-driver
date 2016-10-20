@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="DataStax C++ Driver for Apache Cassandra Documentation">
+    <meta name="author" content="DataStax">
+
+    <title>DataStax C/C++ Driver - Retry policies</title>
+
+    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="apple-touch-icon" href="../../../../favicon.png">
+    <link href="../../../../css/style.css" rel="stylesheet">
+    <link href="../../../../css/pygments.css" rel="stylesheet">
+    <link href="../../../../css/hotkeys.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body ng-app="docs">
+    <div class="navbar">
+      <div class="container-fluid">
+        <div class="row row-offcanvas row-offcanvas-left">
+          <div class="col-sm-3 text-center">
+            <a class="ds-home" href="../../../"><img alt="Brand" src="../../../../img/logo.png"></a>
+            <ul class="list-inline ds-sites" role="nav">
+              <li><a href="https://academy.datastax.com/" class="navbar-link">DataStax Academy</a></li>
+              <li><a href="http://www.datastax.com/dev/blog" class="navbar-link">Tech Blog</a></li>
+              <li><a href="http://www.datastax.com/what-we-offer/products-services/support" class="navbar-link">Support</a></li>
+            </ul>
+          </div>
+          <div class="col-md-5">
+            <p class="lead pubtitle">DataStax C/C++ Driver</p>
+            
+            <div class="text-info">
+              <span class="text-warning">Attention:</span> Viewing documentation for version
+              <div class="btn-group">
+                <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  2.2
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
+                
+                  <li><a href="../../../../topics/configuration/retry_policies/">2.5</a></li>
+                
+                  <li><a href="../../../../2.4/topics/configuration/retry_policies/">2.4</a></li>
+                
+                  <li><a href="../../../../2.3/topics/configuration/retry_policies/">2.3</a></li>
+                
+                  <li class="disabled"><a href="./">2.2</a></li>
+                
+                  <li><a href="../../../../2.1/topics/configuration/retry_policies/">2.1</a></li>
+                
+                  <li><a href="../../../../2.0/">2.0</a></li>
+                
+                  <li><a href="../../../../1.0/">1.0</a></li>
+                
+                </ul>
+              </div>
+            </div>
+            
+          </div>
+          <div class="col-md-4">
+            <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
+              <div class="form-group has-feedback">
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.2')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+              </div>
+              <ul class="dropdown-menu search-results" role="menu">
+                <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
+              </ul>
+            </form>
+            <a href="http://www.datastax.com/download" class="btn btn-primary btn-sm">Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid" id="content">
+      <div class="row">
+        <div class="col-md-3">
+          <div id="navigation" class="side-nav" role="tablist" aria-multiselectable="true">
+            <h3><a href="../../../">Contents</a></h3>
+            <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li class="active">
+    <a href="../../">
+      Getting Started <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-minus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li>
+    <a href="../../building/">
+      Building <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../basics/">
+      Basics <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../security/">
+      Security <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../logging/">
+      Logging <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li class="active">
+    <a href="../">
+      Configuration <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-minus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li class="active">
+    <a href="./" class="current">
+      Retry policies <small>page</small>
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../../faq/">
+      FAQ <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../metrics/">
+      Metrics <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../testing/">
+      Testing <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../../../api/">
+      API docs <small>index</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+          </div>
+        </div>
+        <div class="col-md-9 content">
+          <div class="crumbs-wrapper">
+            <nav id="crumbs" data-spy="affix" data-offset-top="130">
+              <ol class="breadcrumb">
+                
+                
+                
+                <li><a href="../../../">Home</a></li>
+                
+                
+                
+                
+                
+                <li><a href="../../">Getting Started</a></li>
+                
+                
+                
+                
+                
+                <li><a href="../">Configuration</a></li>
+                
+                
+                
+                
+                
+                <li class="active">Retry policies</li>
+                
+                
+                
+              </ol>
+            </nav>
+          </div>
+          
+
+<h1 id="retry-policies" class="target">Retry policies<a class="anchor" href="#retry-policies" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>Retry polices allow the driver to automatically handle server-side failures when
+Cassandra is unable to fulfill the consistency requirement of a request.</p>
+
+<p><strong>Important</strong>: Retry policies do not handle client-side failures such as
+client-side timeouts or client-side connection issues. In these cases
+application code must handle the failure and retry the request. The driver will
+automatically recover requests that haven’t been written, but once a request is
+written the driver will return an error for in-flight requests and will not try
+to automatically recover. This is done because not all operations are idempotent
+and the driver is unable to distinguish which requests can automatically retried
+without side effect. It’s up to application code to make this distinction.</p>
+
+<h2 id="setting-retry-policy" class="target">Setting Retry Policy<a class="anchor" href="#setting-retry-policy" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>By default, the driver uses the <code>default retry policy</code> for all requests unless
+it is overridden. The retry policy can be set globally using
+<a href="../../../api/struct.CassCluster/#cass-cluster-set-retry-policy"><code>cass_cluster_set_retry_policy()</code></a> or it can be set per statement or batch
+using <a href="../../../api/struct.CassStatement/#cass-statement-set-retry-policy"><code>cass_statement_set_retry_policy()</code></a> or
+<a href="../../../api/struct.CassBatch/#cass-batch-set-retry-policy"><code>cass_batch_set_retry_policy()</code></a>, respectively.</p>
+
+<h2 id="default-retry-policy" class="target">Default Retry Policy<a class="anchor" href="#default-retry-policy" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>The default retry policy will only retry a request when it is safe to do so
+while preserving the consistency level of the request and it is likely to
+succeed. In all other cases, this policy will return an error.</p>
+
+<table class="table table-striped table-hover table-condensed">
+  <thead>
+   <tr>
+   <th>Failure Type</th>
+   <th>Action</th>
+   </tr>
+  </thead>
+  <tbody>
+  <tr>
+   <td>Read Timeout</td>
+   <td>Retry if the number of received responses is greater than or equal to the
+   number of required responses, but the data was not received. Returns and
+   error in all other cases.</td>
+  </tr>
+  <tr>
+   <td>Write Timeout</td>
+   <td>Retry only if the request is a logged batch request and the request failed to
+   write the batch log. Returns an error in all other cases.</td>
+  </tr>
+  <tr>
+   <td>Unavailable</td>
+   <td>Retries the request using the next host in the query plan.</td>
+  </tr>
+  </tbody>
+</table>
+<pre class="highlight"><code><span class="nc">CassRetryPolicy</span><span class="o">*</span> <span class="n">default_policy</span> <span class="o">=</span> <span class="nb">cass_retry_policy_default_new</span><span class="p">();</span>
+
+<span class="cm">/* ... */</span>
+
+<span class="cm">/* Retry policies must be freed */</span>
+<span class="nb">cass_retry_policy_free</span><span class="p">(</span><span class="n">default_policy</span><span class="p">);</span>
+</code></pre>
+<h2 id="downgrading-consistency-retry-policy" class="target">Downgrading Consistency Retry Policy<a class="anchor" href="#downgrading-consistency-retry-policy" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>This policy will retry in all the same scenarios as the default policy, and it
+will also retry in cases where there is a chance to save the request at the cost
+of lower the consistency. The goal of this policy is to be robust in the face of
+transient failures. Read requests will succeed as long as there’s a single copy available
+and write wills succeed if there’s at least a single copy persisted.</p>
+
+<p><strong>Important:</strong> This policy may attempt to retry request with a lower consistency
+level. Using this policy can break consistency guarantees and shouldn’t not be
+used in application that required strong consistency.</p>
+
+<table class="table table-striped table-hover table-condensed">
+  <thead>
+   <tr>
+   <th>Failure Type</th>
+   <th>Action</th>
+   </tr>
+  </thead>
+  <tbody>
+  <tr>
+   <td>Read Timeout</td>
+   <td>Retry with a lower consistency if some at least some replicas responded.</td>
+  </tr>
+  <tr>
+   <td>Write Timeout</td>
+   <td>Retry unlogged batches at a lower consistency level if at least one
+   replica responded. For single queries and other batch types if any replicas
+   responded then consider the request successful and ignore the error.</td>
+  </tr>
+  <tr>
+   <td>Unavailable</td>
+   <td>Retry with a lower consistency if some at least some replicas responded.</td>
+  </tr>
+  </tbody>
+</table>
+<pre class="highlight"><code><span class="nc">CassRetryPolicy</span><span class="o">*</span> <span class="n">downgrading_policy</span> <span class="o">=</span>
+<span class="nb">cass_retry_policy_downgrading_consistency_new</span><span class="p">();</span>
+
+<span class="cm">/* ... */</span>
+
+<span class="cm">/* Retry policies must be freed */</span>
+<span class="nb">cass_retry_policy_free</span><span class="p">(</span><span class="n">downgrading_policy</span><span class="p">);</span>
+</code></pre>
+<h2 id="fallthrough-retry-policy" class="target">Fallthrough Retry Policy<a class="anchor" href="#fallthrough-retry-policy" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>This policy never retries or ignores a server-side failures. Errors are always
+returned. This policy is useful for application that want to handle retries
+directly.</p>
+
+<table class="table table-striped table-hover table-condensed">
+  <thead>
+   <tr>
+   <th>Failure Type</th>
+   <th>Action</th>
+   </tr>
+  </thead>
+  <tbody>
+  <tr>
+   <td>Read Timeout</td>
+   <td>Return error</td>
+  </tr>
+  <tr>
+   <td>Write Timeout</td>
+   <td>Return error</td>
+  </tr>
+  <tr>
+   <td>Unavailable</td>
+   <td>Return error</td>
+  </tr>
+  </tbody>
+</table>
+<pre class="highlight"><code><span class="nc">CassRetryPolicy</span><span class="o">*</span> <span class="n">fallthrough_policy</span> <span class="o">=</span>
+<span class="nb">cass_retry_policy_fallthrough_new</span><span class="p">();</span>
+
+<span class="cm">/* ... */</span>
+
+<span class="cm">/* Retry policies must be freed */</span>
+<span class="nb">cass_retry_policy_free</span><span class="p">(</span><span class="n">fallthrough_policy</span><span class="p">);</span>
+</code></pre>
+<h2 id="logging" class="target">Logging<a class="anchor" href="#logging" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>This policy can be added as a parent policy to all the other polices. It logs
+the retry decision of its child policy. The log messages created by this policy
+are done using the <a href="../../../api/cassandra.h/#cass-log-level"><code>CASS_LOG_INFO</code></a> level.</p>
+<pre class="highlight"><code><span class="nc">CassRetryPolicy</span><span class="o">*</span> <span class="n">default_policy</span> <span class="o">=</span> <span class="nb">cass_retry_policy_default_new</span><span class="p">();</span>
+<span class="nc">CassRetryPolicy</span><span class="o">*</span> <span class="n">logging_policy</span> <span class="o">=</span> <span class="nb">cass_retry_policy_logging_new</span><span class="p">(</span><span class="n">default_policy</span><span class="p">)</span>
+
+<span class="nb">cass_cluster_set_retry_policy</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="n">logging_policy</span><span class="p">);</span>
+
+<span class="cm">/* ... */</span>
+
+<span class="cm">/* Retry policies must be freed */</span>
+<span class="nb">cass_retry_policy_free</span><span class="p">(</span><span class="n">default_policy</span><span class="p">);</span>
+<span class="nb">cass_retry_policy_free</span><span class="p">(</span><span class="n">logging_policy</span><span class="p">);</span>
+</code></pre>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script src="../../../../js/jquery.js"></script>
+    <script src="../../../../js/bootstrap.js"></script>
+    <script src="../../../../js/angular.js"></script>
+    <script src="../../../../js/mousetrap.js"></script>
+    <script src="../../../../js/hotkeys.js"></script>
+    <script src="../../../../js/ZeroClipboard.js"></script>
+    <script src="../../../../js/lunr.js"></script>
+    <script src="../../../../js/app.js"></script>
+  </body>
+</html>

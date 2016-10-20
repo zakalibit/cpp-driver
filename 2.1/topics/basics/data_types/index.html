@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="DataStax C++ Driver for Apache Cassandra Documentation">
+    <meta name="author" content="DataStax">
+
+    <title>DataStax C/C++ Driver - Data Types</title>
+
+    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="apple-touch-icon" href="../../../../favicon.png">
+    <link href="../../../../css/style.css" rel="stylesheet">
+    <link href="../../../../css/pygments.css" rel="stylesheet">
+    <link href="../../../../css/hotkeys.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body ng-app="docs">
+    <div class="navbar">
+      <div class="container-fluid">
+        <div class="row row-offcanvas row-offcanvas-left">
+          <div class="col-sm-3 text-center">
+            <a class="ds-home" href="../../../"><img alt="Brand" src="../../../../img/logo.png"></a>
+            <ul class="list-inline ds-sites" role="nav">
+              <li><a href="https://academy.datastax.com/" class="navbar-link">DataStax Academy</a></li>
+              <li><a href="http://www.datastax.com/dev/blog" class="navbar-link">Tech Blog</a></li>
+              <li><a href="http://www.datastax.com/what-we-offer/products-services/support" class="navbar-link">Support</a></li>
+            </ul>
+          </div>
+          <div class="col-md-5">
+            <p class="lead pubtitle">DataStax C/C++ Driver</p>
+            
+            <div class="text-info">
+              <span class="text-warning">Attention:</span> Viewing documentation for version
+              <div class="btn-group">
+                <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  2.1
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
+                
+                  <li><a href="../../../../topics/basics/data_types/">2.5</a></li>
+                
+                  <li><a href="../../../../2.4/topics/basics/data_types/">2.4</a></li>
+                
+                  <li><a href="../../../../2.3/topics/basics/data_types/">2.3</a></li>
+                
+                  <li><a href="../../../../2.2/topics/basics/data_types/">2.2</a></li>
+                
+                  <li class="disabled"><a href="./">2.1</a></li>
+                
+                  <li><a href="../../../../2.0/">2.0</a></li>
+                
+                  <li><a href="../../../../1.0/">1.0</a></li>
+                
+                </ul>
+              </div>
+            </div>
+            
+          </div>
+          <div class="col-md-4">
+            <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
+              <div class="form-group has-feedback">
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.1')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+              </div>
+              <ul class="dropdown-menu search-results" role="menu">
+                <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
+              </ul>
+            </form>
+            <a href="http://www.datastax.com/download" class="btn btn-primary btn-sm">Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid" id="content">
+      <div class="row">
+        <div class="col-md-3">
+          <div id="navigation" class="side-nav" role="tablist" aria-multiselectable="true">
+            <h3><a href="../../../">Contents</a></h3>
+            <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li class="active">
+    <a href="../../">
+      Getting Started <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-minus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li>
+    <a href="../../building/">
+      Building <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li class="active">
+    <a href="../">
+      Basics <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-minus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li>
+    <a href="../keyspaces/">
+      Keyspaces <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../futures/">
+      Futures <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../binding_parameters/">
+      Binding Parameters <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../handling_results/">
+      Handling Results <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../schema_metadata/">
+      Schema Metadata <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../uuids/">
+      UUIDs <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../batches/">
+      Batches <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../client_side_timestamps/">
+      Client-side timestamps <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../consistency/">
+      Consistency <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li class="active">
+    <a href="./" class="current">
+      Data Types <small>page</small>
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../prepared_statements/">
+      Prepared Statements <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../tuples/">
+      Tuples <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../user_defined_types/">
+      User Defined Types (UDTs) <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../../security/">
+      Security <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../logging/">
+      Logging <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../configuration/">
+      Configuration <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../faq/">
+      FAQ <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../metrics/">
+      Metrics <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../testing/">
+      Testing <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../../../api/">
+      API docs <small>index</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+          </div>
+        </div>
+        <div class="col-md-9 content">
+          <div class="crumbs-wrapper">
+            <nav id="crumbs" data-spy="affix" data-offset-top="130">
+              <ol class="breadcrumb">
+                
+                
+                
+                <li><a href="../../../">Home</a></li>
+                
+                
+                
+                
+                
+                <li><a href="../../">Getting Started</a></li>
+                
+                
+                
+                
+                
+                <li><a href="../">Basics</a></li>
+                
+                
+                
+                
+                
+                <li class="active">Data Types</li>
+                
+                
+                
+              </ol>
+            </nav>
+          </div>
+          
+
+<h1 id="data-types" class="target">Data Types<a class="anchor" href="#data-types" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p><a href="../../../api/struct.CassDataType/"><code>CassDataType</code></a> objects are useful for describing the different values that can
+be stored in Cassandra, from primitive types to more complex composite types
+such as UDTs, tuples and collections. Data types can be retrieved from existing
+metadata found in schema, results, values or prepared statements or they can be
+constructed programmatically.</p>
+
+<p>The following code snippets use the following type schema:</p>
+<pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TYPE</span> <span class="n">person</span> <span class="p">(</span><span class="n">name</span> <span class="k">text</span><span class="p">,</span>
+                    <span class="o">//</span> <span class="n">Street</span> <span class="n">address</span><span class="p">,</span> <span class="n">zip</span> <span class="n">code</span><span class="p">,</span> <span class="n">state</span><span class="o">/</span><span class="n">province</span><span class="p">,</span> <span class="k">and</span> <span class="n">country</span>
+                    <span class="n">address</span> <span class="n">frozen</span><span class="o">&lt;</span><span class="n">tuple</span><span class="o">&lt;</span><span class="k">text</span><span class="p">,</span> <span class="k">int</span><span class="p">,</span> <span class="k">text</span><span class="p">,</span> <span class="k">text</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+                    <span class="o">//</span> <span class="k">Type</span> <span class="k">and</span> <span class="n">number</span>
+                    <span class="n">phone_numbers</span> <span class="n">frozen</span><span class="o">&lt;</span><span class="k">map</span><span class="o">&lt;</span><span class="k">text</span><span class="p">,</span> <span class="k">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
+</code></pre>
+<h2 id="retrieving-an-existing-data-type" class="target">Retrieving an Existing Data Type<a class="anchor" href="#retrieving-an-existing-data-type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p><strong>Important</strong>: Any <code>const [CassDataType]*</code> object doesn’t need to be freed. It’s
+lifetime is bound to the object it came from.</p>
+
+<p>UDT data types can be retrieved using a <a href="../../../api/struct.CassSchema/"><code>CassSchema</code></a> object. The resulting
+data type object can be used to construct a new [<code>CassUserType</code>] object using
+<a href="../../../api/struct.CassUserType/#cass-user-type-new-from-data-type"><code>cass_user_type_new_from_data_type()</code></a>.</p>
+<pre class="highlight"><code><span class="cm">/* Get schema object (this should be cached) */</span>
+<span class="k">const</span> <span class="nc">CassSchema</span><span class="o">*</span> <span class="n">schema</span> <span class="o">=</span> <span class="nb">cass_session_get_schema</span><span class="p">(</span><span class="n">session</span><span class="p">);</span>
+
+<span class="cm">/* This data type object doesn't need to be freed */</span>
+<span class="k">const</span> <span class="n">DataType</span><span class="o">*</span> <span class="n">person_data_type</span> <span class="o">=</span>
+  <span class="nb">cass_schema_get_udt</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="s">"keyspace"</span><span class="p">,</span> <span class="s">"person"</span><span class="p">);</span>
+
+<span class="cm">/* ... */</span>
+
+<span class="cm">/* Schema object must be freed */</span>
+<span class="nb">cass_schema_free</span><span class="p">(</span><span class="n">schema</span><span class="p">);</span>
+</code></pre>
+<p>Data types can also be retrieved from <a href="../../../api/struct.CassResult/"><code>CassResult</code></a>, <a href="../../../api/struct.CassPrepared/"><code>CassPrepared</code></a>, and
+<a href="../../../api/struct.CassValue/"><code>CassValue</code></a> objects.</p>
+
+<ul>
+<li>
+<a href="../../../api/struct.CassResult/#cass-result-column-data-type"><code>cass_result_column_data_type()</code></a> can be used to get the
+data type of a column for a <a href="../../../api/struct.CassResult/"><code>CassResult</code></a>.
+
+<ul>
+<li>
+<a href="../../../api/struct.CassPrepared/#cass-prepared-parameter-data-type"><code>cass_prepared_parameter_data_type()</code></a> can be used to get the data type of
+the parameters for a <a href="../../../api/struct.CassPrepared/"><code>CassPrepared</code></a> object. There are also functions to get
+the data type of a prepared parameter by name.</li>
+</ul>
+</li>
+<li>
+<a href="../../../api/struct.CassValue/#cass-value-data-type"><code>cass_value_data_type()</code></a> can be used to get the data type represented by a
+<a href="../../../api/struct.CassValue/"><code>CassValue</code></a> object.</li>
+</ul>
+
+<h2 id="programmatically-building-a-data-type" class="target">Programmatically Building a Data Type<a class="anchor" href="#programmatically-building-a-data-type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>Data types can also be programmatically constructed. This is useful for application that
+may have disabled schema metatdata.</p>
+<pre class="highlight"><code><span class="nc">CassDataType</span><span class="o">*</span> <span class="n">person_data_type</span> <span class="o">=</span> <span class="nb">cass_data_type_new_udt</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="nc">CassDataType</span><span class="o">*</span> <span class="n">address_data_type</span> <span class="o">=</span> <span class="nb">cass_data_type_new_type</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="nc">CassDataType</span><span class="o">*</span> <span class="n">phone_numbers_data_type</span> <span class="o">=</span>
+  <span class="nb">cass_data_type_new</span><span class="p">(</span><span class="n">CASS_VALUE_TYPE_MAP</span><span class="p">);</span>
+
+<span class="cm">/* Street address, zip code, state/province, and country */</span>
+<span class="nb">cass_data_type_add_sub_value_type</span><span class="p">(</span><span class="n">address_data_type</span><span class="p">,</span> <span class="n">CASS_VALUE_TYPE_TEXT</span><span class="p">);</span>
+<span class="nb">cass_data_type_add_sub_value_type</span><span class="p">(</span><span class="n">address_data_type</span><span class="p">,</span> <span class="n">CASS_VALUE_TYPE_INT</span><span class="p">);</span>
+<span class="nb">cass_data_type_add_sub_value_type</span><span class="p">(</span><span class="n">address_data_type</span><span class="p">,</span> <span class="n">CASS_VALUE_TYPE_TEXT</span><span class="p">);</span>
+<span class="nb">cass_data_type_add_sub_value_type</span><span class="p">(</span><span class="n">address_data_type</span><span class="p">,</span> <span class="n">CASS_VALUE_TYPE_TEXT</span><span class="p">);</span>
+
+<span class="cm">/* Phone type and number*/</span>
+<span class="nb">cass_data_type_add_sub_value_type</span><span class="p">(</span><span class="n">phone_numbers_data_type</span><span class="p">,</span> <span class="n">CASS_VALUE_TYPE_TEXT</span><span class="p">);</span>
+<span class="nb">cass_data_type_add_sub_value_type</span><span class="p">(</span><span class="n">phone_numbers_data_type</span><span class="p">,</span> <span class="n">CASS_VALUE_TYPE_INT</span><span class="p">);</span>
+
+<span class="cm">/* Add fields to the person data type */</span>
+<span class="nb">cass_data_type_add_sub_value_type_by_name</span><span class="p">(</span><span class="n">data_type</span><span class="p">,</span> <span class="s">"name"</span><span class="p">,</span> <span class="n">CASS_VALUE_TYPE_TEXT</span><span class="p">);</span>
+<span class="nb">cass_data_type_add_sub_data_type_by_name</span><span class="p">(</span><span class="n">data_type</span><span class="p">,</span> <span class="s">"address"</span><span class="p">,</span> <span class="n">address_data_type</span><span class="p">);</span>
+<span class="nb">cass_data_type_add_sub_value_type_by_name</span><span class="p">(</span><span class="n">data_type</span><span class="p">,</span> <span class="s">"phone_numbers"</span><span class="p">,</span> <span class="n">phone_numbers_data_type</span><span class="p">);</span>
+
+<span class="cm">/* ... */</span>
+
+<span class="cm">/* Data types must be freed */</span>
+<span class="nb">cass_data_type_free</span><span class="p">(</span><span class="n">person_data_type</span><span class="p">);</span>
+<span class="nb">cass_data_type_free</span><span class="p">(</span><span class="n">address_data_type</span><span class="p">);</span>
+<span class="nb">cass_data_type_free</span><span class="p">(</span><span class="n">phone_numbers_data_type</span><span class="p">);</span>
+</code></pre>
+<h2 id="creating-ud-ts-tuples-and-collections-using-data-types" class="target">Creating UDTs, Tuples and Collections Using Data Types<a class="anchor" href="#creating-ud-ts-tuples-and-collections-using-data-types" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>Once the user type object has be retrieved or created manually it can be used to
+construct composite data types. The sub-types of a data type can be used to
+construct other nested types.</p>
+<pre class="highlight"><code><span class="cm">/* Construct a new UDT from a data type */</span>
+<span class="nc">CassUserType</span><span class="o">*</span> <span class="n">person</span> <span class="o">=</span> <span class="nb">cass_user_type_new_from_data_type</span><span class="p">(</span><span class="n">person_data_type</span><span class="p">);</span>
+
+<span class="cm">/* ... */</span>
+
+<span class="cm">/* Construct a new tuple from a nested data type */</span>
+<span class="nc">CassTuple</span><span class="o">*</span> <span class="n">address</span> <span class="o">=</span>
+  <span class="nb">cass_tuple_type_new_from_data_type</span><span class="p">(</span>
+     <span class="nb">cass_data_type_sub_data_type_by_name</span><span class="p">(</span><span class="n">person_data_type</span><span class="p">,</span> <span class="s">"address"</span><span class="p">));</span>
+
+<span class="cm">/* ... */</span>
+
+<span class="cm">/* Construct a new map collection from a nested data type */</span>
+<span class="nc">CassCollection</span><span class="o">*</span> <span class="n">phone_numbers</span> <span class="o">=</span>
+  <span class="nb">cass_collection_new_from_data_type</span>
+    <span class="nb">cass_data_type_sub_data_type_by_name</span><span class="p">(</span><span class="n">person_data_type</span><span class="p">,</span> <span class="s">"phone_numbers"</span><span class="p">));</span>
+
+<span class="cm">/* ... */</span>
+
+<span class="cm">/* Add fields to the UDT */</span>
+<span class="nb">cass_user_type_set_string_byte_by_name</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="s">"name"</span><span class="p">,</span> <span class="s">"Bob"</span><span class="p">);</span>
+<span class="nb">cass_user_type_set_user_type_by_name</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="s">"address"</span><span class="p">,</span> <span class="n">address</span><span class="p">);</span>
+<span class="nb">cass_user_type_set_collection_by_name</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="s">"phone_numbers"</span><span class="p">,</span> <span class="n">phone_numbers</span><span class="p">);</span>
+
+<span class="cm">/* ... */</span>
+
+<span class="cm">/* UDT, tuple, and collection objects must be freed */</span>
+<span class="nb">cass_user_type_free</span><span class="p">(</span><span class="n">person</span><span class="p">);</span>
+<span class="nb">cass_tuple_free</span><span class="p">(</span><span class="n">address</span><span class="p">);</span>
+<span class="nb">cass_collection_free</span><span class="p">(</span><span class="n">phone_numbers</span><span class="p">);</span>
+</code></pre>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script src="../../../../js/jquery.js"></script>
+    <script src="../../../../js/bootstrap.js"></script>
+    <script src="../../../../js/angular.js"></script>
+    <script src="../../../../js/mousetrap.js"></script>
+    <script src="../../../../js/hotkeys.js"></script>
+    <script src="../../../../js/ZeroClipboard.js"></script>
+    <script src="../../../../js/lunr.js"></script>
+    <script src="../../../../js/app.js"></script>
+  </body>
+</html>

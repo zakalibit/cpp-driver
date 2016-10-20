@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="DataStax C++ Driver for Apache Cassandra Documentation">
+    <meta name="author" content="DataStax">
+
+    <title>DataStax C/C++ Driver - Configuration</title>
+
+    <link rel="icon" href="../../favicon.ico">
+    <link rel="apple-touch-icon" href="../../favicon.png">
+    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/pygments.css" rel="stylesheet">
+    <link href="../../css/hotkeys.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body ng-app="docs">
+    <div class="navbar">
+      <div class="container-fluid">
+        <div class="row row-offcanvas row-offcanvas-left">
+          <div class="col-sm-3 text-center">
+            <a class="ds-home" href="../../"><img alt="Brand" src="../../img/logo.png"></a>
+            <ul class="list-inline ds-sites" role="nav">
+              <li><a href="https://academy.datastax.com/" class="navbar-link">DataStax Academy</a></li>
+              <li><a href="http://www.datastax.com/dev/blog" class="navbar-link">Tech Blog</a></li>
+              <li><a href="http://www.datastax.com/what-we-offer/products-services/support" class="navbar-link">Support</a></li>
+            </ul>
+          </div>
+          <div class="col-md-5">
+            <p class="lead pubtitle">DataStax C/C++ Driver</p>
+            
+            <div class="text-info">
+              <span class="text-warning">Attention:</span> Viewing documentation for version
+              <div class="btn-group">
+                <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  2.5
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
+                
+                  <li class="disabled"><a href="./">2.5</a></li>
+                
+                  <li><a href="../../2.4/topics/configuration/">2.4</a></li>
+                
+                  <li><a href="../../2.3/topics/configuration/">2.3</a></li>
+                
+                  <li><a href="../../2.2/topics/configuration/">2.2</a></li>
+                
+                  <li><a href="../../2.1/topics/configuration/">2.1</a></li>
+                
+                  <li><a href="../../2.0/topics/configuration/">2.0</a></li>
+                
+                  <li><a href="../../1.0/topics/configuration/">1.0</a></li>
+                
+                </ul>
+              </div>
+            </div>
+            
+          </div>
+          <div class="col-md-4">
+            <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
+              <div class="form-group has-feedback">
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.5')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+              </div>
+              <ul class="dropdown-menu search-results" role="menu">
+                <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
+              </ul>
+            </form>
+            <a href="http://www.datastax.com/download" class="btn btn-primary btn-sm">Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid" id="content">
+      <div class="row">
+        <div class="col-md-3">
+          <div id="navigation" class="side-nav" role="tablist" aria-multiselectable="true">
+            <h3><a href="../../">Contents</a></h3>
+            <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li class="active">
+    <a href="../">
+      Getting Started <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-minus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li>
+    <a href="../building/">
+      Building <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../basics/">
+      Basics <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../security/">
+      Security <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../logging/">
+      Logging <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li class="active">
+    <a href="./" class="current">
+      Configuration <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-minus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li>
+    <a href="retry_policies/">
+      Retry policies <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../faq/">
+      FAQ <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../metrics/">
+      Metrics <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../testing/">
+      Testing <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../../api/">
+      API docs <small>index</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+          </div>
+        </div>
+        <div class="col-md-9 content">
+          <div class="crumbs-wrapper">
+            <nav id="crumbs" data-spy="affix" data-offset-top="130">
+              <ol class="breadcrumb">
+                
+                
+                
+                <li><a href="../../">Home</a></li>
+                
+                
+                
+                
+                
+                <li><a href="../">Getting Started</a></li>
+                
+                
+                
+                
+                
+                <li class="active">Configuration</li>
+                
+                
+                
+              </ol>
+            </nav>
+          </div>
+          
+
+<h1 id="configuration" class="target">Configuration<a class="anchor" href="#configuration" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<h2 id="load-balancing" class="target">Load balancing<a class="anchor" href="#load-balancing" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>Load balancing controls how queries are distributed to nodes in a Cassandra
+cluster.</p>
+
+<p>Without additional configuration the C/C++ driver defaults to using Datacenter-aware
+load balancing with token-aware routing. Meaning the driver will only send
+queries to nodes in the local datacenter (for local consistency levels) and
+it will use the primary key of queries to route them directly to the nodes where the
+corresponding data is located.</p>
+
+<h3 id="round-robin-load-balancing" class="target">Round-robin Load Balancing<a class="anchor" href="#round-robin-load-balancing" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+
+<p>This load balancing policy equally distributes queries across cluster without
+consideration of datacenter locality. This should only be used with
+Cassandra clusters where all nodes are located in the same datacenter.</p>
+
+<h3 id="datacenter-aware-load-balancing" class="target">Datacenter-aware Load Balancing<a class="anchor" href="#datacenter-aware-load-balancing" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+
+<p>This load balancing policy equally distributes queries to nodes in the local
+datacenter. Nodes in remote datacenters are only used when all local nodes are
+unavailable. Additionally, remote nodes are only considered when non-local
+consistency levels are used or if the driver is configured to use remote nodes
+with the <a href="../../api/struct.CassCluster/#1a46b9816129aaa5ab61a1363489dccfd0"><code>allow_remote_dcs_for_local_cl</code></a> setting.</p>
+<pre class="highlight"><code><span class="cm">/*
+ * Use up to 2 remote datacenter nodes for remote consistency levels
+ * or when `allow_remote_dcs_for_local_cl` is enabled.
+ */</span>
+<span class="kt">unsigned</span> <span class="n">used_hosts_per_remote_dc</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="cm">/* Don't use remote datacenter nodes for local consistency levels */</span>
+<span class="nb">cass_bool_t</span> <span class="n">allow_remote_dcs_for_local_cl</span> <span class="o">=</span> <span class="nb">cass_false</span><span class="p">;</span>
+
+<span class="nb">cass_cluster_set_load_balance_dc_aware</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span>
+                                       <span class="n">used_hosts_per_remote_dc</span><span class="p">,</span>
+                                       <span class="n">allow_remote_dcs_for_local_cl</span><span class="p">);</span>
+</code></pre>
+<h3 id="token-aware-routing" class="target">Token-aware Routing<a class="anchor" href="#token-aware-routing" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+
+<p>Token-aware routing uses the primary key of queries to route requests directly to
+the Cassandra nodes where the data is located. Using this policy avoids having
+to route requests through an extra coordinator node in the Cassandra cluster. This
+can improve query latency and reduce load on the Cassandra nodes. It can be used
+in conjunction with other load balancing and routing policies.</p>
+<pre class="highlight"><code><span class="cm">/* Enable token-aware routing (this is the default setting) */</span>
+<span class="nb">cass_cluster_set_token_aware_routing</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="nb">cass_true</span><span class="p">);</span>
+
+<span class="cm">/* Disable token-aware routing */</span>
+<span class="nb">cass_cluster_set_token_aware_routing</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="nb">cass_false</span><span class="p">);</span>
+</code></pre>
+<h3 id="latency-aware-routing" class="target">Latency-aware Routing<a class="anchor" href="#latency-aware-routing" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+
+<p>Latency-aware routing tracks the latency of queries to avoid sending new queries
+to poorly performing Cassandra nodes. It can be used in conjunction with other
+load balancing and routing policies.</p>
+<pre class="highlight"><code><span class="cm">/* Disable latency-aware routing (this is the default setting) */</span>
+<span class="nb">cass_cluster_set_latency_aware_routing</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="nb">cass_false</span><span class="p">);</span>
+
+<span class="cm">/* Enable latency-aware routing */</span>
+<span class="nb">cass_cluster_set_latency_aware_routing</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="nb">cass_true</span><span class="p">);</span>
+
+<span class="cm">/*
+ * Configure latency-aware routing settings
+ */</span>
+
+<span class="cm">/* Up to 2 times the best performing latency is okay */</span>
+<span class="nb">cass_double_t</span> <span class="n">exclusion_threshold</span> <span class="o">=</span> <span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+
+ <span class="cm">/* Use the default scale */</span>
+<span class="nb">cass_uint64_t</span> <span class="n">scale_ms</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+
+<span class="cm">/* Retry a node after 10 seconds even if it was performing poorly before */</span>
+<span class="nb">cass_uint64_t</span> <span class="n">retry_period_ms</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">;</span>
+
+<span class="cm">/* Find the best performing latency every 100 milliseconds */</span>
+<span class="nb">cass_uint64_t</span> <span class="n">update_rate_ms</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+
+<span class="cm">/* Only consider the average latency of a node after it's been queried 50 times */</span>
+<span class="nb">cass_uint64_t</span> <span class="n">min_measured</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+
+<span class="nb">cass_cluster_set_latency_aware_routing_settings</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span>
+                                                <span class="n">exclusion_threshold</span><span class="p">,</span>
+                                                <span class="n">scale_ms</span><span class="p">,</span>
+                                                <span class="n">retry_period_ms</span><span class="p">,</span>
+                                                <span class="n">update_rate_ms</span><span class="p">,</span>
+                                                <span class="n">min_measured</span><span class="p">);</span>
+</code></pre>
+<h3 id="filtering" class="target">Filtering<a class="anchor" href="#filtering" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+
+<h4 id="whitelist" class="target">Whitelist<a class="anchor" href="#whitelist" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h4>
+
+<p>This policy ensures that only hosts from the provided whitelist filter will
+ever be used. Any host that is not contained within the whitelist will be
+considered ignored and a connection will not be established.  It can be used in
+conjunction with other load balancing and routing policies.</p>
+
+<p>NOTE: Using this policy to limit the connections of the driver to a predefined
+      set of hosts will defeat the auto-detection features of the driver. If
+      the goal is to limit connections to hosts in a local datacenter use
+      DC aware in conjunction with the round robin load balancing policy.</p>
+<pre class="highlight"><code><span class="cm">/* Set the list of predefined hosts the driver is allowed to connect to */</span>
+<span class="nb">cass_cluster_set_whitelist_filtering</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span>
+                                     <span class="s">"127.0.0.1, 127.0.0.3, 127.0.0.5"</span><span class="p">);</span>
+
+<span class="cm">/* The whitelist can be cleared (and disabled) by using an empty string */</span>
+<span class="nb">cass_cluster_set_whitelist_filtering</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
+</code></pre>
+<h4 id="blacklist" class="target">Blacklist<a class="anchor" href="#blacklist" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h4>
+
+<p>This policy is the inverse of the whitelist policy where hosts provided in the
+blacklist filter will be ignored and a connection will not be established.</p>
+<pre class="highlight"><code><span class="cm">/* Set the list of predefined hosts the driver is NOT allowed to connect to */</span>
+<span class="nb">cass_cluster_set_blacklist_filtering</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span>
+                                     <span class="s">"127.0.0.1, 127.0.0.3, 127.0.0.5"</span><span class="p">);</span>
+
+<span class="cm">/* The blacklist can be cleared (and disabled) by using an empty string */</span>
+<span class="nb">cass_cluster_set_blacklist_filtering</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
+</code></pre>
+<h4 id="datacenter" class="target">Datacenter<a class="anchor" href="#datacenter" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h4>
+
+<p>Filtering can also be performed on all hosts in a datacenter or multiple
+datacenters when using the whitelist/blacklist datacenter filtering polices.</p>
+<pre class="highlight"><code><span class="cm">/* Set the list of predefined datacenters the driver is allowed to connect to */</span>
+<span class="nb">cass_cluster_set_whitelist_dc_filtering</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="s">"dc2, dc4"</span><span class="p">);</span>
+
+<span class="cm">/* The datacenter whitelist can be cleared/disabled by using an empty string */</span>
+<span class="nb">cass_cluster_set_whitelist_dc_filtering</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
+</code></pre>
+<pre class="highlight"><code><span class="cm">/* Set the list of predefined datacenters the driver is NOT allowed to connect to */</span>
+<span class="nb">cass_cluster_set_blacklist_dc_filtering</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="s">"dc2, dc4"</span><span class="p">);</span>
+
+<span class="cm">/* The datacenter blacklist can be cleared/disabled by using an empty string */</span>
+<span class="nb">cass_cluster_set_blacklist_dc_filtering</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="s">""</span><span class="p">);</span>
+</code></pre>
+<h2 id="speculative-execution" class="target">Speculative Execution<a class="anchor" href="#speculative-execution" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>For certain applications it is of the utmost importance to minimize latency.
+Speculative execution is a way to minimize latency by preemptively executing
+several instances of the same query against different nodes. The fastest
+response is then returned to the client application and the other requests are
+cancelled. Speculative execution is <b>disabled</b> by default.</p>
+
+<h3 id="query-idempotence" class="target">Query Idempotence<a class="anchor" href="#query-idempotence" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+
+<p>Speculative execution will result in executing the same query several times.
+Therefore, it is important that queries are idempotent i.e. a query can be
+applied multiple times without changing the result beyond the initial
+application. <b>Queries that are not explicitly marked as idempotent will not be
+scheduled for speculative executions.</b></p>
+
+<p>The following types of queries are <b>not</b> idempotent:</p>
+
+<ul>
+<li>Mutation of <code>counter</code> columns</li>
+<li>Prepending or appending to a <code>list</code> column</li>
+<li>Use of non-idempotent CQL function e.g. <code>now()</code> or <code>uuid()</code>
+</li>
+</ul>
+
+<p>The driver is unable to determine if a query is idempotent therefore it is up to
+an application to explicitly mark a statement as being idempotent.</p>
+<pre class="highlight"><code><span class="nc">CassStatement</span><span class="o">*</span> <span class="n">statement</span> <span class="o">=</span> <span class="nb">cass_statement_new</span><span class="p">(</span> <span class="s">"SELECT * FROM table1"</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="nb">cass_statement_set_is_idempotent</span><span class="p">(</span><span class="n">statement</span><span class="p">,</span> <span class="nb">cass_true</span><span class="p">);</span>
+</code></pre>
+<h3 id="enabling-speculative-execution" class="target">Enabling speculative execution<a class="anchor" href="#enabling-speculative-execution" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+
+<p>Speculative execution is enabled by connecting a <code>CassSession</code> with a
+<code>CassCluster</code> that has a speculative execution policy enabled. The driver
+currently only supports a constant policy, but may support more in the future.</p>
+
+<h4 id="constant-speculative-execution-policy" class="target">Constant speculative execution policy<a class="anchor" href="#constant-speculative-execution-policy" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h4>
+
+<p>The following will start up to 2 more executions after the initial execution
+with the subsequent executions being created 500 milliseconds apart.</p>
+<pre class="highlight"><code><span class="nc">CassCluster</span><span class="o">*</span> <span class="n">cluster</span> <span class="o">=</span> <span class="nb">cass_cluster_new</span><span class="p">();</span>
+<span class="nb">cass_int64_t</span> <span class="n">constant_delay_ms</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span> <span class="cm">/* Delay before a new execution is created */</span>
+<span class="kt">int</span> <span class="n">max_speculative_executions</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>   <span class="cm">/* Number of executions */</span>
+<span class="nb">cass_cluster_set_constant_speculative_execution_policy</span><span class="p">(</span><span class="n">cluster</span>
+                                                       <span class="n">constant_delay_ms</span><span class="p">,</span>
+                                                       <span class="n">max_speculative_executions</span><span class="p">);</span>
+</code></pre>
+<h3 id="connection-heartbeats" class="target">Connection Heartbeats<a class="anchor" href="#connection-heartbeats" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+
+<p>To prevent intermediate network devices (routers, switches, etc.) from
+disconnecting pooled connections the driver sends a lightweight heartbeat
+request (using an <a href="https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v3.spec#L278-L282"><code>OPTIONS</code></a> protocol request) periodically. By default the
+driver sends a heartbeat every 30 seconds. This can be changed or disabled (0
+second interval) using the following:</p>
+<pre class="highlight"><code><span class="cm">/* Change the heartbeat interval to 1 minute */</span>
+<span class="nb">cass_cluster_set_connection_heartbeat_interval</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="mi">60</span><span class="p">);</span>
+
+<span class="cm">/* Disable heartbeat requests */</span>
+<span class="nb">cass_cluster_set_connection_heartbeat_interval</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</code></pre>
+<p>Heartbeats are also used to detect unresponsive connections. An idle timeout
+setting controls the amount of time a connection is allowed to be without a
+successful heartbeat before being terminated and scheduled for reconnection. This
+interval can be changed from the default of 60 seconds:</p>
+<pre class="highlight"><code><span class="cm">/* Change the idle timeout to 2 minute */</span>
+<span class="nb">cass_cluster_set_connection_idle_timeout</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="mi">120</span><span class="p">);</span>
+</code></pre>
+<p>It can be disabled by setting the value to a very long timeout or by disabling
+heartbeats.</p>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.js"></script>
+    <script src="../../js/angular.js"></script>
+    <script src="../../js/mousetrap.js"></script>
+    <script src="../../js/hotkeys.js"></script>
+    <script src="../../js/ZeroClipboard.js"></script>
+    <script src="../../js/lunr.js"></script>
+    <script src="../../js/app.js"></script>
+  </body>
+</html>

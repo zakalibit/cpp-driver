@@ -1,0 +1,3166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="DataStax C++ Driver for Apache Cassandra Documentation">
+    <meta name="author" content="DataStax">
+
+    <title>DataStax C/C++ Driver - cassandra.h</title>
+
+    <link rel="icon" href="../../../favicon.ico">
+    <link rel="apple-touch-icon" href="../../../favicon.png">
+    <link href="../../../css/style.css" rel="stylesheet">
+    <link href="../../../css/pygments.css" rel="stylesheet">
+    <link href="../../../css/hotkeys.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body ng-app="docs">
+    <div class="navbar">
+      <div class="container-fluid">
+        <div class="row row-offcanvas row-offcanvas-left">
+          <div class="col-sm-3 text-center">
+            <a class="ds-home" href="../../"><img alt="Brand" src="../../../img/logo.png"></a>
+            <ul class="list-inline ds-sites" role="nav">
+              <li><a href="https://academy.datastax.com/" class="navbar-link">DataStax Academy</a></li>
+              <li><a href="http://www.datastax.com/dev/blog" class="navbar-link">Tech Blog</a></li>
+              <li><a href="http://www.datastax.com/what-we-offer/products-services/support" class="navbar-link">Support</a></li>
+            </ul>
+          </div>
+          <div class="col-md-5">
+            <p class="lead pubtitle">DataStax C/C++ Driver</p>
+            
+            <div class="text-info">
+              <span class="text-warning">Attention:</span> Viewing documentation for version
+              <div class="btn-group">
+                <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  2.2
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
+                
+                  <li><a href="../../../api/cassandra.h/">2.5</a></li>
+                
+                  <li><a href="../../../2.4/api/cassandra.h/">2.4</a></li>
+                
+                  <li><a href="../../../2.3/api/cassandra.h/">2.3</a></li>
+                
+                  <li class="disabled"><a href="./">2.2</a></li>
+                
+                  <li><a href="../../../2.1/api/cassandra.h/">2.1</a></li>
+                
+                  <li><a href="../../../2.0/api/cassandra.h/">2.0</a></li>
+                
+                  <li><a href="../../../1.0/api/cassandra.h/">1.0</a></li>
+                
+                </ul>
+              </div>
+            </div>
+            
+          </div>
+          <div class="col-md-4">
+            <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
+              <div class="form-group has-feedback">
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.2')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+              </div>
+              <ul class="dropdown-menu search-results" role="menu">
+                <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
+              </ul>
+            </form>
+            <a href="http://www.datastax.com/download" class="btn btn-primary btn-sm">Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid" id="content">
+      <div class="row">
+        <div class="col-md-3">
+          <div id="navigation" class="side-nav" role="tablist" aria-multiselectable="true">
+            <h3><a href="../../">Contents</a></h3>
+            <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li>
+    <a href="../../topics/">
+      Getting Started <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+  
+  <li class="active">
+    <a href="../">
+      API docs <small>index</small>
+      
+      
+      <span class="glyphicon glyphicon-minus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li>
+    <a href="../struct.CassAggregateMeta/">
+      CassAggregateMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassBatch/">
+      CassBatch <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassCluster/">
+      CassCluster <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassCollection/">
+      CassCollection <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassColumnMeta/">
+      CassColumnMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassCustomPayload/">
+      CassCustomPayload <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassDataType/">
+      CassDataType <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassErrorResult/">
+      CassErrorResult <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassFunctionMeta/">
+      CassFunctionMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassFuture/">
+      CassFuture <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassInet/">
+      CassInet <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassIterator/">
+      CassIterator <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassKeyspaceMeta/">
+      CassKeyspaceMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassLogMessage/">
+      CassLogMessage <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassMetrics/">
+      CassMetrics <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassPrepared/">
+      CassPrepared <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassResult/">
+      CassResult <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassRetryPolicy/">
+      CassRetryPolicy <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassRow/">
+      CassRow <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassSchemaMeta/">
+      CassSchemaMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassSession/">
+      CassSession <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassSsl/">
+      CassSsl <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassStatement/">
+      CassStatement <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassTableMeta/">
+      CassTableMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassTimestampGen/">
+      CassTimestampGen <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassTuple/">
+      CassTuple <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassUserType/">
+      CassUserType <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassUuid/">
+      CassUuid <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassUuidGen/">
+      CassUuidGen <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassValue/">
+      CassValue <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li class="active">
+    <a href="./" class="current">
+      cassandra.h <small>file</small>
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          </div>
+        </div>
+        <div class="col-md-9 content">
+          <div class="crumbs-wrapper">
+            <nav id="crumbs" data-spy="affix" data-offset-top="130">
+              <ol class="breadcrumb">
+                
+                
+                
+                <li><a href="../../">Home</a></li>
+                
+                
+                
+                
+                
+                <li><a href="../">API docs</a></li>
+                
+                
+                
+                
+                
+                <li class="active">cassandra.h</li>
+                
+                
+                
+              </ol>
+            </nav>
+          </div>
+          
+
+<div class="page-header">
+  <h1 id="file-cassandra.h" class="target">
+    <small>file</small>
+    cassandra.h
+  <a class="anchor" href="#file-cassandra.h" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+</div>
+
+<p>C/C++ driver for Apache Cassandra. Uses the Cassandra Query Language versions 3 over the Cassandra Binary Protocol (versions 1 or 2).</p>
+
+
+<h2 id="macros" class="target">Macros<a class="anchor" href="#macros" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<div class="macros-content">
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading macro-heading">
+      <h3 id="macro-CASS_VERSION_MAJOR" class="target">CASS_VERSION_MAJOR<a class="anchor" href="#macro-CASS_VERSION_MAJOR" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+<big>=</big> <code>2</code>
+    </div>
+    <div class="panel-body macro-body">
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading macro-heading">
+      <h3 id="macro-CASS_VERSION_MINOR" class="target">CASS_VERSION_MINOR<a class="anchor" href="#macro-CASS_VERSION_MINOR" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+<big>=</big> <code>2</code>
+    </div>
+    <div class="panel-body macro-body">
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading macro-heading">
+      <h3 id="macro-CASS_VERSION_PATCH" class="target">CASS_VERSION_PATCH<a class="anchor" href="#macro-CASS_VERSION_PATCH" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+<big>=</big> <code>2</code>
+    </div>
+    <div class="panel-body macro-body">
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading macro-heading">
+      <h3 id="macro-CASS_VERSION_SUFFIX" class="target">CASS_VERSION_SUFFIX<a class="anchor" href="#macro-CASS_VERSION_SUFFIX" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+<big>=</big> <code>""</code>
+    </div>
+    <div class="panel-body macro-body">
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading macro-heading">
+      <h3 id="macro-CASS_INET_V4_LENGTH" class="target">CASS_INET_V4_LENGTH<a class="anchor" href="#macro-CASS_INET_V4_LENGTH" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+<big>=</big> <code>4</code>
+    </div>
+    <div class="panel-body macro-body">
+      <p>The size of an IPv4 address</p>
+
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading macro-heading">
+      <h3 id="macro-CASS_INET_V6_LENGTH" class="target">CASS_INET_V6_LENGTH<a class="anchor" href="#macro-CASS_INET_V6_LENGTH" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+<big>=</big> <code>16</code>
+    </div>
+    <div class="panel-body macro-body">
+      <p>The size of an IPv6 address</p>
+
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading macro-heading">
+      <h3 id="macro-CASS_INET_STRING_LENGTH" class="target">CASS_INET_STRING_LENGTH<a class="anchor" href="#macro-CASS_INET_STRING_LENGTH" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+<big>=</big> <code>46</code>
+    </div>
+    <div class="panel-body macro-body">
+      <p>The size of an inet string including a null terminator.</p>
+
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading macro-heading">
+      <h3 id="macro-CASS_UUID_STRING_LENGTH" class="target">CASS_UUID_STRING_LENGTH<a class="anchor" href="#macro-CASS_UUID_STRING_LENGTH" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+<big>=</big> <code>37</code>
+    </div>
+    <div class="panel-body macro-body">
+      <p>The size of a hexadecimal UUID string including a null terminator.</p>
+
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading macro-heading">
+      <h3 id="macro-CASS_CONSISTENCY_MAP" class="target">CASS_CONSISTENCY_MAP<a class="anchor" href="#macro-CASS_CONSISTENCY_MAP" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+<big>=</big> <code>XX(CASS_CONSISTENCY_UNKNOWN, "UNKNOWN") \
+  XX(CASS_CONSISTENCY_ANY, "ANY") \
+  XX(CASS_CONSISTENCY_ONE, "ONE") \
+  XX(CASS_CONSISTENCY_TWO, "TWO") \
+  XX(CASS_CONSISTENCY_THREE, "THREE") \
+  XX(CASS_CONSISTENCY_QUORUM, "QUORUM") \
+  XX(CASS_CONSISTENCY_ALL, "ALL") \
+  XX(CASS_CONSISTENCY_LOCAL_QUORUM, "LOCAL_QUORUM") \
+  XX(CASS_CONSISTENCY_EACH_QUORUM, "EACH_QUORUM") \
+  XX(CASS_CONSISTENCY_SERIAL, "SERIAL") \
+  XX(CASS_CONSISTENCY_LOCAL_SERIAL, "LOCAL_SERIAL") \
+  XX(CASS_CONSISTENCY_LOCAL_ONE, "LOCAL_ONE")</code>
+    </div>
+    <div class="panel-body macro-body">
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading macro-heading">
+      <h3 id="macro-CASS_WRITE_TYPE_MAP" class="target">CASS_WRITE_TYPE_MAP<a class="anchor" href="#macro-CASS_WRITE_TYPE_MAP" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+<big>=</big> <code>XX(CASS_WRITE_TYPE_SIMPLE, "SIMPLE") \
+  XX(CASS_WRITE_TYPE_BATCH, "BATCH") \
+  XX(CASS_WRITE_TYPE_UNLOGGED_BATCH, "UNLOGGED_BATCH") \
+  XX(CASS_WRITE_TYPE_COUNTER, "COUNTER") \
+  XX(CASS_WRITE_TYPE_BATCH_LOG, "BATCH_LOG") \
+  XX(CASS_WRITE_TYPE_CAS, "CAS")</code>
+    </div>
+    <div class="panel-body macro-body">
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading macro-heading">
+      <h3 id="macro-CASS_LOG_MAX_MESSAGE_SIZE" class="target">CASS_LOG_MAX_MESSAGE_SIZE<a class="anchor" href="#macro-CASS_LOG_MAX_MESSAGE_SIZE" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+<big>=</big> <code>256</code>
+    </div>
+    <div class="panel-body macro-body">
+      <p>Maximum size of a log message</p>
+
+      
+    </div>
+  </div>
+</div>
+
+<h2 id="types" class="target">Types<a class="anchor" href="#types" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<div class="type-content">
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-cass_float_t" class="target">cass_float_t<a class="anchor" href="#type-cass_float_t" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef float cass_float_t</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-cass_double_t" class="target">cass_double_t<a class="anchor" href="#type-cass_double_t" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef double cass_double_t</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-cass_int8_t" class="target">cass_int8_t<a class="anchor" href="#type-cass_int8_t" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef char cass_int8_t</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-cass_uint8_t" class="target">cass_uint8_t<a class="anchor" href="#type-cass_uint8_t" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef unsigned char cass_uint8_t</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-cass_int16_t" class="target">cass_int16_t<a class="anchor" href="#type-cass_int16_t" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef short cass_int16_t</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-cass_uint16_t" class="target">cass_uint16_t<a class="anchor" href="#type-cass_uint16_t" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef unsigned short cass_uint16_t</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-cass_int32_t" class="target">cass_int32_t<a class="anchor" href="#type-cass_int32_t" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef int cass_int32_t</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-cass_uint32_t" class="target">cass_uint32_t<a class="anchor" href="#type-cass_uint32_t" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef unsigned int cass_uint32_t</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-cass_int64_t" class="target">cass_int64_t<a class="anchor" href="#type-cass_int64_t" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef long long cass_int64_t</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-cass_uint64_t" class="target">cass_uint64_t<a class="anchor" href="#type-cass_uint64_t" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef unsigned long long cass_uint64_t</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-cass_byte_t" class="target">cass_byte_t<a class="anchor" href="#type-cass_byte_t" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef cass_uint8_t cass_byte_t</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-cass_duration_t" class="target">cass_duration_t<a class="anchor" href="#type-cass_duration_t" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef cass_uint64_t cass_duration_t</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassCluster" class="target">CassCluster<a class="anchor" href="#type-CassCluster" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef struct CassCluster_ CassCluster</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassSession" class="target">CassSession<a class="anchor" href="#type-CassSession" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef struct CassSession_ CassSession</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassStatement" class="target">CassStatement<a class="anchor" href="#type-CassStatement" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef struct CassStatement_ CassStatement</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassBatch" class="target">CassBatch<a class="anchor" href="#type-CassBatch" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef struct CassBatch_ CassBatch</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassFuture" class="target">CassFuture<a class="anchor" href="#type-CassFuture" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef struct CassFuture_ CassFuture</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassPrepared" class="target">CassPrepared<a class="anchor" href="#type-CassPrepared" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef struct CassPrepared_ CassPrepared</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassResult" class="target">CassResult<a class="anchor" href="#type-CassResult" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef struct CassResult_ CassResult</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassErrorResult" class="target">CassErrorResult<a class="anchor" href="#type-CassErrorResult" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef struct CassErrorResult_ CassErrorResult</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassIterator" class="target">CassIterator<a class="anchor" href="#type-CassIterator" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef struct CassIterator_ CassIterator</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassRow" class="target">CassRow<a class="anchor" href="#type-CassRow" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef struct CassRow_ CassRow</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassValue" class="target">CassValue<a class="anchor" href="#type-CassValue" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef struct CassValue_ CassValue</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassDataType" class="target">CassDataType<a class="anchor" href="#type-CassDataType" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef struct CassDataType_ CassDataType</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassFunctionMeta" class="target">CassFunctionMeta<a class="anchor" href="#type-CassFunctionMeta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef struct CassFunctionMeta_ CassFunctionMeta</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassAggregateMeta" class="target">CassAggregateMeta<a class="anchor" href="#type-CassAggregateMeta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef struct CassAggregateMeta_ CassAggregateMeta</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassCollection" class="target">CassCollection<a class="anchor" href="#type-CassCollection" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef struct CassCollection_ CassCollection</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassTuple" class="target">CassTuple<a class="anchor" href="#type-CassTuple" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef struct CassTuple_ CassTuple</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassUserType" class="target">CassUserType<a class="anchor" href="#type-CassUserType" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef struct CassUserType_ CassUserType</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassSsl" class="target">CassSsl<a class="anchor" href="#type-CassSsl" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef struct CassSsl_ CassSsl</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassSchemaMeta" class="target">CassSchemaMeta<a class="anchor" href="#type-CassSchemaMeta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef struct CassSchemaMeta_ CassSchemaMeta</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassKeyspaceMeta" class="target">CassKeyspaceMeta<a class="anchor" href="#type-CassKeyspaceMeta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef struct CassKeyspaceMeta_ CassKeyspaceMeta</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassTableMeta" class="target">CassTableMeta<a class="anchor" href="#type-CassTableMeta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef struct CassTableMeta_ CassTableMeta</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassColumnMeta" class="target">CassColumnMeta<a class="anchor" href="#type-CassColumnMeta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef struct CassColumnMeta_ CassColumnMeta</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassUuidGen" class="target">CassUuidGen<a class="anchor" href="#type-CassUuidGen" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef struct CassUuidGen_ CassUuidGen</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassTimestampGen" class="target">CassTimestampGen<a class="anchor" href="#type-CassTimestampGen" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef struct CassTimestampGen_ CassTimestampGen</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassRetryPolicy" class="target">CassRetryPolicy<a class="anchor" href="#type-CassRetryPolicy" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef struct CassRetryPolicy_ CassRetryPolicy</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassCustomPayload" class="target">CassCustomPayload<a class="anchor" href="#type-CassCustomPayload" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef struct CassCustomPayload_ CassCustomPayload</pre>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassFutureCallback" class="target">CassFutureCallback<a class="anchor" href="#type-CassFutureCallback" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef void(* CassFutureCallback) (CassFuture *future, void *data)</pre>
+      <p>A callback that’s notified when the future is set.</p>
+
+      <dl class="tags">
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="../struct.CassFuture/#function-cass_future_set_callback">CassFuture::cass_future_set_callback</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading type-heading">
+      <h3 id="type-CassLogCallback" class="target">CassLogCallback<a class="anchor" href="#type-CassLogCallback" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body type-body">
+      <pre>typedef void(* CassLogCallback) (const CassLogMessage *message, void *data)</pre>
+      <p>A callback that’s used to handle logging.</p>
+
+      <dl class="tags">
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li>
+<code><a href="#function-cass_log_set_callback">cass_log_set_callback</a></code>;</li></ul></dd>
+</dl>
+    </div>
+  </div>
+</div>
+
+<h2 id="enums" class="target">Enums<a class="anchor" href="#enums" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<div class="enum-content">
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading enum-heading">
+      <h3 id="enum-cass_bool_t" class="target">cass_bool_t<a class="anchor" href="#enum-cass_bool_t" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body enum-body">
+      <dl class="values">
+        
+        <dt>
+<code>cass_false</code> <big>=</big> <var>0</var>
+</dt>
+        
+        <dt>
+<code>cass_true</code> <big>=</big> <var>1</var>
+</dt>
+        
+      </dl>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading enum-heading">
+      <h3 id="enum-CassConsistency" class="target">CassConsistency<a class="anchor" href="#enum-CassConsistency" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body enum-body">
+      <dl class="values">
+        
+        <dt>
+<code>CASS_CONSISTENCY_UNKNOWN</code> <big>=</big> <var>0xFFFF</var>
+</dt>
+        
+        <dt>
+<code>CASS_CONSISTENCY_ANY</code> <big>=</big> <var>0x0000</var>
+</dt>
+        
+        <dt>
+<code>CASS_CONSISTENCY_ONE</code> <big>=</big> <var>0x0001</var>
+</dt>
+        
+        <dt>
+<code>CASS_CONSISTENCY_TWO</code> <big>=</big> <var>0x0002</var>
+</dt>
+        
+        <dt>
+<code>CASS_CONSISTENCY_THREE</code> <big>=</big> <var>0x0003</var>
+</dt>
+        
+        <dt>
+<code>CASS_CONSISTENCY_QUORUM</code> <big>=</big> <var>0x0004</var>
+</dt>
+        
+        <dt>
+<code>CASS_CONSISTENCY_ALL</code> <big>=</big> <var>0x0005</var>
+</dt>
+        
+        <dt>
+<code>CASS_CONSISTENCY_LOCAL_QUORUM</code> <big>=</big> <var>0x0006</var>
+</dt>
+        
+        <dt>
+<code>CASS_CONSISTENCY_EACH_QUORUM</code> <big>=</big> <var>0x0007</var>
+</dt>
+        
+        <dt>
+<code>CASS_CONSISTENCY_SERIAL</code> <big>=</big> <var>0x0008</var>
+</dt>
+        
+        <dt>
+<code>CASS_CONSISTENCY_LOCAL_SERIAL</code> <big>=</big> <var>0x0009</var>
+</dt>
+        
+        <dt>
+<code>CASS_CONSISTENCY_LOCAL_ONE</code> <big>=</big> <var>0x000A</var>
+</dt>
+        
+      </dl>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading enum-heading">
+      <h3 id="enum-CassWriteType" class="target">CassWriteType<a class="anchor" href="#enum-CassWriteType" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body enum-body">
+      <dl class="values">
+        
+        <dt><code>CASS_WRITE_TYPE_UKNOWN</code></dt>
+        
+        <dt><code>CASS_WRITE_TYPE_SIMPLE</code></dt>
+        
+        <dt><code>CASS_WRITE_TYPE_BATCH</code></dt>
+        
+        <dt><code>CASS_WRITE_TYPE_UNLOGGED_BATCH</code></dt>
+        
+        <dt><code>CASS_WRITE_TYPE_COUNTER</code></dt>
+        
+        <dt><code>CASS_WRITE_TYPE_BATCH_LOG</code></dt>
+        
+        <dt><code>CASS_WRITE_TYPE_CAS</code></dt>
+        
+      </dl>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading enum-heading">
+      <h3 id="enum-CassValueType" class="target">CassValueType<a class="anchor" href="#enum-CassValueType" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body enum-body">
+      <dl class="values">
+        
+        <dt>
+<code>CASS_VALUE_TYPE_UNKNOWN</code> <big>=</big> <var>0xFFFF</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_CUSTOM</code> <big>=</big> <var>0x0000</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_ASCII</code> <big>=</big> <var>0x0001</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_BIGINT</code> <big>=</big> <var>0x0002</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_BLOB</code> <big>=</big> <var>0x0003</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_BOOLEAN</code> <big>=</big> <var>0x0004</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_COUNTER</code> <big>=</big> <var>0x0005</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_DECIMAL</code> <big>=</big> <var>0x0006</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_DOUBLE</code> <big>=</big> <var>0x0007</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_FLOAT</code> <big>=</big> <var>0x0008</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_INT</code> <big>=</big> <var>0x0009</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_TEXT</code> <big>=</big> <var>0x000A</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_TIMESTAMP</code> <big>=</big> <var>0x000B</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_UUID</code> <big>=</big> <var>0x000C</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_VARCHAR</code> <big>=</big> <var>0x000D</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_VARINT</code> <big>=</big> <var>0x000E</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_TIMEUUID</code> <big>=</big> <var>0x000F</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_INET</code> <big>=</big> <var>0x0010</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_DATE</code> <big>=</big> <var>0x0011</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_TIME</code> <big>=</big> <var>0x0012</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_SMALL_INT</code> <big>=</big> <var>0x0013</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_TINY_INT</code> <big>=</big> <var>0x0014</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_LIST</code> <big>=</big> <var>0x0020</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_MAP</code> <big>=</big> <var>0x0021</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_SET</code> <big>=</big> <var>0x0022</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_UDT</code> <big>=</big> <var>0x0030</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_TUPLE</code> <big>=</big> <var>0x0031</var>
+</dt>
+        
+      </dl>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading enum-heading">
+      <h3 id="enum-CassCollectionType" class="target">CassCollectionType<a class="anchor" href="#enum-CassCollectionType" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body enum-body">
+      <dl class="values">
+        
+        <dt>
+<code>CASS_COLLECTION_TYPE_LIST</code> <big>=</big> <var>CASS_VALUE_TYPE_LIST</var>
+</dt>
+        
+        <dt>
+<code>CASS_COLLECTION_TYPE_MAP</code> <big>=</big> <var>CASS_VALUE_TYPE_MAP</var>
+</dt>
+        
+        <dt>
+<code>CASS_COLLECTION_TYPE_SET</code> <big>=</big> <var>CASS_VALUE_TYPE_SET</var>
+</dt>
+        
+      </dl>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading enum-heading">
+      <h3 id="enum-CassBatchType" class="target">CassBatchType<a class="anchor" href="#enum-CassBatchType" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body enum-body">
+      <dl class="values">
+        
+        <dt>
+<code>CASS_BATCH_TYPE_LOGGED</code> <big>=</big> <var>0</var>
+</dt>
+        
+        <dt>
+<code>CASS_BATCH_TYPE_UNLOGGED</code> <big>=</big> <var>1</var>
+</dt>
+        
+        <dt>
+<code>CASS_BATCH_TYPE_COUNTER</code> <big>=</big> <var>2</var>
+</dt>
+        
+      </dl>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading enum-heading">
+      <h3 id="enum-CassIteratorType" class="target">CassIteratorType<a class="anchor" href="#enum-CassIteratorType" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body enum-body">
+      <dl class="values">
+        
+        <dt><code>CASS_ITERATOR_TYPE_RESULT</code></dt>
+        
+        <dt><code>CASS_ITERATOR_TYPE_ROW</code></dt>
+        
+        <dt><code>CASS_ITERATOR_TYPE_COLLECTION</code></dt>
+        
+        <dt><code>CASS_ITERATOR_TYPE_MAP</code></dt>
+        
+        <dt><code>CASS_ITERATOR_TYPE_TUPLE</code></dt>
+        
+        <dt><code>CASS_ITERATOR_TYPE_USER_TYPE_FIELD</code></dt>
+        
+        <dt><code>CASS_ITERATOR_TYPE_META_FIELD</code></dt>
+        
+        <dt><code>CASS_ITERATOR_TYPE_KEYSPACE_META</code></dt>
+        
+        <dt><code>CASS_ITERATOR_TYPE_TABLE_META</code></dt>
+        
+        <dt><code>CASS_ITERATOR_TYPE_TYPE_META</code></dt>
+        
+        <dt><code>CASS_ITERATOR_TYPE_FUNCTION_META</code></dt>
+        
+        <dt><code>CASS_ITERATOR_TYPE_AGGREGATE_META</code></dt>
+        
+        <dt><code>CASS_ITERATOR_TYPE_COLUMN_META</code></dt>
+        
+      </dl>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading enum-heading">
+      <h3 id="enum-CassLogLevel" class="target">CassLogLevel<a class="anchor" href="#enum-CassLogLevel" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body enum-body">
+      <dl class="values">
+        
+        <dt><code>CASS_LOG_DISABLED</code></dt>
+        
+        <dt><code>CASS_LOG_CRITICAL</code></dt>
+        
+        <dt><code>CASS_LOG_ERROR</code></dt>
+        
+        <dt><code>CASS_LOG_WARN</code></dt>
+        
+        <dt><code>CASS_LOG_INFO</code></dt>
+        
+        <dt><code>CASS_LOG_DEBUG</code></dt>
+        
+        <dt><code>CASS_LOG_TRACE</code></dt>
+        
+      </dl>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading enum-heading">
+      <h3 id="enum-CassSslVerifyFlags" class="target">CassSslVerifyFlags<a class="anchor" href="#enum-CassSslVerifyFlags" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body enum-body">
+      <dl class="values">
+        
+        <dt><code>CASS_SSL_VERIFY_NONE</code></dt>
+        
+        <dt><code>CASS_SSL_VERIFY_PEER_CERT</code></dt>
+        
+        <dt><code>CASS_SSL_VERIFY_PEER_IDENTITY</code></dt>
+        
+      </dl>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading enum-heading">
+      <h3 id="enum-CassColumnType" class="target">CassColumnType<a class="anchor" href="#enum-CassColumnType" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body enum-body">
+      <dl class="values">
+        
+        <dt><code>CASS_COLUMN_TYPE_REGULAR</code></dt>
+        
+        <dt><code>CASS_COLUMN_TYPE_PARTITION_KEY</code></dt>
+        
+        <dt><code>CASS_COLUMN_TYPE_CLUSTERING_KEY</code></dt>
+        
+        <dt><code>CASS_COLUMN_TYPE_STATIC</code></dt>
+        
+        <dt><code>CASS_COLUMN_TYPE_COMPACT_VALUE</code></dt>
+        
+      </dl>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading enum-heading">
+      <h3 id="enum-CassErrorSource" class="target">CassErrorSource<a class="anchor" href="#enum-CassErrorSource" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body enum-body">
+      <dl class="values">
+        
+        <dt><code>CASS_ERROR_SOURCE_NONE</code></dt>
+        
+        <dt><code>CASS_ERROR_SOURCE_LIB</code></dt>
+        
+        <dt><code>CASS_ERROR_SOURCE_SERVER</code></dt>
+        
+        <dt><code>CASS_ERROR_SOURCE_SSL</code></dt>
+        
+        <dt><code>CASS_ERROR_SOURCE_COMPRESSION</code></dt>
+        
+      </dl>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading enum-heading">
+      <h3 id="enum-CassError" class="target">CassError<a class="anchor" href="#enum-CassError" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+    </div>
+    <div class="panel-body enum-body">
+      <dl class="values">
+        
+        <dt>
+<code>CASS_OK</code> <big>=</big> <var>0</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_BAD_PARAMS</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  1 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_NO_STREAMS</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  2 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_UNABLE_TO_INIT</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  3 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_MESSAGE_ENCODE</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  4 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_HOST_RESOLUTION</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  5 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_UNEXPECTED_RESPONSE</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  6 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_REQUEST_QUEUE_FULL</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  7 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_NO_AVAILABLE_IO_THREAD</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  8 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_WRITE_ERROR</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  9 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_NO_HOSTS_AVAILABLE</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  10 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_INDEX_OUT_OF_BOUNDS</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  11 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_INVALID_ITEM_COUNT</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  12 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_INVALID_VALUE_TYPE</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  13 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_REQUEST_TIMED_OUT</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  14 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_UNABLE_TO_SET_KEYSPACE</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  15 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_CALLBACK_ALREADY_SET</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  16 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_INVALID_STATEMENT_TYPE</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  17 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_NAME_DOES_NOT_EXIST</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  18 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_UNABLE_TO_DETERMINE_PROTOCOL</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  19 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_NULL_VALUE</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  20 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_NOT_IMPLEMENTED</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  21 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_UNABLE_TO_CONNECT</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  22 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_UNABLE_TO_CLOSE</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  23 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_NO_PAGING_STATE</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  24 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_PARAMETER_UNSET</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  25 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_INVALID_ERROR_RESULT_TYPE</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  26 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_LIB_INVALID_FUTURE_TYPE</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_LIB  &lt;&lt; 24) |  27 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_SERVER_SERVER_ERROR</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_SERVER  &lt;&lt; 24) |  0x0000 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_SERVER_PROTOCOL_ERROR</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_SERVER  &lt;&lt; 24) |  0x000A )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_SERVER_BAD_CREDENTIALS</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_SERVER  &lt;&lt; 24) |  0x0100 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_SERVER_UNAVAILABLE</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_SERVER  &lt;&lt; 24) |  0x1000 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_SERVER_OVERLOADED</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_SERVER  &lt;&lt; 24) |  0x1001 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_SERVER_IS_BOOTSTRAPPING</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_SERVER  &lt;&lt; 24) |  0x1002 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_SERVER_TRUNCATE_ERROR</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_SERVER  &lt;&lt; 24) |  0x1003 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_SERVER_WRITE_TIMEOUT</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_SERVER  &lt;&lt; 24) |  0x1100 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_SERVER_READ_TIMEOUT</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_SERVER  &lt;&lt; 24) |  0x1200 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_SERVER_READ_FAILURE</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_SERVER  &lt;&lt; 24) |  0x1300 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_SERVER_FUNCTION_FAILURE</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_SERVER  &lt;&lt; 24) |  0x1400 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_SERVER_WRITE_FAILURE</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_SERVER  &lt;&lt; 24) |  0x1500 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_SERVER_SYNTAX_ERROR</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_SERVER  &lt;&lt; 24) |  0x2000 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_SERVER_UNAUTHORIZED</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_SERVER  &lt;&lt; 24) |  0x2100 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_SERVER_INVALID_QUERY</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_SERVER  &lt;&lt; 24) |  0x2200 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_SERVER_CONFIG_ERROR</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_SERVER  &lt;&lt; 24) |  0x2300 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_SERVER_ALREADY_EXISTS</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_SERVER  &lt;&lt; 24) |  0x2400 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_SERVER_UNPREPARED</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_SERVER  &lt;&lt; 24) |  0x2500 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_SSL_INVALID_CERT</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_SSL  &lt;&lt; 24) |  1 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_SSL_INVALID_PRIVATE_KEY</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_SSL  &lt;&lt; 24) |  2 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_SSL_NO_PEER_CERT</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_SSL  &lt;&lt; 24) |  3 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_SSL_INVALID_PEER_CERT</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_SSL  &lt;&lt; 24) |  4 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_SSL_IDENTITY_MISMATCH</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_SSL  &lt;&lt; 24) |  5 )</var>
+</dt>
+        
+        <dt>
+<code>CASS_ERROR_SSL_PROTOCOL_ERROR</code> <big>=</big> <var>(( CASS_ERROR_SOURCE_SSL  &lt;&lt; 24) |  6 )</var>
+</dt>
+        
+      </dl>
+      
+      
+    </div>
+  </div>
+</div>
+
+
+<h2 id="functions" class="target">Functions<a class="anchor" href="#functions" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<div class="attributes-content">
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="#enum-CassValueType">CassValueType</a></code> <h3 id="function-cass_data_type_type" class="target">cass_data_type_type<a class="anchor" href="#function-cass_data_type_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> data_type <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets the value type of the specified data type.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td>
+<small>in</small> <var>data_type</var>
+</td>
+<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="#enum-CassValueType">CassValueType</a></code></td>
+<td>
+<p>The value type</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="#enum-CassError">CassError</a></code> <h3 id="function-cass_data_type_type_name" class="target">cass_data_type_type_name<a class="anchor" href="#function-cass_data_type_type_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>const char **</code> type_name, <code>size_t *</code> type_name_length <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets the type name of a UDT data type.</p>
+
+<p><strong>Note:</strong> Only valid for UDT data types.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>data_type</var>
+</td>
+<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>type_name</var>
+</td>
+<td><code>const char **</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>type_name_length</var>
+</td>
+<td><code>size_t *</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="#enum-CassError">CassError</a></code> <h3 id="function-cass_data_type_set_type_name" class="target">cass_data_type_set_type_name<a class="anchor" href="#function-cass_data_type_set_type_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>const char *</code> type_name <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets the type name of a UDT data type.</p>
+
+<p><strong>Note:</strong> Only valid for UDT data types.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>data_type</var>
+</td>
+<td><code><a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>type_name</var>
+</td>
+<td><code>const char *</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="#enum-CassError">CassError</a></code> <h3 id="function-cass_data_type_keyspace" class="target">cass_data_type_keyspace<a class="anchor" href="#function-cass_data_type_keyspace" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>const char **</code> keyspace, <code>size_t *</code> keyspace_length <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets the type name of a UDT data type.</p>
+
+<p><strong>Note:</strong> Only valid for UDT data types.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>data_type</var>
+</td>
+<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>keyspace</var>
+</td>
+<td><code>const char **</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>keyspace_length</var>
+</td>
+<td><code>size_t *</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="#enum-CassError">CassError</a></code> <h3 id="function-cass_data_type_set_keyspace" class="target">cass_data_type_set_keyspace<a class="anchor" href="#function-cass_data_type_set_keyspace" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>const char *</code> keyspace <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets the keyspace of a UDT data type.</p>
+
+<p><strong>Note:</strong> Only valid for UDT data types.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>data_type</var>
+</td>
+<td><code><a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>keyspace</var>
+</td>
+<td><code>const char *</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="#enum-CassError">CassError</a></code> <h3 id="function-cass_data_type_class_name" class="target">cass_data_type_class_name<a class="anchor" href="#function-cass_data_type_class_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>const char **</code> class_name, <code>size_t *</code> class_name_length <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets the class name of a custom data type.</p>
+
+<p><strong>Note:</strong> Only valid for custom data types.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>data_type</var>
+</td>
+<td><code><a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>class_name</var>
+</td>
+<td><code>const char **</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>class_name_length</var>
+</td>
+<td><code>size_t *</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="#enum-CassError">CassError</a></code> <h3 id="function-cass_data_type_set_class_name" class="target">cass_data_type_set_class_name<a class="anchor" href="#function-cass_data_type_set_class_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>const char *</code> class_name <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets the class name of a custom data type.</p>
+
+<p><strong>Note:</strong> Only valid for custom data types.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>data_type</var>
+</td>
+<td><code><a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>class_name</var>
+</td>
+<td><code>const char *</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code>size_t</code> <h3 id="function-cass_data_sub_type_count" class="target">cass_data_sub_type_count<a class="anchor" href="#function-cass_data_sub_type_count" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> data_type <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets the sub-data type count of a UDT (user defined type), tuple or collection.</p>
+
+<p><strong>Note:</strong> Only valid for UDT, tuple and collection data types.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td>
+<small>in</small> <var>data_type</var>
+</td>
+<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code>size_t</code></td>
+<td>
+<p>Returns the number of sub-data types</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> <h3 id="function-cass_data_type_sub_data_type" class="target">cass_data_type_sub_data_type<a class="anchor" href="#function-cass_data_type_sub_data_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>size_t</code> index <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets the sub-data type of a UDT (user defined type), tuple or collection at the specified index.</p>
+
+<p><strong>Note:</strong> Only valid for UDT, tuple and collection data types.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>data_type</var>
+</td>
+<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>index</var>
+</td>
+<td><code>size_t</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td>
+<p>Returns a reference to a child data type. Do not free this reference as it is bound to the lifetime of the parent data type. NULL is returned if the index is out of range.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> <h3 id="function-cass_data_type_sub_data_type_by_name" class="target">cass_data_type_sub_data_type_by_name<a class="anchor" href="#function-cass_data_type_sub_data_type_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>const char *</code> name <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets the sub-data type of a UDT (user defined type) at the specified index.</p>
+
+<p><strong>Note:</strong> Only valid for UDT data types.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>data_type</var>
+</td>
+<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td><code>const char *</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td>
+<p>Returns a reference to a child data type. Do not free this reference as it is bound to the lifetime of the parent data type. NULL is returned if the name doesn’t exist.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="#enum-CassError">CassError</a></code> <h3 id="function-cass_data_type_sub_type_name" class="target">cass_data_type_sub_type_name<a class="anchor" href="#function-cass_data_type_sub_type_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>size_t</code> index, <code>const char **</code> name, <code>size_t *</code> name_length <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets the sub-type name of a UDT (user defined type) at the specified index.</p>
+
+<p><strong>Note:</strong> Only valid for UDT data types.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>data_type</var>
+</td>
+<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>index</var>
+</td>
+<td><code>size_t</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>name</var>
+</td>
+<td><code>const char **</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>name_length</var>
+</td>
+<td><code>size_t *</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="#enum-CassError">CassError</a></code> <h3 id="function-cass_data_type_add_sub_type" class="target">cass_data_type_add_sub_type<a class="anchor" href="#function-cass_data_type_add_sub_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> sub_data_type <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Adds a sub-data type to a tuple or collection.</p>
+
+<p><strong>Note:</strong> Only valid for tuple and collection data types.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>data_type</var>
+</td>
+<td><code><a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>sub_data_type</var>
+</td>
+<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="#enum-CassError">CassError</a></code> <h3 id="function-cass_data_type_add_sub_type_by_name" class="target">cass_data_type_add_sub_type_by_name<a class="anchor" href="#function-cass_data_type_add_sub_type_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>const char *</code> name, <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> sub_data_type <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Adds a sub-data type to a UDT (user defined type).</p>
+
+<p><strong>Note:</strong> Only valid for UDT data types.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>data_type</var>
+</td>
+<td><code><a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td><code>const char *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>sub_data_type</var>
+</td>
+<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="#enum-CassError">CassError</a></code> <h3 id="function-cass_data_type_add_sub_type_by_name_n" class="target">cass_data_type_add_sub_type_by_name_n<a class="anchor" href="#function-cass_data_type_add_sub_type_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>const char *</code> name, <code>size_t</code> name_length, <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> sub_data_type <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_data_type_add_sub_type_by_name">cass_data_type_add_sub_type_by_name</a></code>, but with lengths for string parameters.</p>
+
+<p><strong>Note:</strong> Only valid for UDT data types.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>data_type</var>
+</td>
+<td><code><a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td><code>const char *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name_length</var>
+</td>
+<td><code>size_t</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>sub_data_type</var>
+</td>
+<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="#enum-CassError">CassError</a></code> <h3 id="function-cass_data_type_add_sub_value_type" class="target">cass_data_type_add_sub_value_type<a class="anchor" href="#function-cass_data_type_add_sub_value_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code><a href="#enum-CassValueType">CassValueType</a></code> sub_value_type <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Adds a sub-data type to a tuple or collection using a value type.</p>
+
+<p><strong>Note:</strong> Only valid for tuple and collection data types.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>data_type</var>
+</td>
+<td><code><a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>sub_value_type</var>
+</td>
+<td><code><a href="#enum-CassValueType">CassValueType</a></code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="#enum-CassError">CassError</a></code> <h3 id="function-cass_data_type_add_sub_value_type_by_name" class="target">cass_data_type_add_sub_value_type_by_name<a class="anchor" href="#function-cass_data_type_add_sub_value_type_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>const char *</code> name, <code><a href="#enum-CassValueType">CassValueType</a></code> sub_value_type <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Adds a sub-data type to a UDT (user defined type) using a value type.</p>
+
+<p><strong>Note:</strong> Only valid for UDT data types.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>data_type</var>
+</td>
+<td><code><a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td><code>const char *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>sub_value_type</var>
+</td>
+<td><code><a href="#enum-CassValueType">CassValueType</a></code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="#enum-CassError">CassError</a></code> <h3 id="function-cass_data_type_add_sub_value_type_by_name_n" class="target">cass_data_type_add_sub_value_type_by_name_n<a class="anchor" href="#function-cass_data_type_add_sub_value_type_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>const char *</code> name, <code>size_t</code> name_length, <code><a href="#enum-CassValueType">CassValueType</a></code> sub_value_type <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_data_type_add_sub_value_type_by_name">cass_data_type_add_sub_value_type_by_name</a></code>, but with lengths for string parameters.</p>
+
+<p><strong>Note:</strong> Only valid for UDT data types.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>data_type</var>
+</td>
+<td><code><a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td><code>const char *</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name_length</var>
+</td>
+<td><code>size_t</code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>sub_value_type</var>
+</td>
+<td><code><a href="#enum-CassValueType">CassValueType</a></code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> <h3 id="function-cass_collection_data_type" class="target">cass_collection_data_type<a class="anchor" href="#function-cass_collection_data_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>const <a href="../struct.CassCollection/">CassCollection</a> *</code> collection <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets the data type of a collection.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td>
+<small>in</small> <var>collection</var>
+</td>
+<td><code>const <a href="../struct.CassCollection/">CassCollection</a> *</code></td>
+<td></td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td>
+<p>Returns a reference to the data type of the collection. Do not free this reference as it is bound to the lifetime of the collection.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> <h3 id="function-cass_tuple_data_type" class="target">cass_tuple_data_type<a class="anchor" href="#function-cass_tuple_data_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>const <a href="../struct.CassTuple/">CassTuple</a> *</code> tuple <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets the data type of a tuple.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td>
+<small>in</small> <var>tuple</var>
+</td>
+<td><code>const <a href="../struct.CassTuple/">CassTuple</a> *</code></td>
+<td></td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td>
+<p>Returns a reference to the data type of the tuple. Do not free this reference as it is bound to the lifetime of the tuple.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> <h3 id="function-cass_user_type_data_type" class="target">cass_user_type_data_type<a class="anchor" href="#function-cass_user_type_data_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>const <a href="../struct.CassUserType/">CassUserType</a> *</code> user_type <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets the data type of a user defined type.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td><code>const <a href="../struct.CassUserType/">CassUserType</a> *</code></td>
+<td></td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td>
+<p>Returns a reference to the data type of the user defined type. Do not free this reference as it is bound to the lifetime of the user defined type.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code>const char *</code> <h3 id="function-cass_consistency_string" class="target">cass_consistency_string<a class="anchor" href="#function-cass_consistency_string" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="#enum-CassConsistency">CassConsistency</a></code> consistency <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets the string for a consistency.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td>
+<small>in</small> <var>consistency</var>
+</td>
+<td><code><a href="#enum-CassConsistency">CassConsistency</a></code></td>
+<td></td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code>const char *</code></td>
+<td>
+<p>A null-terminated string for the consistency. Example: “ALL”, “ONE”, “QUORUM”, etc.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code>const char *</code> <h3 id="function-cass_write_type_string" class="target">cass_write_type_string<a class="anchor" href="#function-cass_write_type_string" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="#enum-CassWriteType">CassWriteType</a></code> write_type <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets the string for a write type.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td>
+<small>in</small> <var>write_type</var>
+</td>
+<td><code><a href="#enum-CassWriteType">CassWriteType</a></code></td>
+<td></td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code>const char *</code></td>
+<td>
+<p>A null-terminated string for the write type. Example: “BATCH”, “SIMPLE”, “COUNTER”, etc.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code>const char *</code> <h3 id="function-cass_error_desc" class="target">cass_error_desc<a class="anchor" href="#function-cass_error_desc" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="#enum-CassError">CassError</a></code> error <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets a description for an error code.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td>
+<small>in</small> <var>error</var>
+</td>
+<td><code><a href="#enum-CassError">CassError</a></code></td>
+<td></td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code>const char *</code></td>
+<td>
+<p>A null-terminated string describing the error.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code>void</code> <h3 id="function-cass_log_cleanup" class="target">cass_log_cleanup<a class="anchor" href="#function-cass_log_cleanup" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Explicitly wait for the log to flush and deallocate resources. This <em>MUST</em> be the last call using the library. It is an error to call any cass_*() functions after this call.</p>
+
+<p><strong>Deprecated</strong>:</p>
+
+<p>This is no longer useful and does nothing. Expect this to be removed in a few releases.</p>
+
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code>void</code> <h3 id="function-cass_log_set_level" class="target">cass_log_set_level<a class="anchor" href="#function-cass_log_set_level" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="#enum-CassLogLevel">CassLogLevel</a></code> log_level <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets the log level.</p>
+
+<p><strong>Note:</strong> This needs to be done before any call that might log, such as any of the cass_cluster_*() or cass_ssl_*() functions.</p>
+
+<p><strong>Default:</strong> CASS_LOG_WARN</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td>
+<small>in</small> <var>log_level</var>
+</td>
+<td><code><a href="#enum-CassLogLevel">CassLogLevel</a></code></td>
+<td></td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code>void</code> <h3 id="function-cass_log_set_callback" class="target">cass_log_set_callback<a class="anchor" href="#function-cass_log_set_callback" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="#type-CassLogCallback">CassLogCallback</a></code> callback, <code>void *</code> data <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets a callback for handling logging events.</p>
+
+<p><strong>Note:</strong> This needs to be done before any call that might log, such as any of the cass_cluster_*() or cass_ssl_*() functions.</p>
+
+<p><strong>Default:</strong> An internal callback that prints to stderr</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>callback</var>
+</td>
+<td><code><a href="#type-CassLogCallback">CassLogCallback</a></code></td>
+<td>
+<p>A callback that handles logging events. This is called in a separate thread so access to shared data must be synchronized.</p>
+</td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>data</var>
+</td>
+<td><code>void *</code></td>
+<td>
+<p>An opaque data object passed to the callback.</p>
+</td>
+</tr>
+</tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code>void</code> <h3 id="function-cass_log_set_queue_size" class="target">cass_log_set_queue_size<a class="anchor" href="#function-cass_log_set_queue_size" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code>size_t</code> queue_size <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets the log queue size.</p>
+
+<p><strong>Note:</strong> This needs to be done before any call that might log, such as any of the cass_cluster_*() or cass_ssl_*() functions.</p>
+
+<p><strong>Default:</strong> 2048</p>
+
+<p><strong>Deprecated</strong>:</p>
+
+<p>This is no longer useful and does nothing. Expect this to be removed in a few releases.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td>
+<small>in</small> <var>queue_size</var>
+</td>
+<td><code>size_t</code></td>
+<td></td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code>const char *</code> <h3 id="function-cass_log_level_string" class="target">cass_log_level_string<a class="anchor" href="#function-cass_log_level_string" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="#enum-CassLogLevel">CassLogLevel</a></code> log_level <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets the string for a log level.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td>
+<small>in</small> <var>log_level</var>
+</td>
+<td><code><a href="#enum-CassLogLevel">CassLogLevel</a></code></td>
+<td></td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code>const char *</code></td>
+<td>
+<p>A null-terminated string for the log level. Example: “ERROR”, “WARN”, “INFO”, etc.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="#type-cass_uint32_t">cass_uint32_t</a></code> <h3 id="function-cass_date_from_epoch" class="target">cass_date_from_epoch<a class="anchor" href="#function-cass_date_from_epoch" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="#type-cass_int64_t">cass_int64_t</a></code> epoch_secs <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Converts a unix timestamp (in seconds) to the Cassandra “date” type. The “date” type represents the number of days since the Epoch (1970-01-01) with the Epoch centered at the value 2<sup>31.</sup></p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td>
+<small>in</small> <var>epoch_secs</var>
+</td>
+<td><code><a href="#type-cass_int64_t">cass_int64_t</a></code></td>
+<td></td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="#type-cass_uint32_t">cass_uint32_t</a></code></td>
+<td>
+<p>the number of days since the date -5877641-06-23</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="#type-cass_int64_t">cass_int64_t</a></code> <h3 id="function-cass_time_from_epoch" class="target">cass_time_from_epoch<a class="anchor" href="#function-cass_time_from_epoch" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="#type-cass_int64_t">cass_int64_t</a></code> epoch_secs <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Converts a unix timestamp (in seconds) to the Cassandra “time” type. The “time” type represents the number of nanoseconds since midnight (range 0 to 86399999999999).</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td>
+<small>in</small> <var>epoch_secs</var>
+</td>
+<td><code><a href="#type-cass_int64_t">cass_int64_t</a></code></td>
+<td></td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="#type-cass_int64_t">cass_int64_t</a></code></td>
+<td>
+<p>nanoseconds since midnight</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="#type-cass_int64_t">cass_int64_t</a></code> <h3 id="function-cass_date_time_to_epoch" class="target">cass_date_time_to_epoch<a class="anchor" href="#function-cass_date_time_to_epoch" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big> <code><a href="#type-cass_uint32_t">cass_uint32_t</a></code> date, <code><a href="#type-cass_int64_t">cass_int64_t</a></code> time <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Combines the Cassandra “date” and “time” types to Epoch time in seconds.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>date</var>
+</td>
+<td><code><a href="#type-cass_uint32_t">cass_uint32_t</a></code></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>time</var>
+</td>
+<td><code><a href="#type-cass_int64_t">cass_int64_t</a></code></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="#type-cass_int64_t">cass_int64_t</a></code></td>
+<td>
+<p>Epoch time in seconds. Negative times are possible if the date occurs before the Epoch (1970-1-1).</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script src="../../../js/jquery.js"></script>
+    <script src="../../../js/bootstrap.js"></script>
+    <script src="../../../js/angular.js"></script>
+    <script src="../../../js/mousetrap.js"></script>
+    <script src="../../../js/hotkeys.js"></script>
+    <script src="../../../js/ZeroClipboard.js"></script>
+    <script src="../../../js/lunr.js"></script>
+    <script src="../../../js/app.js"></script>
+  </body>
+</html>

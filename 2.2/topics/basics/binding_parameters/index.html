@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="DataStax C++ Driver for Apache Cassandra Documentation">
+    <meta name="author" content="DataStax">
+
+    <title>DataStax C/C++ Driver - Binding Parameters</title>
+
+    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="apple-touch-icon" href="../../../../favicon.png">
+    <link href="../../../../css/style.css" rel="stylesheet">
+    <link href="../../../../css/pygments.css" rel="stylesheet">
+    <link href="../../../../css/hotkeys.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body ng-app="docs">
+    <div class="navbar">
+      <div class="container-fluid">
+        <div class="row row-offcanvas row-offcanvas-left">
+          <div class="col-sm-3 text-center">
+            <a class="ds-home" href="../../../"><img alt="Brand" src="../../../../img/logo.png"></a>
+            <ul class="list-inline ds-sites" role="nav">
+              <li><a href="https://academy.datastax.com/" class="navbar-link">DataStax Academy</a></li>
+              <li><a href="http://www.datastax.com/dev/blog" class="navbar-link">Tech Blog</a></li>
+              <li><a href="http://www.datastax.com/what-we-offer/products-services/support" class="navbar-link">Support</a></li>
+            </ul>
+          </div>
+          <div class="col-md-5">
+            <p class="lead pubtitle">DataStax C/C++ Driver</p>
+            
+            <div class="text-info">
+              <span class="text-warning">Attention:</span> Viewing documentation for version
+              <div class="btn-group">
+                <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  2.2
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
+                
+                  <li><a href="../../../../topics/basics/binding_parameters/">2.5</a></li>
+                
+                  <li><a href="../../../../2.4/topics/basics/binding_parameters/">2.4</a></li>
+                
+                  <li><a href="../../../../2.3/topics/basics/binding_parameters/">2.3</a></li>
+                
+                  <li class="disabled"><a href="./">2.2</a></li>
+                
+                  <li><a href="../../../../2.1/topics/basics/binding_parameters/">2.1</a></li>
+                
+                  <li><a href="../../../../2.0/topics/basics/binding_parameters/">2.0</a></li>
+                
+                  <li><a href="../../../../1.0/topics/basics/binding_parameters/">1.0</a></li>
+                
+                </ul>
+              </div>
+            </div>
+            
+          </div>
+          <div class="col-md-4">
+            <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
+              <div class="form-group has-feedback">
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.2')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+              </div>
+              <ul class="dropdown-menu search-results" role="menu">
+                <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
+              </ul>
+            </form>
+            <a href="http://www.datastax.com/download" class="btn btn-primary btn-sm">Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid" id="content">
+      <div class="row">
+        <div class="col-md-3">
+          <div id="navigation" class="side-nav" role="tablist" aria-multiselectable="true">
+            <h3><a href="../../../">Contents</a></h3>
+            <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li class="active">
+    <a href="../../">
+      Getting Started <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-minus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li>
+    <a href="../../building/">
+      Building <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li class="active">
+    <a href="../">
+      Basics <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-minus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li>
+    <a href="../keyspaces/">
+      Keyspaces <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../futures/">
+      Futures <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li class="active">
+    <a href="./" class="current">
+      Binding Parameters <small>page</small>
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../handling_results/">
+      Handling Results <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../schema_metadata/">
+      Schema Metadata <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../uuids/">
+      UUIDs <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../batches/">
+      Batches <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../client_side_timestamps/">
+      Client-side timestamps <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../consistency/">
+      Consistency <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../data_types/">
+      Data Types <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../prepared_statements/">
+      Prepared Statements <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../date_and_time/">
+      The date and time Types <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../tuples/">
+      Tuples <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../user_defined_types/">
+      User Defined Types (UDTs) <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../../security/">
+      Security <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../logging/">
+      Logging <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../configuration/">
+      Configuration <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../faq/">
+      FAQ <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../metrics/">
+      Metrics <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../testing/">
+      Testing <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../../../api/">
+      API docs <small>index</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+          </div>
+        </div>
+        <div class="col-md-9 content">
+          <div class="crumbs-wrapper">
+            <nav id="crumbs" data-spy="affix" data-offset-top="130">
+              <ol class="breadcrumb">
+                
+                
+                
+                <li><a href="../../../">Home</a></li>
+                
+                
+                
+                
+                
+                <li><a href="../../">Getting Started</a></li>
+                
+                
+                
+                
+                
+                <li><a href="../">Basics</a></li>
+                
+                
+                
+                
+                
+                <li class="active">Binding Parameters</li>
+                
+                
+                
+              </ol>
+            </nav>
+          </div>
+          
+
+<h1 id="binding-parameters" class="target">Binding Parameters<a class="anchor" href="#binding-parameters" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>The ‘?’ marker is used to denote the bind variables in a query string. This can be used for both regular and prepared parameterized queries. In addition to adding the bind marker to your query string your application must also provide the number of bind variables to <code>cass_statement_new()</code> when constructing a new statement. If a query doesn’t require any bind variables then 0 can be used. <code>cass_statement_bind_*()</code> functions are then used to bind values to the statement’s variables. Bind variables can be bound by the marker’s index or by name and must be supplied for all bound variables.</p>
+<pre class="highlight"><code><span class="cm">/* Create a statement with a single parameter */</span>
+<span class="nc">CassStatement</span><span class="o">*</span> <span class="n">statement</span> <span class="o">=</span> <span class="nb">cass_statement_new</span><span class="p">(</span><span class="s">"SELECT * FROM table1 WHERE column1 = ?"</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="nb">cass_statement_bind_string</span><span class="p">(</span><span class="n">statement</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"abc"</span><span class="p">);</span>
+
+<span class="cm">/* Execute statement */</span>
+
+<span class="nb">cass_statement_free</span><span class="p">(</span><span class="n">statement</span><span class="p">);</span>
+</code></pre>
+<p>Variables can only be bound by name for prepared statements. This limitation exists because query metadata provided by Cassandra is required to map the variable name to the variable’s marker index.</p>
+<pre class="highlight"><code><span class="cm">/* Prepare statment */</span>
+
+<span class="cm">/* The prepared query allocates the correct number of paramters automatically */</span>
+<span class="nc">CassStatement</span><span class="o">*</span> <span class="n">statement</span> <span class="o">=</span> <span class="nb">cass_prepared_bind</span><span class="p">(</span><span class="n">prepared</span><span class="p">);</span>
+
+<span class="cm">/* The parameter can now be bound by name */</span>
+<span class="nb">cass_statement_bind_string_by_name</span><span class="p">(</span><span class="n">statement</span><span class="p">,</span> <span class="s">"column1"</span><span class="p">,</span> <span class="s">"abc"</span><span class="p">);</span>
+
+<span class="cm">/* Execute statement */</span>
+
+<span class="nb">cass_statement_free</span><span class="p">(</span><span class="n">statement</span><span class="p">);</span>
+</code></pre>
+<h2 id="unbound-parameters" class="target">Unbound parameters<a class="anchor" href="#unbound-parameters" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>When using Cassandra 2.2+ the driver will send a special <code>unset</code> value for
+unbound parameters (leaving the unbound column unaffected). If using older
+versions of Cassandra (2.1 and below) the driver will return an error for
+unbound parameters.</p>
+
+<h2 id="constructing-collections" class="target">Constructing Collections<a class="anchor" href="#constructing-collections" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>Collections are supported using <a href="../../../api/struct.CassCollection/"><code>CassCollection</code></a> objects; supporting <code>list</code>, <code>map</code> and <code>set</code> Cassandra types. The code below shows how to construct a <code>list</code> collection; however, a set can be constructed in a very similar way. The only difference is the type <code>CASS_COLLECTION_TYPE_SET</code> is used to create the collection instead of <code>CASS_COLLECTION_TYPE_LIST</code>.</p>
+
+<p><strong>Important</strong>: Values appended to the collection can be freed immediately afterward because the values are copied.</p>
+<pre class="highlight"><code><span class="nc">CassStatement</span><span class="o">*</span> <span class="n">statement</span> <span class="o">=</span> <span class="nb">cass_statement_new</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="nc">CassCollection</span><span class="o">*</span> <span class="n">list</span> <span class="o">=</span> <span class="nb">cass_collection_new</span><span class="p">(</span><span class="n">CASS_COLLECTION_TYPE_LIST</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="nb">cass_collection_append_string</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="s">"123"</span><span class="p">);</span>
+<span class="nb">cass_collection_append_string</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="s">"456"</span><span class="p">);</span>
+<span class="nb">cass_collection_append_string</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="s">"789"</span><span class="p">);</span>
+
+<span class="nb">cass_statement_bind_collection</span><span class="p">(</span><span class="n">statement</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">list</span><span class="p">);</span>
+
+<span class="cm">/* The colleciton can be freed after binding */</span>
+<span class="nb">cass_collection_free</span><span class="p">(</span><span class="n">list</span><span class="p">);</span>
+</code></pre>
+<p>Maps are built similarly, but the key and value need to be interleaved as they are appended to the collection.</p>
+<pre class="highlight"><code><span class="nc">CassStatement</span><span class="o">*</span> <span class="n">statement</span> <span class="o">=</span> <span class="nb">cass_statement_new</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="nc">CassCollection</span><span class="o">*</span> <span class="n">map</span> <span class="o">=</span> <span class="nb">cass_collection_new</span><span class="p">(</span><span class="n">CASS_COLLECTION_TYPE_MAP</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="cm">/* map["abc"] = 123 */</span>
+<span class="nb">cass_collection_append_string</span><span class="p">(</span><span class="n">map</span><span class="p">,</span> <span class="s">"abc"</span><span class="p">);</span>
+<span class="nb">cass_collection_append_int32</span><span class="p">(</span><span class="n">map</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span>
+
+<span class="cm">/* map["def"] = 456 */</span>
+<span class="nb">cass_collection_append_string</span><span class="p">(</span><span class="n">map</span><span class="p">,</span> <span class="s">"def"</span><span class="p">);</span>
+<span class="nb">cass_collection_append_int32</span><span class="p">(</span><span class="n">map</span><span class="p">,</span> <span class="mi">456</span><span class="p">);</span>
+
+<span class="nb">cass_statement_bind_collection</span><span class="p">(</span><span class="n">statement</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">map</span><span class="p">);</span>
+
+<span class="cm">/* The colleciton can be freed after binding */</span>
+<span class="nb">cass_collection_free</span><span class="p">(</span><span class="n">map</span><span class="p">);</span>
+</code></pre>
+<h2 id="nested-collections" class="target">Nested Collections<a class="anchor" href="#nested-collections" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>When using Cassandra 2.1+ it is possible to nest collections. A collection can
+be added to another collection using <a href="../../../api/struct.CassCollection/#cass-collection-append-collection"><code>cass_collection_append_collection()</code></a>.</p>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script src="../../../../js/jquery.js"></script>
+    <script src="../../../../js/bootstrap.js"></script>
+    <script src="../../../../js/angular.js"></script>
+    <script src="../../../../js/mousetrap.js"></script>
+    <script src="../../../../js/hotkeys.js"></script>
+    <script src="../../../../js/ZeroClipboard.js"></script>
+    <script src="../../../../js/lunr.js"></script>
+    <script src="../../../../js/app.js"></script>
+  </body>
+</html>

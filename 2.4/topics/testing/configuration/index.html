@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="DataStax C++ Driver for Apache Cassandra Documentation">
+    <meta name="author" content="DataStax">
+
+    <title>DataStax C/C++ Driver - Configuration</title>
+
+    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="apple-touch-icon" href="../../../../favicon.png">
+    <link href="../../../../css/style.css" rel="stylesheet">
+    <link href="../../../../css/pygments.css" rel="stylesheet">
+    <link href="../../../../css/hotkeys.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body ng-app="docs">
+    <div class="navbar">
+      <div class="container-fluid">
+        <div class="row row-offcanvas row-offcanvas-left">
+          <div class="col-sm-3 text-center">
+            <a class="ds-home" href="../../../"><img alt="Brand" src="../../../../img/logo.png"></a>
+            <ul class="list-inline ds-sites" role="nav">
+              <li><a href="https://academy.datastax.com/" class="navbar-link">DataStax Academy</a></li>
+              <li><a href="http://www.datastax.com/dev/blog" class="navbar-link">Tech Blog</a></li>
+              <li><a href="http://www.datastax.com/what-we-offer/products-services/support" class="navbar-link">Support</a></li>
+            </ul>
+          </div>
+          <div class="col-md-5">
+            <p class="lead pubtitle">DataStax C/C++ Driver</p>
+            
+            <div class="text-info">
+              <span class="text-warning">Attention:</span> Viewing documentation for version
+              <div class="btn-group">
+                <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  2.4
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
+                
+                  <li><a href="../../../../topics/testing/configuration/">2.5</a></li>
+                
+                  <li class="disabled"><a href="./">2.4</a></li>
+                
+                  <li><a href="../../../../2.3/topics/testing/configuration/">2.3</a></li>
+                
+                  <li><a href="../../../../2.2/topics/testing/configuration/">2.2</a></li>
+                
+                  <li><a href="../../../../2.1/topics/testing/configuration/">2.1</a></li>
+                
+                  <li><a href="../../../../2.0/topics/testing/configuration/">2.0</a></li>
+                
+                  <li><a href="../../../../1.0/">1.0</a></li>
+                
+                </ul>
+              </div>
+            </div>
+            
+          </div>
+          <div class="col-md-4">
+            <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
+              <div class="form-group has-feedback">
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.4')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+              </div>
+              <ul class="dropdown-menu search-results" role="menu">
+                <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
+              </ul>
+            </form>
+            <a href="http://www.datastax.com/download" class="btn btn-primary btn-sm">Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid" id="content">
+      <div class="row">
+        <div class="col-md-3">
+          <div id="navigation" class="side-nav" role="tablist" aria-multiselectable="true">
+            <h3><a href="../../../">Contents</a></h3>
+            <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li class="active">
+    <a href="../../">
+      Getting Started <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-minus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li>
+    <a href="../../building/">
+      Building <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../basics/">
+      Basics <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../security/">
+      Security <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../logging/">
+      Logging <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../configuration/">
+      Configuration <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../faq/">
+      FAQ <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../../metrics/">
+      Metrics <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li class="active">
+    <a href="../">
+      Testing <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-minus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li>
+    <a href="../ccm/">
+      Cassandra Cluster Manager (CCM) <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li class="active">
+    <a href="./" class="current">
+      Configuration <small>page</small>
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../running/">
+      Running <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../../../api/">
+      API docs <small>index</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+          </div>
+        </div>
+        <div class="col-md-9 content">
+          <div class="crumbs-wrapper">
+            <nav id="crumbs" data-spy="affix" data-offset-top="130">
+              <ol class="breadcrumb">
+                
+                
+                
+                <li><a href="../../../">Home</a></li>
+                
+                
+                
+                
+                
+                <li><a href="../../">Getting Started</a></li>
+                
+                
+                
+                
+                
+                <li><a href="../">Testing</a></li>
+                
+                
+                
+                
+                
+                <li class="active">Configuration</li>
+                
+                
+                
+              </ol>
+            </nav>
+          </div>
+          
+
+<h1 id="configuration" class="target">Configuration<a class="anchor" href="#configuration" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>In order to execute the integration tests, a <code>config.txt</code> file must be
+created in the working directory where the integration tests are run. Below is
+an example of the configuration file for use with the <a href="../ccm/#ccm-cluster-by-way-of-vagrant-and-virtual-box">CCM Cluster</a> VM.</p>
+<pre class="highlight"><code>###############################################################################
+# This is configuration file for CCM bridge library used primarily by the     #
+# integration testing framework                                               #
+###############################################################################
+
+###############################################################################
+# CCM Options                                                                 #
+###############################################################################
+##
+# CCM Cassandra Deployment Version
+#
+# Cassandra version to deploy using CCM
+#
+# Uncomment to specify Cassandra version
+##
+#CASSANDRA_VERSION=3.4
+##
+# Flag to determine if Cassandra/DSE version should be obtained from ASF/GitHub
+#
+# Uncomment to specify use of ASF/GitHub download
+##
+#USE_GIT=false
+##
+# CCM Deployment Type (local|remote)
+#
+# Setting to indicate how CCM commands should be run (locally or through SSH)
+#
+# Uncomment to specify deployment type (defaults to local)
+##
+#DEPLOYMENT_TYPE=local
+
+###############################################################################
+# DSE Options                                                                 #
+# Ensure USE_DSE=true to enable these options                                 #
+###############################################################################
+##
+# Flag to determine if DSE version should be loaded
+#
+# Uncomment to specify use of DSE
+##
+#USE_DSE=false
+##
+# DSE Deployment Version
+#
+# DSE version to deploy using CCM
+#
+# Uncomment to specify DSE version
+##
+#DSE_VERSION=4.8.5
+##
+# CCM DSE Credentials Type (username_password|ini_file)
+#
+# Setting to indicate how DSE download through CCM should authenticate access
+#
+# Uncomment to specify DSE credentials type (defaults to username and password)
+##
+#DSE_CREDENTIALS_TYPE=username_password
+##
+# DSE Username (Username)
+#
+# Username for authenticating DSE download access
+#
+# Uncomment to specify DSE download access username
+##
+#DSE_USERNAME=
+##
+# DSE Password (Password)
+#
+# Password for authenticating DSE download access
+#
+# NOTE: This password is plain text
+#
+# Uncomment to specify DSE download access password
+##
+#DSE_PASSWORD=
+
+###############################################################################
+# SSH Options                                                                 #
+# Enusre DEPLOYMENT_TYPE=remote to enable these options                       #
+###############################################################################
+##
+# SSH Port (Port)
+#
+# TCP/IP port to use when establishing ssh connection for remote CCM command
+# execution
+#
+# Uncomment to specify SSH port (defaults to 22)
+##
+#SSH_PORT=22
+##
+# CCM Authentication Type (username_password|public_key)
+#
+# Setting to indicate how SSH connections should be authenticated
+#
+# Uncomment to specify authentication type (defaults to username and password)
+##
+#AUTHENTICATION_TYPE=username_password
+##
+# SSH Username (Username)
+#
+# Username for authenticating SSH connection
+#
+# Uncomment to specify SSH username (defaults to vagrant)
+##
+#SSH_USERNAME=vagrant
+##
+# SSH Password (Password)
+#
+# Password for authenticating SSH connection
+#
+# NOTE: This password is plain text
+#
+# Uncomment to specify SSH password (defaults to vagrant)
+##
+#SSH_PASSWORD=vagrant
+##
+# SSH Public Key
+#
+# Path name of the public key file
+#
+# Uncomment to specify public key filename
+##
+#SSH_PUBLIC_KEY=
+##
+# SSH Private Key
+#
+# Path name of the private key file
+#
+# Uncomment to specify private key filename
+##
+#SSH_PRIVATE_KEY=
+
+###############################################################################
+# C/C++-Driver Options                                                        #
+###############################################################################
+##
+# Host (Single/Multiple Node Test Connections)
+#
+# Cassandra node IP for cpp-driver connection(s), CCM node creation, and SSH
+# remote connections
+#
+# NOTE: This must be in IPv4 format
+#
+# Uncomment to specify host/ip address
+##
+#HOST=127.0.0.1
+</code></pre>
+<h2 id="ssl-test-suite" class="target">SSL Test Suite<a class="anchor" href="#ssl-test-suite" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>To execute any of the tests in the <code>ssl</code> test suite, follow the <a href="https://github.com/datastax/cpp-driver/tree/1.0/test/ccm_bridge/data/ssl">instructions</a>
+for generating public and private keys to use with the driver and Cassandra.</p>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script src="../../../../js/jquery.js"></script>
+    <script src="../../../../js/bootstrap.js"></script>
+    <script src="../../../../js/angular.js"></script>
+    <script src="../../../../js/mousetrap.js"></script>
+    <script src="../../../../js/hotkeys.js"></script>
+    <script src="../../../../js/ZeroClipboard.js"></script>
+    <script src="../../../../js/lunr.js"></script>
+    <script src="../../../../js/app.js"></script>
+  </body>
+</html>
