@@ -88,7 +88,7 @@ endmacro()
 #------------------------
 
 # Minimum supported version of Boost
-set(CASS_MINIMUM_BOOST_VERSION 1.55.0)
+set(CASS_MINIMUM_BOOST_VERSION 1.59.0)
 
 #------------------------
 # CassUseBoost
@@ -136,9 +136,16 @@ macro(CassUseBoost)
 
   # Determine if Boost components are available for test executables
   if(CASS_BUILD_UNIT_TESTS OR CASS_BUILD_INTEGRATION_TESTS)
-    find_package(Boost ${CASS_MINIMUM_BOOST_VERSION} COMPONENTS chrono date_time filesystem log log_setup system regex thread unit_test_framework)
+    find_package(Boost ${CASS_MINIMUM_BOOST_VERSION} COMPONENTS chrono system thread unit_test_framework)
     if(NOT Boost_FOUND)
-      message(FATAL_ERROR "Boost [chrono, date_time, filesystem, log, log_setup, system, regex, thread, and unit_test_framework] are required to build tests")
+      # Ensure Boost was not found due to minimum version requirement
+      set(CASS_FOUND_BOOST_VERSION "${Boost_MAJOR_VERSION}.${Boost_MINOR_VERSION}.${Boost_SUBMINOR_VERSION}")
+      if((CASS_FOUND_BOOST_VERSION VERSION_GREATER "${CASS_MINIMUM_BOOST_VERSION}")
+        OR (CASS_FOUND_BOOST_VERSION VERSION_EQUAL "${CASS_MINIMUM_BOOST_VERSION}"))
+        message(FATAL_ERROR "Boost [chrono, system, thread, and unit_test_framework] are required to build tests")
+      else()
+        message(FATAL_ERROR "Boost v${CASS_FOUND_BOOST_VERSION} Found: v${CASS_MINIMUM_BOOST_VERSION} or greater required")
+      endif()
     endif()
 
     # Assign Boost include and libraries
@@ -147,15 +154,9 @@ macro(CassUseBoost)
   endif()
 
   # Determine if additional Boost definitions are required for driver/executables
-  set(CASS_FOUND_BOOST_VERSION "${Boost_MAJOR_VERSION}.${Boost_MINOR_VERSION}.${Boost_SUBMINOR_VERSION}")
-  if((CASS_FOUND_BOOST_VERSION VERSION_GREATER "1.56.0") OR (CASS_FOUND_BOOST_VERSION VERSION_EQUAL "1.56.0"))
-    if(NOT WIN32)
-      # Handle explicit initialization warning in atomic/details/casts
-      add_definitions(-Wno-missing-field-initializers)
-    endif()
-  else()
-    # Handle redefinition warning of BOOST_NO_CXX11_RVALUE_REFERENCES
-    add_definitions(-DBOOST_NO_CXX11_RVALUE_REFERENCES)
+  if(NOT WIN32)
+    # Handle explicit initialization warning in atomic/details/casts
+    add_definitions(-Wno-missing-field-initializers)
   endif()
 endmacro()
 
@@ -342,7 +343,6 @@ macro(CassSetCompilerFlags)
     add_definitions(/wd4800) # Performance warning due to automatic compiler casting from int to bool
 
     # Add preprocessor definitions for proper compilation
-    add_definitions(-D_WIN32_WINNT=0x0501)      # Required for winsock (pre Windows XP wspiapi.h only)
     add_definitions(-D_CRT_SECURE_NO_WARNINGS)  # Remove warnings for not using safe functions (TODO: Fix codebase to be more secure for Visual Studio)
     add_definitions(-DNOMINMAX)                 # Does not define min/max macros
 
@@ -429,7 +429,7 @@ macro(CassAddIncludes)
       ${CASS_SOURCE_DIR}/src/third_party/sparsehash/src
       ${CASS_INCLUDES}
       )
-  add_subdirectory(src/third_party/sparsehash)
+  add_subdirectory(${CASS_SOURCE_DIR}/src/third_party/sparsehash)
 endmacro()
 
 #------------------------
