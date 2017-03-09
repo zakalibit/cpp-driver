@@ -46,7 +46,9 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li><a href="../../../api/struct.CassKeyspaceMeta/">2.5</a></li>
+                  <li><a href="../../../api/struct.CassKeyspaceMeta/">2.6</a></li>
+                
+                  <li><a href="../../../2.5/api/struct.CassKeyspaceMeta/">2.5</a></li>
                 
                   <li><a href="../../../2.4/api/struct.CassKeyspaceMeta/">2.4</a></li>
                 
@@ -475,7 +477,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_keyspace_meta_name" class="target">cass_keyspace_meta_name<a class="anchor" href="#function-cass_keyspace_meta_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassKeyspaceMeta</a> *</code> keyspace_meta, <code>const char **</code> name, <code>size_t *</code> name_length <big>)</big>
+</h3> <big>(</big>  keyspace_meta,  name,  name_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the name of the keyspace.</p>
@@ -493,21 +495,21 @@
 <td>
 <small>in</small> <var>keyspace_meta</var>
 </td>
-<td><code>const <a href="./">CassKeyspaceMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>name</var>
 </td>
-<td><code>const char **</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>name_length</var>
 </td>
-<td><code>size_t *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -518,7 +520,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassTableMeta/">CassTableMeta</a> *</code> <h3 id="function-cass_keyspace_meta_table_by_name" class="target">cass_keyspace_meta_table_by_name<a class="anchor" href="#function-cass_keyspace_meta_table_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassKeyspaceMeta</a> *</code> keyspace_meta, <code>const char *</code> table <big>)</big>
+</h3> <big>(</big>  keyspace_meta,  table <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the table metadata for the provided table name.</p>
@@ -536,14 +538,14 @@
 <td>
 <small>in</small> <var>keyspace_meta</var>
 </td>
-<td><code>const <a href="./">CassKeyspaceMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>table</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -567,7 +569,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassTableMeta/">CassTableMeta</a> *</code> <h3 id="function-cass_keyspace_meta_table_by_name_n" class="target">cass_keyspace_meta_table_by_name_n<a class="anchor" href="#function-cass_keyspace_meta_table_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassKeyspaceMeta</a> *</code> keyspace_meta, <code>const char *</code> table, <code>size_t</code> table_length <big>)</big>
+</h3> <big>(</big>  keyspace_meta,  table,  table_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_keyspace_meta_table_by_name">CassKeyspaceMeta::cass_keyspace_meta_table_by_name</a></code>, but with lengths for string parameters.</p>
@@ -585,21 +587,21 @@
 <td>
 <small>in</small> <var>keyspace_meta</var>
 </td>
-<td><code>const <a href="./">CassKeyspaceMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>table</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>table_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -625,7 +627,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassMaterializedViewMeta/">CassMaterializedViewMeta</a> *</code> <h3 id="function-cass_keyspace_meta_materialized_view_by_name" class="target">cass_keyspace_meta_materialized_view_by_name<a class="anchor" href="#function-cass_keyspace_meta_materialized_view_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassKeyspaceMeta</a> *</code> keyspace_meta, <code>const char *</code> view <big>)</big>
+</h3> <big>(</big>  keyspace_meta,  view <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the materialized view metadata for the provided view name.</p>
@@ -645,14 +647,14 @@
 <td>
 <small>in</small> <var>keyspace_meta</var>
 </td>
-<td><code>const <a href="./">CassKeyspaceMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>view</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -676,7 +678,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassMaterializedViewMeta/">CassMaterializedViewMeta</a> *</code> <h3 id="function-cass_keyspace_meta_materialized_view_by_name_n" class="target">cass_keyspace_meta_materialized_view_by_name_n<a class="anchor" href="#function-cass_keyspace_meta_materialized_view_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassKeyspaceMeta</a> *</code> keyspace_meta, <code>const char *</code> view, <code>size_t</code> view_length <big>)</big>
+</h3> <big>(</big>  keyspace_meta,  view,  view_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_keyspace_meta_materialized_view_by_name">CassKeyspaceMeta::cass_keyspace_meta_materialized_view_by_name</a></code>, but with lengths for string parameters.</p>
@@ -696,21 +698,21 @@
 <td>
 <small>in</small> <var>keyspace_meta</var>
 </td>
-<td><code>const <a href="./">CassKeyspaceMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>view</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>view_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -736,7 +738,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> <h3 id="function-cass_keyspace_meta_user_type_by_name" class="target">cass_keyspace_meta_user_type_by_name<a class="anchor" href="#function-cass_keyspace_meta_user_type_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassKeyspaceMeta</a> *</code> keyspace_meta, <code>const char *</code> type <big>)</big>
+</h3> <big>(</big>  keyspace_meta,  type <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the data type for the provided type name.</p>
@@ -756,14 +758,14 @@
 <td>
 <small>in</small> <var>keyspace_meta</var>
 </td>
-<td><code>const <a href="./">CassKeyspaceMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>type</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -787,7 +789,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> <h3 id="function-cass_keyspace_meta_user_type_by_name_n" class="target">cass_keyspace_meta_user_type_by_name_n<a class="anchor" href="#function-cass_keyspace_meta_user_type_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassKeyspaceMeta</a> *</code> keyspace_meta, <code>const char *</code> type, <code>size_t</code> type_length <big>)</big>
+</h3> <big>(</big>  keyspace_meta,  type,  type_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as cass_keyspace_meta_type_by_name(), but with lengths for string parameters.</p>
@@ -807,21 +809,21 @@
 <td>
 <small>in</small> <var>keyspace_meta</var>
 </td>
-<td><code>const <a href="./">CassKeyspaceMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>type</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>type_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -847,7 +849,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassFunctionMeta/">CassFunctionMeta</a> *</code> <h3 id="function-cass_keyspace_meta_function_by_name" class="target">cass_keyspace_meta_function_by_name<a class="anchor" href="#function-cass_keyspace_meta_function_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassKeyspaceMeta</a> *</code> keyspace_meta, <code>const char *</code> name, <code>const char *</code> arguments <big>)</big>
+</h3> <big>(</big>  keyspace_meta,  name,  arguments <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the function metadata for the provided function name.</p>
@@ -867,21 +869,21 @@
 <td>
 <small>in</small> <var>keyspace_meta</var>
 </td>
-<td><code>const <a href="./">CassKeyspaceMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>arguments</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td>
 <p>A comma delimited list of CQL types (e.g “text,int,…”) describing the function’s signature.</p>
 </td>
@@ -907,7 +909,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassFunctionMeta/">CassFunctionMeta</a> *</code> <h3 id="function-cass_keyspace_meta_function_by_name_n" class="target">cass_keyspace_meta_function_by_name_n<a class="anchor" href="#function-cass_keyspace_meta_function_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassKeyspaceMeta</a> *</code> keyspace_meta, <code>const char *</code> name, <code>size_t</code> name_length, <code>const char *</code> arguments, <code>size_t</code> arguments_length <big>)</big>
+</h3> <big>(</big>  keyspace_meta,  name,  name_length,  arguments,  arguments_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_keyspace_meta_function_by_name">CassKeyspaceMeta::cass_keyspace_meta_function_by_name</a></code>, but with lengths for string parameters.</p>
@@ -927,35 +929,35 @@
 <td>
 <small>in</small> <var>keyspace_meta</var>
 </td>
-<td><code>const <a href="./">CassKeyspaceMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>arguments</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>arguments_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -981,7 +983,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassAggregateMeta/">CassAggregateMeta</a> *</code> <h3 id="function-cass_keyspace_meta_aggregate_by_name" class="target">cass_keyspace_meta_aggregate_by_name<a class="anchor" href="#function-cass_keyspace_meta_aggregate_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassKeyspaceMeta</a> *</code> keyspace_meta, <code>const char *</code> name, <code>const char *</code> arguments <big>)</big>
+</h3> <big>(</big>  keyspace_meta,  name,  arguments <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the aggregate metadata for the provided aggregate name.</p>
@@ -1001,21 +1003,21 @@
 <td>
 <small>in</small> <var>keyspace_meta</var>
 </td>
-<td><code>const <a href="./">CassKeyspaceMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>arguments</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td>
 <p>A comma delimited list of CQL types (e.g “text,int,…”) describing the aggregate’s signature.</p>
 </td>
@@ -1041,7 +1043,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassAggregateMeta/">CassAggregateMeta</a> *</code> <h3 id="function-cass_keyspace_meta_aggregate_by_name_n" class="target">cass_keyspace_meta_aggregate_by_name_n<a class="anchor" href="#function-cass_keyspace_meta_aggregate_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassKeyspaceMeta</a> *</code> keyspace_meta, <code>const char *</code> name, <code>size_t</code> name_length, <code>const char *</code> arguments, <code>size_t</code> arguments_length <big>)</big>
+</h3> <big>(</big>  keyspace_meta,  name,  name_length,  arguments,  arguments_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_keyspace_meta_aggregate_by_name">CassKeyspaceMeta::cass_keyspace_meta_aggregate_by_name</a></code>, but with lengths for string parameters.</p>
@@ -1061,35 +1063,35 @@
 <td>
 <small>in</small> <var>keyspace_meta</var>
 </td>
-<td><code>const <a href="./">CassKeyspaceMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>arguments</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>arguments_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1115,7 +1117,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassValue/">CassValue</a> *</code> <h3 id="function-cass_keyspace_meta_field_by_name" class="target">cass_keyspace_meta_field_by_name<a class="anchor" href="#function-cass_keyspace_meta_field_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassKeyspaceMeta</a> *</code> keyspace_meta, <code>const char *</code> name <big>)</big>
+</h3> <big>(</big>  keyspace_meta,  name <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets a metadata field for the provided name. Metadata fields allow direct access to the column data found in the underlying “keyspaces” metadata table.</p>
@@ -1133,14 +1135,14 @@
 <td>
 <small>in</small> <var>keyspace_meta</var>
 </td>
-<td><code>const <a href="./">CassKeyspaceMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1164,7 +1166,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassValue/">CassValue</a> *</code> <h3 id="function-cass_keyspace_meta_field_by_name_n" class="target">cass_keyspace_meta_field_by_name_n<a class="anchor" href="#function-cass_keyspace_meta_field_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassKeyspaceMeta</a> *</code> keyspace_meta, <code>const char *</code> name, <code>size_t</code> name_length <big>)</big>
+</h3> <big>(</big>  keyspace_meta,  name,  name_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_keyspace_meta_field_by_name">CassKeyspaceMeta::cass_keyspace_meta_field_by_name</a></code>, but with lengths for string parameters.</p>
@@ -1182,21 +1184,21 @@
 <td>
 <small>in</small> <var>keyspace_meta</var>
 </td>
-<td><code>const <a href="./">CassKeyspaceMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1222,7 +1224,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_tables_from_keyspace_meta" class="target">cass_iterator_tables_from_keyspace_meta<a class="anchor" href="#function-cass_iterator_tables_from_keyspace_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassKeyspaceMeta</a> *</code> keyspace_meta <big>)</big>
+</h3> <big>(</big>  keyspace_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new iterator for the specified keyspace metadata. This can be used to iterate over tables.</p>
@@ -1239,7 +1241,7 @@
 <td>
 <small>in</small> <var>keyspace_meta</var>
 </td>
-<td><code>const <a href="./">CassKeyspaceMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -1267,7 +1269,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_materialized_views_from_keyspace_meta" class="target">cass_iterator_materialized_views_from_keyspace_meta<a class="anchor" href="#function-cass_iterator_materialized_views_from_keyspace_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassKeyspaceMeta</a> *</code> keyspace_meta <big>)</big>
+</h3> <big>(</big>  keyspace_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new iterator for the specified keyspace metadata. This can be used to iterate over views.</p>
@@ -1286,7 +1288,7 @@
 <td>
 <small>in</small> <var>keyspace_meta</var>
 </td>
-<td><code>const <a href="./">CassKeyspaceMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -1314,7 +1316,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_user_types_from_keyspace_meta" class="target">cass_iterator_user_types_from_keyspace_meta<a class="anchor" href="#function-cass_iterator_user_types_from_keyspace_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassKeyspaceMeta</a> *</code> keyspace_meta <big>)</big>
+</h3> <big>(</big>  keyspace_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new iterator for the specified keyspace metadata. This can be used to iterate over types.</p>
@@ -1333,7 +1335,7 @@
 <td>
 <small>in</small> <var>keyspace_meta</var>
 </td>
-<td><code>const <a href="./">CassKeyspaceMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -1361,7 +1363,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_functions_from_keyspace_meta" class="target">cass_iterator_functions_from_keyspace_meta<a class="anchor" href="#function-cass_iterator_functions_from_keyspace_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassKeyspaceMeta</a> *</code> keyspace_meta <big>)</big>
+</h3> <big>(</big>  keyspace_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new iterator for the specified keyspace metadata. This can be used to iterate over functions.</p>
@@ -1380,7 +1382,7 @@
 <td>
 <small>in</small> <var>keyspace_meta</var>
 </td>
-<td><code>const <a href="./">CassKeyspaceMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -1408,7 +1410,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_aggregates_from_keyspace_meta" class="target">cass_iterator_aggregates_from_keyspace_meta<a class="anchor" href="#function-cass_iterator_aggregates_from_keyspace_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassKeyspaceMeta</a> *</code> keyspace_meta <big>)</big>
+</h3> <big>(</big>  keyspace_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new iterator for the specified keyspace metadata. This can be used to iterate over aggregates.</p>
@@ -1427,7 +1429,7 @@
 <td>
 <small>in</small> <var>keyspace_meta</var>
 </td>
-<td><code>const <a href="./">CassKeyspaceMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -1455,7 +1457,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_fields_from_keyspace_meta" class="target">cass_iterator_fields_from_keyspace_meta<a class="anchor" href="#function-cass_iterator_fields_from_keyspace_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassKeyspaceMeta</a> *</code> keyspace_meta <big>)</big>
+</h3> <big>(</big>  keyspace_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new fields iterator for the specified keyspace metadata. Metadata fields allow direct access to the column data found in the underlying “keyspaces” metadata table. This can be used to iterate those metadata field entries.</p>
@@ -1472,7 +1474,7 @@
 <td>
 <small>in</small> <var>keyspace_meta</var>
 </td>
-<td><code>const <a href="./">CassKeyspaceMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>

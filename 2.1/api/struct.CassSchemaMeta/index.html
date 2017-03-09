@@ -46,7 +46,9 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li><a href="../../../api/struct.CassSchemaMeta/">2.5</a></li>
+                  <li><a href="../../../api/struct.CassSchemaMeta/">2.6</a></li>
+                
+                  <li><a href="../../../2.5/api/struct.CassSchemaMeta/">2.5</a></li>
                 
                   <li><a href="../../../2.4/api/struct.CassSchemaMeta/">2.4</a></li>
                 
@@ -412,7 +414,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="./">CassSchemaMeta</a> *</code> <h3 id="function-cass_schema_meta_get_entry" class="target">cass_schema_meta_get_entry<a class="anchor" href="#function-cass_schema_meta_get_entry" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassSchemaMeta</a> *</code> meta, <code>const char *</code> name <big>)</big>
+</h3> <big>(</big>  meta,  name <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets a metadata entry for the provided table/column name.</p>
@@ -430,14 +432,14 @@
 <td>
 <small>in</small> <var>meta</var>
 </td>
-<td><code>const <a href="./">CassSchemaMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td>
 <p>The name of a table or column</p>
 </td>
@@ -471,7 +473,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassSchemaMetaField/">CassSchemaMetaField</a> *</code> <h3 id="function-cass_schema_meta_get_field" class="target">cass_schema_meta_get_field<a class="anchor" href="#function-cass_schema_meta_get_field" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassSchemaMeta</a> *</code> meta, <code>const char *</code> name <big>)</big>
+</h3> <big>(</big>  meta,  name <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets a metadata field for the provided name.</p>
@@ -489,14 +491,14 @@
 <td>
 <small>in</small> <var>meta</var>
 </td>
-<td><code>const <a href="./">CassSchemaMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td>
 <p>The name of a field</p>
 </td>
@@ -524,7 +526,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_from_schema_meta" class="target">cass_iterator_from_schema_meta<a class="anchor" href="#function-cass_iterator_from_schema_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassSchemaMeta</a> *</code> meta <big>)</big>
+</h3> <big>(</big>  meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new iterator for the specified schema metadata. This can be used to iterate over table/column entries.</p>
@@ -541,7 +543,7 @@
 <td>
 <small>in</small> <var>meta</var>
 </td>
-<td><code>const <a href="./">CassSchemaMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -569,7 +571,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_fields_from_schema_meta" class="target">cass_iterator_fields_from_schema_meta<a class="anchor" href="#function-cass_iterator_fields_from_schema_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassSchemaMeta</a> *</code> meta <big>)</big>
+</h3> <big>(</big>  meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new iterator for the specified schema metadata. This can be used to iterate over schema metadata fields.</p>
@@ -586,7 +588,7 @@
 <td>
 <small>in</small> <var>meta</var>
 </td>
-<td><code>const <a href="./">CassSchemaMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>

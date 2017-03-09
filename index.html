@@ -41,12 +41,14 @@
               <span class="text-warning">Attention:</span> Viewing documentation for version
               <div class="btn-group">
                 <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  2.5
+                  2.6
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li class="disabled"><a href="./">2.5</a></li>
+                  <li class="disabled"><a href="./">2.6</a></li>
+                
+                  <li><a href="2.5/">2.5</a></li>
                 
                   <li><a href="2.4/">2.4</a></li>
                 
@@ -68,7 +70,7 @@
           <div class="col-md-4">
             <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
               <div class="form-group has-feedback">
-                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.5')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.6')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
               </div>
               <ul class="dropdown-menu search-results" role="menu">
                 <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
@@ -158,10 +160,12 @@ Cassandra’s native protocol and Cassandra Query Language v3.</p>
 </li>
 </ul>
 
-<h2 id="what-s-new-in-2-5" class="target">What’s New in 2.5<a class="anchor" href="#what-s-new-in-2-5" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+<h2 id="what-s-new-in-2-5-2-6" class="target">What’s New in 2.5/2.6<a class="anchor" href="#what-s-new-in-2-5-2-6" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
 <ul>
+<li>Support for <a href="https://github.com/datastax/cpp-driver/tree/2.6.0/examples/duration/duration.c"><code>duration</code></a>
+</li>
 <li><a href="topics/configuration/#speculative-execution">Speculative execution</a></li>
 <li><a href="topics/configuration/#query-idempotence">Idempotent statements</a></li>
 <li>

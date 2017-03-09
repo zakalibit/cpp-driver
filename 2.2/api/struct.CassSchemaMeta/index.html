@@ -46,7 +46,9 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li><a href="../../../api/struct.CassSchemaMeta/">2.5</a></li>
+                  <li><a href="../../../api/struct.CassSchemaMeta/">2.6</a></li>
+                
+                  <li><a href="../../../2.5/api/struct.CassSchemaMeta/">2.5</a></li>
                 
                   <li><a href="../../../2.4/api/struct.CassSchemaMeta/">2.4</a></li>
                 
@@ -448,7 +450,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_schema_meta_free" class="target">cass_schema_meta_free<a class="anchor" href="#function-cass_schema_meta_free" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassSchemaMeta</a> *</code> schema_meta <big>)</big>
+</h3> <big>(</big>  schema_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Frees a schema metadata instance.</p>
@@ -465,7 +467,7 @@
 <td>
 <small>in</small> <var>schema_meta</var>
 </td>
-<td><code>const <a href="./">CassSchemaMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -475,7 +477,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#type-cass_uint32_t">cass_uint32_t</a></code> <h3 id="function-cass_schema_meta_snapshot_version" class="target">cass_schema_meta_snapshot_version<a class="anchor" href="#function-cass_schema_meta_snapshot_version" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassSchemaMeta</a> *</code> schema_meta <big>)</big>
+</h3> <big>(</big>  schema_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the version of the schema metadata snapshot.</p>
@@ -492,7 +494,7 @@
 <td>
 <small>in</small> <var>schema_meta</var>
 </td>
-<td><code>const <a href="./">CassSchemaMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -502,7 +504,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassKeyspaceMeta/">CassKeyspaceMeta</a> *</code> <h3 id="function-cass_schema_meta_keyspace_by_name" class="target">cass_schema_meta_keyspace_by_name<a class="anchor" href="#function-cass_schema_meta_keyspace_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassSchemaMeta</a> *</code> schema_meta, <code>const char *</code> keyspace <big>)</big>
+</h3> <big>(</big>  schema_meta,  keyspace <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the keyspace metadata for the provided keyspace name.</p>
@@ -520,14 +522,14 @@
 <td>
 <small>in</small> <var>schema_meta</var>
 </td>
-<td><code>const <a href="./">CassSchemaMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>keyspace</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -551,7 +553,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassKeyspaceMeta/">CassKeyspaceMeta</a> *</code> <h3 id="function-cass_schema_meta_keyspace_by_name_n" class="target">cass_schema_meta_keyspace_by_name_n<a class="anchor" href="#function-cass_schema_meta_keyspace_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassSchemaMeta</a> *</code> schema_meta, <code>const char *</code> keyspace, <code>size_t</code> keyspace_length <big>)</big>
+</h3> <big>(</big>  schema_meta,  keyspace,  keyspace_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_schema_meta_keyspace_by_name">CassSchemaMeta::cass_schema_meta_keyspace_by_name</a></code>, but with lengths for string parameters.</p>
@@ -569,21 +571,21 @@
 <td>
 <small>in</small> <var>schema_meta</var>
 </td>
-<td><code>const <a href="./">CassSchemaMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>keyspace</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>keyspace_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -609,7 +611,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_keyspaces_from_schema_meta" class="target">cass_iterator_keyspaces_from_schema_meta<a class="anchor" href="#function-cass_iterator_keyspaces_from_schema_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassSchemaMeta</a> *</code> schema_meta <big>)</big>
+</h3> <big>(</big>  schema_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new iterator for the specified schema metadata. This can be used to iterate over keyspace.</p>
@@ -626,7 +628,7 @@
 <td>
 <small>in</small> <var>schema_meta</var>
 </td>
-<td><code>const <a href="./">CassSchemaMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>

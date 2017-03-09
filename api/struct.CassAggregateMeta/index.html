@@ -41,12 +41,14 @@
               <span class="text-warning">Attention:</span> Viewing documentation for version
               <div class="btn-group">
                 <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  2.5
+                  2.6
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li class="disabled"><a href="./">2.5</a></li>
+                  <li class="disabled"><a href="./">2.6</a></li>
+                
+                  <li><a href="../../2.5/api/struct.CassAggregateMeta/">2.5</a></li>
                 
                   <li><a href="../../2.4/api/struct.CassAggregateMeta/">2.4</a></li>
                 
@@ -68,7 +70,7 @@
           <div class="col-md-4">
             <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
               <div class="form-group has-feedback">
-                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.5')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.6')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
               </div>
               <ul class="dropdown-menu search-results" role="menu">
                 <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
@@ -493,7 +495,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_aggregate_meta_name" class="target">cass_aggregate_meta_name<a class="anchor" href="#function-cass_aggregate_meta_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassAggregateMeta</a> *</code> aggregate_meta, <code>const char **</code> name, <code>size_t *</code> name_length <big>)</big>
+</h3> <big>(</big>  aggregate_meta,  name,  name_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the name of the aggregate.</p>
@@ -513,21 +515,21 @@
 <td>
 <small>in</small> <var>aggregate_meta</var>
 </td>
-<td><code>const <a href="./">CassAggregateMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>name</var>
 </td>
-<td><code>const char **</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>name_length</var>
 </td>
-<td><code>size_t *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -538,7 +540,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_aggregate_meta_full_name" class="target">cass_aggregate_meta_full_name<a class="anchor" href="#function-cass_aggregate_meta_full_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassAggregateMeta</a> *</code> aggregate_meta, <code>const char **</code> full_name, <code>size_t *</code> full_name_length <big>)</big>
+</h3> <big>(</big>  aggregate_meta,  full_name,  full_name_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the full name of the aggregate. The full name includes the aggregate’s name and the aggregate’s signature: “name(type1 type2.. typeN)”.</p>
@@ -558,21 +560,21 @@
 <td>
 <small>in</small> <var>aggregate_meta</var>
 </td>
-<td><code>const <a href="./">CassAggregateMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>full_name</var>
 </td>
-<td><code>const char **</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>full_name_length</var>
 </td>
-<td><code>size_t *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -583,7 +585,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>size_t</code> <h3 id="function-cass_aggregate_meta_argument_count" class="target">cass_aggregate_meta_argument_count<a class="anchor" href="#function-cass_aggregate_meta_argument_count" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassAggregateMeta</a> *</code> aggregate_meta <big>)</big>
+</h3> <big>(</big>  aggregate_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the number of arguments this aggregate takes.</p>
@@ -602,7 +604,7 @@
 <td>
 <small>in</small> <var>aggregate_meta</var>
 </td>
-<td><code>const <a href="./">CassAggregateMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -625,7 +627,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> <h3 id="function-cass_aggregate_meta_argument_type" class="target">cass_aggregate_meta_argument_type<a class="anchor" href="#function-cass_aggregate_meta_argument_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassAggregateMeta</a> *</code> aggregate_meta, <code>size_t</code> index <big>)</big>
+</h3> <big>(</big>  aggregate_meta,  index <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the aggregate’s argument type for the provided index.</p>
@@ -645,14 +647,14 @@
 <td>
 <small>in</small> <var>aggregate_meta</var>
 </td>
-<td><code>const <a href="./">CassAggregateMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -676,7 +678,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> <h3 id="function-cass_aggregate_meta_return_type" class="target">cass_aggregate_meta_return_type<a class="anchor" href="#function-cass_aggregate_meta_return_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassAggregateMeta</a> *</code> aggregate_meta <big>)</big>
+</h3> <big>(</big>  aggregate_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the return type of the aggregate.</p>
@@ -695,7 +697,7 @@
 <td>
 <small>in</small> <var>aggregate_meta</var>
 </td>
-<td><code>const <a href="./">CassAggregateMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -718,7 +720,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> <h3 id="function-cass_aggregate_meta_state_type" class="target">cass_aggregate_meta_state_type<a class="anchor" href="#function-cass_aggregate_meta_state_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassAggregateMeta</a> *</code> aggregate_meta <big>)</big>
+</h3> <big>(</big>  aggregate_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the state type of the aggregate.</p>
@@ -737,7 +739,7 @@
 <td>
 <small>in</small> <var>aggregate_meta</var>
 </td>
-<td><code>const <a href="./">CassAggregateMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -760,7 +762,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassFunctionMeta/">CassFunctionMeta</a> *</code> <h3 id="function-cass_aggregate_meta_state_func" class="target">cass_aggregate_meta_state_func<a class="anchor" href="#function-cass_aggregate_meta_state_func" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassAggregateMeta</a> *</code> aggregate_meta <big>)</big>
+</h3> <big>(</big>  aggregate_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the function metadata for the aggregate’s state function.</p>
@@ -779,7 +781,7 @@
 <td>
 <small>in</small> <var>aggregate_meta</var>
 </td>
-<td><code>const <a href="./">CassAggregateMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -802,7 +804,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassFunctionMeta/">CassFunctionMeta</a> *</code> <h3 id="function-cass_aggregate_meta_final_func" class="target">cass_aggregate_meta_final_func<a class="anchor" href="#function-cass_aggregate_meta_final_func" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassAggregateMeta</a> *</code> aggregate_meta <big>)</big>
+</h3> <big>(</big>  aggregate_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the function metadata for the aggregates’s final function.</p>
@@ -821,7 +823,7 @@
 <td>
 <small>in</small> <var>aggregate_meta</var>
 </td>
-<td><code>const <a href="./">CassAggregateMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -844,7 +846,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassValue/">CassValue</a> *</code> <h3 id="function-cass_aggregate_meta_init_cond" class="target">cass_aggregate_meta_init_cond<a class="anchor" href="#function-cass_aggregate_meta_init_cond" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassAggregateMeta</a> *</code> aggregate_meta <big>)</big>
+</h3> <big>(</big>  aggregate_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the initial condition value for the aggregate.</p>
@@ -865,7 +867,7 @@
 <td>
 <small>in</small> <var>aggregate_meta</var>
 </td>
-<td><code>const <a href="./">CassAggregateMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -888,7 +890,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassValue/">CassValue</a> *</code> <h3 id="function-cass_aggregate_meta_field_by_name" class="target">cass_aggregate_meta_field_by_name<a class="anchor" href="#function-cass_aggregate_meta_field_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassAggregateMeta</a> *</code> aggregate_meta, <code>const char *</code> name <big>)</big>
+</h3> <big>(</big>  aggregate_meta,  name <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets a metadata field for the provided name. Metadata fields allow direct access to the column data found in the underlying “aggregates” metadata table.</p>
@@ -908,14 +910,14 @@
 <td>
 <small>in</small> <var>aggregate_meta</var>
 </td>
-<td><code>const <a href="./">CassAggregateMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -939,7 +941,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassValue/">CassValue</a> *</code> <h3 id="function-cass_aggregate_meta_field_by_name_n" class="target">cass_aggregate_meta_field_by_name_n<a class="anchor" href="#function-cass_aggregate_meta_field_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassAggregateMeta</a> *</code> aggregate_meta, <code>const char *</code> name, <code>size_t</code> name_length <big>)</big>
+</h3> <big>(</big>  aggregate_meta,  name,  name_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_aggregate_meta_field_by_name">CassAggregateMeta::cass_aggregate_meta_field_by_name</a></code>, but with lengths for string parameters.</p>
@@ -959,21 +961,21 @@
 <td>
 <small>in</small> <var>aggregate_meta</var>
 </td>
-<td><code>const <a href="./">CassAggregateMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -999,7 +1001,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_fields_from_aggregate_meta" class="target">cass_iterator_fields_from_aggregate_meta<a class="anchor" href="#function-cass_iterator_fields_from_aggregate_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassAggregateMeta</a> *</code> aggregate_meta <big>)</big>
+</h3> <big>(</big>  aggregate_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new fields iterator for the specified aggregate metadata. Metadata fields allow direct access to the column data found in the underlying “aggregates” metadata table. This can be used to iterate those metadata field entries.</p>
@@ -1018,7 +1020,7 @@
 <td>
 <small>in</small> <var>aggregate_meta</var>
 </td>
-<td><code>const <a href="./">CassAggregateMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>

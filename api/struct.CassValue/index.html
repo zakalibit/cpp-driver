@@ -41,12 +41,14 @@
               <span class="text-warning">Attention:</span> Viewing documentation for version
               <div class="btn-group">
                 <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  2.5
+                  2.6
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li class="disabled"><a href="./">2.5</a></li>
+                  <li class="disabled"><a href="./">2.6</a></li>
+                
+                  <li><a href="../../2.5/api/struct.CassValue/">2.5</a></li>
                 
                   <li><a href="../../2.4/api/struct.CassValue/">2.4</a></li>
                 
@@ -68,7 +70,7 @@
           <div class="col-md-4">
             <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
               <div class="form-group has-feedback">
-                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.5')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.6')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
               </div>
               <ul class="dropdown-menu search-results" role="menu">
                 <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
@@ -493,7 +495,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_from_collection" class="target">cass_iterator_from_collection<a class="anchor" href="#function-cass_iterator_from_collection" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value <big>)</big>
+</h3> <big>(</big>  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new iterator for the specified collection. This can be used to iterate over values in a collection.</p>
@@ -510,7 +512,7 @@
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -535,7 +537,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_from_map" class="target">cass_iterator_from_map<a class="anchor" href="#function-cass_iterator_from_map" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value <big>)</big>
+</h3> <big>(</big>  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new iterator for the specified map. This can be used to iterate over key/value pairs in a map.</p>
@@ -552,7 +554,7 @@
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -577,7 +579,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_from_tuple" class="target">cass_iterator_from_tuple<a class="anchor" href="#function-cass_iterator_from_tuple" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value <big>)</big>
+</h3> <big>(</big>  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new iterator for the specified tuple. This can be used to iterate over values in a tuple.</p>
@@ -596,7 +598,7 @@
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -621,7 +623,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_fields_from_user_type" class="target">cass_iterator_fields_from_user_type<a class="anchor" href="#function-cass_iterator_fields_from_user_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value <big>)</big>
+</h3> <big>(</big>  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new iterator for the specified user defined type. This can be used to iterate over fields in a user defined type.</p>
@@ -640,7 +642,7 @@
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -665,7 +667,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> <h3 id="function-cass_value_data_type" class="target">cass_value_data_type<a class="anchor" href="#function-cass_value_data_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value <big>)</big>
+</h3> <big>(</big>  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the data type of a value.</p>
@@ -682,7 +684,7 @@
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -705,7 +707,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_value_get_int8" class="target">cass_value_get_int8<a class="anchor" href="#function-cass_value_get_int8" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value, <code><a href="../cassandra.h/#type-cass_int8_t">cass_int8_t</a> *</code> output <big>)</big>
+</h3> <big>(</big>  value,  output <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets an int8 for the specified value.</p>
@@ -725,14 +727,14 @@
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_int8_t">cass_int8_t</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -756,7 +758,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_value_get_int16" class="target">cass_value_get_int16<a class="anchor" href="#function-cass_value_get_int16" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value, <code><a href="../cassandra.h/#type-cass_int16_t">cass_int16_t</a> *</code> output <big>)</big>
+</h3> <big>(</big>  value,  output <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets an int16 for the specified value.</p>
@@ -776,14 +778,14 @@
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_int16_t">cass_int16_t</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -807,7 +809,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_value_get_int32" class="target">cass_value_get_int32<a class="anchor" href="#function-cass_value_get_int32" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value, <code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a> *</code> output <big>)</big>
+</h3> <big>(</big>  value,  output <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets an int32 for the specified value.</p>
@@ -825,14 +827,14 @@
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -856,7 +858,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_value_get_uint32" class="target">cass_value_get_uint32<a class="anchor" href="#function-cass_value_get_uint32" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value, <code><a href="../cassandra.h/#type-cass_uint32_t">cass_uint32_t</a> *</code> output <big>)</big>
+</h3> <big>(</big>  value,  output <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets an uint32 for the specified value.</p>
@@ -876,14 +878,14 @@
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_uint32_t">cass_uint32_t</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -907,7 +909,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_value_get_int64" class="target">cass_value_get_int64<a class="anchor" href="#function-cass_value_get_int64" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value, <code><a href="../cassandra.h/#type-cass_int64_t">cass_int64_t</a> *</code> output <big>)</big>
+</h3> <big>(</big>  value,  output <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets an int64 for the specified value.</p>
@@ -925,14 +927,14 @@
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_int64_t">cass_int64_t</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -956,7 +958,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_value_get_float" class="target">cass_value_get_float<a class="anchor" href="#function-cass_value_get_float" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value, <code><a href="../cassandra.h/#type-cass_float_t">cass_float_t</a> *</code> output <big>)</big>
+</h3> <big>(</big>  value,  output <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets a float for the specified value.</p>
@@ -974,14 +976,14 @@
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_float_t">cass_float_t</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1005,7 +1007,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_value_get_double" class="target">cass_value_get_double<a class="anchor" href="#function-cass_value_get_double" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value, <code><a href="../cassandra.h/#type-cass_double_t">cass_double_t</a> *</code> output <big>)</big>
+</h3> <big>(</big>  value,  output <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets a double for the specified value.</p>
@@ -1023,14 +1025,14 @@
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_double_t">cass_double_t</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1054,7 +1056,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_value_get_bool" class="target">cass_value_get_bool<a class="anchor" href="#function-cass_value_get_bool" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value, <code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a> *</code> output <big>)</big>
+</h3> <big>(</big>  value,  output <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets a bool for the specified value.</p>
@@ -1072,14 +1074,14 @@
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1103,7 +1105,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_value_get_uuid" class="target">cass_value_get_uuid<a class="anchor" href="#function-cass_value_get_uuid" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value, <code><a href="../struct.CassUuid/">CassUuid</a> *</code> output <big>)</big>
+</h3> <big>(</big>  value,  output <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets a UUID for the specified value.</p>
@@ -1121,14 +1123,14 @@
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code><a href="../struct.CassUuid/">CassUuid</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1152,7 +1154,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_value_get_inet" class="target">cass_value_get_inet<a class="anchor" href="#function-cass_value_get_inet" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value, <code><a href="../struct.CassInet/">CassInet</a> *</code> output <big>)</big>
+</h3> <big>(</big>  value,  output <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets an INET for the specified value.</p>
@@ -1170,14 +1172,14 @@
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code><a href="../struct.CassInet/">CassInet</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1201,7 +1203,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_value_get_string" class="target">cass_value_get_string<a class="anchor" href="#function-cass_value_get_string" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value, <code>const char **</code> output, <code>size_t *</code> output_size <big>)</big>
+</h3> <big>(</big>  value,  output,  output_size <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets a string for the specified value.</p>
@@ -1219,21 +1221,21 @@
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code>const char **</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output_size</var>
 </td>
-<td><code>size_t *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1257,7 +1259,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_value_get_bytes" class="target">cass_value_get_bytes<a class="anchor" href="#function-cass_value_get_bytes" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value, <code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> **</code> output, <code>size_t *</code> output_size <big>)</big>
+</h3> <big>(</big>  value,  output,  output_size <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the bytes of the specified value.</p>
@@ -1275,21 +1277,21 @@
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> **</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output_size</var>
 </td>
-<td><code>size_t *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1313,7 +1315,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_value_get_decimal" class="target">cass_value_get_decimal<a class="anchor" href="#function-cass_value_get_decimal" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value, <code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> **</code> varint, <code>size_t *</code> varint_size, <code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a> *</code> scale <big>)</big>
+</h3> <big>(</big>  value,  varint,  varint_size,  scale <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets a decimal for the specified value.</p>
@@ -1331,28 +1333,93 @@
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>varint</var>
 </td>
-<td><code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> **</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>varint_size</var>
 </td>
-<td><code>size_t *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>scale</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a> *</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise error occurred</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_value_get_duration" class="target">cass_value_get_duration<a class="anchor" href="#function-cass_value_get_duration" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  value,  months,  days,  nanos <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Gets a duration for the specified value.</p>
+
+<p><strong>Requires Cassandra:</strong> 3.10+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>months</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>days</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>out</small> <var>nanos</var>
+</td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1376,7 +1443,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassValueType">CassValueType</a></code> <h3 id="function-cass_value_type" class="target">cass_value_type<a class="anchor" href="#function-cass_value_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value <big>)</big>
+</h3> <big>(</big>  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the type of the specified value.</p>
@@ -1393,7 +1460,7 @@
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -1416,7 +1483,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code> <h3 id="function-cass_value_is_null" class="target">cass_value_is_null<a class="anchor" href="#function-cass_value_is_null" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value <big>)</big>
+</h3> <big>(</big>  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Returns true if a specified value is null.</p>
@@ -1433,7 +1500,7 @@
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -1456,7 +1523,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code> <h3 id="function-cass_value_is_collection" class="target">cass_value_is_collection<a class="anchor" href="#function-cass_value_is_collection" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> value <big>)</big>
+</h3> <big>(</big>  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Returns true if a specified value is a collection.</p>
@@ -1473,7 +1540,7 @@
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -1495,8 +1562,48 @@
   </div>
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code> <h3 id="function-cass_value_is_duration" class="target">cass_value_is_duration<a class="anchor" href="#function-cass_value_is_duration" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Returns true if a specified value is a duration.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code></td>
+<td>
+<p>true if the value is a duration, otherwise false.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
       <code>size_t</code> <h3 id="function-cass_value_item_count" class="target">cass_value_item_count<a class="anchor" href="#function-cass_value_item_count" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> collection <big>)</big>
+</h3> <big>(</big>  collection <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Get the number of items in a collection. Works for all collection types.</p>
@@ -1513,7 +1620,7 @@
 <td>
 <small>in</small> <var>collection</var>
 </td>
-<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -1536,7 +1643,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassValueType">CassValueType</a></code> <h3 id="function-cass_value_primary_sub_type" class="target">cass_value_primary_sub_type<a class="anchor" href="#function-cass_value_primary_sub_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> collection <big>)</big>
+</h3> <big>(</big>  collection <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Get the primary sub-type for a collection. This returns the sub-type for a list or set and the key type for a map.</p>
@@ -1553,7 +1660,7 @@
 <td>
 <small>in</small> <var>collection</var>
 </td>
-<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -1576,7 +1683,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassValueType">CassValueType</a></code> <h3 id="function-cass_value_secondary_sub_type" class="target">cass_value_secondary_sub_type<a class="anchor" href="#function-cass_value_secondary_sub_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassValue</a> *</code> collection <big>)</big>
+</h3> <big>(</big>  collection <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Get the secondary sub-type for a collection. This returns the value type for a map.</p>
@@ -1593,7 +1700,7 @@
 <td>
 <small>in</small> <var>collection</var>
 </td>
-<td><code>const <a href="./">CassValue</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>

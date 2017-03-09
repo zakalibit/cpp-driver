@@ -46,7 +46,9 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li><a href="../../../api/struct.CassSsl/">2.5</a></li>
+                  <li><a href="../../../api/struct.CassSsl/">2.6</a></li>
+                
+                  <li><a href="../../../2.5/api/struct.CassSsl/">2.5</a></li>
                 
                   <li><a href="../../../2.4/api/struct.CassSsl/">2.4</a></li>
                 
@@ -385,7 +387,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_ssl_free" class="target">cass_ssl_free<a class="anchor" href="#function-cass_ssl_free" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassSsl</a> *</code> ssl <big>)</big>
+</h3> <big>(</big>  ssl <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Frees a SSL context instance.</p>
@@ -402,7 +404,7 @@
 <td>
 <small>in</small> <var>ssl</var>
 </td>
-<td><code><a href="./">CassSsl</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -412,7 +414,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_ssl_add_trusted_cert" class="target">cass_ssl_add_trusted_cert<a class="anchor" href="#function-cass_ssl_add_trusted_cert" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassSsl</a> *</code> ssl, <code>const char *</code> cert <big>)</big>
+</h3> <big>(</big>  ssl,  cert <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Adds a trusted certificate. This is used to verify the peer’s certificate.</p>
@@ -430,14 +432,14 @@
 <td>
 <small>in</small> <var>ssl</var>
 </td>
-<td><code><a href="./">CassSsl</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>cert</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td>
 <p>PEM formatted certificate string</p>
 </td>
@@ -463,7 +465,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_ssl_add_trusted_cert_n" class="target">cass_ssl_add_trusted_cert_n<a class="anchor" href="#function-cass_ssl_add_trusted_cert_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassSsl</a> *</code> ssl, <code>const char *</code> cert, <code>size_t</code> cert_length <big>)</big>
+</h3> <big>(</big>  ssl,  cert,  cert_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_ssl_add_trusted_cert">CassSsl::cass_ssl_add_trusted_cert</a></code>, but with lengths for string parameters.</p>
@@ -481,21 +483,21 @@
 <td>
 <small>in</small> <var>ssl</var>
 </td>
-<td><code><a href="./">CassSsl</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>cert</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>cert_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -521,7 +523,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_ssl_set_verify_flags" class="target">cass_ssl_set_verify_flags<a class="anchor" href="#function-cass_ssl_set_verify_flags" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassSsl</a> *</code> ssl, <code>int</code> flags <big>)</big>
+</h3> <big>(</big>  ssl,  flags <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets verification performed on the peer’s certificate.</p>
@@ -543,14 +545,14 @@
 <td>
 <small>in</small> <var>ssl</var>
 </td>
-<td><code><a href="./">CassSsl</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>flags</var>
 </td>
-<td><code>int</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -574,7 +576,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_ssl_set_cert" class="target">cass_ssl_set_cert<a class="anchor" href="#function-cass_ssl_set_cert" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassSsl</a> *</code> ssl, <code>const char *</code> cert <big>)</big>
+</h3> <big>(</big>  ssl,  cert <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Set client-side certificate chain. This is used to authenticate the client on the server-side. This should contain the entire Certificate chain starting with the certificate itself.</p>
@@ -592,14 +594,14 @@
 <td>
 <small>in</small> <var>ssl</var>
 </td>
-<td><code><a href="./">CassSsl</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>cert</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td>
 <p>PEM formatted certificate string</p>
 </td>
@@ -625,7 +627,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_ssl_set_cert_n" class="target">cass_ssl_set_cert_n<a class="anchor" href="#function-cass_ssl_set_cert_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassSsl</a> *</code> ssl, <code>const char *</code> cert, <code>size_t</code> cert_length <big>)</big>
+</h3> <big>(</big>  ssl,  cert,  cert_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_ssl_set_cert">CassSsl::cass_ssl_set_cert</a></code>, but with lengths for string parameters.</p>
@@ -643,21 +645,21 @@
 <td>
 <small>in</small> <var>ssl</var>
 </td>
-<td><code><a href="./">CassSsl</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>cert</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>cert_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -683,7 +685,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_ssl_set_private_key" class="target">cass_ssl_set_private_key<a class="anchor" href="#function-cass_ssl_set_private_key" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassSsl</a> *</code> ssl, <code>const char *</code> key, <code>const char *</code> password <big>)</big>
+</h3> <big>(</big>  ssl,  key,  password <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Set client-side private key. This is used to authenticate the client on the server-side.</p>
@@ -701,14 +703,14 @@
 <td>
 <small>in</small> <var>ssl</var>
 </td>
-<td><code><a href="./">CassSsl</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>key</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td>
 <p>PEM formatted key string</p>
 </td>
@@ -717,7 +719,7 @@
 <td>
 <small>in</small> <var>password</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td>
 <p>used to decrypt key</p>
 </td>
@@ -743,7 +745,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_ssl_set_private_key_n" class="target">cass_ssl_set_private_key_n<a class="anchor" href="#function-cass_ssl_set_private_key_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassSsl</a> *</code> ssl, <code>const char *</code> key, <code>size_t</code> key_length, <code>const char *</code> password, <code>size_t</code> password_length <big>)</big>
+</h3> <big>(</big>  ssl,  key,  key_length,  password,  password_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_ssl_set_private_key">CassSsl::cass_ssl_set_private_key</a></code>, but with lengths for string parameters.</p>
@@ -761,35 +763,35 @@
 <td>
 <small>in</small> <var>ssl</var>
 </td>
-<td><code><a href="./">CassSsl</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>key</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>key_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>password</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>password_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>

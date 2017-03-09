@@ -46,7 +46,9 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li><a href="../../../api/struct.CassCluster/">2.5</a></li>
+                  <li><a href="../../../api/struct.CassCluster/">2.6</a></li>
+                
+                  <li><a href="../../../2.5/api/struct.CassCluster/">2.5</a></li>
                 
                   <li><a href="../../../2.4/api/struct.CassCluster/">2.4</a></li>
                 
@@ -439,7 +441,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_cluster_free" class="target">cass_cluster_free<a class="anchor" href="#function-cass_cluster_free" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster <big>)</big>
+</h3> <big>(</big>  cluster <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Frees a cluster instance.</p>
@@ -456,7 +458,7 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -466,7 +468,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_cluster_set_contact_points" class="target">cass_cluster_set_contact_points<a class="anchor" href="#function-cass_cluster_set_contact_points" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code>const char *</code> contact_points <big>)</big>
+</h3> <big>(</big>  cluster,  contact_points <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets/Appends contact points. This <em>MUST</em> be set. The first call sets the contact points and any subsequent calls appends additional contact points. Passing an empty string will clear the contact points. White space is striped from the contact points.</p>
@@ -486,14 +488,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>contact_points</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td>
 <p>A comma delimited list of addresses or names. An empty string will clear the contact points. The string is copied into the cluster configuration; the memory pointed to by this parameter can be freed after this call.</p>
 </td>
@@ -519,7 +521,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_cluster_set_contact_points_n" class="target">cass_cluster_set_contact_points_n<a class="anchor" href="#function-cass_cluster_set_contact_points_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code>const char *</code> contact_points, <code>size_t</code> contact_points_length <big>)</big>
+</h3> <big>(</big>  cluster,  contact_points,  contact_points_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_cluster_set_contact_points">CassCluster::cass_cluster_set_contact_points</a></code>, but with lengths for string parameters.</p>
@@ -537,21 +539,21 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>contact_points</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>contact_points_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -577,7 +579,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_cluster_set_port" class="target">cass_cluster_set_port<a class="anchor" href="#function-cass_cluster_set_port" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code>int</code> port <big>)</big>
+</h3> <big>(</big>  cluster,  port <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the port.</p>
@@ -597,14 +599,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>port</var>
 </td>
-<td><code>int</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -628,7 +630,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_cluster_set_ssl" class="target">cass_cluster_set_ssl<a class="anchor" href="#function-cass_cluster_set_ssl" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code><a href="../struct.CassSsl/">CassSsl</a> *</code> ssl <big>)</big>
+</h3> <big>(</big>  cluster,  ssl <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the SSL context and enables SSL.</p>
@@ -646,14 +648,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>ssl</var>
 </td>
-<td><code><a href="../struct.CassSsl/">CassSsl</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -666,7 +668,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_cluster_set_protocol_version" class="target">cass_cluster_set_protocol_version<a class="anchor" href="#function-cass_cluster_set_protocol_version" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code>int</code> protocol_version <big>)</big>
+</h3> <big>(</big>  cluster,  protocol_version <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the protocol version. This will automatically downgrade if to protocol version 1.</p>
@@ -686,14 +688,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>protocol_version</var>
 </td>
-<td><code>int</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -717,7 +719,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_cluster_set_num_threads_io" class="target">cass_cluster_set_num_threads_io<a class="anchor" href="#function-cass_cluster_set_num_threads_io" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code>unsigned</code> num_threads <big>)</big>
+</h3> <big>(</big>  cluster,  num_threads <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the number of IO threads. This is the number of threads that will handle query requests.</p>
@@ -737,14 +739,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>num_threads</var>
 </td>
-<td><code>unsigned</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -768,7 +770,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_cluster_set_queue_size_io" class="target">cass_cluster_set_queue_size_io<a class="anchor" href="#function-cass_cluster_set_queue_size_io" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code>unsigned</code> queue_size <big>)</big>
+</h3> <big>(</big>  cluster,  queue_size <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the size of the fixed size queue that stores pending requests.</p>
@@ -788,14 +790,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>queue_size</var>
 </td>
-<td><code>unsigned</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -819,7 +821,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_cluster_set_queue_size_event" class="target">cass_cluster_set_queue_size_event<a class="anchor" href="#function-cass_cluster_set_queue_size_event" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code>unsigned</code> queue_size <big>)</big>
+</h3> <big>(</big>  cluster,  queue_size <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the size of the fixed size queue that stores events.</p>
@@ -839,14 +841,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>queue_size</var>
 </td>
-<td><code>unsigned</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -870,7 +872,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_cluster_set_queue_size_log" class="target">cass_cluster_set_queue_size_log<a class="anchor" href="#function-cass_cluster_set_queue_size_log" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code>unsigned</code> queue_size <big>)</big>
+</h3> <big>(</big>  cluster,  queue_size <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the size of the fixed size queue that stores log messages.</p>
@@ -890,14 +892,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>queue_size</var>
 </td>
-<td><code>unsigned</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -921,7 +923,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_cluster_set_core_connections_per_host" class="target">cass_cluster_set_core_connections_per_host<a class="anchor" href="#function-cass_cluster_set_core_connections_per_host" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code>unsigned</code> num_connections <big>)</big>
+</h3> <big>(</big>  cluster,  num_connections <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the number of connections made to each server in each IO thread.</p>
@@ -941,14 +943,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>num_connections</var>
 </td>
-<td><code>unsigned</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -972,7 +974,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_cluster_set_max_connections_per_host" class="target">cass_cluster_set_max_connections_per_host<a class="anchor" href="#function-cass_cluster_set_max_connections_per_host" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code>unsigned</code> num_connections <big>)</big>
+</h3> <big>(</big>  cluster,  num_connections <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the maximum number of connections made to each server in each IO thread.</p>
@@ -992,14 +994,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>num_connections</var>
 </td>
-<td><code>unsigned</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1023,7 +1025,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_cluster_set_reconnect_wait_time" class="target">cass_cluster_set_reconnect_wait_time<a class="anchor" href="#function-cass_cluster_set_reconnect_wait_time" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code>unsigned</code> wait_time <big>)</big>
+</h3> <big>(</big>  cluster,  wait_time <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the amount of time to wait before attempting to reconnect.</p>
@@ -1043,14 +1045,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>wait_time</var>
 </td>
-<td><code>unsigned</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1061,7 +1063,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_cluster_set_max_concurrent_creation" class="target">cass_cluster_set_max_concurrent_creation<a class="anchor" href="#function-cass_cluster_set_max_concurrent_creation" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code>unsigned</code> num_connections <big>)</big>
+</h3> <big>(</big>  cluster,  num_connections <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the maximum number of connections that will be created concurrently. Connections are created when the current connections are unable to keep up with request throughput.</p>
@@ -1081,14 +1083,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>num_connections</var>
 </td>
-<td><code>unsigned</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1112,7 +1114,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_cluster_set_max_concurrent_requests_threshold" class="target">cass_cluster_set_max_concurrent_requests_threshold<a class="anchor" href="#function-cass_cluster_set_max_concurrent_requests_threshold" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code>unsigned</code> num_requests <big>)</big>
+</h3> <big>(</big>  cluster,  num_requests <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the threshold for the maximum number of concurrent requests in-flight on a connection before creating a new connection. The number of new connections created will not exceed max_connections_per_host.</p>
@@ -1132,14 +1134,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>num_requests</var>
 </td>
-<td><code>unsigned</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1163,7 +1165,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_cluster_set_max_requests_per_flush" class="target">cass_cluster_set_max_requests_per_flush<a class="anchor" href="#function-cass_cluster_set_max_requests_per_flush" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code>unsigned</code> num_requests <big>)</big>
+</h3> <big>(</big>  cluster,  num_requests <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the maximum number of requests processed by an IO worker per flush.</p>
@@ -1183,14 +1185,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>num_requests</var>
 </td>
-<td><code>unsigned</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1214,7 +1216,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_cluster_set_write_bytes_high_water_mark" class="target">cass_cluster_set_write_bytes_high_water_mark<a class="anchor" href="#function-cass_cluster_set_write_bytes_high_water_mark" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code>unsigned</code> num_bytes <big>)</big>
+</h3> <big>(</big>  cluster,  num_bytes <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the high water mark for the number of bytes outstanding on a connection. Disables writes to a connection if the number of bytes queued exceed this value.</p>
@@ -1234,14 +1236,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>num_bytes</var>
 </td>
-<td><code>unsigned</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1265,7 +1267,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_cluster_set_write_bytes_low_water_mark" class="target">cass_cluster_set_write_bytes_low_water_mark<a class="anchor" href="#function-cass_cluster_set_write_bytes_low_water_mark" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code>unsigned</code> num_bytes <big>)</big>
+</h3> <big>(</big>  cluster,  num_bytes <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the low water mark for number of bytes outstanding on a connection. After exceeding high water mark bytes, writes will only resume once the number of bytes fall below this value.</p>
@@ -1285,14 +1287,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>num_bytes</var>
 </td>
-<td><code>unsigned</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1316,7 +1318,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_cluster_set_pending_requests_high_water_mark" class="target">cass_cluster_set_pending_requests_high_water_mark<a class="anchor" href="#function-cass_cluster_set_pending_requests_high_water_mark" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code>unsigned</code> num_requests <big>)</big>
+</h3> <big>(</big>  cluster,  num_requests <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the high water mark for the number of requests queued waiting for a connection in a connection pool. Disables writes to a host on an IO worker if the number of requests queued exceed this value.</p>
@@ -1336,14 +1338,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>num_requests</var>
 </td>
-<td><code>unsigned</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1367,7 +1369,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_cluster_set_pending_requests_low_water_mark" class="target">cass_cluster_set_pending_requests_low_water_mark<a class="anchor" href="#function-cass_cluster_set_pending_requests_low_water_mark" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code>unsigned</code> num_requests <big>)</big>
+</h3> <big>(</big>  cluster,  num_requests <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the low water mark for the number of requests queued waiting for a connection in a connection pool. After exceeding high water mark requests, writes to a host will only resume once the number of requests fall below this value.</p>
@@ -1387,14 +1389,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>num_requests</var>
 </td>
-<td><code>unsigned</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1418,7 +1420,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_cluster_set_connect_timeout" class="target">cass_cluster_set_connect_timeout<a class="anchor" href="#function-cass_cluster_set_connect_timeout" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code>unsigned</code> timeout_ms <big>)</big>
+</h3> <big>(</big>  cluster,  timeout_ms <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the timeout for connecting to a node.</p>
@@ -1438,14 +1440,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>timeout_ms</var>
 </td>
-<td><code>unsigned</code></td>
+<td></td>
 <td>
 <p>Connect timeout in milliseconds</p>
 </td>
@@ -1458,7 +1460,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_cluster_set_request_timeout" class="target">cass_cluster_set_request_timeout<a class="anchor" href="#function-cass_cluster_set_request_timeout" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code>unsigned</code> timeout_ms <big>)</big>
+</h3> <big>(</big>  cluster,  timeout_ms <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the timeout for waiting for a response from a node.</p>
@@ -1478,14 +1480,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>timeout_ms</var>
 </td>
-<td><code>unsigned</code></td>
+<td></td>
 <td>
 <p>Request timeout in milliseconds</p>
 </td>
@@ -1498,7 +1500,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_cluster_set_credentials" class="target">cass_cluster_set_credentials<a class="anchor" href="#function-cass_cluster_set_credentials" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code>const char *</code> username, <code>const char *</code> password <big>)</big>
+</h3> <big>(</big>  cluster,  username,  password <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets credentials for plain text authentication.</p>
@@ -1516,21 +1518,21 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>username</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>password</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1541,7 +1543,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_cluster_set_credentials_n" class="target">cass_cluster_set_credentials_n<a class="anchor" href="#function-cass_cluster_set_credentials_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code>const char *</code> username, <code>size_t</code> username_length, <code>const char *</code> password, <code>size_t</code> password_length <big>)</big>
+</h3> <big>(</big>  cluster,  username,  username_length,  password,  password_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_cluster_set_credentials">CassCluster::cass_cluster_set_credentials</a></code>, but with lengths for string parameters.</p>
@@ -1559,35 +1561,35 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>username</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>username_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>password</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>password_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1614,7 +1616,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_cluster_set_load_balance_round_robin" class="target">cass_cluster_set_load_balance_round_robin<a class="anchor" href="#function-cass_cluster_set_load_balance_round_robin" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster <big>)</big>
+</h3> <big>(</big>  cluster <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Configures the cluster to use round-robin load balancing.</p>
@@ -1633,7 +1635,7 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -1643,7 +1645,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_cluster_set_load_balance_dc_aware" class="target">cass_cluster_set_load_balance_dc_aware<a class="anchor" href="#function-cass_cluster_set_load_balance_dc_aware" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code>const char *</code> local_dc, <code>unsigned</code> used_hosts_per_remote_dc, <code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code> allow_remote_dcs_for_local_cl <big>)</big>
+</h3> <big>(</big>  cluster,  local_dc,  used_hosts_per_remote_dc,  allow_remote_dcs_for_local_cl <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Configures the cluster to use DC-aware load balancing. For each query, all live nodes in a primary ‘local’ DC are tried first, followed by any node from other DCs.</p>
@@ -1663,14 +1665,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>local_dc</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td>
 <p>The primary data center to try first</p>
 </td>
@@ -1679,7 +1681,7 @@
 <td>
 <small>in</small> <var>used_hosts_per_remote_dc</var>
 </td>
-<td><code>unsigned</code></td>
+<td></td>
 <td>
 <p>The number of host used in each remote DC if no hosts are available in the local dc</p>
 </td>
@@ -1688,7 +1690,7 @@
 <td>
 <small>in</small> <var>allow_remote_dcs_for_local_cl</var>
 </td>
-<td><code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code></td>
+<td></td>
 <td>
 <p>Allows remote hosts to be used if no local dc hosts are available and the consistency level is LOCAL_ONE or LOCAL_QUORUM</p>
 </td>
@@ -1714,7 +1716,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_cluster_set_load_balance_dc_aware_n" class="target">cass_cluster_set_load_balance_dc_aware_n<a class="anchor" href="#function-cass_cluster_set_load_balance_dc_aware_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code>const char *</code> local_dc, <code>size_t</code> local_dc_length, <code>unsigned</code> used_hosts_per_remote_dc, <code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code> allow_remote_dcs_for_local_cl <big>)</big>
+</h3> <big>(</big>  cluster,  local_dc,  local_dc_length,  used_hosts_per_remote_dc,  allow_remote_dcs_for_local_cl <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_cluster_set_load_balance_dc_aware">CassCluster::cass_cluster_set_load_balance_dc_aware</a></code>, but with lengths for string parameters.</p>
@@ -1732,35 +1734,35 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>local_dc</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>local_dc_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>used_hosts_per_remote_dc</var>
 </td>
-<td><code>unsigned</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>allow_remote_dcs_for_local_cl</var>
 </td>
-<td><code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1786,7 +1788,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_cluster_set_token_aware_routing" class="target">cass_cluster_set_token_aware_routing<a class="anchor" href="#function-cass_cluster_set_token_aware_routing" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code> enabled <big>)</big>
+</h3> <big>(</big>  cluster,  enabled <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Configures the cluster to use token-aware request routing or not.</p>
@@ -1810,14 +1812,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>enabled</var>
 </td>
-<td><code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1831,7 +1833,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_cluster_set_latency_aware_routing" class="target">cass_cluster_set_latency_aware_routing<a class="anchor" href="#function-cass_cluster_set_latency_aware_routing" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code> enabled <big>)</big>
+</h3> <big>(</big>  cluster,  enabled <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Configures the cluster to use latency-aware request routing or not.</p>
@@ -1853,14 +1855,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>enabled</var>
 </td>
-<td><code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1871,7 +1873,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_cluster_set_latency_aware_routing_settings" class="target">cass_cluster_set_latency_aware_routing_settings<a class="anchor" href="#function-cass_cluster_set_latency_aware_routing_settings" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code><a href="../cassandra.h/#type-cass_double_t">cass_double_t</a></code> exclusion_threshold, <code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code> scale_ms, <code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code> retry_period_ms, <code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code> update_rate_ms, <code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code> min_measured <big>)</big>
+</h3> <big>(</big>  cluster,  exclusion_threshold,  scale_ms,  retry_period_ms,  update_rate_ms,  min_measured <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Configures the settings for latency-aware request routing.</p>
@@ -1899,14 +1901,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>exclusion_threshold</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_double_t">cass_double_t</a></code></td>
+<td></td>
 <td>
 <p>Controls how much worse the latency must be compared to the average latency of the best performing node before it penalized.</p>
 </td>
@@ -1915,7 +1917,7 @@
 <td>
 <small>in</small> <var>scale_ms</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code></td>
+<td></td>
 <td>
 <p>Controls the weight given to older latencies when calculating the average latency of a node. A bigger scale will give more weight to older latency measurements.</p>
 </td>
@@ -1924,7 +1926,7 @@
 <td>
 <small>in</small> <var>retry_period_ms</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code></td>
+<td></td>
 <td>
 <p>The amount of time a node is penalized by the policy before being given a second chance when the current average latency exceeds the calculated threshold (exclusion_threshold * best_average_latency).</p>
 </td>
@@ -1933,7 +1935,7 @@
 <td>
 <small>in</small> <var>update_rate_ms</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code></td>
+<td></td>
 <td>
 <p>The rate at which the best average latency is recomputed.</p>
 </td>
@@ -1942,7 +1944,7 @@
 <td>
 <small>in</small> <var>min_measured</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code></td>
+<td></td>
 <td>
 <p>The minimum number of measurements per-host required to be considered by the policy.</p>
 </td>
@@ -1955,7 +1957,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_cluster_set_tcp_nodelay" class="target">cass_cluster_set_tcp_nodelay<a class="anchor" href="#function-cass_cluster_set_tcp_nodelay" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code> enabled <big>)</big>
+</h3> <big>(</big>  cluster,  enabled <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Enable/Disable Nagel’s algorithm on connections.</p>
@@ -1975,14 +1977,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>enabled</var>
 </td>
-<td><code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1993,7 +1995,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_cluster_set_tcp_keepalive" class="target">cass_cluster_set_tcp_keepalive<a class="anchor" href="#function-cass_cluster_set_tcp_keepalive" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code> enabled, <code>unsigned</code> delay_secs <big>)</big>
+</h3> <big>(</big>  cluster,  enabled,  delay_secs <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Enable/Disable TCP keep-alive</p>
@@ -2013,21 +2015,21 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>enabled</var>
 </td>
-<td><code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>delay_secs</var>
 </td>
-<td><code>unsigned</code></td>
+<td></td>
 <td>
 <p>The initial delay in seconds, ignored when <code>enabled</code> is false.</p>
 </td>
@@ -2040,7 +2042,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_cluster_set_timestamp_gen" class="target">cass_cluster_set_timestamp_gen<a class="anchor" href="#function-cass_cluster_set_timestamp_gen" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code><a href="../struct.CassTimestampGen/">CassTimestampGen</a> *</code> timestamp_gen <big>)</big>
+</h3> <big>(</big>  cluster,  timestamp_gen <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the timestamp generator used to assign timestamps to all requests unless overridden by setting the timestamp on a statement or a batch.</p>
@@ -2060,14 +2062,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>timestamp_gen</var>
 </td>
-<td><code><a href="../struct.CassTimestampGen/">CassTimestampGen</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2083,7 +2085,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_cluster_set_connection_heartbeat_interval" class="target">cass_cluster_set_connection_heartbeat_interval<a class="anchor" href="#function-cass_cluster_set_connection_heartbeat_interval" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code>unsigned</code> interval_secs <big>)</big>
+</h3> <big>(</big>  cluster,  interval_secs <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the amount of time between heartbeat messages and controls the amount of time the connection must be idle before sending heartbeat messages. This is useful for preventing intermediate network devices from dropping connections.</p>
@@ -2103,14 +2105,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>interval_secs</var>
 </td>
-<td><code>unsigned</code></td>
+<td></td>
 <td>
 <p>Use 0 to disable heartbeat messages</p>
 </td>
@@ -2123,7 +2125,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_cluster_set_connection_idle_timeout" class="target">cass_cluster_set_connection_idle_timeout<a class="anchor" href="#function-cass_cluster_set_connection_idle_timeout" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code>unsigned</code> timeout_secs <big>)</big>
+</h3> <big>(</big>  cluster,  timeout_secs <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the amount of time a connection is allowed to be without a successful hearbeat response before being terminated and scheduled for reconnection.</p>
@@ -2143,14 +2145,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>timeout_secs</var>
 </td>
-<td><code>unsigned</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2161,7 +2163,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_cluster_set_retry_policy" class="target">cass_cluster_set_retry_policy<a class="anchor" href="#function-cass_cluster_set_retry_policy" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code><a href="../struct.CassRetryPolicy/">CassRetryPolicy</a> *</code> retry_policy <big>)</big>
+</h3> <big>(</big>  cluster,  retry_policy <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the retry policy used for all requests unless overridden by setting a retry policy on a statement or a batch.</p>
@@ -2181,14 +2183,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>retry_policy</var>
 </td>
-<td><code><a href="../struct.CassRetryPolicy/">CassRetryPolicy</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2205,7 +2207,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_cluster_set_use_schema" class="target">cass_cluster_set_use_schema<a class="anchor" href="#function-cass_cluster_set_use_schema" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCluster</a> *</code> cluster, <code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code> enabled <big>)</big>
+</h3> <big>(</big>  cluster,  enabled <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Enable/Disable retrieving and updating schema metadata. If disabled this is allows the driver to skip over retrieving and updating schema metadata, but it also disables the usage of token-aware routing and <code><a href="../struct.CassSession/#function-cass_session_get_schema">CassSession::cass_session_get_schema</a></code> will always return an empty object. This can be useful for reducing the startup overhead of short-lived sessions.</p>
@@ -2225,14 +2227,14 @@
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code><a href="./">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>enabled</var>
 </td>
-<td><code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>

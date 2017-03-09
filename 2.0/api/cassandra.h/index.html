@@ -46,7 +46,9 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li><a href="../../../api/cassandra.h/">2.5</a></li>
+                  <li><a href="../../../api/cassandra.h/">2.6</a></li>
+                
+                  <li><a href="../../../2.5/api/cassandra.h/">2.5</a></li>
                 
                   <li><a href="../../../2.4/api/cassandra.h/">2.4</a></li>
                 
@@ -1353,7 +1355,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const char *</code> <h3 id="function-cass_error_desc" class="target">cass_error_desc<a class="anchor" href="#function-cass_error_desc" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="#enum-CassError">CassError</a></code> error <big>)</big>
+</h3> <big>(</big>  error <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets a description for an error code.</p>
@@ -1370,7 +1372,7 @@
 <td>
 <small>in</small> <var>error</var>
 </td>
-<td><code><a href="#enum-CassError">CassError</a></code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -1408,7 +1410,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_log_set_level" class="target">cass_log_set_level<a class="anchor" href="#function-cass_log_set_level" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="#enum-CassLogLevel">CassLogLevel</a></code> log_level <big>)</big>
+</h3> <big>(</big>  log_level <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the log level.</p>
@@ -1429,7 +1431,7 @@
 <td>
 <small>in</small> <var>log_level</var>
 </td>
-<td><code><a href="#enum-CassLogLevel">CassLogLevel</a></code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -1439,7 +1441,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_log_set_callback" class="target">cass_log_set_callback<a class="anchor" href="#function-cass_log_set_callback" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="#type-CassLogCallback">CassLogCallback</a></code> callback, <code>void *</code> data <big>)</big>
+</h3> <big>(</big>  callback,  data <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets a callback for handling logging events.</p>
@@ -1461,7 +1463,7 @@
 <td>
 <small>in</small> <var>callback</var>
 </td>
-<td><code><a href="#type-CassLogCallback">CassLogCallback</a></code></td>
+<td></td>
 <td>
 <p>A callback that handles logging events. This is called in a separate thread so access to shared data must be synchronized.</p>
 </td>
@@ -1470,7 +1472,7 @@
 <td>
 <small>in</small> <var>data</var>
 </td>
-<td><code>void *</code></td>
+<td></td>
 <td>
 <p>An opaque data object passed to the callback.</p>
 </td>
@@ -1483,7 +1485,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_log_set_queue_size" class="target">cass_log_set_queue_size<a class="anchor" href="#function-cass_log_set_queue_size" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>size_t</code> queue_size <big>)</big>
+</h3> <big>(</big>  queue_size <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p><strong>Deprecated</strong>:</p>
@@ -1508,7 +1510,7 @@
 <td>
 <small>in</small> <var>queue_size</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -1518,7 +1520,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const char *</code> <h3 id="function-cass_log_level_string" class="target">cass_log_level_string<a class="anchor" href="#function-cass_log_level_string" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="#enum-CassLogLevel">CassLogLevel</a></code> log_level <big>)</big>
+</h3> <big>(</big>  log_level <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the string for a log level.</p>
@@ -1535,7 +1537,7 @@
 <td>
 <small>in</small> <var>log_level</var>
 </td>
-<td><code><a href="#enum-CassLogLevel">CassLogLevel</a></code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>

@@ -46,7 +46,9 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li><a href="../../../api/struct.CassRow/">2.5</a></li>
+                  <li><a href="../../../api/struct.CassRow/">2.6</a></li>
+                
+                  <li><a href="../../../2.5/api/struct.CassRow/">2.5</a></li>
                 
                   <li><a href="../../../2.4/api/struct.CassRow/">2.4</a></li>
                 
@@ -412,7 +414,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_from_row" class="target">cass_iterator_from_row<a class="anchor" href="#function-cass_iterator_from_row" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassRow</a> *</code> row <big>)</big>
+</h3> <big>(</big>  row <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new iterator for the specified row. This can be used to iterate over columns in a row.</p>
@@ -429,7 +431,7 @@
 <td>
 <small>in</small> <var>row</var>
 </td>
-<td><code>const <a href="./">CassRow</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -454,7 +456,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassValue/">CassValue</a> *</code> <h3 id="function-cass_row_get_column" class="target">cass_row_get_column<a class="anchor" href="#function-cass_row_get_column" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassRow</a> *</code> row, <code>size_t</code> index <big>)</big>
+</h3> <big>(</big>  row,  index <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Get the column value at index for the specified row.</p>
@@ -472,14 +474,14 @@
 <td>
 <small>in</small> <var>row</var>
 </td>
-<td><code>const <a href="./">CassRow</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -503,7 +505,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassValue/">CassValue</a> *</code> <h3 id="function-cass_row_get_column_by_name" class="target">cass_row_get_column_by_name<a class="anchor" href="#function-cass_row_get_column_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassRow</a> *</code> row, <code>const char *</code> name <big>)</big>
+</h3> <big>(</big>  row,  name <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Get the column value by name for the specified row.</p>
@@ -521,14 +523,14 @@
 <td>
 <small>in</small> <var>row</var>
 </td>
-<td><code>const <a href="./">CassRow</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -552,7 +554,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassValue/">CassValue</a> *</code> <h3 id="function-cass_row_get_column_by_name_n" class="target">cass_row_get_column_by_name_n<a class="anchor" href="#function-cass_row_get_column_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassRow</a> *</code> row, <code>const char *</code> name, <code>size_t</code> name_length <big>)</big>
+</h3> <big>(</big>  row,  name,  name_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_row_get_column_by_name">CassRow::cass_row_get_column_by_name</a></code>, but with lengths for string parameters.</p>
@@ -570,21 +572,21 @@
 <td>
 <small>in</small> <var>row</var>
 </td>
-<td><code>const <a href="./">CassRow</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>

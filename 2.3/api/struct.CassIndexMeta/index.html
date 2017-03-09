@@ -46,7 +46,9 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li><a href="../../../api/struct.CassIndexMeta/">2.5</a></li>
+                  <li><a href="../../../api/struct.CassIndexMeta/">2.6</a></li>
+                
+                  <li><a href="../../../2.5/api/struct.CassIndexMeta/">2.5</a></li>
                 
                   <li><a href="../../../2.4/api/struct.CassIndexMeta/">2.4</a></li>
                 
@@ -475,7 +477,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_index_meta_name" class="target">cass_index_meta_name<a class="anchor" href="#function-cass_index_meta_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassIndexMeta</a> *</code> index_meta, <code>const char **</code> name, <code>size_t *</code> name_length <big>)</big>
+</h3> <big>(</big>  index_meta,  name,  name_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the name of the index.</p>
@@ -493,21 +495,21 @@
 <td>
 <small>in</small> <var>index_meta</var>
 </td>
-<td><code>const <a href="./">CassIndexMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>name</var>
 </td>
-<td><code>const char **</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>name_length</var>
 </td>
-<td><code>size_t *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -518,7 +520,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassIndexType">CassIndexType</a></code> <h3 id="function-cass_index_meta_type" class="target">cass_index_meta_type<a class="anchor" href="#function-cass_index_meta_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassIndexMeta</a> *</code> index_meta <big>)</big>
+</h3> <big>(</big>  index_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the type of the index.</p>
@@ -535,7 +537,7 @@
 <td>
 <small>in</small> <var>index_meta</var>
 </td>
-<td><code>const <a href="./">CassIndexMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -558,7 +560,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_index_meta_target" class="target">cass_index_meta_target<a class="anchor" href="#function-cass_index_meta_target" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassIndexMeta</a> *</code> index_meta, <code>const char **</code> target, <code>size_t *</code> target_length <big>)</big>
+</h3> <big>(</big>  index_meta,  target,  target_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the target of the index.</p>
@@ -576,21 +578,21 @@
 <td>
 <small>in</small> <var>index_meta</var>
 </td>
-<td><code>const <a href="./">CassIndexMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>target</var>
 </td>
-<td><code>const char **</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>target_length</var>
 </td>
-<td><code>size_t *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -601,7 +603,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassValue/">CassValue</a> *</code> <h3 id="function-cass_index_meta_options" class="target">cass_index_meta_options<a class="anchor" href="#function-cass_index_meta_options" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassIndexMeta</a> *</code> index_meta <big>)</big>
+</h3> <big>(</big>  index_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the options of the index.</p>
@@ -618,7 +620,7 @@
 <td>
 <small>in</small> <var>index_meta</var>
 </td>
-<td><code>const <a href="./">CassIndexMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -641,7 +643,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassValue/">CassValue</a> *</code> <h3 id="function-cass_index_meta_field_by_name" class="target">cass_index_meta_field_by_name<a class="anchor" href="#function-cass_index_meta_field_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassIndexMeta</a> *</code> index_meta, <code>const char *</code> name <big>)</big>
+</h3> <big>(</big>  index_meta,  name <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets a metadata field for the provided name. Metadata fields allow direct access to the index data found in the underlying “indexes” metadata table.</p>
@@ -659,14 +661,14 @@
 <td>
 <small>in</small> <var>index_meta</var>
 </td>
-<td><code>const <a href="./">CassIndexMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -690,7 +692,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassValue/">CassValue</a> *</code> <h3 id="function-cass_index_meta_field_by_name_n" class="target">cass_index_meta_field_by_name_n<a class="anchor" href="#function-cass_index_meta_field_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassIndexMeta</a> *</code> index_meta, <code>const char *</code> name, <code>size_t</code> name_length <big>)</big>
+</h3> <big>(</big>  index_meta,  name,  name_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_index_meta_field_by_name">CassIndexMeta::cass_index_meta_field_by_name</a></code>, but with lengths for string parameters.</p>
@@ -708,21 +710,21 @@
 <td>
 <small>in</small> <var>index_meta</var>
 </td>
-<td><code>const <a href="./">CassIndexMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -748,7 +750,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_fields_from_index_meta" class="target">cass_iterator_fields_from_index_meta<a class="anchor" href="#function-cass_iterator_fields_from_index_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassIndexMeta</a> *</code> index_meta <big>)</big>
+</h3> <big>(</big>  index_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new fields iterator for the specified index metadata. Metadata fields allow direct access to the index data found in the underlying “indexes” metadata table. This can be used to iterate those metadata field entries.</p>
@@ -765,7 +767,7 @@
 <td>
 <small>in</small> <var>index_meta</var>
 </td>
-<td><code>const <a href="./">CassIndexMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>

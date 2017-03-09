@@ -46,7 +46,9 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li><a href="../../../api/struct.CassBatch/">2.5</a></li>
+                  <li><a href="../../../api/struct.CassBatch/">2.6</a></li>
+                
+                  <li><a href="../../../2.5/api/struct.CassBatch/">2.5</a></li>
                 
                   <li><a href="../../../2.4/api/struct.CassBatch/">2.4</a></li>
                 
@@ -360,7 +362,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="./">CassBatch</a> *</code> <h3 id="function-cass_batch_new" class="target">cass_batch_new<a class="anchor" href="#function-cass_batch_new" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="../cassandra.h/#enum-CassBatchType">CassBatchType</a></code> type <big>)</big>
+</h3> <big>(</big>  type <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new batch statement with batch type.</p>
@@ -377,7 +379,7 @@
 <td>
 <small>in</small> <var>type</var>
 </td>
-<td><code><a href="../cassandra.h/#enum-CassBatchType">CassBatchType</a></code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -402,7 +404,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_batch_free" class="target">cass_batch_free<a class="anchor" href="#function-cass_batch_free" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassBatch</a> *</code> batch <big>)</big>
+</h3> <big>(</big>  batch <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Frees a batch instance. Batches can be immediately freed after being executed.</p>
@@ -419,7 +421,7 @@
 <td>
 <small>in</small> <var>batch</var>
 </td>
-<td><code><a href="./">CassBatch</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -429,7 +431,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_batch_set_consistency" class="target">cass_batch_set_consistency<a class="anchor" href="#function-cass_batch_set_consistency" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassBatch</a> *</code> batch, <code><a href="../cassandra.h/#enum-CassConsistency">CassConsistency</a></code> consistency <big>)</big>
+</h3> <big>(</big>  batch,  consistency <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the batch’s consistency level</p>
@@ -447,14 +449,14 @@
 <td>
 <small>in</small> <var>batch</var>
 </td>
-<td><code><a href="./">CassBatch</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>consistency</var>
 </td>
-<td><code><a href="../cassandra.h/#enum-CassConsistency">CassConsistency</a></code></td>
+<td></td>
 <td>
 <p>The batch’s write consistency.</p>
 </td>
@@ -480,7 +482,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_batch_add_statement" class="target">cass_batch_add_statement<a class="anchor" href="#function-cass_batch_add_statement" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassBatch</a> *</code> batch, <code><a href="../struct.CassStatement/">CassStatement</a> *</code> statement <big>)</big>
+</h3> <big>(</big>  batch,  statement <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Adds a statement to a batch.</p>
@@ -498,14 +500,14 @@
 <td>
 <small>in</small> <var>batch</var>
 </td>
-<td><code><a href="./">CassBatch</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="../struct.CassStatement/">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>

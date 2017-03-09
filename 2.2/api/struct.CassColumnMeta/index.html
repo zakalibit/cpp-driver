@@ -46,7 +46,9 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li><a href="../../../api/struct.CassColumnMeta/">2.5</a></li>
+                  <li><a href="../../../api/struct.CassColumnMeta/">2.6</a></li>
+                
+                  <li><a href="../../../2.5/api/struct.CassColumnMeta/">2.5</a></li>
                 
                   <li><a href="../../../2.4/api/struct.CassColumnMeta/">2.4</a></li>
                 
@@ -448,7 +450,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_column_meta_name" class="target">cass_column_meta_name<a class="anchor" href="#function-cass_column_meta_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassColumnMeta</a> *</code> column_meta, <code>const char **</code> name, <code>size_t *</code> name_length <big>)</big>
+</h3> <big>(</big>  column_meta,  name,  name_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the name of the column.</p>
@@ -466,21 +468,21 @@
 <td>
 <small>in</small> <var>column_meta</var>
 </td>
-<td><code>const <a href="./">CassColumnMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>name</var>
 </td>
-<td><code>const char **</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>name_length</var>
 </td>
-<td><code>size_t *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -491,7 +493,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassColumnType">CassColumnType</a></code> <h3 id="function-cass_column_meta_type" class="target">cass_column_meta_type<a class="anchor" href="#function-cass_column_meta_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassColumnMeta</a> *</code> column_meta <big>)</big>
+</h3> <big>(</big>  column_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the type of the column.</p>
@@ -508,7 +510,7 @@
 <td>
 <small>in</small> <var>column_meta</var>
 </td>
-<td><code>const <a href="./">CassColumnMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -531,7 +533,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> <h3 id="function-cass_column_meta_data_type" class="target">cass_column_meta_data_type<a class="anchor" href="#function-cass_column_meta_data_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassColumnMeta</a> *</code> column_meta <big>)</big>
+</h3> <big>(</big>  column_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the data type of the column.</p>
@@ -548,7 +550,7 @@
 <td>
 <small>in</small> <var>column_meta</var>
 </td>
-<td><code>const <a href="./">CassColumnMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -571,7 +573,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassValue/">CassValue</a> *</code> <h3 id="function-cass_column_meta_field_by_name" class="target">cass_column_meta_field_by_name<a class="anchor" href="#function-cass_column_meta_field_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassColumnMeta</a> *</code> column_meta, <code>const char *</code> name <big>)</big>
+</h3> <big>(</big>  column_meta,  name <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets a metadata field for the provided name. Metadata fields allow direct access to the column data found in the underlying “columns” metadata table.</p>
@@ -589,14 +591,14 @@
 <td>
 <small>in</small> <var>column_meta</var>
 </td>
-<td><code>const <a href="./">CassColumnMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -620,7 +622,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassValue/">CassValue</a> *</code> <h3 id="function-cass_column_meta_field_by_name_n" class="target">cass_column_meta_field_by_name_n<a class="anchor" href="#function-cass_column_meta_field_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassColumnMeta</a> *</code> column_meta, <code>const char *</code> name, <code>size_t</code> name_length <big>)</big>
+</h3> <big>(</big>  column_meta,  name,  name_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_column_meta_field_by_name">CassColumnMeta::cass_column_meta_field_by_name</a></code>, but with lengths for string parameters.</p>
@@ -638,21 +640,21 @@
 <td>
 <small>in</small> <var>column_meta</var>
 </td>
-<td><code>const <a href="./">CassColumnMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -678,7 +680,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_fields_from_column_meta" class="target">cass_iterator_fields_from_column_meta<a class="anchor" href="#function-cass_iterator_fields_from_column_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassColumnMeta</a> *</code> column_meta <big>)</big>
+</h3> <big>(</big>  column_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new fields iterator for the specified column metadata. Metadata fields allow direct access to the column data found in the underlying “columns” metadata table. This can be used to iterate those metadata field entries.</p>
@@ -695,7 +697,7 @@
 <td>
 <small>in</small> <var>column_meta</var>
 </td>
-<td><code>const <a href="./">CassColumnMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -724,7 +726,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_fields_from_function_meta" class="target">cass_iterator_fields_from_function_meta<a class="anchor" href="#function-cass_iterator_fields_from_function_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="../struct.CassFunctionMeta/">CassFunctionMeta</a> *</code> function_meta <big>)</big>
+</h3> <big>(</big>  function_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new fields iterator for the specified function metadata. Metadata fields allow direct access to the column data found in the underlying “functions” metadata table. This can be used to iterate those metadata field entries.</p>
@@ -741,7 +743,7 @@
 <td>
 <small>in</small> <var>function_meta</var>
 </td>
-<td><code>const <a href="../struct.CassFunctionMeta/">CassFunctionMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -769,7 +771,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_fields_from_aggregate_meta" class="target">cass_iterator_fields_from_aggregate_meta<a class="anchor" href="#function-cass_iterator_fields_from_aggregate_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="../struct.CassAggregateMeta/">CassAggregateMeta</a> *</code> aggregate_meta <big>)</big>
+</h3> <big>(</big>  aggregate_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new fields iterator for the specified aggregate metadata. Metadata fields allow direct access to the column data found in the underlying “aggregates” metadata table. This can be used to iterate those metadata field entries.</p>
@@ -786,7 +788,7 @@
 <td>
 <small>in</small> <var>aggregate_meta</var>
 </td>
-<td><code>const <a href="../struct.CassAggregateMeta/">CassAggregateMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>

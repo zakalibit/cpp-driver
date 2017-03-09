@@ -1,0 +1,4120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="DataStax C++ Driver for Apache Cassandra Documentation">
+    <meta name="author" content="DataStax">
+
+    <title>DataStax C/C++ Driver - CassUserType</title>
+
+    <link rel="icon" href="../../../favicon.ico">
+    <link rel="apple-touch-icon" href="../../../favicon.png">
+    <link href="../../../css/style.css" rel="stylesheet">
+    <link href="../../../css/pygments.css" rel="stylesheet">
+    <link href="../../../css/hotkeys.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body ng-app="docs">
+    <div class="navbar">
+      <div class="container-fluid">
+        <div class="row row-offcanvas row-offcanvas-left">
+          <div class="col-sm-3 text-center">
+            <a class="ds-home" href="../../"><img alt="Brand" src="../../../img/logo.png"></a>
+            <ul class="list-inline ds-sites" role="nav">
+              <li><a href="https://academy.datastax.com/" class="navbar-link">DataStax Academy</a></li>
+              <li><a href="http://www.datastax.com/dev/blog" class="navbar-link">Tech Blog</a></li>
+              <li><a href="http://www.datastax.com/what-we-offer/products-services/support" class="navbar-link">Support</a></li>
+            </ul>
+          </div>
+          <div class="col-md-5">
+            <p class="lead pubtitle">DataStax C/C++ Driver</p>
+            
+            <div class="text-info">
+              <span class="text-warning">Attention:</span> Viewing documentation for version
+              <div class="btn-group">
+                <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  2.5
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
+                
+                  <li><a href="../../../api/struct.CassUserType/">2.6</a></li>
+                
+                  <li class="disabled"><a href="./">2.5</a></li>
+                
+                  <li><a href="../../../2.4/api/struct.CassUserType/">2.4</a></li>
+                
+                  <li><a href="../../../2.3/api/struct.CassUserType/">2.3</a></li>
+                
+                  <li><a href="../../../2.2/api/struct.CassUserType/">2.2</a></li>
+                
+                  <li><a href="../../../2.1/api/struct.CassUserType/">2.1</a></li>
+                
+                  <li><a href="../../../2.0/">2.0</a></li>
+                
+                  <li><a href="../../../1.0/">1.0</a></li>
+                
+                </ul>
+              </div>
+            </div>
+            
+          </div>
+          <div class="col-md-4">
+            <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
+              <div class="form-group has-feedback">
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.5')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+              </div>
+              <ul class="dropdown-menu search-results" role="menu">
+                <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
+              </ul>
+            </form>
+            <a href="http://www.datastax.com/download" class="btn btn-primary btn-sm">Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid" id="content">
+      <div class="row">
+        <div class="col-md-3">
+          <div id="navigation" class="side-nav" role="tablist" aria-multiselectable="true">
+            <h3><a href="../../">Contents</a></h3>
+            <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li>
+    <a href="../../topics/">
+      Getting Started <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+  
+  <li class="active">
+    <a href="../">
+      API docs <small>index</small>
+      
+      
+      <span class="glyphicon glyphicon-minus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li>
+    <a href="../struct.CassAggregateMeta/">
+      CassAggregateMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassAuthenticator/">
+      CassAuthenticator <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassAuthenticatorCallbacks/">
+      CassAuthenticatorCallbacks <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassBatch/">
+      CassBatch <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassCluster/">
+      CassCluster <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassCollection/">
+      CassCollection <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassColumnMeta/">
+      CassColumnMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassCustomPayload/">
+      CassCustomPayload <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassDataType/">
+      CassDataType <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassErrorResult/">
+      CassErrorResult <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassFunctionMeta/">
+      CassFunctionMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassFuture/">
+      CassFuture <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassIndexMeta/">
+      CassIndexMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassInet/">
+      CassInet <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassIterator/">
+      CassIterator <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassKeyspaceMeta/">
+      CassKeyspaceMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassLogMessage/">
+      CassLogMessage <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassMaterializedViewMeta/">
+      CassMaterializedViewMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassMetrics/">
+      CassMetrics <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassPrepared/">
+      CassPrepared <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassResult/">
+      CassResult <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassRetryPolicy/">
+      CassRetryPolicy <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassRow/">
+      CassRow <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassSchemaMeta/">
+      CassSchemaMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassSession/">
+      CassSession <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassSsl/">
+      CassSsl <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassStatement/">
+      CassStatement <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassTableMeta/">
+      CassTableMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassTimestampGen/">
+      CassTimestampGen <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassTuple/">
+      CassTuple <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li class="active">
+    <a href="./" class="current">
+      CassUserType <small>struct</small>
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassUuid/">
+      CassUuid <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassUuidGen/">
+      CassUuidGen <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassValue/">
+      CassValue <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassVersion/">
+      CassVersion <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../cassandra.h/">
+      cassandra.h <small>file</small>
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          </div>
+        </div>
+        <div class="col-md-9 content">
+          <div class="crumbs-wrapper">
+            <nav id="crumbs" data-spy="affix" data-offset-top="130">
+              <ol class="breadcrumb">
+                
+                
+                
+                <li><a href="../../">Home</a></li>
+                
+                
+                
+                
+                
+                <li><a href="../">API docs</a></li>
+                
+                
+                
+                
+                
+                <li class="active">CassUserType</li>
+                
+                
+                
+              </ol>
+            </nav>
+          </div>
+          
+
+<div class="page-header">
+  <h1 id="struct-CassUserType" class="target">
+    <small>struct</small>
+    CassUserType
+  <a class="anchor" href="#struct-CassUserType" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+</div>
+
+<p>A user defined type.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+
+<h2 id="functions" class="target">Functions<a class="anchor" href="#functions" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<div class="attributes-content">
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="./">CassUserType</a> *</code> <h3 id="function-cass_user_type_new_from_data_type" class="target">cass_user_type_new_from_data_type<a class="anchor" href="#function-cass_user_type_new_from_data_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  data_type <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Creates a new user defined type from existing data type;</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td>
+<small>in</small> <var>data_type</var>
+</td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="./">CassUserType</a> *</code></td>
+<td>
+<p>Returns a user defined type that must be freed. NULL is returned if the data type is not a user defined type.</p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_user_type_free">CassUserType::cass_user_type_free</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code>void</code> <h3 id="function-cass_user_type_free" class="target">cass_user_type_free<a class="anchor" href="#function-cass_user_type_free" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Frees a user defined type instance.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_null" class="target">cass_user_type_set_null<a class="anchor" href="#function-cass_user_type_set_null" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  index <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets a null in a user defined type at the specified index.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>index</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_null_by_name" class="target">cass_user_type_set_null_by_name<a class="anchor" href="#function-cass_user_type_set_null_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets a null in a user defined type at the specified name.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_null_by_name_n" class="target">cass_user_type_set_null_by_name_n<a class="anchor" href="#function-cass_user_type_set_null_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  name_length <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_user_type_set_null_by_name">CassUserType::cass_user_type_set_null_by_name</a></code>, but with lengths for string parameters.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name_length</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>same as <code><a href="#function-cass_user_type_set_null_by_name">CassUserType::cass_user_type_set_null_by_name</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_user_type_set_null_by_name">CassUserType::cass_user_type_set_null_by_name</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_int8" class="target">cass_user_type_set_int8<a class="anchor" href="#function-cass_user_type_set_int8" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  index,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets a “tinyint” in a user defined type at the specified index.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.2+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>index</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_int8_by_name" class="target">cass_user_type_set_int8_by_name<a class="anchor" href="#function-cass_user_type_set_int8_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets a “tinyint” in a user defined type at the specified name.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.2+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_int8_by_name_n" class="target">cass_user_type_set_int8_by_name_n<a class="anchor" href="#function-cass_user_type_set_int8_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  name_length,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_user_type_set_int8_by_name">CassUserType::cass_user_type_set_int8_by_name</a></code>, but with lengths for string parameters.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.2+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name_length</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>same as <code><a href="#function-cass_user_type_set_int8_by_name">CassUserType::cass_user_type_set_int8_by_name</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_user_type_set_int8_by_name">CassUserType::cass_user_type_set_int8_by_name</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_int16" class="target">cass_user_type_set_int16<a class="anchor" href="#function-cass_user_type_set_int16" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  index,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets an “smallint” in a user defined type at the specified index.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.2+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>index</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_int16_by_name" class="target">cass_user_type_set_int16_by_name<a class="anchor" href="#function-cass_user_type_set_int16_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets an “smallint” in a user defined type at the specified name.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.2+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_int16_by_name_n" class="target">cass_user_type_set_int16_by_name_n<a class="anchor" href="#function-cass_user_type_set_int16_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  name_length,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_user_type_set_int16_by_name">CassUserType::cass_user_type_set_int16_by_name</a></code>, but with lengths for string parameters.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.2+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name_length</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>same as <code><a href="#function-cass_user_type_set_int16_by_name">CassUserType::cass_user_type_set_int16_by_name</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_user_type_set_int16_by_name">CassUserType::cass_user_type_set_int16_by_name</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_int32" class="target">cass_user_type_set_int32<a class="anchor" href="#function-cass_user_type_set_int32" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  index,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets an “int” in a user defined type at the specified index.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>index</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_int32_by_name" class="target">cass_user_type_set_int32_by_name<a class="anchor" href="#function-cass_user_type_set_int32_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets an “int” in a user defined type at the specified name.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_int32_by_name_n" class="target">cass_user_type_set_int32_by_name_n<a class="anchor" href="#function-cass_user_type_set_int32_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  name_length,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_user_type_set_int32_by_name">CassUserType::cass_user_type_set_int32_by_name</a></code>, but with lengths for string parameters.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name_length</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>same as <code><a href="#function-cass_user_type_set_int32_by_name">CassUserType::cass_user_type_set_int32_by_name</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_user_type_set_int32_by_name">CassUserType::cass_user_type_set_int32_by_name</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_uint32" class="target">cass_user_type_set_uint32<a class="anchor" href="#function-cass_user_type_set_uint32" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  index,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets a “date” in a user defined type at the specified index.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.2+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>index</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_uint32_by_name" class="target">cass_user_type_set_uint32_by_name<a class="anchor" href="#function-cass_user_type_set_uint32_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets a “date” in a user defined type at the specified name.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.2+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_uint32_by_name_n" class="target">cass_user_type_set_uint32_by_name_n<a class="anchor" href="#function-cass_user_type_set_uint32_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  name_length,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_user_type_set_uint32_by_name">CassUserType::cass_user_type_set_uint32_by_name</a></code>, but with lengths for string parameters.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.2+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name_length</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>same as <code><a href="#function-cass_user_type_set_uint32_by_name">CassUserType::cass_user_type_set_uint32_by_name</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_user_type_set_uint32_by_name">CassUserType::cass_user_type_set_uint32_by_name</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_int64" class="target">cass_user_type_set_int64<a class="anchor" href="#function-cass_user_type_set_int64" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  index,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets an “bigint”, “counter”, “timestamp” or “time” in a user defined type at the specified index.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>index</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_int64_by_name" class="target">cass_user_type_set_int64_by_name<a class="anchor" href="#function-cass_user_type_set_int64_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets an “bigint”, “counter”, “timestamp” or “time” in a user defined type at the specified name.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_int64_by_name_n" class="target">cass_user_type_set_int64_by_name_n<a class="anchor" href="#function-cass_user_type_set_int64_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  name_length,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_user_type_set_int64_by_name">CassUserType::cass_user_type_set_int64_by_name</a></code>, but with lengths for string parameters.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name_length</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>same as <code><a href="#function-cass_user_type_set_int64_by_name">CassUserType::cass_user_type_set_int64_by_name</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_user_type_set_int64_by_name">CassUserType::cass_user_type_set_int64_by_name</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_float" class="target">cass_user_type_set_float<a class="anchor" href="#function-cass_user_type_set_float" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  index,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets a “float” in a user defined type at the specified index.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>index</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_float_by_name" class="target">cass_user_type_set_float_by_name<a class="anchor" href="#function-cass_user_type_set_float_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets a “float” in a user defined type at the specified name.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_float_by_name_n" class="target">cass_user_type_set_float_by_name_n<a class="anchor" href="#function-cass_user_type_set_float_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  name_length,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_user_type_set_float_by_name">CassUserType::cass_user_type_set_float_by_name</a></code>, but with lengths for string parameters.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name_length</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>same as <code><a href="#function-cass_user_type_set_float_by_name">CassUserType::cass_user_type_set_float_by_name</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_user_type_set_float_by_name">CassUserType::cass_user_type_set_float_by_name</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_double" class="target">cass_user_type_set_double<a class="anchor" href="#function-cass_user_type_set_double" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  index,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets an “double” in a user defined type at the specified index.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>index</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_double_by_name" class="target">cass_user_type_set_double_by_name<a class="anchor" href="#function-cass_user_type_set_double_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets an “double” in a user defined type at the specified name.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_double_by_name_n" class="target">cass_user_type_set_double_by_name_n<a class="anchor" href="#function-cass_user_type_set_double_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  name_length,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_user_type_set_double_by_name">CassUserType::cass_user_type_set_double_by_name</a></code>, but with lengths for string parameters.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name_length</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>same as <code><a href="#function-cass_user_type_set_double_by_name">CassUserType::cass_user_type_set_double_by_name</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_user_type_set_double_by_name">CassUserType::cass_user_type_set_double_by_name</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_bool" class="target">cass_user_type_set_bool<a class="anchor" href="#function-cass_user_type_set_bool" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  index,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets a “boolean” in a user defined type at the specified index.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>index</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_bool_by_name" class="target">cass_user_type_set_bool_by_name<a class="anchor" href="#function-cass_user_type_set_bool_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets a “boolean” in a user defined type at the specified name.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_bool_by_name_n" class="target">cass_user_type_set_bool_by_name_n<a class="anchor" href="#function-cass_user_type_set_bool_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  name_length,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_user_type_set_double_by_name">CassUserType::cass_user_type_set_double_by_name</a></code>, but with lengths for string parameters.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name_length</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>same as <code><a href="#function-cass_user_type_set_double_by_name">CassUserType::cass_user_type_set_double_by_name</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_user_type_set_double_by_name">CassUserType::cass_user_type_set_double_by_name</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_string" class="target">cass_user_type_set_string<a class="anchor" href="#function-cass_user_type_set_string" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  index,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets an “ascii”, “text” or “varchar” in a user defined type at the specified index.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>index</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_string_n" class="target">cass_user_type_set_string_n<a class="anchor" href="#function-cass_user_type_set_string_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  index,  value,  value_length <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_user_type_set_string">CassUserType::cass_user_type_set_string</a></code>, but with lengths for string parameters.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>index</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value_length</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>same as <code><a href="#function-cass_user_type_set_string">CassUserType::cass_user_type_set_string</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_user_type_set_string">CassUserType::cass_user_type_set_string</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_string_by_name" class="target">cass_user_type_set_string_by_name<a class="anchor" href="#function-cass_user_type_set_string_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets an “ascii”, “text” or “varchar” in a user defined type at the specified name.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_string_by_name_n" class="target">cass_user_type_set_string_by_name_n<a class="anchor" href="#function-cass_user_type_set_string_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  name_length,  value,  value_length <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_user_type_set_string_by_name">CassUserType::cass_user_type_set_string_by_name</a></code>, but with lengths for string parameters.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name_length</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value_length</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>same as <code><a href="#function-cass_user_type_set_string_by_name">CassUserType::cass_user_type_set_string_by_name</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_user_type_set_string_by_name">CassUserType::cass_user_type_set_string_by_name</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_bytes" class="target">cass_user_type_set_bytes<a class="anchor" href="#function-cass_user_type_set_bytes" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  index,  value,  value_size <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets a “blob” “varint” or “custom” in a user defined type at the specified index.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>index</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value_size</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_bytes_by_name" class="target">cass_user_type_set_bytes_by_name<a class="anchor" href="#function-cass_user_type_set_bytes_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  value,  value_size <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets a “blob”, “varint” or “custom” in a user defined type at the specified name.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value_size</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_bytes_by_name_n" class="target">cass_user_type_set_bytes_by_name_n<a class="anchor" href="#function-cass_user_type_set_bytes_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  name_length,  value,  value_size <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_user_type_set_bytes_by_name">CassUserType::cass_user_type_set_bytes_by_name</a></code>, but with lengths for string parameters.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name_length</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value_size</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>same as <code><a href="#function-cass_user_type_set_bytes_by_name">CassUserType::cass_user_type_set_bytes_by_name</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_user_type_set_bytes_by_name">CassUserType::cass_user_type_set_bytes_by_name</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_custom" class="target">cass_user_type_set_custom<a class="anchor" href="#function-cass_user_type_set_custom" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  index,  class_name,  value,  value_size <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets a “custom” in a user defined type at the specified index.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>index</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>class_name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value_size</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_custom_n" class="target">cass_user_type_set_custom_n<a class="anchor" href="#function-cass_user_type_set_custom_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  index,  class_name,  class_name_length,  value,  value_size <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_user_type_set_custom">CassUserType::cass_user_type_set_custom</a></code>, but with lengths for string parameters.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>index</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>class_name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>class_name_length</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value_size</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>same as <code><a href="#function-cass_user_type_set_custom">CassUserType::cass_user_type_set_custom</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_user_type_set_custom">CassUserType::cass_user_type_set_custom</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_custom_by_name" class="target">cass_user_type_set_custom_by_name<a class="anchor" href="#function-cass_user_type_set_custom_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  class_name,  value,  value_size <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets a “custom” in a user defined type at the specified name.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>class_name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value_size</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_custom_by_name_n" class="target">cass_user_type_set_custom_by_name_n<a class="anchor" href="#function-cass_user_type_set_custom_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  name_length,  class_name,  class_name_length,  value,  value_size <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_user_type_set_custom_by_name">CassUserType::cass_user_type_set_custom_by_name</a></code>, but with lengths for string parameters.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name_length</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>class_name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>class_name_length</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value_size</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>same as <code><a href="#function-cass_user_type_set_custom_by_name">CassUserType::cass_user_type_set_custom_by_name</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_user_type_set_custom_by_name">CassUserType::cass_user_type_set_custom_by_name</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_uuid" class="target">cass_user_type_set_uuid<a class="anchor" href="#function-cass_user_type_set_uuid" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  index,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets a “uuid” or “timeuuid” in a user defined type at the specified index.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>index</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_uuid_by_name" class="target">cass_user_type_set_uuid_by_name<a class="anchor" href="#function-cass_user_type_set_uuid_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets a “uuid” or “timeuuid” in a user defined type at the specified name.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_uuid_by_name_n" class="target">cass_user_type_set_uuid_by_name_n<a class="anchor" href="#function-cass_user_type_set_uuid_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  name_length,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_user_type_set_uuid_by_name">CassUserType::cass_user_type_set_uuid_by_name</a></code>, but with lengths for string parameters.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name_length</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>same as <code><a href="#function-cass_user_type_set_uuid_by_name">CassUserType::cass_user_type_set_uuid_by_name</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_user_type_set_uuid_by_name">CassUserType::cass_user_type_set_uuid_by_name</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_inet" class="target">cass_user_type_set_inet<a class="anchor" href="#function-cass_user_type_set_inet" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  index,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets a “inet” in a user defined type at the specified index.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>index</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_inet_by_name" class="target">cass_user_type_set_inet_by_name<a class="anchor" href="#function-cass_user_type_set_inet_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets a “inet” in a user defined type at the specified name.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_inet_by_name_n" class="target">cass_user_type_set_inet_by_name_n<a class="anchor" href="#function-cass_user_type_set_inet_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  name_length,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_user_type_set_inet_by_name">CassUserType::cass_user_type_set_inet_by_name</a></code>, but with lengths for string parameters.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name_length</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>same as <code><a href="#function-cass_user_type_set_inet_by_name">CassUserType::cass_user_type_set_inet_by_name</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_user_type_set_inet_by_name">CassUserType::cass_user_type_set_inet_by_name</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_decimal" class="target">cass_user_type_set_decimal<a class="anchor" href="#function-cass_user_type_set_decimal" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  index,  varint,  varint_size,  scale <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets an “decimal” in a user defined type at the specified index.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>index</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>varint</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>varint_size</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>scale</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_decimal_by_name" class="target">cass_user_type_set_decimal_by_name<a class="anchor" href="#function-cass_user_type_set_decimal_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  varint,  varint_size,  scale <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets “decimal” in a user defined type at the specified name.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>varint</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>varint_size</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>scale</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_decimal_by_name_n" class="target">cass_user_type_set_decimal_by_name_n<a class="anchor" href="#function-cass_user_type_set_decimal_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  name_length,  varint,  varint_size,  scale <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_user_type_set_decimal_by_name">CassUserType::cass_user_type_set_decimal_by_name</a></code>, but with lengths for string parameters.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name_length</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>varint</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>varint_size</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>scale</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>same as <code><a href="#function-cass_user_type_set_decimal_by_name">CassUserType::cass_user_type_set_decimal_by_name</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_user_type_set_decimal_by_name">CassUserType::cass_user_type_set_decimal_by_name</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_collection" class="target">cass_user_type_set_collection<a class="anchor" href="#function-cass_user_type_set_collection" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  index,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets a “list”, “map” or “set” in a user defined type at the specified index.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>index</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_collection_by_name" class="target">cass_user_type_set_collection_by_name<a class="anchor" href="#function-cass_user_type_set_collection_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets a “list”, “map” or “set” in a user defined type at the specified name.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_collection_by_name_n" class="target">cass_user_type_set_collection_by_name_n<a class="anchor" href="#function-cass_user_type_set_collection_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  name_length,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_user_type_set_collection_by_name">CassUserType::cass_user_type_set_collection_by_name</a></code>, but with lengths for string parameters.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name_length</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>same as <code><a href="#function-cass_user_type_set_collection_by_name">CassUserType::cass_user_type_set_collection_by_name</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_user_type_set_collection_by_name">CassUserType::cass_user_type_set_collection_by_name</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_tuple" class="target">cass_user_type_set_tuple<a class="anchor" href="#function-cass_user_type_set_tuple" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  index,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets a “tuple” in a user defined type at the specified index.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>index</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_tuple_by_name" class="target">cass_user_type_set_tuple_by_name<a class="anchor" href="#function-cass_user_type_set_tuple_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets a “tuple” in a user defined type at the specified name.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_tuple_by_name_n" class="target">cass_user_type_set_tuple_by_name_n<a class="anchor" href="#function-cass_user_type_set_tuple_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  name_length,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_user_type_set_tuple_by_name">CassUserType::cass_user_type_set_tuple_by_name</a></code>, but with lengths for string parameters.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name_length</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>same as <code><a href="#function-cass_user_type_set_tuple_by_name">CassUserType::cass_user_type_set_tuple_by_name</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_user_type_set_tuple_by_name">CassUserType::cass_user_type_set_tuple_by_name</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_user_type" class="target">cass_user_type_set_user_type<a class="anchor" href="#function-cass_user_type_set_user_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  index,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets a user defined type in a user defined type at the specified index.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>index</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_user_type_by_name" class="target">cass_user_type_set_user_type_by_name<a class="anchor" href="#function-cass_user_type_set_user_type_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets a user defined type in a user defined type at the specified name.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_user_type_set_user_type_by_name_n" class="target">cass_user_type_set_user_type_by_name_n<a class="anchor" href="#function-cass_user_type_set_user_type_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  user_type,  name,  name_length,  value <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_user_type_set_user_type_by_name">CassUserType::cass_user_type_set_user_type_by_name</a></code>, but with lengths for string parameters.</p>
+
+<p><strong>Requires Cassandra:</strong> 2.1+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>user_type</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>name_length</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>value</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>same as <code><a href="#function-cass_user_type_set_user_type_by_name">CassUserType::cass_user_type_set_user_type_by_name</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_user_type_set_user_type_by_name">CassUserType::cass_user_type_set_user_type_by_name</a></code></li></ul></dd>
+</dl>
+    </div>
+  </div>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script src="../../../js/jquery.js"></script>
+    <script src="../../../js/bootstrap.js"></script>
+    <script src="../../../js/angular.js"></script>
+    <script src="../../../js/mousetrap.js"></script>
+    <script src="../../../js/hotkeys.js"></script>
+    <script src="../../../js/ZeroClipboard.js"></script>
+    <script src="../../../js/lunr.js"></script>
+    <script src="../../../js/app.js"></script>
+  </body>
+</html>

@@ -46,7 +46,9 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li><a href="../../../api/struct.CassBatch/">2.5</a></li>
+                  <li><a href="../../../api/struct.CassBatch/">2.6</a></li>
+                
+                  <li><a href="../../../2.5/api/struct.CassBatch/">2.5</a></li>
                 
                   <li class="disabled"><a href="./">2.4</a></li>
                 
@@ -497,7 +499,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="./">CassBatch</a> *</code> <h3 id="function-cass_batch_new" class="target">cass_batch_new<a class="anchor" href="#function-cass_batch_new" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="../cassandra.h/#enum-CassBatchType">CassBatchType</a></code> type <big>)</big>
+</h3> <big>(</big>  type <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new batch statement with batch type.</p>
@@ -516,7 +518,7 @@
 <td>
 <small>in</small> <var>type</var>
 </td>
-<td><code><a href="../cassandra.h/#enum-CassBatchType">CassBatchType</a></code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -541,7 +543,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_batch_free" class="target">cass_batch_free<a class="anchor" href="#function-cass_batch_free" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassBatch</a> *</code> batch <big>)</big>
+</h3> <big>(</big>  batch <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Frees a batch instance. Batches can be immediately freed after being executed.</p>
@@ -560,7 +562,7 @@
 <td>
 <small>in</small> <var>batch</var>
 </td>
-<td><code><a href="./">CassBatch</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -570,7 +572,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_batch_set_consistency" class="target">cass_batch_set_consistency<a class="anchor" href="#function-cass_batch_set_consistency" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassBatch</a> *</code> batch, <code><a href="../cassandra.h/#enum-CassConsistency">CassConsistency</a></code> consistency <big>)</big>
+</h3> <big>(</big>  batch,  consistency <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the batch’s consistency level</p>
@@ -590,14 +592,14 @@
 <td>
 <small>in</small> <var>batch</var>
 </td>
-<td><code><a href="./">CassBatch</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>consistency</var>
 </td>
-<td><code><a href="../cassandra.h/#enum-CassConsistency">CassConsistency</a></code></td>
+<td></td>
 <td>
 <p>The batch’s write consistency.</p>
 </td>
@@ -623,7 +625,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_batch_set_serial_consistency" class="target">cass_batch_set_serial_consistency<a class="anchor" href="#function-cass_batch_set_serial_consistency" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassBatch</a> *</code> batch, <code><a href="../cassandra.h/#enum-CassConsistency">CassConsistency</a></code> serial_consistency <big>)</big>
+</h3> <big>(</big>  batch,  serial_consistency <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the batch’s serial consistency level.</p>
@@ -645,14 +647,14 @@
 <td>
 <small>in</small> <var>batch</var>
 </td>
-<td><code><a href="./">CassBatch</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>serial_consistency</var>
 </td>
-<td><code><a href="../cassandra.h/#enum-CassConsistency">CassConsistency</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -676,7 +678,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_batch_set_timestamp" class="target">cass_batch_set_timestamp<a class="anchor" href="#function-cass_batch_set_timestamp" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassBatch</a> *</code> batch, <code><a href="../cassandra.h/#type-cass_int64_t">cass_int64_t</a></code> timestamp <big>)</big>
+</h3> <big>(</big>  batch,  timestamp <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the batch’s timestamp.</p>
@@ -696,14 +698,14 @@
 <td>
 <small>in</small> <var>batch</var>
 </td>
-<td><code><a href="./">CassBatch</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>timestamp</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_int64_t">cass_int64_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -727,7 +729,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_batch_set_request_timeout" class="target">cass_batch_set_request_timeout<a class="anchor" href="#function-cass_batch_set_request_timeout" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassBatch</a> *</code> batch, <code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code> timeout_ms <big>)</big>
+</h3> <big>(</big>  batch,  timeout_ms <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the batch’s timeout for waiting for a response from a node.</p>
@@ -747,14 +749,14 @@
 <td>
 <small>in</small> <var>batch</var>
 </td>
-<td><code><a href="./">CassBatch</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>timeout_ms</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code></td>
+<td></td>
 <td>
 <p>Request timeout in milliseconds. Use 0 for no timeout or CASS_UINT64_MAX to disable (to use the cluster-level request timeout).</p>
 </td>
@@ -782,7 +784,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_batch_set_retry_policy" class="target">cass_batch_set_retry_policy<a class="anchor" href="#function-cass_batch_set_retry_policy" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassBatch</a> *</code> batch, <code><a href="../struct.CassRetryPolicy/">CassRetryPolicy</a> *</code> retry_policy <big>)</big>
+</h3> <big>(</big>  batch,  retry_policy <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the batch’s retry policy.</p>
@@ -802,14 +804,14 @@
 <td>
 <small>in</small> <var>batch</var>
 </td>
-<td><code><a href="./">CassBatch</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>retry_policy</var>
 </td>
-<td><code><a href="../struct.CassRetryPolicy/">CassRetryPolicy</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -833,7 +835,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_batch_set_custom_payload" class="target">cass_batch_set_custom_payload<a class="anchor" href="#function-cass_batch_set_custom_payload" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassBatch</a> *</code> batch, <code>const <a href="../struct.CassCustomPayload/">CassCustomPayload</a> *</code> payload <big>)</big>
+</h3> <big>(</big>  batch,  payload <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the batch’s custom payload.</p>
@@ -853,14 +855,14 @@
 <td>
 <small>in</small> <var>batch</var>
 </td>
-<td><code><a href="./">CassBatch</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>payload</var>
 </td>
-<td><code>const <a href="../struct.CassCustomPayload/">CassCustomPayload</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -884,7 +886,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_batch_add_statement" class="target">cass_batch_add_statement<a class="anchor" href="#function-cass_batch_add_statement" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassBatch</a> *</code> batch, <code><a href="../struct.CassStatement/">CassStatement</a> *</code> statement <big>)</big>
+</h3> <big>(</big>  batch,  statement <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Adds a statement to a batch.</p>
@@ -904,14 +906,14 @@
 <td>
 <small>in</small> <var>batch</var>
 </td>
-<td><code><a href="./">CassBatch</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="../struct.CassStatement/">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>

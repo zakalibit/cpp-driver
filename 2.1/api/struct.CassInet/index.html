@@ -46,7 +46,9 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li><a href="../../../api/struct.CassInet/">2.5</a></li>
+                  <li><a href="../../../api/struct.CassInet/">2.6</a></li>
+                
+                  <li><a href="../../../2.5/api/struct.CassInet/">2.5</a></li>
                 
                   <li><a href="../../../2.4/api/struct.CassInet/">2.4</a></li>
                 
@@ -439,7 +441,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="./">CassInet</a></code> <h3 id="function-cass_inet_init_v4" class="target">cass_inet_init_v4<a class="anchor" href="#function-cass_inet_init_v4" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="../cassandra.h/#type-cass_uint8_t">cass_uint8_t</a> *</code> address <big>)</big>
+</h3> <big>(</big>  address <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Constructs an inet v4 object.</p>
@@ -456,7 +458,7 @@
 <td>
 <small>in</small> <var>address</var>
 </td>
-<td><code>const <a href="../cassandra.h/#type-cass_uint8_t">cass_uint8_t</a> *</code></td>
+<td></td>
 <td>
 <p>An address of size CASS_INET_V4_LENGTH</p>
 </td>
@@ -481,7 +483,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="./">CassInet</a></code> <h3 id="function-cass_inet_init_v6" class="target">cass_inet_init_v6<a class="anchor" href="#function-cass_inet_init_v6" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="../cassandra.h/#type-cass_uint8_t">cass_uint8_t</a> *</code> address <big>)</big>
+</h3> <big>(</big>  address <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Constructs an inet v6 object.</p>
@@ -498,7 +500,7 @@
 <td>
 <small>in</small> <var>address</var>
 </td>
-<td><code>const <a href="../cassandra.h/#type-cass_uint8_t">cass_uint8_t</a> *</code></td>
+<td></td>
 <td>
 <p>An address of size CASS_INET_V6_LENGTH</p>
 </td>
@@ -523,7 +525,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_inet_string" class="target">cass_inet_string<a class="anchor" href="#function-cass_inet_string" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassInet</a></code> inet, <code>char *</code> output <big>)</big>
+</h3> <big>(</big>  inet,  output <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Returns a null-terminated string for the specified inet.</p>
@@ -541,14 +543,14 @@
 <td>
 <small>in</small> <var>inet</var>
 </td>
-<td><code><a href="./">CassInet</a></code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code>char *</code></td>
+<td></td>
 <td>
 <p>A null-terminated string of length CASS_INET_STRING_LENGTH.</p>
 </td>
@@ -561,7 +563,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_inet_from_string" class="target">cass_inet_from_string<a class="anchor" href="#function-cass_inet_from_string" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const char *</code> str, <code><a href="./">CassInet</a> *</code> output <big>)</big>
+</h3> <big>(</big>  str,  output <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Returns an inet for the specified string.</p>
@@ -581,14 +583,14 @@
 <td>
 <small>in</small> <var>str</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code><a href="./">CassInet</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -599,7 +601,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_inet_from_string_n" class="target">cass_inet_from_string_n<a class="anchor" href="#function-cass_inet_from_string_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const char *</code> str, <code>size_t</code> str_length, <code><a href="./">CassInet</a> *</code> output <big>)</big>
+</h3> <big>(</big>  str,  str_length,  output <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_inet_from_string">CassInet::cass_inet_from_string</a></code>, but with lengths for string parameters.</p>
@@ -617,21 +619,21 @@
 <td>
 <small>in</small> <var>str</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>str_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code><a href="./">CassInet</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>

@@ -41,12 +41,14 @@
               <span class="text-warning">Attention:</span> Viewing documentation for version
               <div class="btn-group">
                 <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  2.5
+                  2.6
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li class="disabled"><a href="./">2.5</a></li>
+                  <li class="disabled"><a href="./">2.6</a></li>
+                
+                  <li><a href="../../2.5/api/struct.CassMaterializedViewMeta/">2.5</a></li>
                 
                   <li><a href="../../2.4/api/struct.CassMaterializedViewMeta/">2.4</a></li>
                 
@@ -68,7 +70,7 @@
           <div class="col-md-4">
             <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
               <div class="form-group has-feedback">
-                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.5')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.6')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
               </div>
               <ul class="dropdown-menu search-results" role="menu">
                 <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
@@ -495,7 +497,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassColumnMeta/">CassColumnMeta</a> *</code> <h3 id="function-cass_materialized_view_meta_column_by_name" class="target">cass_materialized_view_meta_column_by_name<a class="anchor" href="#function-cass_materialized_view_meta_column_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassMaterializedViewMeta</a> *</code> view_meta, <code>const char *</code> column <big>)</big>
+</h3> <big>(</big>  view_meta,  column <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the column metadata for the provided column name.</p>
@@ -515,14 +517,14 @@
 <td>
 <small>in</small> <var>view_meta</var>
 </td>
-<td><code>const <a href="./">CassMaterializedViewMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>column</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -546,7 +548,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassColumnMeta/">CassColumnMeta</a> *</code> <h3 id="function-cass_materialized_view_meta_column_by_name_n" class="target">cass_materialized_view_meta_column_by_name_n<a class="anchor" href="#function-cass_materialized_view_meta_column_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassMaterializedViewMeta</a> *</code> view_meta, <code>const char *</code> column, <code>size_t</code> column_length <big>)</big>
+</h3> <big>(</big>  view_meta,  column,  column_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_materialized_view_meta_column_by_name">CassMaterializedViewMeta::cass_materialized_view_meta_column_by_name</a></code>, but with lengths for string parameters.</p>
@@ -566,21 +568,21 @@
 <td>
 <small>in</small> <var>view_meta</var>
 </td>
-<td><code>const <a href="./">CassMaterializedViewMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>column</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>column_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -606,7 +608,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_materialized_view_meta_name" class="target">cass_materialized_view_meta_name<a class="anchor" href="#function-cass_materialized_view_meta_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassMaterializedViewMeta</a> *</code> view_meta, <code>const char **</code> name, <code>size_t *</code> name_length <big>)</big>
+</h3> <big>(</big>  view_meta,  name,  name_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the name of the view.</p>
@@ -626,21 +628,21 @@
 <td>
 <small>in</small> <var>view_meta</var>
 </td>
-<td><code>const <a href="./">CassMaterializedViewMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>name</var>
 </td>
-<td><code>const char **</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>name_length</var>
 </td>
-<td><code>size_t *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -651,7 +653,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassTableMeta/">CassTableMeta</a> *</code> <h3 id="function-cass_materialized_view_meta_base_table" class="target">cass_materialized_view_meta_base_table<a class="anchor" href="#function-cass_materialized_view_meta_base_table" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassMaterializedViewMeta</a> *</code> view_meta <big>)</big>
+</h3> <big>(</big>  view_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the base table of the view.</p>
@@ -670,7 +672,7 @@
 <td>
 <small>in</small> <var>view_meta</var>
 </td>
-<td><code>const <a href="./">CassMaterializedViewMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -693,7 +695,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>size_t</code> <h3 id="function-cass_materialized_view_meta_column_count" class="target">cass_materialized_view_meta_column_count<a class="anchor" href="#function-cass_materialized_view_meta_column_count" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassMaterializedViewMeta</a> *</code> view_meta <big>)</big>
+</h3> <big>(</big>  view_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the total number of columns for the view.</p>
@@ -712,7 +714,7 @@
 <td>
 <small>in</small> <var>view_meta</var>
 </td>
-<td><code>const <a href="./">CassMaterializedViewMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -735,7 +737,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassColumnMeta/">CassColumnMeta</a> *</code> <h3 id="function-cass_materialized_view_meta_column" class="target">cass_materialized_view_meta_column<a class="anchor" href="#function-cass_materialized_view_meta_column" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassMaterializedViewMeta</a> *</code> view_meta, <code>size_t</code> index <big>)</big>
+</h3> <big>(</big>  view_meta,  index <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the column metadata for the provided index.</p>
@@ -755,14 +757,14 @@
 <td>
 <small>in</small> <var>view_meta</var>
 </td>
-<td><code>const <a href="./">CassMaterializedViewMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -786,7 +788,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>size_t</code> <h3 id="function-cass_materialized_view_meta_partition_key_count" class="target">cass_materialized_view_meta_partition_key_count<a class="anchor" href="#function-cass_materialized_view_meta_partition_key_count" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassMaterializedViewMeta</a> *</code> view_meta <big>)</big>
+</h3> <big>(</big>  view_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the number of columns for the view’s partition key.</p>
@@ -805,7 +807,7 @@
 <td>
 <small>in</small> <var>view_meta</var>
 </td>
-<td><code>const <a href="./">CassMaterializedViewMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -828,7 +830,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassColumnMeta/">CassColumnMeta</a> *</code> <h3 id="function-cass_materialized_view_meta_partition_key" class="target">cass_materialized_view_meta_partition_key<a class="anchor" href="#function-cass_materialized_view_meta_partition_key" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassMaterializedViewMeta</a> *</code> view_meta, <code>size_t</code> index <big>)</big>
+</h3> <big>(</big>  view_meta,  index <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the partition key column metadata for the provided index.</p>
@@ -848,14 +850,14 @@
 <td>
 <small>in</small> <var>view_meta</var>
 </td>
-<td><code>const <a href="./">CassMaterializedViewMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -879,7 +881,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>size_t</code> <h3 id="function-cass_materialized_view_meta_clustering_key_count" class="target">cass_materialized_view_meta_clustering_key_count<a class="anchor" href="#function-cass_materialized_view_meta_clustering_key_count" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassMaterializedViewMeta</a> *</code> view_meta <big>)</big>
+</h3> <big>(</big>  view_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the number of columns for the view’s clustering key.</p>
@@ -898,7 +900,7 @@
 <td>
 <small>in</small> <var>view_meta</var>
 </td>
-<td><code>const <a href="./">CassMaterializedViewMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -921,7 +923,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassColumnMeta/">CassColumnMeta</a> *</code> <h3 id="function-cass_materialized_view_meta_clustering_key" class="target">cass_materialized_view_meta_clustering_key<a class="anchor" href="#function-cass_materialized_view_meta_clustering_key" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassMaterializedViewMeta</a> *</code> view_meta, <code>size_t</code> index <big>)</big>
+</h3> <big>(</big>  view_meta,  index <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the clustering key column metadata for the provided index.</p>
@@ -941,14 +943,14 @@
 <td>
 <small>in</small> <var>view_meta</var>
 </td>
-<td><code>const <a href="./">CassMaterializedViewMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -972,7 +974,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassClusteringOrder">CassClusteringOrder</a></code> <h3 id="function-cass_materialized_view_meta_clustering_key_order" class="target">cass_materialized_view_meta_clustering_key_order<a class="anchor" href="#function-cass_materialized_view_meta_clustering_key_order" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassMaterializedViewMeta</a> *</code> view_meta, <code>size_t</code> index <big>)</big>
+</h3> <big>(</big>  view_meta,  index <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the clustering order column metadata for the provided index.</p>
@@ -990,14 +992,14 @@
 <td>
 <small>in</small> <var>view_meta</var>
 </td>
-<td><code>const <a href="./">CassMaterializedViewMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1023,7 +1025,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassValue/">CassValue</a> *</code> <h3 id="function-cass_materialized_view_meta_field_by_name" class="target">cass_materialized_view_meta_field_by_name<a class="anchor" href="#function-cass_materialized_view_meta_field_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassMaterializedViewMeta</a> *</code> view_meta, <code>const char *</code> name <big>)</big>
+</h3> <big>(</big>  view_meta,  name <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets a metadata field for the provided name. Metadata fields allow direct access to the column data found in the underlying “views” metadata view.</p>
@@ -1043,14 +1045,14 @@
 <td>
 <small>in</small> <var>view_meta</var>
 </td>
-<td><code>const <a href="./">CassMaterializedViewMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1074,7 +1076,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassValue/">CassValue</a> *</code> <h3 id="function-cass_materialized_view_meta_field_by_name_n" class="target">cass_materialized_view_meta_field_by_name_n<a class="anchor" href="#function-cass_materialized_view_meta_field_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassMaterializedViewMeta</a> *</code> view_meta, <code>const char *</code> name, <code>size_t</code> name_length <big>)</big>
+</h3> <big>(</big>  view_meta,  name,  name_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_materialized_view_meta_field_by_name">CassMaterializedViewMeta::cass_materialized_view_meta_field_by_name</a></code>, but with lengths for string parameters.</p>
@@ -1094,21 +1096,21 @@
 <td>
 <small>in</small> <var>view_meta</var>
 </td>
-<td><code>const <a href="./">CassMaterializedViewMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1134,7 +1136,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_columns_from_materialized_view_meta" class="target">cass_iterator_columns_from_materialized_view_meta<a class="anchor" href="#function-cass_iterator_columns_from_materialized_view_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassMaterializedViewMeta</a> *</code> view_meta <big>)</big>
+</h3> <big>(</big>  view_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new iterator for the specified materialized view metadata. This can be used to iterate over columns.</p>
@@ -1153,7 +1155,7 @@
 <td>
 <small>in</small> <var>view_meta</var>
 </td>
-<td><code>const <a href="./">CassMaterializedViewMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -1181,7 +1183,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_fields_from_materialized_view_meta" class="target">cass_iterator_fields_from_materialized_view_meta<a class="anchor" href="#function-cass_iterator_fields_from_materialized_view_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassMaterializedViewMeta</a> *</code> view_meta <big>)</big>
+</h3> <big>(</big>  view_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new fields iterator for the specified materialized view metadata. Metadata fields allow direct access to the column data found in the underlying “views” metadata view. This can be used to iterate those metadata field entries.</p>
@@ -1200,7 +1202,7 @@
 <td>
 <small>in</small> <var>view_meta</var>
 </td>
-<td><code>const <a href="./">CassMaterializedViewMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>

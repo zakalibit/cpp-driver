@@ -46,7 +46,9 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li><a href="../../../api/struct.CassUuid/">2.5</a></li>
+                  <li><a href="../../../api/struct.CassUuid/">2.6</a></li>
+                
+                  <li><a href="../../../2.5/api/struct.CassUuid/">2.5</a></li>
                 
                   <li><a href="../../../2.4/api/struct.CassUuid/">2.4</a></li>
                 
@@ -439,7 +441,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_uuid_min_from_time" class="target">cass_uuid_min_from_time<a class="anchor" href="#function-cass_uuid_min_from_time" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code> time, <code><a href="./">CassUuid</a> *</code> output <big>)</big>
+</h3> <big>(</big>  time,  output <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the UUID to the minimum V1 (time) value for the specified time.</p>
@@ -457,14 +459,14 @@
 <td>
 <small>in</small> <var>time</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code><a href="./">CassUuid</a> *</code></td>
+<td></td>
 <td>
 <p>A minimum V1 UUID for the specified time.</p>
 </td>
@@ -477,7 +479,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_uuid_max_from_time" class="target">cass_uuid_max_from_time<a class="anchor" href="#function-cass_uuid_max_from_time" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code> time, <code><a href="./">CassUuid</a> *</code> output <big>)</big>
+</h3> <big>(</big>  time,  output <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the UUID to the maximum V1 (time) value for the specified time.</p>
@@ -495,14 +497,14 @@
 <td>
 <small>in</small> <var>time</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code><a href="./">CassUuid</a> *</code></td>
+<td></td>
 <td>
 <p>A maximum V1 UUID for the specified time.</p>
 </td>
@@ -515,7 +517,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code> <h3 id="function-cass_uuid_timestamp" class="target">cass_uuid_timestamp<a class="anchor" href="#function-cass_uuid_timestamp" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassUuid</a></code> uuid <big>)</big>
+</h3> <big>(</big>  uuid <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the timestamp for a V1 UUID</p>
@@ -532,7 +534,7 @@
 <td>
 <small>in</small> <var>uuid</var>
 </td>
-<td><code><a href="./">CassUuid</a></code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -555,7 +557,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#type-cass_uint8_t">cass_uint8_t</a></code> <h3 id="function-cass_uuid_version" class="target">cass_uuid_version<a class="anchor" href="#function-cass_uuid_version" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassUuid</a></code> uuid <big>)</big>
+</h3> <big>(</big>  uuid <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the version for a UUID</p>
@@ -572,7 +574,7 @@
 <td>
 <small>in</small> <var>uuid</var>
 </td>
-<td><code><a href="./">CassUuid</a></code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -595,7 +597,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_uuid_string" class="target">cass_uuid_string<a class="anchor" href="#function-cass_uuid_string" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassUuid</a></code> uuid, <code>char *</code> output <big>)</big>
+</h3> <big>(</big>  uuid,  output <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Returns a null-terminated string for the specified UUID.</p>
@@ -613,14 +615,14 @@
 <td>
 <small>in</small> <var>uuid</var>
 </td>
-<td><code><a href="./">CassUuid</a></code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code>char *</code></td>
+<td></td>
 <td>
 <p>A null-terminated string of length CASS_UUID_STRING_LENGTH.</p>
 </td>
@@ -633,7 +635,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_uuid_from_string" class="target">cass_uuid_from_string<a class="anchor" href="#function-cass_uuid_from_string" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const char *</code> str, <code><a href="./">CassUuid</a> *</code> output <big>)</big>
+</h3> <big>(</big>  str,  output <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Returns a UUID for the specified string.</p>
@@ -653,14 +655,14 @@
 <td>
 <small>in</small> <var>str</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code><a href="./">CassUuid</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -671,7 +673,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_uuid_from_string_n" class="target">cass_uuid_from_string_n<a class="anchor" href="#function-cass_uuid_from_string_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const char *</code> str, <code>size_t</code> str_length, <code><a href="./">CassUuid</a> *</code> output <big>)</big>
+</h3> <big>(</big>  str,  str_length,  output <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_uuid_from_string">CassUuid::cass_uuid_from_string</a></code>, but with lengths for string parameters.</p>
@@ -689,21 +691,21 @@
 <td>
 <small>in</small> <var>str</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>str_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code><a href="./">CassUuid</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>

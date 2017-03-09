@@ -41,12 +41,14 @@
               <span class="text-warning">Attention:</span> Viewing documentation for version
               <div class="btn-group">
                 <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  2.5
+                  2.6
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li class="disabled"><a href="./">2.5</a></li>
+                  <li class="disabled"><a href="./">2.6</a></li>
+                
+                  <li><a href="../../2.5/api/struct.CassRetryPolicy/">2.5</a></li>
                 
                   <li><a href="../../2.4/api/struct.CassRetryPolicy/">2.4</a></li>
                 
@@ -68,7 +70,7 @@
           <div class="col-md-4">
             <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
               <div class="form-group has-feedback">
-                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.5')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.6')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
               </div>
               <ul class="dropdown-menu search-results" role="menu">
                 <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
@@ -599,7 +601,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="./">CassRetryPolicy</a> *</code> <h3 id="function-cass_retry_policy_logging_new" class="target">cass_retry_policy_logging_new<a class="anchor" href="#function-cass_retry_policy_logging_new" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassRetryPolicy</a> *</code> child_retry_policy <big>)</big>
+</h3> <big>(</big>  child_retry_policy <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new logging retry policy.</p>
@@ -618,7 +620,7 @@
 <td>
 <small>in</small> <var>child_retry_policy</var>
 </td>
-<td><code><a href="./">CassRetryPolicy</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -643,7 +645,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_retry_policy_free" class="target">cass_retry_policy_free<a class="anchor" href="#function-cass_retry_policy_free" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassRetryPolicy</a> *</code> policy <big>)</big>
+</h3> <big>(</big>  policy <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Frees a retry policy instance.</p>
@@ -660,7 +662,7 @@
 <td>
 <small>in</small> <var>policy</var>
 </td>
-<td><code><a href="./">CassRetryPolicy</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>

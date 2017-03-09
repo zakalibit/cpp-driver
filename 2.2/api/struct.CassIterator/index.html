@@ -46,7 +46,9 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li><a href="../../../api/struct.CassIterator/">2.5</a></li>
+                  <li><a href="../../../api/struct.CassIterator/">2.6</a></li>
+                
+                  <li><a href="../../../2.5/api/struct.CassIterator/">2.5</a></li>
                 
                   <li><a href="../../../2.4/api/struct.CassIterator/">2.4</a></li>
                 
@@ -448,7 +450,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_iterator_free" class="target">cass_iterator_free<a class="anchor" href="#function-cass_iterator_free" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassIterator</a> *</code> iterator <big>)</big>
+</h3> <big>(</big>  iterator <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Frees an iterator instance.</p>
@@ -465,7 +467,7 @@
 <td>
 <small>in</small> <var>iterator</var>
 </td>
-<td><code><a href="./">CassIterator</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -475,7 +477,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassIteratorType">CassIteratorType</a></code> <h3 id="function-cass_iterator_type" class="target">cass_iterator_type<a class="anchor" href="#function-cass_iterator_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassIterator</a> *</code> iterator <big>)</big>
+</h3> <big>(</big>  iterator <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the type of the specified iterator.</p>
@@ -492,7 +494,7 @@
 <td>
 <small>in</small> <var>iterator</var>
 </td>
-<td><code><a href="./">CassIterator</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -515,7 +517,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code> <h3 id="function-cass_iterator_next" class="target">cass_iterator_next<a class="anchor" href="#function-cass_iterator_next" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassIterator</a> *</code> iterator <big>)</big>
+</h3> <big>(</big>  iterator <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Advance the iterator to the next row, column or collection item.</p>
@@ -532,7 +534,7 @@
 <td>
 <small>in</small> <var>iterator</var>
 </td>
-<td><code><a href="./">CassIterator</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -555,7 +557,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassRow/">CassRow</a> *</code> <h3 id="function-cass_iterator_get_row" class="target">cass_iterator_get_row<a class="anchor" href="#function-cass_iterator_get_row" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassIterator</a> *</code> iterator <big>)</big>
+</h3> <big>(</big>  iterator <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the row at the result iterator’s current position.</p>
@@ -574,7 +576,7 @@
 <td>
 <small>in</small> <var>iterator</var>
 </td>
-<td><code>const <a href="./">CassIterator</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -597,7 +599,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassValue/">CassValue</a> *</code> <h3 id="function-cass_iterator_get_column" class="target">cass_iterator_get_column<a class="anchor" href="#function-cass_iterator_get_column" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassIterator</a> *</code> iterator <big>)</big>
+</h3> <big>(</big>  iterator <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the column value at the row iterator’s current position.</p>
@@ -616,7 +618,7 @@
 <td>
 <small>in</small> <var>iterator</var>
 </td>
-<td><code>const <a href="./">CassIterator</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -639,7 +641,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassValue/">CassValue</a> *</code> <h3 id="function-cass_iterator_get_value" class="target">cass_iterator_get_value<a class="anchor" href="#function-cass_iterator_get_value" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassIterator</a> *</code> iterator <big>)</big>
+</h3> <big>(</big>  iterator <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the value at a collection or tuple iterator’s current position.</p>
@@ -658,7 +660,7 @@
 <td>
 <small>in</small> <var>iterator</var>
 </td>
-<td><code>const <a href="./">CassIterator</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -681,7 +683,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassValue/">CassValue</a> *</code> <h3 id="function-cass_iterator_get_map_key" class="target">cass_iterator_get_map_key<a class="anchor" href="#function-cass_iterator_get_map_key" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassIterator</a> *</code> iterator <big>)</big>
+</h3> <big>(</big>  iterator <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the key at the map iterator’s current position.</p>
@@ -700,7 +702,7 @@
 <td>
 <small>in</small> <var>iterator</var>
 </td>
-<td><code>const <a href="./">CassIterator</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -723,7 +725,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassValue/">CassValue</a> *</code> <h3 id="function-cass_iterator_get_map_value" class="target">cass_iterator_get_map_value<a class="anchor" href="#function-cass_iterator_get_map_value" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassIterator</a> *</code> iterator <big>)</big>
+</h3> <big>(</big>  iterator <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the value at the map iterator’s current position.</p>
@@ -742,7 +744,7 @@
 <td>
 <small>in</small> <var>iterator</var>
 </td>
-<td><code>const <a href="./">CassIterator</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -765,7 +767,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_iterator_get_user_type_field_name" class="target">cass_iterator_get_user_type_field_name<a class="anchor" href="#function-cass_iterator_get_user_type_field_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassIterator</a> *</code> iterator, <code>const char **</code> name, <code>size_t *</code> name_length <big>)</big>
+</h3> <big>(</big>  iterator,  name,  name_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the field name at the user type defined iterator’s current position.</p>
@@ -785,21 +787,21 @@
 <td>
 <small>in</small> <var>iterator</var>
 </td>
-<td><code>const <a href="./">CassIterator</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>name</var>
 </td>
-<td><code>const char **</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>name_length</var>
 </td>
-<td><code>size_t *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -823,7 +825,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassValue/">CassValue</a> *</code> <h3 id="function-cass_iterator_get_user_type_field_value" class="target">cass_iterator_get_user_type_field_value<a class="anchor" href="#function-cass_iterator_get_user_type_field_value" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassIterator</a> *</code> iterator <big>)</big>
+</h3> <big>(</big>  iterator <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the field value at the user type defined iterator’s current position.</p>
@@ -842,7 +844,7 @@
 <td>
 <small>in</small> <var>iterator</var>
 </td>
-<td><code>const <a href="./">CassIterator</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -865,7 +867,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassKeyspaceMeta/">CassKeyspaceMeta</a> *</code> <h3 id="function-cass_iterator_get_keyspace_meta" class="target">cass_iterator_get_keyspace_meta<a class="anchor" href="#function-cass_iterator_get_keyspace_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassIterator</a> *</code> iterator <big>)</big>
+</h3> <big>(</big>  iterator <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the keyspace metadata entry at the iterator’s current position.</p>
@@ -884,7 +886,7 @@
 <td>
 <small>in</small> <var>iterator</var>
 </td>
-<td><code>const <a href="./">CassIterator</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -907,7 +909,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassTableMeta/">CassTableMeta</a> *</code> <h3 id="function-cass_iterator_get_table_meta" class="target">cass_iterator_get_table_meta<a class="anchor" href="#function-cass_iterator_get_table_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassIterator</a> *</code> iterator <big>)</big>
+</h3> <big>(</big>  iterator <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the table metadata entry at the iterator’s current position.</p>
@@ -926,7 +928,7 @@
 <td>
 <small>in</small> <var>iterator</var>
 </td>
-<td><code>const <a href="./">CassIterator</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -949,7 +951,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> <h3 id="function-cass_iterator_get_user_type" class="target">cass_iterator_get_user_type<a class="anchor" href="#function-cass_iterator_get_user_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassIterator</a> *</code> iterator <big>)</big>
+</h3> <big>(</big>  iterator <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the type metadata entry at the iterator’s current position.</p>
@@ -968,7 +970,7 @@
 <td>
 <small>in</small> <var>iterator</var>
 </td>
-<td><code>const <a href="./">CassIterator</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -991,7 +993,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassFunctionMeta/">CassFunctionMeta</a> *</code> <h3 id="function-cass_iterator_get_function_meta" class="target">cass_iterator_get_function_meta<a class="anchor" href="#function-cass_iterator_get_function_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassIterator</a> *</code> iterator <big>)</big>
+</h3> <big>(</big>  iterator <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the function metadata entry at the iterator’s current position.</p>
@@ -1010,7 +1012,7 @@
 <td>
 <small>in</small> <var>iterator</var>
 </td>
-<td><code>const <a href="./">CassIterator</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -1033,7 +1035,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassAggregateMeta/">CassAggregateMeta</a> *</code> <h3 id="function-cass_iterator_get_aggregate_meta" class="target">cass_iterator_get_aggregate_meta<a class="anchor" href="#function-cass_iterator_get_aggregate_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassIterator</a> *</code> iterator <big>)</big>
+</h3> <big>(</big>  iterator <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the aggregate metadata entry at the iterator’s current position.</p>
@@ -1052,7 +1054,7 @@
 <td>
 <small>in</small> <var>iterator</var>
 </td>
-<td><code>const <a href="./">CassIterator</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -1075,7 +1077,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassColumnMeta/">CassColumnMeta</a> *</code> <h3 id="function-cass_iterator_get_column_meta" class="target">cass_iterator_get_column_meta<a class="anchor" href="#function-cass_iterator_get_column_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassIterator</a> *</code> iterator <big>)</big>
+</h3> <big>(</big>  iterator <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the column metadata entry at the iterator’s current position.</p>
@@ -1094,7 +1096,7 @@
 <td>
 <small>in</small> <var>iterator</var>
 </td>
-<td><code>const <a href="./">CassIterator</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -1117,7 +1119,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_iterator_get_meta_field_name" class="target">cass_iterator_get_meta_field_name<a class="anchor" href="#function-cass_iterator_get_meta_field_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassIterator</a> *</code> iterator, <code>const char **</code> name, <code>size_t *</code> name_length <big>)</big>
+</h3> <big>(</big>  iterator,  name,  name_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the metadata field name at the iterator’s current position.</p>
@@ -1137,21 +1139,21 @@
 <td>
 <small>in</small> <var>iterator</var>
 </td>
-<td><code>const <a href="./">CassIterator</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>name</var>
 </td>
-<td><code>const char **</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>name_length</var>
 </td>
-<td><code>size_t *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1175,7 +1177,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassValue/">CassValue</a> *</code> <h3 id="function-cass_iterator_get_meta_field_value" class="target">cass_iterator_get_meta_field_value<a class="anchor" href="#function-cass_iterator_get_meta_field_value" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassIterator</a> *</code> iterator <big>)</big>
+</h3> <big>(</big>  iterator <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the metadata field value at the iterator’s current position.</p>
@@ -1194,7 +1196,7 @@
 <td>
 <small>in</small> <var>iterator</var>
 </td>
-<td><code>const <a href="./">CassIterator</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>

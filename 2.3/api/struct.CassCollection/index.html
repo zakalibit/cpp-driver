@@ -46,7 +46,9 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li><a href="../../../api/struct.CassCollection/">2.5</a></li>
+                  <li><a href="../../../api/struct.CassCollection/">2.6</a></li>
+                
+                  <li><a href="../../../2.5/api/struct.CassCollection/">2.5</a></li>
                 
                   <li><a href="../../../2.4/api/struct.CassCollection/">2.4</a></li>
                 
@@ -475,7 +477,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="./">CassCollection</a> *</code> <h3 id="function-cass_collection_new" class="target">cass_collection_new<a class="anchor" href="#function-cass_collection_new" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="../cassandra.h/#enum-CassCollectionType">CassCollectionType</a></code> type, <code>size_t</code> item_count <big>)</big>
+</h3> <big>(</big>  type,  item_count <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new collection.</p>
@@ -493,14 +495,14 @@
 <td>
 <small>in</small> <var>type</var>
 </td>
-<td><code><a href="../cassandra.h/#enum-CassCollectionType">CassCollectionType</a></code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>item_count</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td>
 <p>The approximate number of items in the collection.</p>
 </td>
@@ -528,7 +530,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="./">CassCollection</a> *</code> <h3 id="function-cass_collection_new_from_data_type" class="target">cass_collection_new_from_data_type<a class="anchor" href="#function-cass_collection_new_from_data_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>size_t</code> item_count <big>)</big>
+</h3> <big>(</big>  data_type,  item_count <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new collection from an existing data type.</p>
@@ -546,14 +548,14 @@
 <td>
 <small>in</small> <var>data_type</var>
 </td>
-<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>item_count</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td>
 <p>The approximate number of items in the collection.</p>
 </td>
@@ -582,7 +584,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_collection_free" class="target">cass_collection_free<a class="anchor" href="#function-cass_collection_free" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCollection</a> *</code> collection <big>)</big>
+</h3> <big>(</big>  collection <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Frees a collection instance.</p>
@@ -599,7 +601,7 @@
 <td>
 <small>in</small> <var>collection</var>
 </td>
-<td><code><a href="./">CassCollection</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -609,7 +611,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_collection_append_int8" class="target">cass_collection_append_int8<a class="anchor" href="#function-cass_collection_append_int8" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCollection</a> *</code> collection, <code><a href="../cassandra.h/#type-cass_int8_t">cass_int8_t</a></code> value <big>)</big>
+</h3> <big>(</big>  collection,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Appends a “tinyint” to the collection.</p>
@@ -629,14 +631,14 @@
 <td>
 <small>in</small> <var>collection</var>
 </td>
-<td><code><a href="./">CassCollection</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_int8_t">cass_int8_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -660,7 +662,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_collection_append_int16" class="target">cass_collection_append_int16<a class="anchor" href="#function-cass_collection_append_int16" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCollection</a> *</code> collection, <code><a href="../cassandra.h/#type-cass_int16_t">cass_int16_t</a></code> value <big>)</big>
+</h3> <big>(</big>  collection,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Appends an “smallint” to the collection.</p>
@@ -680,14 +682,14 @@
 <td>
 <small>in</small> <var>collection</var>
 </td>
-<td><code><a href="./">CassCollection</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_int16_t">cass_int16_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -711,7 +713,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_collection_append_int32" class="target">cass_collection_append_int32<a class="anchor" href="#function-cass_collection_append_int32" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCollection</a> *</code> collection, <code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a></code> value <big>)</big>
+</h3> <big>(</big>  collection,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Appends an “int” to the collection.</p>
@@ -729,14 +731,14 @@
 <td>
 <small>in</small> <var>collection</var>
 </td>
-<td><code><a href="./">CassCollection</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -760,7 +762,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_collection_append_uint32" class="target">cass_collection_append_uint32<a class="anchor" href="#function-cass_collection_append_uint32" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCollection</a> *</code> collection, <code><a href="../cassandra.h/#type-cass_uint32_t">cass_uint32_t</a></code> value <big>)</big>
+</h3> <big>(</big>  collection,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Appends a “date” to the collection.</p>
@@ -780,14 +782,14 @@
 <td>
 <small>in</small> <var>collection</var>
 </td>
-<td><code><a href="./">CassCollection</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_uint32_t">cass_uint32_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -811,7 +813,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_collection_append_int64" class="target">cass_collection_append_int64<a class="anchor" href="#function-cass_collection_append_int64" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCollection</a> *</code> collection, <code><a href="../cassandra.h/#type-cass_int64_t">cass_int64_t</a></code> value <big>)</big>
+</h3> <big>(</big>  collection,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Appends a “bigint”, “counter”, “timestamp” or “time” to the collection.</p>
@@ -829,14 +831,14 @@
 <td>
 <small>in</small> <var>collection</var>
 </td>
-<td><code><a href="./">CassCollection</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_int64_t">cass_int64_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -860,7 +862,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_collection_append_float" class="target">cass_collection_append_float<a class="anchor" href="#function-cass_collection_append_float" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCollection</a> *</code> collection, <code><a href="../cassandra.h/#type-cass_float_t">cass_float_t</a></code> value <big>)</big>
+</h3> <big>(</big>  collection,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Appends a “float” to the collection.</p>
@@ -878,14 +880,14 @@
 <td>
 <small>in</small> <var>collection</var>
 </td>
-<td><code><a href="./">CassCollection</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_float_t">cass_float_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -909,7 +911,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_collection_append_double" class="target">cass_collection_append_double<a class="anchor" href="#function-cass_collection_append_double" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCollection</a> *</code> collection, <code><a href="../cassandra.h/#type-cass_double_t">cass_double_t</a></code> value <big>)</big>
+</h3> <big>(</big>  collection,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Appends a “double” to the collection.</p>
@@ -927,14 +929,14 @@
 <td>
 <small>in</small> <var>collection</var>
 </td>
-<td><code><a href="./">CassCollection</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_double_t">cass_double_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -958,7 +960,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_collection_append_bool" class="target">cass_collection_append_bool<a class="anchor" href="#function-cass_collection_append_bool" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCollection</a> *</code> collection, <code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code> value <big>)</big>
+</h3> <big>(</big>  collection,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Appends a “boolean” to the collection.</p>
@@ -976,14 +978,14 @@
 <td>
 <small>in</small> <var>collection</var>
 </td>
-<td><code><a href="./">CassCollection</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1007,7 +1009,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_collection_append_string" class="target">cass_collection_append_string<a class="anchor" href="#function-cass_collection_append_string" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCollection</a> *</code> collection, <code>const char *</code> value <big>)</big>
+</h3> <big>(</big>  collection,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Appends an “ascii”, “text” or “varchar” to the collection.</p>
@@ -1025,14 +1027,14 @@
 <td>
 <small>in</small> <var>collection</var>
 </td>
-<td><code><a href="./">CassCollection</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td>
 <p>The value is copied into the collection object; the memory pointed to by this parameter can be freed after this call.</p>
 </td>
@@ -1058,7 +1060,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_collection_append_string_n" class="target">cass_collection_append_string_n<a class="anchor" href="#function-cass_collection_append_string_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCollection</a> *</code> collection, <code>const char *</code> value, <code>size_t</code> value_length <big>)</big>
+</h3> <big>(</big>  collection,  value,  value_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_collection_append_string">CassCollection::cass_collection_append_string</a></code>, but with lengths for string parameters.</p>
@@ -1076,21 +1078,21 @@
 <td>
 <small>in</small> <var>collection</var>
 </td>
-<td><code><a href="./">CassCollection</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1117,7 +1119,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_collection_append_bytes" class="target">cass_collection_append_bytes<a class="anchor" href="#function-cass_collection_append_bytes" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCollection</a> *</code> collection, <code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code> value, <code>size_t</code> value_size <big>)</big>
+</h3> <big>(</big>  collection,  value,  value_size <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Appends a “blob”, “varint” or “custom” to the collection.</p>
@@ -1135,14 +1137,14 @@
 <td>
 <small>in</small> <var>collection</var>
 </td>
-<td><code><a href="./">CassCollection</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code></td>
+<td></td>
 <td>
 <p>The value is copied into the collection object; the memory pointed to by this parameter can be freed after this call.</p>
 </td>
@@ -1151,7 +1153,7 @@
 <td>
 <small>in</small> <var>value_size</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1175,7 +1177,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_collection_append_uuid" class="target">cass_collection_append_uuid<a class="anchor" href="#function-cass_collection_append_uuid" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCollection</a> *</code> collection, <code><a href="../struct.CassUuid/">CassUuid</a></code> value <big>)</big>
+</h3> <big>(</big>  collection,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Appends a “uuid” or “timeuuid” to the collection.</p>
@@ -1193,14 +1195,14 @@
 <td>
 <small>in</small> <var>collection</var>
 </td>
-<td><code><a href="./">CassCollection</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../struct.CassUuid/">CassUuid</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1224,7 +1226,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_collection_append_inet" class="target">cass_collection_append_inet<a class="anchor" href="#function-cass_collection_append_inet" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCollection</a> *</code> collection, <code><a href="../struct.CassInet/">CassInet</a></code> value <big>)</big>
+</h3> <big>(</big>  collection,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Appends an “inet” to the collection.</p>
@@ -1242,14 +1244,14 @@
 <td>
 <small>in</small> <var>collection</var>
 </td>
-<td><code><a href="./">CassCollection</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../struct.CassInet/">CassInet</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1273,7 +1275,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_collection_append_decimal" class="target">cass_collection_append_decimal<a class="anchor" href="#function-cass_collection_append_decimal" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCollection</a> *</code> collection, <code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code> varint, <code>size_t</code> varint_size, <code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a></code> scale <big>)</big>
+</h3> <big>(</big>  collection,  varint,  varint_size,  scale <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Appends a “decimal” to the collection.</p>
@@ -1291,14 +1293,14 @@
 <td>
 <small>in</small> <var>collection</var>
 </td>
-<td><code><a href="./">CassCollection</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>varint</var>
 </td>
-<td><code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code></td>
+<td></td>
 <td>
 <p>The value is copied into the collection object; the memory pointed to by this parameter can be freed after this call.</p>
 </td>
@@ -1307,14 +1309,14 @@
 <td>
 <small>in</small> <var>varint_size</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>scale</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1338,7 +1340,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_collection_append_collection" class="target">cass_collection_append_collection<a class="anchor" href="#function-cass_collection_append_collection" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCollection</a> *</code> collection, <code>const <a href="./">CassCollection</a> *</code> value <big>)</big>
+</h3> <big>(</big>  collection,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Appends a “list”, “map” or “set” to the collection.</p>
@@ -1358,14 +1360,14 @@
 <td>
 <small>in</small> <var>collection</var>
 </td>
-<td><code><a href="./">CassCollection</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="./">CassCollection</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1389,7 +1391,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_collection_append_tuple" class="target">cass_collection_append_tuple<a class="anchor" href="#function-cass_collection_append_tuple" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCollection</a> *</code> collection, <code>const <a href="../struct.CassTuple/">CassTuple</a> *</code> value <big>)</big>
+</h3> <big>(</big>  collection,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Appends a “tuple” to the collection.</p>
@@ -1409,14 +1411,14 @@
 <td>
 <small>in</small> <var>collection</var>
 </td>
-<td><code><a href="./">CassCollection</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="../struct.CassTuple/">CassTuple</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1440,7 +1442,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_collection_append_user_type" class="target">cass_collection_append_user_type<a class="anchor" href="#function-cass_collection_append_user_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCollection</a> *</code> collection, <code>const <a href="../struct.CassUserType/">CassUserType</a> *</code> value <big>)</big>
+</h3> <big>(</big>  collection,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Appends a “udt” to the collection.</p>
@@ -1460,14 +1462,14 @@
 <td>
 <small>in</small> <var>collection</var>
 </td>
-<td><code><a href="./">CassCollection</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="../struct.CassUserType/">CassUserType</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>

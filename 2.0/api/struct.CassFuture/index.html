@@ -46,7 +46,9 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li><a href="../../../api/struct.CassFuture/">2.5</a></li>
+                  <li><a href="../../../api/struct.CassFuture/">2.6</a></li>
+                
+                  <li><a href="../../../2.5/api/struct.CassFuture/">2.5</a></li>
                 
                   <li><a href="../../../2.4/api/struct.CassFuture/">2.4</a></li>
                 
@@ -360,7 +362,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_future_free" class="target">cass_future_free<a class="anchor" href="#function-cass_future_free" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassFuture</a> *</code> future <big>)</big>
+</h3> <big>(</big>  future <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Frees a future instance. A future can be freed anytime.</p>
@@ -375,7 +377,7 @@
 </tr></thead>
 <tbody><tr>
 <td><var>future</var></td>
-<td><code><a href="./">CassFuture</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -385,7 +387,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_future_set_callback" class="target">cass_future_set_callback<a class="anchor" href="#function-cass_future_set_callback" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassFuture</a> *</code> future, <code><a href="../cassandra.h/#type-CassFutureCallback">CassFutureCallback</a></code> callback, <code>void *</code> data <big>)</big>
+</h3> <big>(</big>  future,  callback,  data <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets a callback that is called when a future is set</p>
@@ -403,21 +405,21 @@
 <td>
 <small>in</small> <var>future</var>
 </td>
-<td><code><a href="./">CassFuture</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>callback</var>
 </td>
-<td><code><a href="../cassandra.h/#type-CassFutureCallback">CassFutureCallback</a></code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>data</var>
 </td>
-<td><code>void *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -441,7 +443,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code> <h3 id="function-cass_future_ready" class="target">cass_future_ready<a class="anchor" href="#function-cass_future_ready" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassFuture</a> *</code> future <big>)</big>
+</h3> <big>(</big>  future <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the set status of the future.</p>
@@ -458,7 +460,7 @@
 <td>
 <small>in</small> <var>future</var>
 </td>
-<td><code><a href="./">CassFuture</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -481,7 +483,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_future_wait" class="target">cass_future_wait<a class="anchor" href="#function-cass_future_wait" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassFuture</a> *</code> future <big>)</big>
+</h3> <big>(</big>  future <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Wait for the future to be set with either a result or error.</p>
@@ -500,7 +502,7 @@
 <td>
 <small>in</small> <var>future</var>
 </td>
-<td><code><a href="./">CassFuture</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -510,7 +512,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code> <h3 id="function-cass_future_wait_timed" class="target">cass_future_wait_timed<a class="anchor" href="#function-cass_future_wait_timed" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassFuture</a> *</code> future, <code><a href="../cassandra.h/#type-cass_duration_t">cass_duration_t</a></code> timeout_us <big>)</big>
+</h3> <big>(</big>  future,  timeout_us <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Wait for the future to be set or timeout.</p>
@@ -528,14 +530,14 @@
 <td>
 <small>in</small> <var>future</var>
 </td>
-<td><code><a href="./">CassFuture</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>timeout_us</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_duration_t">cass_duration_t</a></code></td>
+<td></td>
 <td>
 <p>wait time in microseconds</p>
 </td>
@@ -561,7 +563,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassResult/">CassResult</a> *</code> <h3 id="function-cass_future_get_result" class="target">cass_future_get_result<a class="anchor" href="#function-cass_future_get_result" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassFuture</a> *</code> future <big>)</big>
+</h3> <big>(</big>  future <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the result of a successful future. If the future is not ready this method will wait for the future to be set. The first successful call consumes the future, all subsequent calls will return NULL.</p>
@@ -578,7 +580,7 @@
 <td>
 <small>in</small> <var>future</var>
 </td>
-<td><code><a href="./">CassFuture</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -605,7 +607,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassPrepared/">CassPrepared</a> *</code> <h3 id="function-cass_future_get_prepared" class="target">cass_future_get_prepared<a class="anchor" href="#function-cass_future_get_prepared" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassFuture</a> *</code> future <big>)</big>
+</h3> <big>(</big>  future <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the result of a successful future. If the future is not ready this method will wait for the future to be set. The first successful call consumes the future, all subsequent calls will return NULL.</p>
@@ -622,7 +624,7 @@
 <td>
 <small>in</small> <var>future</var>
 </td>
-<td><code><a href="./">CassFuture</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -647,7 +649,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_future_error_code" class="target">cass_future_error_code<a class="anchor" href="#function-cass_future_error_code" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassFuture</a> *</code> future <big>)</big>
+</h3> <big>(</big>  future <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the error code from future. If the future is not ready this method will wait for the future to be set.</p>
@@ -664,7 +666,7 @@
 <td>
 <small>in</small> <var>future</var>
 </td>
-<td><code><a href="./">CassFuture</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -689,7 +691,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_future_error_message" class="target">cass_future_error_message<a class="anchor" href="#function-cass_future_error_message" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassFuture</a> *</code> future, <code>const char **</code> message, <code>size_t *</code> message_length <big>)</big>
+</h3> <big>(</big>  future,  message,  message_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the error message from future. If the future is not ready this method will wait for the future to be set.</p>
@@ -707,14 +709,14 @@
 <td>
 <small>in</small> <var>future</var>
 </td>
-<td><code><a href="./">CassFuture</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>message</var>
 </td>
-<td><code>const char **</code></td>
+<td></td>
 <td>
 <p>Empty string returned if successful, otherwise a message describing the error is returned.</p>
 </td>
@@ -723,7 +725,7 @@
 <td>
 <small>out</small> <var>message_length</var>
 </td>
-<td><code>size_t *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>

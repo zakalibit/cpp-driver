@@ -46,7 +46,9 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li><a href="../../../api/struct.CassSession/">2.5</a></li>
+                  <li><a href="../../../api/struct.CassSession/">2.6</a></li>
+                
+                  <li><a href="../../../2.5/api/struct.CassSession/">2.5</a></li>
                 
                   <li><a href="../../../2.4/api/struct.CassSession/">2.4</a></li>
                 
@@ -405,7 +407,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_session_free" class="target">cass_session_free<a class="anchor" href="#function-cass_session_free" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassSession</a> *</code> session <big>)</big>
+</h3> <big>(</big>  session <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Frees a session instance. If the session is still connected it will be syncronously closed before being deallocated.</p>
@@ -424,7 +426,7 @@
 <td>
 <small>in</small> <var>session</var>
 </td>
-<td><code><a href="./">CassSession</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -434,7 +436,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassFuture/">CassFuture</a> *</code> <h3 id="function-cass_session_connect" class="target">cass_session_connect<a class="anchor" href="#function-cass_session_connect" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassSession</a> *</code> session, <code>const <a href="../struct.CassCluster/">CassCluster</a> *</code> cluster <big>)</big>
+</h3> <big>(</big>  session,  cluster <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Connects a session.</p>
@@ -452,14 +454,14 @@
 <td>
 <small>in</small> <var>session</var>
 </td>
-<td><code><a href="./">CassSession</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code>const <a href="../struct.CassCluster/">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -485,7 +487,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassFuture/">CassFuture</a> *</code> <h3 id="function-cass_session_connect_keyspace" class="target">cass_session_connect_keyspace<a class="anchor" href="#function-cass_session_connect_keyspace" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassSession</a> *</code> session, <code>const <a href="../struct.CassCluster/">CassCluster</a> *</code> cluster, <code>const char *</code> keyspace <big>)</big>
+</h3> <big>(</big>  session,  cluster,  keyspace <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Connects a session and sets the keyspace.</p>
@@ -503,21 +505,21 @@
 <td>
 <small>in</small> <var>session</var>
 </td>
-<td><code><a href="./">CassSession</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>cluster</var>
 </td>
-<td><code>const <a href="../struct.CassCluster/">CassCluster</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>keyspace</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -543,7 +545,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassFuture/">CassFuture</a> *</code> <h3 id="function-cass_session_close" class="target">cass_session_close<a class="anchor" href="#function-cass_session_close" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassSession</a> *</code> session <big>)</big>
+</h3> <big>(</big>  session <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Closes the session instance, outputs a close future which can be used to determine when the session has been terminated. This allows in-flight requests to finish.</p>
@@ -560,7 +562,7 @@
 <td>
 <small>in</small> <var>session</var>
 </td>
-<td><code><a href="./">CassSession</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -583,7 +585,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassFuture/">CassFuture</a> *</code> <h3 id="function-cass_session_prepare" class="target">cass_session_prepare<a class="anchor" href="#function-cass_session_prepare" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassSession</a> *</code> session, <code><a href="../struct.CassString/">CassString</a></code> query <big>)</big>
+</h3> <big>(</big>  session,  query <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Create a prepared statement.</p>
@@ -601,14 +603,14 @@
 <td>
 <small>in</small> <var>session</var>
 </td>
-<td><code><a href="./">CassSession</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>query</var>
 </td>
-<td><code><a href="../struct.CassString/">CassString</a></code></td>
+<td></td>
 <td>
 <p>The query is copied into the statement object; the memory pointed to by this parameter can be freed after this call.</p>
 </td>
@@ -636,7 +638,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassFuture/">CassFuture</a> *</code> <h3 id="function-cass_session_execute" class="target">cass_session_execute<a class="anchor" href="#function-cass_session_execute" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassSession</a> *</code> session, <code>const <a href="../struct.CassStatement/">CassStatement</a> *</code> statement <big>)</big>
+</h3> <big>(</big>  session,  statement <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Execute a query or bound statement.</p>
@@ -654,14 +656,14 @@
 <td>
 <small>in</small> <var>session</var>
 </td>
-<td><code><a href="./">CassSession</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code>const <a href="../struct.CassStatement/">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -687,7 +689,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassFuture/">CassFuture</a> *</code> <h3 id="function-cass_session_execute_batch" class="target">cass_session_execute_batch<a class="anchor" href="#function-cass_session_execute_batch" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassSession</a> *</code> session, <code>const <a href="../struct.CassBatch/">CassBatch</a> *</code> batch <big>)</big>
+</h3> <big>(</big>  session,  batch <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Execute a batch statement.</p>
@@ -705,14 +707,14 @@
 <td>
 <small>in</small> <var>session</var>
 </td>
-<td><code><a href="./">CassSession</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>batch</var>
 </td>
-<td><code>const <a href="../struct.CassBatch/">CassBatch</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -738,7 +740,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassSchema/">CassSchema</a> *</code> <h3 id="function-cass_session_get_schema" class="target">cass_session_get_schema<a class="anchor" href="#function-cass_session_get_schema" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassSession</a> *</code> session <big>)</big>
+</h3> <big>(</big>  session <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets a copy of this session’s schema metadata. The returned copy of the schema metadata is not updated. This function must be called again to retrieve any schema changes since the previous call.</p>
@@ -755,7 +757,7 @@
 <td>
 <small>in</small> <var>session</var>
 </td>
-<td><code><a href="./">CassSession</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>

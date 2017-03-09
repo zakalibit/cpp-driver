@@ -41,12 +41,14 @@
               <span class="text-warning">Attention:</span> Viewing documentation for version
               <div class="btn-group">
                 <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  2.5
+                  2.6
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li class="disabled"><a href="./">2.5</a></li>
+                  <li class="disabled"><a href="./">2.6</a></li>
+                
+                  <li><a href="../../2.5/api/struct.CassUuidGen/">2.5</a></li>
                 
                   <li><a href="../../2.4/api/struct.CassUuidGen/">2.4</a></li>
                 
@@ -68,7 +70,7 @@
           <div class="col-md-4">
             <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
               <div class="form-group has-feedback">
-                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.5')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.6')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
               </div>
               <ul class="dropdown-menu search-results" role="menu">
                 <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
@@ -529,7 +531,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="./">CassUuidGen</a> *</code> <h3 id="function-cass_uuid_gen_new_with_node" class="target">cass_uuid_gen_new_with_node<a class="anchor" href="#function-cass_uuid_gen_new_with_node" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code> node <big>)</big>
+</h3> <big>(</big>  node <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new UUID generator with custom node information.</p>
@@ -546,7 +548,7 @@
 </tr></thead>
 <tbody><tr>
 <td><var>node</var></td>
-<td><code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -571,7 +573,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_uuid_gen_free" class="target">cass_uuid_gen_free<a class="anchor" href="#function-cass_uuid_gen_free" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassUuidGen</a> *</code> uuid_gen <big>)</big>
+</h3> <big>(</big>  uuid_gen <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Frees a UUID generator instance.</p>
@@ -588,7 +590,7 @@
 <td>
 <small>in</small> <var>uuid_gen</var>
 </td>
-<td><code><a href="./">CassUuidGen</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -598,7 +600,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_uuid_gen_time" class="target">cass_uuid_gen_time<a class="anchor" href="#function-cass_uuid_gen_time" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassUuidGen</a> *</code> uuid_gen, <code><a href="../struct.CassUuid/">CassUuid</a> *</code> output <big>)</big>
+</h3> <big>(</big>  uuid_gen,  output <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Generates a V1 (time) UUID.</p>
@@ -618,14 +620,14 @@
 <td>
 <small>in</small> <var>uuid_gen</var>
 </td>
-<td><code><a href="./">CassUuidGen</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code><a href="../struct.CassUuid/">CassUuid</a> *</code></td>
+<td></td>
 <td>
 <p>A V1 UUID for the current time.</p>
 </td>
@@ -638,7 +640,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_uuid_gen_random" class="target">cass_uuid_gen_random<a class="anchor" href="#function-cass_uuid_gen_random" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassUuidGen</a> *</code> uuid_gen, <code><a href="../struct.CassUuid/">CassUuid</a> *</code> output <big>)</big>
+</h3> <big>(</big>  uuid_gen,  output <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Generates a new V4 (random) UUID</p>
@@ -658,12 +660,12 @@
 <td>
 <small>in</small> <var>uuid_gen</var>
 </td>
-<td><code><a href="./">CassUuidGen</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td><var>output</var></td>
-<td><code><a href="../struct.CassUuid/">CassUuid</a> *</code></td>
+<td></td>
 <td>
 <p>A randomly generated V4 UUID.</p>
 </td>
@@ -676,7 +678,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_uuid_gen_from_time" class="target">cass_uuid_gen_from_time<a class="anchor" href="#function-cass_uuid_gen_from_time" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassUuidGen</a> *</code> uuid_gen, <code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code> timestamp, <code><a href="../struct.CassUuid/">CassUuid</a> *</code> output <big>)</big>
+</h3> <big>(</big>  uuid_gen,  timestamp,  output <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Generates a V1 (time) UUID for the specified time.</p>
@@ -696,21 +698,21 @@
 <td>
 <small>in</small> <var>uuid_gen</var>
 </td>
-<td><code><a href="./">CassUuidGen</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>timestamp</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_uint64_t">cass_uint64_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code><a href="../struct.CassUuid/">CassUuid</a> *</code></td>
+<td></td>
 <td>
 <p>A V1 UUID for the specified time.</p>
 </td>

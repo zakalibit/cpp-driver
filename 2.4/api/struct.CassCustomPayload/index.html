@@ -46,7 +46,9 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li><a href="../../../api/struct.CassCustomPayload/">2.5</a></li>
+                  <li><a href="../../../api/struct.CassCustomPayload/">2.6</a></li>
+                
+                  <li><a href="../../../2.5/api/struct.CassCustomPayload/">2.5</a></li>
                 
                   <li class="disabled"><a href="./">2.4</a></li>
                 
@@ -522,7 +524,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_custom_payload_free" class="target">cass_custom_payload_free<a class="anchor" href="#function-cass_custom_payload_free" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCustomPayload</a> *</code> payload <big>)</big>
+</h3> <big>(</big>  payload <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Frees a custom payload instance.</p>
@@ -541,7 +543,7 @@
 <td>
 <small>in</small> <var>payload</var>
 </td>
-<td><code><a href="./">CassCustomPayload</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -551,7 +553,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_custom_payload_set" class="target">cass_custom_payload_set<a class="anchor" href="#function-cass_custom_payload_set" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCustomPayload</a> *</code> payload, <code>const char *</code> name, <code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code> value, <code>size_t</code> value_size <big>)</big>
+</h3> <big>(</big>  payload,  name,  value,  value_size <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets an item to the custom payload.</p>
@@ -571,28 +573,28 @@
 <td>
 <small>in</small> <var>payload</var>
 </td>
-<td><code><a href="./">CassCustomPayload</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value_size</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -603,7 +605,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_custom_payload_set_n" class="target">cass_custom_payload_set_n<a class="anchor" href="#function-cass_custom_payload_set_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCustomPayload</a> *</code> payload, <code>const char *</code> name, <code>size_t</code> name_length, <code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code> value, <code>size_t</code> value_size <big>)</big>
+</h3> <big>(</big>  payload,  name,  name_length,  value,  value_size <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_custom_payload_set">CassCustomPayload::cass_custom_payload_set</a></code>, but with lengths for string parameters.</p>
@@ -623,35 +625,35 @@
 <td>
 <small>in</small> <var>payload</var>
 </td>
-<td><code><a href="./">CassCustomPayload</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value_size</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -662,7 +664,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_custom_payload_remove" class="target">cass_custom_payload_remove<a class="anchor" href="#function-cass_custom_payload_remove" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCustomPayload</a> *</code> payload, <code>const char *</code> name <big>)</big>
+</h3> <big>(</big>  payload,  name <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Removes an item from the custom payload.</p>
@@ -682,14 +684,14 @@
 <td>
 <small>in</small> <var>payload</var>
 </td>
-<td><code><a href="./">CassCustomPayload</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -700,7 +702,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_custom_payload_remove_n" class="target">cass_custom_payload_remove_n<a class="anchor" href="#function-cass_custom_payload_remove_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassCustomPayload</a> *</code> payload, <code>const char *</code> name, <code>size_t</code> name_length <big>)</big>
+</h3> <big>(</big>  payload,  name,  name_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_custom_payload_set">CassCustomPayload::cass_custom_payload_set</a></code>, but with lengths for string parameters.</p>
@@ -720,21 +722,21 @@
 <td>
 <small>in</small> <var>payload</var>
 </td>
-<td><code><a href="./">CassCustomPayload</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>

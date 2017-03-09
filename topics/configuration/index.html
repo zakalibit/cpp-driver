@@ -41,12 +41,14 @@
               <span class="text-warning">Attention:</span> Viewing documentation for version
               <div class="btn-group">
                 <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  2.5
+                  2.6
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li class="disabled"><a href="./">2.5</a></li>
+                  <li class="disabled"><a href="./">2.6</a></li>
+                
+                  <li><a href="../../2.5/topics/configuration/">2.5</a></li>
                 
                   <li><a href="../../2.4/topics/configuration/">2.4</a></li>
                 
@@ -68,7 +70,7 @@
           <div class="col-md-4">
             <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
               <div class="form-group has-feedback">
-                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.5')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.6')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
               </div>
               <ul class="dropdown-menu search-results" role="menu">
                 <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
@@ -450,7 +452,7 @@ with the subsequent executions being created 500 milliseconds apart.</p>
 
 <p>To prevent intermediate network devices (routers, switches, etc.) from
 disconnecting pooled connections the driver sends a lightweight heartbeat
-request (using an <a href="https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v3.spec#L278-L282"><code>OPTIONS</code></a> protocol request) periodically. By default the
+request (using an <a href="https://github.com/apache/cassandra/blob/cassandra-3.0/doc/native_protocol_v3.spec"><code>OPTIONS</code></a> protocol request) periodically. By default the
 driver sends a heartbeat every 30 seconds. This can be changed or disabled (0
 second interval) using the following:</p>
 <pre class="highlight"><code><span class="cm">/* Change the heartbeat interval to 1 minute */</span>
@@ -468,6 +470,69 @@ interval can be changed from the default of 60 seconds:</p>
 </code></pre>
 <p>It can be disabled by setting the value to a very long timeout or by disabling
 heartbeats.</p>
+
+<h3 id="performance-tips" class="target">Performance Tips<a class="anchor" href="#performance-tips" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+
+<h4 id="use-a-single-persistent-session" class="target">Use a single persistent session<a class="anchor" href="#use-a-single-persistent-session" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h4>
+
+<p>Sessions are expensive objects to create in both time and resources because they
+maintain a pool of connections to your Cassandra cluster. An application should
+create a minimal number of sessions and maintain them for the lifetime of an
+application.</p>
+
+<h4 id="use-token-aware-and-latency-aware-policies" class="target">Use token-aware and latency-aware policies<a class="anchor" href="#use-token-aware-and-latency-aware-policies" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h4>
+
+<p>The token-aware load balancing can reduce the latency of requests by avoiding an
+extra network hop through a coordinator node. When using the token-aware policy
+requests are sent to one of the nodes which will retrieved or stored instead of
+routing the request through a proxy node (coordinator node).</p>
+
+<p>The latency-aware load balancing policy can also reduce the latency of requests
+by routing requests to nodes that historical performing with the lowest latency.
+This can prevent requests from being sent to nodes that are underperforming.</p>
+
+<p>Both <a href="#token-aware-routing">latency-aware</a> and <a href="#latency-aware-routing">token-aware</a> can be use together to obtain the benefits of
+both.</p>
+
+<h4 id="high-throughput-applications-may-need-increase-watermark-settings" class="target">High throughput applications may need increase watermark settings<a class="anchor" href="#high-throughput-applications-may-need-increase-watermark-settings" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h4>
+
+<p>If your application is submitting a large number of requests it may trigger the
+driver’s back pressure mechanism.  This means Cassandra cannot maintain your
+request rate and requests are starting to queue in the driver (as a pending
+request). This mechanism keeps the driver from queueing your requests until
+memory is exhausted and is a signal to your application to slow down. However,
+you can increase these parameters:</p>
+<pre class="highlight"><code><span class="nb">cass_cluster_set_pending_requests_low_water_mark</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="mi">5000</span><span class="p">);</span>
+<span class="nb">cass_cluster_set_pending_requests_high_water_mark</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="mi">10000</span><span class="p">);</span>
+</code></pre>
+<p>If your applications requests are very large you may need to adjust the size
+watermarks:</p>
+<pre class="highlight"><code><span class="nb">cass_cluster_set_write_bytes_low_water_mark</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="mi">512</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">);</span>
+<span class="nb">cass_cluster_set_write_bytes_high_water_mark</span><span class="p">(</span><span class="n">cluster</span><span class="p">,</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">);</span>
+</code></pre>
+<h4 id="use-paging-when-retrieving-large-result-sets" class="target">Use <a href="../basics/handling_results/#paging">paging</a> when retrieving large result sets<a class="anchor" href="#use-paging-when-retrieving-large-result-sets" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h4>
+
+<p>Using a large page size or a very high <code>LIMIT</code> clause can cause your application
+to delay for each individual request. The driver’s paging mechanism can be used
+to decrease the latency of individual requests.</p>
+
+<h4 id="choose-a-lower-consistency-level" class="target">Choose a lower consistency level<a class="anchor" href="#choose-a-lower-consistency-level" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h4>
+
+<p>Ultimately, choosing a consistency level is a trade-off between consistency and
+availability. Performance should not be a large deciding factor when choosing a
+consistency level. However, it can affect high-percentile latency numbers
+because requests with consistency levels greater than <code>ONE</code> can cause requests
+to wait for one or more nodes to respond back to the coordinator node before a
+request can complete. In multi-datacenter configurations, consistency levels such as
+<code>EACH_QUORUM</code> can cause a request to wait for replication across a slower cross
+datacenter network link.  More information about setting the consistency level
+can be found <a href="../basics/consistency/">here</a>.</p>
 
 
         </div>

@@ -46,7 +46,9 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li><a href="../../../api/struct.CassResult/">2.5</a></li>
+                  <li><a href="../../../api/struct.CassResult/">2.6</a></li>
+                
+                  <li><a href="../../../2.5/api/struct.CassResult/">2.5</a></li>
                 
                   <li><a href="../../../2.4/api/struct.CassResult/">2.4</a></li>
                 
@@ -378,7 +380,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_result_free" class="target">cass_result_free<a class="anchor" href="#function-cass_result_free" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassResult</a> *</code> result <big>)</big>
+</h3> <big>(</big>  result <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Frees a result instance.</p>
@@ -397,7 +399,7 @@
 <td>
 <small>in</small> <var>result</var>
 </td>
-<td><code>const <a href="./">CassResult</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -407,7 +409,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#type-cass_size_t">cass_size_t</a></code> <h3 id="function-cass_result_row_count" class="target">cass_result_row_count<a class="anchor" href="#function-cass_result_row_count" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassResult</a> *</code> result <big>)</big>
+</h3> <big>(</big>  result <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the number of rows for the specified result.</p>
@@ -424,7 +426,7 @@
 <td>
 <small>in</small> <var>result</var>
 </td>
-<td><code>const <a href="./">CassResult</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -447,7 +449,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#type-cass_size_t">cass_size_t</a></code> <h3 id="function-cass_result_column_count" class="target">cass_result_column_count<a class="anchor" href="#function-cass_result_column_count" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassResult</a> *</code> result <big>)</big>
+</h3> <big>(</big>  result <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the number of columns per row for the specified result.</p>
@@ -464,7 +466,7 @@
 <td>
 <small>in</small> <var>result</var>
 </td>
-<td><code>const <a href="./">CassResult</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -487,7 +489,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassString/">CassString</a></code> <h3 id="function-cass_result_column_name" class="target">cass_result_column_name<a class="anchor" href="#function-cass_result_column_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassResult</a> *</code> result, <code><a href="../cassandra.h/#type-cass_size_t">cass_size_t</a></code> index <big>)</big>
+</h3> <big>(</big>  result,  index <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the column name at index for the specified result.</p>
@@ -505,14 +507,14 @@
 <td>
 <small>in</small> <var>result</var>
 </td>
-<td><code>const <a href="./">CassResult</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_size_t">cass_size_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -536,7 +538,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassValueType">CassValueType</a></code> <h3 id="function-cass_result_column_type" class="target">cass_result_column_type<a class="anchor" href="#function-cass_result_column_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassResult</a> *</code> result, <code><a href="../cassandra.h/#type-cass_size_t">cass_size_t</a></code> index <big>)</big>
+</h3> <big>(</big>  result,  index <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the column type at index for the specified result.</p>
@@ -554,14 +556,14 @@
 <td>
 <small>in</small> <var>result</var>
 </td>
-<td><code>const <a href="./">CassResult</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_size_t">cass_size_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -585,7 +587,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassRow/">CassRow</a> *</code> <h3 id="function-cass_result_first_row" class="target">cass_result_first_row<a class="anchor" href="#function-cass_result_first_row" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassResult</a> *</code> result <big>)</big>
+</h3> <big>(</big>  result <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the first row of the result.</p>
@@ -602,7 +604,7 @@
 <td>
 <small>in</small> <var>result</var>
 </td>
-<td><code>const <a href="./">CassResult</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -625,7 +627,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code> <h3 id="function-cass_result_has_more_pages" class="target">cass_result_has_more_pages<a class="anchor" href="#function-cass_result_has_more_pages" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassResult</a> *</code> result <big>)</big>
+</h3> <big>(</big>  result <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Returns true if there are more pages.</p>
@@ -642,7 +644,7 @@
 <td>
 <small>in</small> <var>result</var>
 </td>
-<td><code>const <a href="./">CassResult</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -665,7 +667,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_from_result" class="target">cass_iterator_from_result<a class="anchor" href="#function-cass_iterator_from_result" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassResult</a> *</code> result <big>)</big>
+</h3> <big>(</big>  result <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new iterator for the specified result. This can be used to iterate over rows in the result.</p>
@@ -682,7 +684,7 @@
 <td>
 <small>in</small> <var>result</var>
 </td>
-<td><code>const <a href="./">CassResult</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>

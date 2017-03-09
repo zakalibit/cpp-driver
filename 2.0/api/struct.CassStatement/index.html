@@ -46,7 +46,9 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li><a href="../../../api/struct.CassStatement/">2.5</a></li>
+                  <li><a href="../../../api/struct.CassStatement/">2.6</a></li>
+                
+                  <li><a href="../../../2.5/api/struct.CassStatement/">2.5</a></li>
                 
                   <li><a href="../../../2.4/api/struct.CassStatement/">2.4</a></li>
                 
@@ -360,7 +362,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="./">CassStatement</a> *</code> <h3 id="function-cass_statement_new" class="target">cass_statement_new<a class="anchor" href="#function-cass_statement_new" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const char *</code> query, <code>size_t</code> parameter_count <big>)</big>
+</h3> <big>(</big>  query,  parameter_count <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new query statement.</p>
@@ -378,7 +380,7 @@
 <td>
 <small>in</small> <var>query</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td>
 <p>The query is copied into the statement object; the memory pointed to by this parameter can be freed after this call.</p>
 </td>
@@ -387,7 +389,7 @@
 <td>
 <small>in</small> <var>parameter_count</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td>
 <p>The number of bound parameters.</p>
 </td>
@@ -415,7 +417,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="./">CassStatement</a> *</code> <h3 id="function-cass_statement_new_n" class="target">cass_statement_new_n<a class="anchor" href="#function-cass_statement_new_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const char *</code> query, <code>size_t</code> query_length, <code>size_t</code> parameter_count <big>)</big>
+</h3> <big>(</big>  query,  query_length,  parameter_count <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_statement_new">CassStatement::cass_statement_new</a></code>, but with lengths for string parameters.</p>
@@ -433,21 +435,21 @@
 <td>
 <small>in</small> <var>query</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>query_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>parameter_count</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -473,7 +475,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_statement_free" class="target">cass_statement_free<a class="anchor" href="#function-cass_statement_free" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement <big>)</big>
+</h3> <big>(</big>  statement <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Frees a statement instance. Statements can be immediately freed after being prepared, executed or added to a batch.</p>
@@ -490,7 +492,7 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -500,7 +502,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_add_key_index" class="target">cass_statement_add_key_index<a class="anchor" href="#function-cass_statement_add_key_index" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>size_t</code> index <big>)</big>
+</h3> <big>(</big>  statement,  index <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Adds a key index specifier to this a statement. When using token-aware routing, this can be used to tell the driver which parameters within a non-prepared, parameterized statement are part of the partition key.</p>
@@ -522,14 +524,14 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -553,7 +555,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_set_keyspace" class="target">cass_statement_set_keyspace<a class="anchor" href="#function-cass_statement_set_keyspace" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> keyspace <big>)</big>
+</h3> <big>(</big>  statement,  keyspace <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the statement’s keyspace for use with token-aware routing.</p>
@@ -573,14 +575,14 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>keyspace</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -604,7 +606,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_set_keyspace_n" class="target">cass_statement_set_keyspace_n<a class="anchor" href="#function-cass_statement_set_keyspace_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> keyspace, <code>size_t</code> keyspace_length <big>)</big>
+</h3> <big>(</big>  statement,  keyspace,  keyspace_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_statement_set_keyspace">CassStatement::cass_statement_set_keyspace</a></code>, but with lengths for string parameters.</p>
@@ -622,21 +624,21 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>keyspace</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>keyspace_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -662,7 +664,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_set_consistency" class="target">cass_statement_set_consistency<a class="anchor" href="#function-cass_statement_set_consistency" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code><a href="../cassandra.h/#enum-CassConsistency">CassConsistency</a></code> consistency <big>)</big>
+</h3> <big>(</big>  statement,  consistency <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the statement’s consistency level.</p>
@@ -682,14 +684,14 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>consistency</var>
 </td>
-<td><code><a href="../cassandra.h/#enum-CassConsistency">CassConsistency</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -713,7 +715,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_set_serial_consistency" class="target">cass_statement_set_serial_consistency<a class="anchor" href="#function-cass_statement_set_serial_consistency" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code><a href="../cassandra.h/#enum-CassConsistency">CassConsistency</a></code> serial_consistency <big>)</big>
+</h3> <big>(</big>  statement,  serial_consistency <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the statement’s serial consistency level.</p>
@@ -733,14 +735,14 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>serial_consistency</var>
 </td>
-<td><code><a href="../cassandra.h/#enum-CassConsistency">CassConsistency</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -764,7 +766,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_set_paging_size" class="target">cass_statement_set_paging_size<a class="anchor" href="#function-cass_statement_set_paging_size" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>int</code> page_size <big>)</big>
+</h3> <big>(</big>  statement,  page_size <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the statement’s page size.</p>
@@ -784,14 +786,14 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>page_size</var>
 </td>
-<td><code>int</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -815,7 +817,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_set_paging_state" class="target">cass_statement_set_paging_state<a class="anchor" href="#function-cass_statement_set_paging_state" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const <a href="../struct.CassResult/">CassResult</a> *</code> result <big>)</big>
+</h3> <big>(</big>  statement,  result <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the statement’s paging state.</p>
@@ -833,14 +835,14 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>result</var>
 </td>
-<td><code>const <a href="../struct.CassResult/">CassResult</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -864,7 +866,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_null" class="target">cass_statement_bind_null<a class="anchor" href="#function-cass_statement_bind_null" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>size_t</code> index <big>)</big>
+</h3> <big>(</big>  statement,  index <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Binds null to a query or bound statement at the specified index.</p>
@@ -882,14 +884,14 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -913,7 +915,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_int32" class="target">cass_statement_bind_int32<a class="anchor" href="#function-cass_statement_bind_int32" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>size_t</code> index, <code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a></code> value <big>)</big>
+</h3> <big>(</big>  statement,  index,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Binds an “int” to a query or bound statement at the specified index.</p>
@@ -931,21 +933,21 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -969,7 +971,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_int64" class="target">cass_statement_bind_int64<a class="anchor" href="#function-cass_statement_bind_int64" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>size_t</code> index, <code><a href="../cassandra.h/#type-cass_int64_t">cass_int64_t</a></code> value <big>)</big>
+</h3> <big>(</big>  statement,  index,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Binds a “bigint”, “counter” or “timestamp” to a query or bound statement at the specified index.</p>
@@ -987,21 +989,21 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_int64_t">cass_int64_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1025,7 +1027,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_float" class="target">cass_statement_bind_float<a class="anchor" href="#function-cass_statement_bind_float" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>size_t</code> index, <code><a href="../cassandra.h/#type-cass_float_t">cass_float_t</a></code> value <big>)</big>
+</h3> <big>(</big>  statement,  index,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Binds a “float” to a query or bound statement at the specified index.</p>
@@ -1043,21 +1045,21 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_float_t">cass_float_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1081,7 +1083,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_double" class="target">cass_statement_bind_double<a class="anchor" href="#function-cass_statement_bind_double" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>size_t</code> index, <code><a href="../cassandra.h/#type-cass_double_t">cass_double_t</a></code> value <big>)</big>
+</h3> <big>(</big>  statement,  index,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Binds a “double” to a query or bound statement at the specified index.</p>
@@ -1099,21 +1101,21 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_double_t">cass_double_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1137,7 +1139,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_bool" class="target">cass_statement_bind_bool<a class="anchor" href="#function-cass_statement_bind_bool" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>size_t</code> index, <code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code> value <big>)</big>
+</h3> <big>(</big>  statement,  index,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Binds a “boolean” to a query or bound statement at the specified index.</p>
@@ -1155,21 +1157,21 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1193,7 +1195,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_string" class="target">cass_statement_bind_string<a class="anchor" href="#function-cass_statement_bind_string" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>size_t</code> index, <code>const char *</code> value <big>)</big>
+</h3> <big>(</big>  statement,  index,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Binds a “ascii”, “text” or “varchar” to a query or bound statement at the specified index.</p>
@@ -1211,21 +1213,21 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td>
 <p>The value is copied into the statement object; the memory pointed to by this parameter can be freed after this call.</p>
 </td>
@@ -1251,7 +1253,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_string_n" class="target">cass_statement_bind_string_n<a class="anchor" href="#function-cass_statement_bind_string_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>size_t</code> index, <code>const char *</code> value, <code>size_t</code> value_length <big>)</big>
+</h3> <big>(</big>  statement,  index,  value,  value_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_statement_bind_string">CassStatement::cass_statement_bind_string</a></code>, but with lengths for string parameters.</p>
@@ -1269,28 +1271,28 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1316,7 +1318,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_bytes" class="target">cass_statement_bind_bytes<a class="anchor" href="#function-cass_statement_bind_bytes" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>size_t</code> index, <code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code> value, <code>size_t</code> value_size <big>)</big>
+</h3> <big>(</big>  statement,  index,  value,  value_size <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Binds a “blob” or “varint” to a query or bound statement at the specified index.</p>
@@ -1334,21 +1336,21 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code></td>
+<td></td>
 <td>
 <p>The value is copied into the statement object; the memory pointed to by this parameter can be freed after this call.</p>
 </td>
@@ -1357,7 +1359,7 @@
 <td>
 <small>in</small> <var>value_size</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1381,7 +1383,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_uuid" class="target">cass_statement_bind_uuid<a class="anchor" href="#function-cass_statement_bind_uuid" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>size_t</code> index, <code><a href="../struct.CassUuid/">CassUuid</a></code> value <big>)</big>
+</h3> <big>(</big>  statement,  index,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Binds a “uuid” or “timeuuid” to a query or bound statement at the specified index.</p>
@@ -1399,21 +1401,21 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../struct.CassUuid/">CassUuid</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1437,7 +1439,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_inet" class="target">cass_statement_bind_inet<a class="anchor" href="#function-cass_statement_bind_inet" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>size_t</code> index, <code><a href="../struct.CassInet/">CassInet</a></code> value <big>)</big>
+</h3> <big>(</big>  statement,  index,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Binds an “inet” to a query or bound statement at the specified index.</p>
@@ -1455,21 +1457,21 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../struct.CassInet/">CassInet</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1493,7 +1495,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_decimal" class="target">cass_statement_bind_decimal<a class="anchor" href="#function-cass_statement_bind_decimal" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>size_t</code> index, <code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code> varint, <code>size_t</code> varint_size, <code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a></code> scale <big>)</big>
+</h3> <big>(</big>  statement,  index,  varint,  varint_size,  scale <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Bind a “decimal” to a query or bound statement at the specified index.</p>
@@ -1511,21 +1513,21 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>varint</var>
 </td>
-<td><code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code></td>
+<td></td>
 <td>
 <p>The value is copied into the statement object; the memory pointed to by this parameter can be freed after this call.</p>
 </td>
@@ -1534,14 +1536,14 @@
 <td>
 <small>in</small> <var>varint_size</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>scale</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1565,7 +1567,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_custom" class="target">cass_statement_bind_custom<a class="anchor" href="#function-cass_statement_bind_custom" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>size_t</code> index, <code>size_t</code> size, <code><a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> **</code> output <big>)</big>
+</h3> <big>(</big>  statement,  index,  size,  output <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Binds any type to a query or bound statement at the specified index. A value can be copied into the resulting output buffer. This is normally reserved for large values to avoid extra memory copies.</p>
@@ -1583,28 +1585,28 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>size</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> **</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1628,7 +1630,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_collection" class="target">cass_statement_bind_collection<a class="anchor" href="#function-cass_statement_bind_collection" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>size_t</code> index, <code>const <a href="../struct.CassCollection/">CassCollection</a> *</code> collection <big>)</big>
+</h3> <big>(</big>  statement,  index,  collection <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Bind a “list”, “map”, or “set” to a query or bound statement at the specified index.</p>
@@ -1646,21 +1648,21 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>collection</var>
 </td>
-<td><code>const <a href="../struct.CassCollection/">CassCollection</a> *</code></td>
+<td></td>
 <td>
 <p>The collection can be freed after this call.</p>
 </td>
@@ -1686,7 +1688,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_null_by_name" class="target">cass_statement_bind_null_by_name<a class="anchor" href="#function-cass_statement_bind_null_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> name <big>)</big>
+</h3> <big>(</big>  statement,  name <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Binds a null to all the values with the specified name.</p>
@@ -1706,14 +1708,14 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1737,7 +1739,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_null_by_name_n" class="target">cass_statement_bind_null_by_name_n<a class="anchor" href="#function-cass_statement_bind_null_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> name, <code>size_t</code> name_length <big>)</big>
+</h3> <big>(</big>  statement,  name,  name_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_statement_bind_null_by_name">CassStatement::cass_statement_bind_null_by_name</a></code>, but with lengths for string parameters.</p>
@@ -1755,21 +1757,21 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1795,7 +1797,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_int32_by_name" class="target">cass_statement_bind_int32_by_name<a class="anchor" href="#function-cass_statement_bind_int32_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> name, <code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a></code> value <big>)</big>
+</h3> <big>(</big>  statement,  name,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Binds an “int” to all the values with the specified name.</p>
@@ -1815,21 +1817,21 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1853,7 +1855,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_int32_by_name_n" class="target">cass_statement_bind_int32_by_name_n<a class="anchor" href="#function-cass_statement_bind_int32_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> name, <code>size_t</code> name_length, <code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a></code> value <big>)</big>
+</h3> <big>(</big>  statement,  name,  name_length,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_statement_bind_int32_by_name">CassStatement::cass_statement_bind_int32_by_name</a></code>, but with lengths for string parameters.</p>
@@ -1871,28 +1873,28 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1918,7 +1920,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_int64_by_name" class="target">cass_statement_bind_int64_by_name<a class="anchor" href="#function-cass_statement_bind_int64_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> name, <code><a href="../cassandra.h/#type-cass_int64_t">cass_int64_t</a></code> value <big>)</big>
+</h3> <big>(</big>  statement,  name,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Binds a “bigint”, “counter” or “timestamp” to all values with the specified name.</p>
@@ -1938,21 +1940,21 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_int64_t">cass_int64_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1976,7 +1978,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_int64_by_name_n" class="target">cass_statement_bind_int64_by_name_n<a class="anchor" href="#function-cass_statement_bind_int64_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> name, <code>size_t</code> name_length, <code><a href="../cassandra.h/#type-cass_int64_t">cass_int64_t</a></code> value <big>)</big>
+</h3> <big>(</big>  statement,  name,  name_length,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_statement_bind_int64_by_name">CassStatement::cass_statement_bind_int64_by_name</a></code>, but with lengths for string parameters.</p>
@@ -1994,28 +1996,28 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_int64_t">cass_int64_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2041,7 +2043,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_float_by_name" class="target">cass_statement_bind_float_by_name<a class="anchor" href="#function-cass_statement_bind_float_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> name, <code><a href="../cassandra.h/#type-cass_float_t">cass_float_t</a></code> value <big>)</big>
+</h3> <big>(</big>  statement,  name,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Binds a “float” to all the values with the specified name.</p>
@@ -2061,21 +2063,21 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_float_t">cass_float_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2099,7 +2101,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_float_by_name_n" class="target">cass_statement_bind_float_by_name_n<a class="anchor" href="#function-cass_statement_bind_float_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> name, <code>size_t</code> name_length, <code><a href="../cassandra.h/#type-cass_float_t">cass_float_t</a></code> value <big>)</big>
+</h3> <big>(</big>  statement,  name,  name_length,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_statement_bind_float_by_name">CassStatement::cass_statement_bind_float_by_name</a></code>, but with lengths for string parameters.</p>
@@ -2117,28 +2119,28 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_float_t">cass_float_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2164,7 +2166,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_double_by_name" class="target">cass_statement_bind_double_by_name<a class="anchor" href="#function-cass_statement_bind_double_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> name, <code><a href="../cassandra.h/#type-cass_double_t">cass_double_t</a></code> value <big>)</big>
+</h3> <big>(</big>  statement,  name,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Binds a “double” to all the values with the specified name.</p>
@@ -2184,21 +2186,21 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_double_t">cass_double_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2222,7 +2224,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_double_by_name_n" class="target">cass_statement_bind_double_by_name_n<a class="anchor" href="#function-cass_statement_bind_double_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> name, <code>size_t</code> name_length, <code><a href="../cassandra.h/#type-cass_double_t">cass_double_t</a></code> value <big>)</big>
+</h3> <big>(</big>  statement,  name,  name_length,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_statement_bind_double_by_name">CassStatement::cass_statement_bind_double_by_name</a></code>, but with lengths for string parameters.</p>
@@ -2240,28 +2242,28 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_double_t">cass_double_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2287,7 +2289,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_bool_by_name" class="target">cass_statement_bind_bool_by_name<a class="anchor" href="#function-cass_statement_bind_bool_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> name, <code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code> value <big>)</big>
+</h3> <big>(</big>  statement,  name,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Binds a “boolean” to all the values with the specified name.</p>
@@ -2307,21 +2309,21 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2345,7 +2347,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_bool_by_name_n" class="target">cass_statement_bind_bool_by_name_n<a class="anchor" href="#function-cass_statement_bind_bool_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> name, <code>size_t</code> name_length, <code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code> value <big>)</big>
+</h3> <big>(</big>  statement,  name,  name_length,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_statement_bind_bool_by_name">CassStatement::cass_statement_bind_bool_by_name</a></code>, but with lengths for string parameters.</p>
@@ -2363,28 +2365,28 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2410,7 +2412,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_string_by_name" class="target">cass_statement_bind_string_by_name<a class="anchor" href="#function-cass_statement_bind_string_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> name, <code>const char *</code> value <big>)</big>
+</h3> <big>(</big>  statement,  name,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Binds a “ascii”, “text” or “varchar” to all the values with the specified name.</p>
@@ -2430,21 +2432,21 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td>
 <p>The value is copied into the statement object; the memory pointed to by this parameter can be freed after this call.</p>
 </td>
@@ -2470,7 +2472,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_string_by_name_n" class="target">cass_statement_bind_string_by_name_n<a class="anchor" href="#function-cass_statement_bind_string_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> name, <code>size_t</code> name_length, <code>const char *</code> value, <code>size_t</code> value_length <big>)</big>
+</h3> <big>(</big>  statement,  name,  name_length,  value,  value_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_statement_bind_string_by_name">CassStatement::cass_statement_bind_string_by_name</a></code>, but with lengths for string parameters.</p>
@@ -2488,35 +2490,35 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2542,7 +2544,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_bytes_by_name" class="target">cass_statement_bind_bytes_by_name<a class="anchor" href="#function-cass_statement_bind_bytes_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> name, <code><a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code> value, <code>size_t</code> value_size <big>)</big>
+</h3> <big>(</big>  statement,  name,  value,  value_size <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Binds a “blob” or “varint” to all the values with the specified name.</p>
@@ -2562,21 +2564,21 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code></td>
+<td></td>
 <td>
 <p>The value is copied into the statement object; the memory pointed to by this parameter can be freed after this call.</p>
 </td>
@@ -2585,7 +2587,7 @@
 <td>
 <small>in</small> <var>value_size</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2609,7 +2611,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_bytes_by_name_n" class="target">cass_statement_bind_bytes_by_name_n<a class="anchor" href="#function-cass_statement_bind_bytes_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> name, <code>size_t</code> name_length, <code><a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code> value, <code>size_t</code> value_size <big>)</big>
+</h3> <big>(</big>  statement,  name,  name_length,  value,  value_size <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_statement_bind_bytes_by_name">CassStatement::cass_statement_bind_bytes_by_name</a></code>, but with lengths for string parameters.</p>
@@ -2627,35 +2629,35 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value_size</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2681,7 +2683,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_uuid_by_name" class="target">cass_statement_bind_uuid_by_name<a class="anchor" href="#function-cass_statement_bind_uuid_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> name, <code><a href="../struct.CassUuid/">CassUuid</a></code> value <big>)</big>
+</h3> <big>(</big>  statement,  name,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Binds a “uuid” or “timeuuid” to all the values with the specified name.</p>
@@ -2701,21 +2703,21 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../struct.CassUuid/">CassUuid</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2739,7 +2741,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_uuid_by_name_n" class="target">cass_statement_bind_uuid_by_name_n<a class="anchor" href="#function-cass_statement_bind_uuid_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> name, <code>size_t</code> name_length, <code><a href="../struct.CassUuid/">CassUuid</a></code> value <big>)</big>
+</h3> <big>(</big>  statement,  name,  name_length,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_statement_bind_uuid_by_name">CassStatement::cass_statement_bind_uuid_by_name</a></code>, but with lengths for string parameters.</p>
@@ -2757,28 +2759,28 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../struct.CassUuid/">CassUuid</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2804,7 +2806,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_inet_by_name" class="target">cass_statement_bind_inet_by_name<a class="anchor" href="#function-cass_statement_bind_inet_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> name, <code><a href="../struct.CassInet/">CassInet</a></code> value <big>)</big>
+</h3> <big>(</big>  statement,  name,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Binds an “inet” to all the values with the specified name.</p>
@@ -2824,21 +2826,21 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../struct.CassInet/">CassInet</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2862,7 +2864,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_inet_by_name_n" class="target">cass_statement_bind_inet_by_name_n<a class="anchor" href="#function-cass_statement_bind_inet_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> name, <code>size_t</code> name_length, <code><a href="../struct.CassInet/">CassInet</a></code> value <big>)</big>
+</h3> <big>(</big>  statement,  name,  name_length,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_statement_bind_inet_by_name">CassStatement::cass_statement_bind_inet_by_name</a></code>, but with lengths for string parameters.</p>
@@ -2880,28 +2882,28 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../struct.CassInet/">CassInet</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2927,7 +2929,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_decimal_by_name" class="target">cass_statement_bind_decimal_by_name<a class="anchor" href="#function-cass_statement_bind_decimal_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> name, <code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code> varint, <code>size_t</code> varint_size, <code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a></code> scale <big>)</big>
+</h3> <big>(</big>  statement,  name,  varint,  varint_size,  scale <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Binds a “decimal” to all the values with the specified name.</p>
@@ -2947,21 +2949,21 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>varint</var>
 </td>
-<td><code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code></td>
+<td></td>
 <td>
 <p>The value is copied into the statement object; the memory pointed to by this parameter can be freed after this call.</p>
 </td>
@@ -2970,14 +2972,14 @@
 <td>
 <small>in</small> <var>varint_size</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>scale</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -3001,7 +3003,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_decimal_by_name_n" class="target">cass_statement_bind_decimal_by_name_n<a class="anchor" href="#function-cass_statement_bind_decimal_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> name, <code>size_t</code> name_length, <code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code> varint, <code>size_t</code> varint_size, <code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a></code> scale <big>)</big>
+</h3> <big>(</big>  statement,  name,  name_length,  varint,  varint_size,  scale <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_statement_bind_decimal_by_name">CassStatement::cass_statement_bind_decimal_by_name</a></code>, but with lengths for string parameters.</p>
@@ -3019,42 +3021,42 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>varint</var>
 </td>
-<td><code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>varint_size</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>scale</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -3080,7 +3082,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_custom_by_name" class="target">cass_statement_bind_custom_by_name<a class="anchor" href="#function-cass_statement_bind_custom_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> name, <code>size_t</code> size, <code><a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> **</code> output <big>)</big>
+</h3> <big>(</big>  statement,  name,  size,  output <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Binds any type to all the values with the specified name. A value can be copied into the resulting output buffer. This is normally reserved for large values to avoid extra memory copies.</p>
@@ -3100,28 +3102,28 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>size</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> **</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -3145,7 +3147,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_custom_by_name_n" class="target">cass_statement_bind_custom_by_name_n<a class="anchor" href="#function-cass_statement_bind_custom_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> name, <code>size_t</code> name_length, <code>size_t</code> size, <code><a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> **</code> output <big>)</big>
+</h3> <big>(</big>  statement,  name,  name_length,  size,  output <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_statement_bind_custom_by_name">CassStatement::cass_statement_bind_custom_by_name</a></code>, but with lengths for string parameters.</p>
@@ -3163,35 +3165,35 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>size</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>output</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> **</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -3217,7 +3219,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_collection_by_name" class="target">cass_statement_bind_collection_by_name<a class="anchor" href="#function-cass_statement_bind_collection_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> name, <code>const <a href="../struct.CassCollection/">CassCollection</a> *</code> collection <big>)</big>
+</h3> <big>(</big>  statement,  name,  collection <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Bind a “list”, “map”, or “set” to all the values with the specified name.</p>
@@ -3237,21 +3239,21 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>collection</var>
 </td>
-<td><code>const <a href="../struct.CassCollection/">CassCollection</a> *</code></td>
+<td></td>
 <td>
 <p>The collection can be freed after this call.</p>
 </td>
@@ -3277,7 +3279,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_statement_bind_collection_by_name_n" class="target">cass_statement_bind_collection_by_name_n<a class="anchor" href="#function-cass_statement_bind_collection_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassStatement</a> *</code> statement, <code>const char *</code> name, <code>size_t</code> name_length, <code>const <a href="../struct.CassCollection/">CassCollection</a> *</code> collection <big>)</big>
+</h3> <big>(</big>  statement,  name,  name_length,  collection <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_statement_bind_collection_by_name">CassStatement::cass_statement_bind_collection_by_name</a></code>, but with lengths for string parameters.</p>
@@ -3295,28 +3297,28 @@
 <td>
 <small>in</small> <var>statement</var>
 </td>
-<td><code><a href="./">CassStatement</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>collection</var>
 </td>
-<td><code>const <a href="../struct.CassCollection/">CassCollection</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>

@@ -46,7 +46,9 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li><a href="../../../api/struct.CassTableMeta/">2.5</a></li>
+                  <li><a href="../../../api/struct.CassTableMeta/">2.6</a></li>
+                
+                  <li><a href="../../../2.5/api/struct.CassTableMeta/">2.5</a></li>
                 
                   <li><a href="../../../2.4/api/struct.CassTableMeta/">2.4</a></li>
                 
@@ -475,7 +477,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_table_meta_name" class="target">cass_table_meta_name<a class="anchor" href="#function-cass_table_meta_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassTableMeta</a> *</code> table_meta, <code>const char **</code> name, <code>size_t *</code> name_length <big>)</big>
+</h3> <big>(</big>  table_meta,  name,  name_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the name of the table.</p>
@@ -493,21 +495,21 @@
 <td>
 <small>in</small> <var>table_meta</var>
 </td>
-<td><code>const <a href="./">CassTableMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>name</var>
 </td>
-<td><code>const char **</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>name_length</var>
 </td>
-<td><code>size_t *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -518,7 +520,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassColumnMeta/">CassColumnMeta</a> *</code> <h3 id="function-cass_table_meta_column_by_name" class="target">cass_table_meta_column_by_name<a class="anchor" href="#function-cass_table_meta_column_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassTableMeta</a> *</code> table_meta, <code>const char *</code> column <big>)</big>
+</h3> <big>(</big>  table_meta,  column <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the column metadata for the provided column name.</p>
@@ -536,14 +538,14 @@
 <td>
 <small>in</small> <var>table_meta</var>
 </td>
-<td><code>const <a href="./">CassTableMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>column</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -567,7 +569,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassColumnMeta/">CassColumnMeta</a> *</code> <h3 id="function-cass_table_meta_column_by_name_n" class="target">cass_table_meta_column_by_name_n<a class="anchor" href="#function-cass_table_meta_column_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassTableMeta</a> *</code> table_meta, <code>const char *</code> column, <code>size_t</code> column_length <big>)</big>
+</h3> <big>(</big>  table_meta,  column,  column_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_table_meta_column_by_name">CassTableMeta::cass_table_meta_column_by_name</a></code>, but with lengths for string parameters.</p>
@@ -585,21 +587,21 @@
 <td>
 <small>in</small> <var>table_meta</var>
 </td>
-<td><code>const <a href="./">CassTableMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>column</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>column_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -625,7 +627,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>size_t</code> <h3 id="function-cass_table_meta_column_count" class="target">cass_table_meta_column_count<a class="anchor" href="#function-cass_table_meta_column_count" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassTableMeta</a> *</code> table_meta <big>)</big>
+</h3> <big>(</big>  table_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the total number of columns for the table.</p>
@@ -642,7 +644,7 @@
 <td>
 <small>in</small> <var>table_meta</var>
 </td>
-<td><code>const <a href="./">CassTableMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -665,7 +667,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassColumnMeta/">CassColumnMeta</a> *</code> <h3 id="function-cass_table_meta_column" class="target">cass_table_meta_column<a class="anchor" href="#function-cass_table_meta_column" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassTableMeta</a> *</code> table_meta, <code>size_t</code> index <big>)</big>
+</h3> <big>(</big>  table_meta,  index <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the column metadata for the provided index.</p>
@@ -683,14 +685,14 @@
 <td>
 <small>in</small> <var>table_meta</var>
 </td>
-<td><code>const <a href="./">CassTableMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -714,7 +716,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassIndexMeta/">CassIndexMeta</a> *</code> <h3 id="function-cass_table_meta_index_by_name" class="target">cass_table_meta_index_by_name<a class="anchor" href="#function-cass_table_meta_index_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassTableMeta</a> *</code> table_meta, <code>const char *</code> index <big>)</big>
+</h3> <big>(</big>  table_meta,  index <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the index metadata for the provided index name.</p>
@@ -732,14 +734,14 @@
 <td>
 <small>in</small> <var>table_meta</var>
 </td>
-<td><code>const <a href="./">CassTableMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -763,7 +765,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassIndexMeta/">CassIndexMeta</a> *</code> <h3 id="function-cass_table_meta_index_by_name_n" class="target">cass_table_meta_index_by_name_n<a class="anchor" href="#function-cass_table_meta_index_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassTableMeta</a> *</code> table_meta, <code>const char *</code> index, <code>size_t</code> index_length <big>)</big>
+</h3> <big>(</big>  table_meta,  index,  index_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_table_meta_index_by_name">CassTableMeta::cass_table_meta_index_by_name</a></code>, but with lengths for string parameters.</p>
@@ -781,21 +783,21 @@
 <td>
 <small>in</small> <var>table_meta</var>
 </td>
-<td><code>const <a href="./">CassTableMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -821,7 +823,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>size_t</code> <h3 id="function-cass_table_meta_index_count" class="target">cass_table_meta_index_count<a class="anchor" href="#function-cass_table_meta_index_count" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassTableMeta</a> *</code> table_meta <big>)</big>
+</h3> <big>(</big>  table_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the total number of indexes for the table.</p>
@@ -838,7 +840,7 @@
 <td>
 <small>in</small> <var>table_meta</var>
 </td>
-<td><code>const <a href="./">CassTableMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -861,7 +863,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassIndexMeta/">CassIndexMeta</a> *</code> <h3 id="function-cass_table_meta_index" class="target">cass_table_meta_index<a class="anchor" href="#function-cass_table_meta_index" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassTableMeta</a> *</code> table_meta, <code>size_t</code> index <big>)</big>
+</h3> <big>(</big>  table_meta,  index <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the index metadata for the provided index.</p>
@@ -879,14 +881,14 @@
 <td>
 <small>in</small> <var>table_meta</var>
 </td>
-<td><code>const <a href="./">CassTableMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -910,7 +912,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassMaterializedViewMeta/">CassMaterializedViewMeta</a> *</code> <h3 id="function-cass_table_meta_materialized_view_by_name" class="target">cass_table_meta_materialized_view_by_name<a class="anchor" href="#function-cass_table_meta_materialized_view_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassTableMeta</a> *</code> table_meta, <code>const char *</code> view <big>)</big>
+</h3> <big>(</big>  table_meta,  view <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the materialized view metadata for the provided view name.</p>
@@ -930,14 +932,14 @@
 <td>
 <small>in</small> <var>table_meta</var>
 </td>
-<td><code>const <a href="./">CassTableMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>view</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -961,7 +963,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassMaterializedViewMeta/">CassMaterializedViewMeta</a> *</code> <h3 id="function-cass_table_meta_materialized_view_by_name_n" class="target">cass_table_meta_materialized_view_by_name_n<a class="anchor" href="#function-cass_table_meta_materialized_view_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassTableMeta</a> *</code> table_meta, <code>const char *</code> view, <code>size_t</code> view_length <big>)</big>
+</h3> <big>(</big>  table_meta,  view,  view_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_table_meta_materialized_view_by_name">CassTableMeta::cass_table_meta_materialized_view_by_name</a></code>, but with lengths for string parameters.</p>
@@ -981,21 +983,21 @@
 <td>
 <small>in</small> <var>table_meta</var>
 </td>
-<td><code>const <a href="./">CassTableMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>view</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>view_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1021,7 +1023,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>size_t</code> <h3 id="function-cass_table_meta_materialized_view_count" class="target">cass_table_meta_materialized_view_count<a class="anchor" href="#function-cass_table_meta_materialized_view_count" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassTableMeta</a> *</code> table_meta <big>)</big>
+</h3> <big>(</big>  table_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the total number of views for the table.</p>
@@ -1040,7 +1042,7 @@
 <td>
 <small>in</small> <var>table_meta</var>
 </td>
-<td><code>const <a href="./">CassTableMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -1063,7 +1065,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassMaterializedViewMeta/">CassMaterializedViewMeta</a> *</code> <h3 id="function-cass_table_meta_materialized_view" class="target">cass_table_meta_materialized_view<a class="anchor" href="#function-cass_table_meta_materialized_view" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassTableMeta</a> *</code> table_meta, <code>size_t</code> index <big>)</big>
+</h3> <big>(</big>  table_meta,  index <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the materialized view metadata for the provided index.</p>
@@ -1083,14 +1085,14 @@
 <td>
 <small>in</small> <var>table_meta</var>
 </td>
-<td><code>const <a href="./">CassTableMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1114,7 +1116,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>size_t</code> <h3 id="function-cass_table_meta_partition_key_count" class="target">cass_table_meta_partition_key_count<a class="anchor" href="#function-cass_table_meta_partition_key_count" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassTableMeta</a> *</code> table_meta <big>)</big>
+</h3> <big>(</big>  table_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the number of columns for the table’s partition key.</p>
@@ -1131,7 +1133,7 @@
 <td>
 <small>in</small> <var>table_meta</var>
 </td>
-<td><code>const <a href="./">CassTableMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -1154,7 +1156,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassColumnMeta/">CassColumnMeta</a> *</code> <h3 id="function-cass_table_meta_partition_key" class="target">cass_table_meta_partition_key<a class="anchor" href="#function-cass_table_meta_partition_key" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassTableMeta</a> *</code> table_meta, <code>size_t</code> index <big>)</big>
+</h3> <big>(</big>  table_meta,  index <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the partition key column metadata for the provided index.</p>
@@ -1172,14 +1174,14 @@
 <td>
 <small>in</small> <var>table_meta</var>
 </td>
-<td><code>const <a href="./">CassTableMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1205,7 +1207,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>size_t</code> <h3 id="function-cass_table_meta_clustering_key_count" class="target">cass_table_meta_clustering_key_count<a class="anchor" href="#function-cass_table_meta_clustering_key_count" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassTableMeta</a> *</code> table_meta <big>)</big>
+</h3> <big>(</big>  table_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the number of columns for the table’s clustering key.</p>
@@ -1222,7 +1224,7 @@
 <td>
 <small>in</small> <var>table_meta</var>
 </td>
-<td><code>const <a href="./">CassTableMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -1245,7 +1247,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassColumnMeta/">CassColumnMeta</a> *</code> <h3 id="function-cass_table_meta_clustering_key" class="target">cass_table_meta_clustering_key<a class="anchor" href="#function-cass_table_meta_clustering_key" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassTableMeta</a> *</code> table_meta, <code>size_t</code> index <big>)</big>
+</h3> <big>(</big>  table_meta,  index <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the clustering key column metadata for the provided index.</p>
@@ -1263,14 +1265,14 @@
 <td>
 <small>in</small> <var>table_meta</var>
 </td>
-<td><code>const <a href="./">CassTableMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1296,7 +1298,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassClusteringOrder">CassClusteringOrder</a></code> <h3 id="function-cass_table_meta_clustering_key_order" class="target">cass_table_meta_clustering_key_order<a class="anchor" href="#function-cass_table_meta_clustering_key_order" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassTableMeta</a> *</code> table_meta, <code>size_t</code> index <big>)</big>
+</h3> <big>(</big>  table_meta,  index <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the clustering order column metadata for the provided index.</p>
@@ -1314,14 +1316,14 @@
 <td>
 <small>in</small> <var>table_meta</var>
 </td>
-<td><code>const <a href="./">CassTableMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1347,7 +1349,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassValue/">CassValue</a> *</code> <h3 id="function-cass_table_meta_field_by_name" class="target">cass_table_meta_field_by_name<a class="anchor" href="#function-cass_table_meta_field_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassTableMeta</a> *</code> table_meta, <code>const char *</code> name <big>)</big>
+</h3> <big>(</big>  table_meta,  name <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets a metadata field for the provided name. Metadata fields allow direct access to the column data found in the underlying “tables” metadata table.</p>
@@ -1365,14 +1367,14 @@
 <td>
 <small>in</small> <var>table_meta</var>
 </td>
-<td><code>const <a href="./">CassTableMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1396,7 +1398,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassValue/">CassValue</a> *</code> <h3 id="function-cass_table_meta_field_by_name_n" class="target">cass_table_meta_field_by_name_n<a class="anchor" href="#function-cass_table_meta_field_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassTableMeta</a> *</code> table_meta, <code>const char *</code> name, <code>size_t</code> name_length <big>)</big>
+</h3> <big>(</big>  table_meta,  name,  name_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_table_meta_field_by_name">CassTableMeta::cass_table_meta_field_by_name</a></code>, but with lengths for string parameters.</p>
@@ -1414,21 +1416,21 @@
 <td>
 <small>in</small> <var>table_meta</var>
 </td>
-<td><code>const <a href="./">CassTableMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1454,7 +1456,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_columns_from_table_meta" class="target">cass_iterator_columns_from_table_meta<a class="anchor" href="#function-cass_iterator_columns_from_table_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassTableMeta</a> *</code> table_meta <big>)</big>
+</h3> <big>(</big>  table_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new iterator for the specified table metadata. This can be used to iterate over columns.</p>
@@ -1471,7 +1473,7 @@
 <td>
 <small>in</small> <var>table_meta</var>
 </td>
-<td><code>const <a href="./">CassTableMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -1499,7 +1501,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_indexes_from_table_meta" class="target">cass_iterator_indexes_from_table_meta<a class="anchor" href="#function-cass_iterator_indexes_from_table_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassTableMeta</a> *</code> table_meta <big>)</big>
+</h3> <big>(</big>  table_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new iterator for the specified table metadata. This can be used to iterate over indexes.</p>
@@ -1516,7 +1518,7 @@
 <td>
 <small>in</small> <var>table_meta</var>
 </td>
-<td><code>const <a href="./">CassTableMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -1544,7 +1546,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_materialized_views_from_table_meta" class="target">cass_iterator_materialized_views_from_table_meta<a class="anchor" href="#function-cass_iterator_materialized_views_from_table_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassTableMeta</a> *</code> table_meta <big>)</big>
+</h3> <big>(</big>  table_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new iterator for the specified materialized view metadata. This can be used to iterate over columns.</p>
@@ -1563,7 +1565,7 @@
 <td>
 <small>in</small> <var>table_meta</var>
 </td>
-<td><code>const <a href="./">CassTableMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -1591,7 +1593,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../struct.CassIterator/">CassIterator</a> *</code> <h3 id="function-cass_iterator_fields_from_table_meta" class="target">cass_iterator_fields_from_table_meta<a class="anchor" href="#function-cass_iterator_fields_from_table_meta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="./">CassTableMeta</a> *</code> table_meta <big>)</big>
+</h3> <big>(</big>  table_meta <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new fields iterator for the specified table metadata. Metadata fields allow direct access to the column data found in the underlying “tables” metadata table. This can be used to iterate those metadata field entries.</p>
@@ -1608,7 +1610,7 @@
 <td>
 <small>in</small> <var>table_meta</var>
 </td>
-<td><code>const <a href="./">CassTableMeta</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>

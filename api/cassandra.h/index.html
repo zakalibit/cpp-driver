@@ -41,12 +41,14 @@
               <span class="text-warning">Attention:</span> Viewing documentation for version
               <div class="btn-group">
                 <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  2.5
+                  2.6
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li class="disabled"><a href="./">2.5</a></li>
+                  <li class="disabled"><a href="./">2.6</a></li>
+                
+                  <li><a href="../../2.5/api/cassandra.h/">2.5</a></li>
                 
                   <li><a href="../../2.4/api/cassandra.h/">2.4</a></li>
                 
@@ -68,7 +70,7 @@
           <div class="col-md-4">
             <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
               <div class="form-group has-feedback">
-                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.5')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.6')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
               </div>
               <ul class="dropdown-menu search-results" role="menu">
                 <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
@@ -483,7 +485,7 @@
 </h1>
 </div>
 
-<p>C/C++ driver for Apache Cassandra. Uses the Cassandra Query Language versions 3 over the Cassandra Binary Protocol (versions 1 or 2).</p>
+<p>C/C++ driver for Apache Cassandra. Uses the Cassandra Query Language versions 3 over the Cassandra Binary Protocol (versions 1, 2, or 3).</p>
 
 
 <h2 id="macros" class="target">Macros<a class="anchor" href="#macros" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
@@ -505,7 +507,7 @@
     <div class="panel-heading macro-heading">
       <h3 id="macro-CASS_VERSION_MINOR" class="target">CASS_VERSION_MINOR<a class="anchor" href="#macro-CASS_VERSION_MINOR" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h3>
-<big>=</big> <code>5</code>
+<big>=</big> <code>6</code>
     </div>
     <div class="panel-body macro-body">
       
@@ -595,7 +597,7 @@
   </div>
   <div class="panel panel-default member-definition">
     <div class="panel-heading macro-heading">
-      <h3 id="macro-CASS_CONSISTENCY_MAP" class="target">CASS_CONSISTENCY_MAP<a class="anchor" href="#macro-CASS_CONSISTENCY_MAP" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+      <h3 id="macro-CASS_CONSISTENCY_MAPPING" class="target">CASS_CONSISTENCY_MAPPING<a class="anchor" href="#macro-CASS_CONSISTENCY_MAPPING" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h3>
 <big>=</big> <code>XX(CASS_CONSISTENCY_UNKNOWN, "UNKNOWN") \
   XX(CASS_CONSISTENCY_ANY, "ANY") \
@@ -617,7 +619,7 @@
   </div>
   <div class="panel panel-default member-definition">
     <div class="panel-heading macro-heading">
-      <h3 id="macro-CASS_WRITE_TYPE_MAP" class="target">CASS_WRITE_TYPE_MAP<a class="anchor" href="#macro-CASS_WRITE_TYPE_MAP" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+      <h3 id="macro-CASS_WRITE_TYPE_MAPPING" class="target">CASS_WRITE_TYPE_MAPPING<a class="anchor" href="#macro-CASS_WRITE_TYPE_MAPPING" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h3>
 <big>=</big> <code>XX(CASS_WRITE_TYPE_SIMPLE, "SIMPLE") \
   XX(CASS_WRITE_TYPE_BATCH, "BATCH") \
@@ -625,6 +627,71 @@
   XX(CASS_WRITE_TYPE_COUNTER, "COUNTER") \
   XX(CASS_WRITE_TYPE_BATCH_LOG, "BATCH_LOG") \
   XX(CASS_WRITE_TYPE_CAS, "CAS")</code>
+    </div>
+    <div class="panel-body macro-body">
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading macro-heading">
+      <h3 id="macro-CASS_VALUE_TYPE_MAPPING" class="target">CASS_VALUE_TYPE_MAPPING<a class="anchor" href="#macro-CASS_VALUE_TYPE_MAPPING" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+<big>=</big> <code>XX(CASS_VALUE_TYPE_CUSTOM,  0x0000, "", "") \
+  XX(CASS_VALUE_TYPE_ASCII,  0x0001, "ascii", "org.apache.cassandra.db.marshal.AsciiType") \
+  XX(CASS_VALUE_TYPE_BIGINT,  0x0002, "bigint", "org.apache.cassandra.db.marshal.LongType") \
+  XX(CASS_VALUE_TYPE_BLOB,  0x0003, "blob", "org.apache.cassandra.db.marshal.BytesType") \
+  XX(CASS_VALUE_TYPE_BOOLEAN,  0x0004, "boolean", "org.apache.cassandra.db.marshal.BooleanType") \
+  XX(CASS_VALUE_TYPE_COUNTER,  0x0005, "counter", "org.apache.cassandra.db.marshal.CounterColumnType") \
+  XX(CASS_VALUE_TYPE_DECIMAL,  0x0006, "decimal", "org.apache.cassandra.db.marshal.DecimalType") \
+  XX(CASS_VALUE_TYPE_DOUBLE,  0x0007, "double", "org.apache.cassandra.db.marshal.DoubleType") \
+  XX(CASS_VALUE_TYPE_FLOAT,  0x0008, "float", "org.apache.cassandra.db.marshal.FloatType") \
+  XX(CASS_VALUE_TYPE_INT,  0x0009, "int", "org.apache.cassandra.db.marshal.Int32Type") \
+  XX(CASS_VALUE_TYPE_TEXT,  0x000A, "text", "org.apache.cassandra.db.marshal.UTF8Type") \
+  XX(CASS_VALUE_TYPE_TIMESTAMP,  0x000B, "timestamp", "org.apache.cassandra.db.marshal.TimestampType") \
+  XX(CASS_VALUE_TYPE_UUID,  0x000C, "uuid", "org.apache.cassandra.db.marshal.UUIDType") \
+  XX(CASS_VALUE_TYPE_VARCHAR,  0x000D, "varchar", "") \
+  XX(CASS_VALUE_TYPE_VARINT,  0x000E, "varint", "org.apache.cassandra.db.marshal.IntegerType") \
+  XX(CASS_VALUE_TYPE_TIMEUUID,  0x000F, "timeuuid", "org.apache.cassandra.db.marshal.TimeUUIDType") \
+  XX(CASS_VALUE_TYPE_INET,  0x0010, "inet", "org.apache.cassandra.db.marshal.InetAddressType") \
+  XX(CASS_VALUE_TYPE_DATE,  0x0011, "date", "org.apache.cassandra.db.marshal.SimpleDateType") \
+  XX(CASS_VALUE_TYPE_TIME,  0x0012, "time", "org.apache.cassandra.db.marshal.TimeType") \
+  XX(CASS_VALUE_TYPE_SMALL_INT,  0x0013, "smallint", "org.apache.cassandra.db.marshal.ShortType") \
+  XX(CASS_VALUE_TYPE_TINY_INT,  0x0014, "tinyint", "org.apache.cassandra.db.marshal.ByteType") \
+  XX(CASS_VALUE_TYPE_DURATION,  0x0015, "duration", "org.apache.cassandra.db.marshal.DurationType") \
+  XX(CASS_VALUE_TYPE_LIST,  0x0020, "list", "org.apache.cassandra.db.marshal.ListType") \
+  XX(CASS_VALUE_TYPE_MAP,  0x0021, "map", "org.apache.cassandra.db.marshal.MapType") \
+  XX(CASS_VALUE_TYPE_SET,  0x0022, "set", "org.apache.cassandra.db.marshal.SetType") \
+  XX(CASS_VALUE_TYPE_UDT,  0x0030, "", "") \
+  XX(CASS_VALUE_TYPE_TUPLE,  0x0031, "tuple", "org.apache.cassandra.db.marshal.TupleType")</code>
+    </div>
+    <div class="panel-body macro-body">
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading macro-heading">
+      <h3 id="macro-CASS_LOG_LEVEL_MAPPING" class="target">CASS_LOG_LEVEL_MAPPING<a class="anchor" href="#macro-CASS_LOG_LEVEL_MAPPING" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+<big>=</big> <code>XX(CASS_LOG_DISABLED, "") \
+  XX(CASS_LOG_CRITICAL, "CRITICAL") \
+  XX(CASS_LOG_ERROR, "ERROR") \
+  XX(CASS_LOG_WARN, "WARN") \
+  XX(CASS_LOG_INFO, "INFO") \
+  XX(CASS_LOG_DEBUG, "DEBUG") \
+  XX(CASS_LOG_TRACE, "TRACE")</code>
+    </div>
+    <div class="panel-body macro-body">
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading macro-heading">
+      <h3 id="macro-CASS_ERROR_MAPPING" class="target">CASS_ERROR_MAPPING<a class="anchor" href="#macro-CASS_ERROR_MAPPING" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+<big>=</big> <code></code>
     </div>
     <div class="panel-body macro-body">
       
@@ -677,7 +744,7 @@
 </h3>
     </div>
     <div class="panel-body type-body">
-      <pre>typedef char cass_int8_t</pre>
+      <pre>typedef signed char cass_int8_t</pre>
       
       
     </div>
@@ -1373,107 +1440,111 @@
 </dt>
         
         <dt>
-<code>CASS_VALUE_TYPE_CUSTOM</code> <big>=</big> <var>0x0000</var>
+<code>CASS_VALUE_TYPE_CUSTOM</code> <big>=</big> <var> 0x0000</var>
 </dt>
         
         <dt>
-<code>CASS_VALUE_TYPE_ASCII</code> <big>=</big> <var>0x0001</var>
+<code>CASS_VALUE_TYPE_ASCII</code> <big>=</big> <var> 0x0001</var>
 </dt>
         
         <dt>
-<code>CASS_VALUE_TYPE_BIGINT</code> <big>=</big> <var>0x0002</var>
+<code>CASS_VALUE_TYPE_BIGINT</code> <big>=</big> <var> 0x0002</var>
 </dt>
         
         <dt>
-<code>CASS_VALUE_TYPE_BLOB</code> <big>=</big> <var>0x0003</var>
+<code>CASS_VALUE_TYPE_BLOB</code> <big>=</big> <var> 0x0003</var>
 </dt>
         
         <dt>
-<code>CASS_VALUE_TYPE_BOOLEAN</code> <big>=</big> <var>0x0004</var>
+<code>CASS_VALUE_TYPE_BOOLEAN</code> <big>=</big> <var> 0x0004</var>
 </dt>
         
         <dt>
-<code>CASS_VALUE_TYPE_COUNTER</code> <big>=</big> <var>0x0005</var>
+<code>CASS_VALUE_TYPE_COUNTER</code> <big>=</big> <var> 0x0005</var>
 </dt>
         
         <dt>
-<code>CASS_VALUE_TYPE_DECIMAL</code> <big>=</big> <var>0x0006</var>
+<code>CASS_VALUE_TYPE_DECIMAL</code> <big>=</big> <var> 0x0006</var>
 </dt>
         
         <dt>
-<code>CASS_VALUE_TYPE_DOUBLE</code> <big>=</big> <var>0x0007</var>
+<code>CASS_VALUE_TYPE_DOUBLE</code> <big>=</big> <var> 0x0007</var>
 </dt>
         
         <dt>
-<code>CASS_VALUE_TYPE_FLOAT</code> <big>=</big> <var>0x0008</var>
+<code>CASS_VALUE_TYPE_FLOAT</code> <big>=</big> <var> 0x0008</var>
 </dt>
         
         <dt>
-<code>CASS_VALUE_TYPE_INT</code> <big>=</big> <var>0x0009</var>
+<code>CASS_VALUE_TYPE_INT</code> <big>=</big> <var> 0x0009</var>
 </dt>
         
         <dt>
-<code>CASS_VALUE_TYPE_TEXT</code> <big>=</big> <var>0x000A</var>
+<code>CASS_VALUE_TYPE_TEXT</code> <big>=</big> <var> 0x000A</var>
 </dt>
         
         <dt>
-<code>CASS_VALUE_TYPE_TIMESTAMP</code> <big>=</big> <var>0x000B</var>
+<code>CASS_VALUE_TYPE_TIMESTAMP</code> <big>=</big> <var> 0x000B</var>
 </dt>
         
         <dt>
-<code>CASS_VALUE_TYPE_UUID</code> <big>=</big> <var>0x000C</var>
+<code>CASS_VALUE_TYPE_UUID</code> <big>=</big> <var> 0x000C</var>
 </dt>
         
         <dt>
-<code>CASS_VALUE_TYPE_VARCHAR</code> <big>=</big> <var>0x000D</var>
+<code>CASS_VALUE_TYPE_VARCHAR</code> <big>=</big> <var> 0x000D</var>
 </dt>
         
         <dt>
-<code>CASS_VALUE_TYPE_VARINT</code> <big>=</big> <var>0x000E</var>
+<code>CASS_VALUE_TYPE_VARINT</code> <big>=</big> <var> 0x000E</var>
 </dt>
         
         <dt>
-<code>CASS_VALUE_TYPE_TIMEUUID</code> <big>=</big> <var>0x000F</var>
+<code>CASS_VALUE_TYPE_TIMEUUID</code> <big>=</big> <var> 0x000F</var>
 </dt>
         
         <dt>
-<code>CASS_VALUE_TYPE_INET</code> <big>=</big> <var>0x0010</var>
+<code>CASS_VALUE_TYPE_INET</code> <big>=</big> <var> 0x0010</var>
 </dt>
         
         <dt>
-<code>CASS_VALUE_TYPE_DATE</code> <big>=</big> <var>0x0011</var>
+<code>CASS_VALUE_TYPE_DATE</code> <big>=</big> <var> 0x0011</var>
 </dt>
         
         <dt>
-<code>CASS_VALUE_TYPE_TIME</code> <big>=</big> <var>0x0012</var>
+<code>CASS_VALUE_TYPE_TIME</code> <big>=</big> <var> 0x0012</var>
 </dt>
         
         <dt>
-<code>CASS_VALUE_TYPE_SMALL_INT</code> <big>=</big> <var>0x0013</var>
+<code>CASS_VALUE_TYPE_SMALL_INT</code> <big>=</big> <var> 0x0013</var>
 </dt>
         
         <dt>
-<code>CASS_VALUE_TYPE_TINY_INT</code> <big>=</big> <var>0x0014</var>
+<code>CASS_VALUE_TYPE_TINY_INT</code> <big>=</big> <var> 0x0014</var>
 </dt>
         
         <dt>
-<code>CASS_VALUE_TYPE_LIST</code> <big>=</big> <var>0x0020</var>
+<code>CASS_VALUE_TYPE_DURATION</code> <big>=</big> <var> 0x0015</var>
 </dt>
         
         <dt>
-<code>CASS_VALUE_TYPE_MAP</code> <big>=</big> <var>0x0021</var>
+<code>CASS_VALUE_TYPE_LIST</code> <big>=</big> <var> 0x0020</var>
 </dt>
         
         <dt>
-<code>CASS_VALUE_TYPE_SET</code> <big>=</big> <var>0x0022</var>
+<code>CASS_VALUE_TYPE_MAP</code> <big>=</big> <var> 0x0021</var>
 </dt>
         
         <dt>
-<code>CASS_VALUE_TYPE_UDT</code> <big>=</big> <var>0x0030</var>
+<code>CASS_VALUE_TYPE_SET</code> <big>=</big> <var> 0x0022</var>
 </dt>
         
         <dt>
-<code>CASS_VALUE_TYPE_TUPLE</code> <big>=</big> <var>0x0031</var>
+<code>CASS_VALUE_TYPE_UDT</code> <big>=</big> <var> 0x0030</var>
+</dt>
+        
+        <dt>
+<code>CASS_VALUE_TYPE_TUPLE</code> <big>=</big> <var> 0x0031</var>
 </dt>
         
       </dl>
@@ -1927,7 +1998,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="#enum-CassValueType">CassValueType</a></code> <h3 id="function-cass_data_type_type" class="target">cass_data_type_type<a class="anchor" href="#function-cass_data_type_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> data_type <big>)</big>
+</h3> <big>(</big>  data_type <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the value type of the specified data type.</p>
@@ -1944,7 +2015,7 @@
 <td>
 <small>in</small> <var>data_type</var>
 </td>
-<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -1967,7 +2038,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="#enum-cass_bool_t">cass_bool_t</a></code> <h3 id="function-cass_data_type_is_frozen" class="target">cass_data_type_is_frozen<a class="anchor" href="#function-cass_data_type_is_frozen" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> data_type <big>)</big>
+</h3> <big>(</big>  data_type <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets whether a data type is frozen.</p>
@@ -1986,7 +2057,7 @@
 <td>
 <small>in</small> <var>data_type</var>
 </td>
-<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -2009,7 +2080,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="#enum-CassError">CassError</a></code> <h3 id="function-cass_data_type_type_name" class="target">cass_data_type_type_name<a class="anchor" href="#function-cass_data_type_type_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>const char **</code> type_name, <code>size_t *</code> type_name_length <big>)</big>
+</h3> <big>(</big>  data_type,  type_name,  type_name_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the type name of a UDT data type.</p>
@@ -2029,21 +2100,21 @@
 <td>
 <small>in</small> <var>data_type</var>
 </td>
-<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>type_name</var>
 </td>
-<td><code>const char **</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>type_name_length</var>
 </td>
-<td><code>size_t *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2067,7 +2138,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="#enum-CassError">CassError</a></code> <h3 id="function-cass_data_type_set_type_name" class="target">cass_data_type_set_type_name<a class="anchor" href="#function-cass_data_type_set_type_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>const char *</code> type_name <big>)</big>
+</h3> <big>(</big>  data_type,  type_name <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the type name of a UDT data type.</p>
@@ -2087,14 +2158,14 @@
 <td>
 <small>in</small> <var>data_type</var>
 </td>
-<td><code><a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>type_name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2118,7 +2189,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="#enum-CassError">CassError</a></code> <h3 id="function-cass_data_type_keyspace" class="target">cass_data_type_keyspace<a class="anchor" href="#function-cass_data_type_keyspace" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>const char **</code> keyspace, <code>size_t *</code> keyspace_length <big>)</big>
+</h3> <big>(</big>  data_type,  keyspace,  keyspace_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the type name of a UDT data type.</p>
@@ -2140,21 +2211,21 @@
 <td>
 <small>in</small> <var>data_type</var>
 </td>
-<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>keyspace</var>
 </td>
-<td><code>const char **</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>keyspace_length</var>
 </td>
-<td><code>size_t *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2178,7 +2249,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="#enum-CassError">CassError</a></code> <h3 id="function-cass_data_type_set_keyspace" class="target">cass_data_type_set_keyspace<a class="anchor" href="#function-cass_data_type_set_keyspace" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>const char *</code> keyspace <big>)</big>
+</h3> <big>(</big>  data_type,  keyspace <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the keyspace of a UDT data type.</p>
@@ -2200,14 +2271,14 @@
 <td>
 <small>in</small> <var>data_type</var>
 </td>
-<td><code><a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>keyspace</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2231,7 +2302,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="#enum-CassError">CassError</a></code> <h3 id="function-cass_data_type_class_name" class="target">cass_data_type_class_name<a class="anchor" href="#function-cass_data_type_class_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>const char **</code> class_name, <code>size_t *</code> class_name_length <big>)</big>
+</h3> <big>(</big>  data_type,  class_name,  class_name_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the class name of a custom data type.</p>
@@ -2251,21 +2322,21 @@
 <td>
 <small>in</small> <var>data_type</var>
 </td>
-<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>class_name</var>
 </td>
-<td><code>const char **</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>class_name_length</var>
 </td>
-<td><code>size_t *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2289,7 +2360,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="#enum-CassError">CassError</a></code> <h3 id="function-cass_data_type_set_class_name" class="target">cass_data_type_set_class_name<a class="anchor" href="#function-cass_data_type_set_class_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>const char *</code> class_name <big>)</big>
+</h3> <big>(</big>  data_type,  class_name <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the class name of a custom data type.</p>
@@ -2309,14 +2380,14 @@
 <td>
 <small>in</small> <var>data_type</var>
 </td>
-<td><code><a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>class_name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2340,7 +2411,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>size_t</code> <h3 id="function-cass_data_type_sub_type_count" class="target">cass_data_type_sub_type_count<a class="anchor" href="#function-cass_data_type_sub_type_count" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> data_type <big>)</big>
+</h3> <big>(</big>  data_type <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the sub-data type count of a UDT (user defined type), tuple or collection.</p>
@@ -2359,7 +2430,7 @@
 <td>
 <small>in</small> <var>data_type</var>
 </td>
-<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -2382,7 +2453,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>size_t</code> <h3 id="function-cass_data_sub_type_count" class="target">cass_data_sub_type_count<a class="anchor" href="#function-cass_data_sub_type_count" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> data_type <big>)</big>
+</h3> <big>(</big>  data_type <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p><strong>Deprecated</strong>:</p>
@@ -2399,7 +2470,7 @@
 </tr></thead>
 <tbody><tr>
 <td><var>data_type</var></td>
-<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -2409,7 +2480,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> <h3 id="function-cass_data_type_sub_data_type" class="target">cass_data_type_sub_data_type<a class="anchor" href="#function-cass_data_type_sub_data_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>size_t</code> index <big>)</big>
+</h3> <big>(</big>  data_type,  index <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the sub-data type count of a UDT (user defined type), tuple or collection.</p>
@@ -2431,14 +2502,14 @@
 <td>
 <small>in</small> <var>data_type</var>
 </td>
-<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2470,7 +2541,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> <h3 id="function-cass_data_type_sub_data_type_by_name" class="target">cass_data_type_sub_data_type_by_name<a class="anchor" href="#function-cass_data_type_sub_data_type_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>const char *</code> name <big>)</big>
+</h3> <big>(</big>  data_type,  name <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the sub-data type of a UDT (user defined type) at the specified index.</p>
@@ -2492,14 +2563,14 @@
 <td>
 <small>in</small> <var>data_type</var>
 </td>
-<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2523,7 +2594,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="#enum-CassError">CassError</a></code> <h3 id="function-cass_data_type_sub_type_name" class="target">cass_data_type_sub_type_name<a class="anchor" href="#function-cass_data_type_sub_type_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>size_t</code> index, <code>const char **</code> name, <code>size_t *</code> name_length <big>)</big>
+</h3> <big>(</big>  data_type,  index,  name,  name_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the sub-type name of a UDT (user defined type) at the specified index.</p>
@@ -2545,28 +2616,28 @@
 <td>
 <small>in</small> <var>data_type</var>
 </td>
-<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>name</var>
 </td>
-<td><code>const char **</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>out</small> <var>name_length</var>
 </td>
-<td><code>size_t *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2590,7 +2661,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="#enum-CassError">CassError</a></code> <h3 id="function-cass_data_type_add_sub_type" class="target">cass_data_type_add_sub_type<a class="anchor" href="#function-cass_data_type_add_sub_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> sub_data_type <big>)</big>
+</h3> <big>(</big>  data_type,  sub_data_type <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Adds a sub-data type to a tuple or collection.</p>
@@ -2610,14 +2681,14 @@
 <td>
 <small>in</small> <var>data_type</var>
 </td>
-<td><code><a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>sub_data_type</var>
 </td>
-<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2641,7 +2712,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="#enum-CassError">CassError</a></code> <h3 id="function-cass_data_type_add_sub_type_by_name" class="target">cass_data_type_add_sub_type_by_name<a class="anchor" href="#function-cass_data_type_add_sub_type_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>const char *</code> name, <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> sub_data_type <big>)</big>
+</h3> <big>(</big>  data_type,  name,  sub_data_type <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Adds a sub-data type to a UDT (user defined type).</p>
@@ -2663,21 +2734,21 @@
 <td>
 <small>in</small> <var>data_type</var>
 </td>
-<td><code><a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>sub_data_type</var>
 </td>
-<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2701,7 +2772,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="#enum-CassError">CassError</a></code> <h3 id="function-cass_data_type_add_sub_type_by_name_n" class="target">cass_data_type_add_sub_type_by_name_n<a class="anchor" href="#function-cass_data_type_add_sub_type_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>const char *</code> name, <code>size_t</code> name_length, <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> sub_data_type <big>)</big>
+</h3> <big>(</big>  data_type,  name,  name_length,  sub_data_type <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_data_type_add_sub_type_by_name">cass_data_type_add_sub_type_by_name</a></code>, but with lengths for string parameters.</p>
@@ -2723,28 +2794,28 @@
 <td>
 <small>in</small> <var>data_type</var>
 </td>
-<td><code><a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>sub_data_type</var>
 </td>
-<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2768,7 +2839,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="#enum-CassError">CassError</a></code> <h3 id="function-cass_data_type_add_sub_value_type" class="target">cass_data_type_add_sub_value_type<a class="anchor" href="#function-cass_data_type_add_sub_value_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code><a href="#enum-CassValueType">CassValueType</a></code> sub_value_type <big>)</big>
+</h3> <big>(</big>  data_type,  sub_value_type <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Adds a sub-data type to a tuple or collection using a value type.</p>
@@ -2788,14 +2859,14 @@
 <td>
 <small>in</small> <var>data_type</var>
 </td>
-<td><code><a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>sub_value_type</var>
 </td>
-<td><code><a href="#enum-CassValueType">CassValueType</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2819,7 +2890,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="#enum-CassError">CassError</a></code> <h3 id="function-cass_data_type_add_sub_value_type_by_name" class="target">cass_data_type_add_sub_value_type_by_name<a class="anchor" href="#function-cass_data_type_add_sub_value_type_by_name" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>const char *</code> name, <code><a href="#enum-CassValueType">CassValueType</a></code> sub_value_type <big>)</big>
+</h3> <big>(</big>  data_type,  name,  sub_value_type <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Adds a sub-data type to a UDT (user defined type) using a value type.</p>
@@ -2841,21 +2912,21 @@
 <td>
 <small>in</small> <var>data_type</var>
 </td>
-<td><code><a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>sub_value_type</var>
 </td>
-<td><code><a href="#enum-CassValueType">CassValueType</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2879,7 +2950,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="#enum-CassError">CassError</a></code> <h3 id="function-cass_data_type_add_sub_value_type_by_name_n" class="target">cass_data_type_add_sub_value_type_by_name_n<a class="anchor" href="#function-cass_data_type_add_sub_value_type_by_name_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="../struct.CassDataType/">CassDataType</a> *</code> data_type, <code>const char *</code> name, <code>size_t</code> name_length, <code><a href="#enum-CassValueType">CassValueType</a></code> sub_value_type <big>)</big>
+</h3> <big>(</big>  data_type,  name,  name_length,  sub_value_type <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_data_type_add_sub_value_type_by_name">cass_data_type_add_sub_value_type_by_name</a></code>, but with lengths for string parameters.</p>
@@ -2901,28 +2972,28 @@
 <td>
 <small>in</small> <var>data_type</var>
 </td>
-<td><code><a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>sub_value_type</var>
 </td>
-<td><code><a href="#enum-CassValueType">CassValueType</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -2946,7 +3017,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> <h3 id="function-cass_collection_data_type" class="target">cass_collection_data_type<a class="anchor" href="#function-cass_collection_data_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="../struct.CassCollection/">CassCollection</a> *</code> collection <big>)</big>
+</h3> <big>(</big>  collection <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the data type of a collection.</p>
@@ -2963,7 +3034,7 @@
 <td>
 <small>in</small> <var>collection</var>
 </td>
-<td><code>const <a href="../struct.CassCollection/">CassCollection</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -2986,7 +3057,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> <h3 id="function-cass_tuple_data_type" class="target">cass_tuple_data_type<a class="anchor" href="#function-cass_tuple_data_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="../struct.CassTuple/">CassTuple</a> *</code> tuple <big>)</big>
+</h3> <big>(</big>  tuple <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the data type of a tuple.</p>
@@ -3005,7 +3076,7 @@
 <td>
 <small>in</small> <var>tuple</var>
 </td>
-<td><code>const <a href="../struct.CassTuple/">CassTuple</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -3028,7 +3099,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> <h3 id="function-cass_user_type_data_type" class="target">cass_user_type_data_type<a class="anchor" href="#function-cass_user_type_data_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="../struct.CassUserType/">CassUserType</a> *</code> user_type <big>)</big>
+</h3> <big>(</big>  user_type <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the data type of a user defined type.</p>
@@ -3047,7 +3118,7 @@
 <td>
 <small>in</small> <var>user_type</var>
 </td>
-<td><code>const <a href="../struct.CassUserType/">CassUserType</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -3069,8 +3140,57 @@
   </div>
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
+      <code><a href="../struct.CassTimestampGen/">CassTimestampGen</a> *</code> <h3 id="function-cass_timestamp_gen_monotonic_new_with_settings" class="target">cass_timestamp_gen_monotonic_new_with_settings<a class="anchor" href="#function-cass_timestamp_gen_monotonic_new_with_settings" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  warning_threshold_us,  warning_interval_ms <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="../struct.CassTimestampGen/#function-cass_timestamp_gen_monotonic_new">CassTimestampGen::cass_timestamp_gen_monotonic_new</a></code>, but with settings for controlling warnings about clock skew.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><var>warning_threshold_us</var></td>
+<td></td>
+<td>
+<p>The amount of clock skew, in microseconds, that must be detected before a warning is triggered. A threshold less than 0 can be used to disable warnings.</p>
+</td>
+</tr>
+<tr>
+<td><var>warning_interval_ms</var></td>
+<td></td>
+<td>
+<p>The amount of time, in milliseonds, to wait before warning again about clock skew. An interval value less than or equal to 0 allows the warning to be triggered every millisecond.</p>
+</td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../struct.CassTimestampGen/">CassTimestampGen</a> *</code></td>
+<td>
+<p>Returns a timestamp generator that must be freed.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
       <code>const char *</code> <h3 id="function-cass_consistency_string" class="target">cass_consistency_string<a class="anchor" href="#function-cass_consistency_string" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="#enum-CassConsistency">CassConsistency</a></code> consistency <big>)</big>
+</h3> <big>(</big>  consistency <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the string for a consistency.</p>
@@ -3087,7 +3207,7 @@
 <td>
 <small>in</small> <var>consistency</var>
 </td>
-<td><code><a href="#enum-CassConsistency">CassConsistency</a></code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -3110,7 +3230,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const char *</code> <h3 id="function-cass_write_type_string" class="target">cass_write_type_string<a class="anchor" href="#function-cass_write_type_string" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="#enum-CassWriteType">CassWriteType</a></code> write_type <big>)</big>
+</h3> <big>(</big>  write_type <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the string for a write type.</p>
@@ -3127,7 +3247,7 @@
 <td>
 <small>in</small> <var>write_type</var>
 </td>
-<td><code><a href="#enum-CassWriteType">CassWriteType</a></code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -3150,7 +3270,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const char *</code> <h3 id="function-cass_error_desc" class="target">cass_error_desc<a class="anchor" href="#function-cass_error_desc" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="#enum-CassError">CassError</a></code> error <big>)</big>
+</h3> <big>(</big>  error <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets a description for an error code.</p>
@@ -3167,7 +3287,7 @@
 <td>
 <small>in</small> <var>error</var>
 </td>
-<td><code><a href="#enum-CassError">CassError</a></code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -3205,7 +3325,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_log_set_level" class="target">cass_log_set_level<a class="anchor" href="#function-cass_log_set_level" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="#enum-CassLogLevel">CassLogLevel</a></code> log_level <big>)</big>
+</h3> <big>(</big>  log_level <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the log level.</p>
@@ -3226,7 +3346,7 @@
 <td>
 <small>in</small> <var>log_level</var>
 </td>
-<td><code><a href="#enum-CassLogLevel">CassLogLevel</a></code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -3236,7 +3356,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_log_set_callback" class="target">cass_log_set_callback<a class="anchor" href="#function-cass_log_set_callback" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="#type-CassLogCallback">CassLogCallback</a></code> callback, <code>void *</code> data <big>)</big>
+</h3> <big>(</big>  callback,  data <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets a callback for handling logging events.</p>
@@ -3258,7 +3378,7 @@
 <td>
 <small>in</small> <var>callback</var>
 </td>
-<td><code><a href="#type-CassLogCallback">CassLogCallback</a></code></td>
+<td></td>
 <td>
 <p>A callback that handles logging events. This is called in a separate thread so access to shared data must be synchronized.</p>
 </td>
@@ -3267,7 +3387,7 @@
 <td>
 <small>in</small> <var>data</var>
 </td>
-<td><code>void *</code></td>
+<td></td>
 <td>
 <p>An opaque data object passed to the callback.</p>
 </td>
@@ -3280,7 +3400,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_log_set_queue_size" class="target">cass_log_set_queue_size<a class="anchor" href="#function-cass_log_set_queue_size" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>size_t</code> queue_size <big>)</big>
+</h3> <big>(</big>  queue_size <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets the log queue size.</p>
@@ -3305,7 +3425,7 @@
 <td>
 <small>in</small> <var>queue_size</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -3315,7 +3435,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>const char *</code> <h3 id="function-cass_log_level_string" class="target">cass_log_level_string<a class="anchor" href="#function-cass_log_level_string" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="#enum-CassLogLevel">CassLogLevel</a></code> log_level <big>)</big>
+</h3> <big>(</big>  log_level <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Gets the string for a log level.</p>
@@ -3332,7 +3452,7 @@
 <td>
 <small>in</small> <var>log_level</var>
 </td>
-<td><code><a href="#enum-CassLogLevel">CassLogLevel</a></code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -3355,7 +3475,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="#type-cass_uint32_t">cass_uint32_t</a></code> <h3 id="function-cass_date_from_epoch" class="target">cass_date_from_epoch<a class="anchor" href="#function-cass_date_from_epoch" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="#type-cass_int64_t">cass_int64_t</a></code> epoch_secs <big>)</big>
+</h3> <big>(</big>  epoch_secs <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Converts a unix timestamp (in seconds) to the Cassandra “date” type. The “date” type represents the number of days since the Epoch (1970-01-01) with the Epoch centered at the value 2<sup>31.</sup></p>
@@ -3374,7 +3494,7 @@
 <td>
 <small>in</small> <var>epoch_secs</var>
 </td>
-<td><code><a href="#type-cass_int64_t">cass_int64_t</a></code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -3397,7 +3517,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="#type-cass_int64_t">cass_int64_t</a></code> <h3 id="function-cass_time_from_epoch" class="target">cass_time_from_epoch<a class="anchor" href="#function-cass_time_from_epoch" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="#type-cass_int64_t">cass_int64_t</a></code> epoch_secs <big>)</big>
+</h3> <big>(</big>  epoch_secs <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Converts a unix timestamp (in seconds) to the Cassandra “time” type. The “time” type represents the number of nanoseconds since midnight (range 0 to 86399999999999).</p>
@@ -3416,7 +3536,7 @@
 <td>
 <small>in</small> <var>epoch_secs</var>
 </td>
-<td><code><a href="#type-cass_int64_t">cass_int64_t</a></code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -3439,7 +3559,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="#type-cass_int64_t">cass_int64_t</a></code> <h3 id="function-cass_date_time_to_epoch" class="target">cass_date_time_to_epoch<a class="anchor" href="#function-cass_date_time_to_epoch" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="#type-cass_uint32_t">cass_uint32_t</a></code> date, <code><a href="#type-cass_int64_t">cass_int64_t</a></code> time <big>)</big>
+</h3> <big>(</big>  date,  time <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Combines the Cassandra “date” and “time” types to Epoch time in seconds.</p>
@@ -3459,14 +3579,14 @@
 <td>
 <small>in</small> <var>date</var>
 </td>
-<td><code><a href="#type-cass_uint32_t">cass_uint32_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>time</var>
 </td>
-<td><code><a href="#type-cass_int64_t">cass_int64_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>

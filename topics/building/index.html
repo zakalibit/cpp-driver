@@ -41,12 +41,14 @@
               <span class="text-warning">Attention:</span> Viewing documentation for version
               <div class="btn-group">
                 <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  2.5
+                  2.6
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li class="disabled"><a href="./">2.5</a></li>
+                  <li class="disabled"><a href="./">2.6</a></li>
+                
+                  <li><a href="../../2.5/topics/building/">2.5</a></li>
                 
                   <li><a href="../../2.4/topics/building/">2.4</a></li>
                 
@@ -68,7 +70,7 @@
           <div class="col-md-4">
             <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
               <div class="form-group has-feedback">
-                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.5')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.6')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
               </div>
               <ul class="dropdown-menu search-results" role="menu">
                 <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
@@ -300,9 +302,9 @@ this dependency.</p>
 </h5>
 <pre class="highlight"><code>sudo yum install automake cmake gcc-c++ git libtool openssl-devel wget
 <span class="nb">pushd</span> /tmp
-wget http://dist.libuv.org/dist/v1.8.0/libuv-v1.8.0.tar.gz
-tar xzf libuv-v1.8.0.tar.gz
-<span class="nb">pushd </span>libuv-v1.8.0
+wget http://dist.libuv.org/dist/v1.11.0/libuv-v1.11.0.tar.gz
+tar xzf libuv-v1.11.0.tar.gz
+<span class="nb">pushd </span>libuv-v1.11.0
 sh autogen.sh
 ./configure
 sudo make install
@@ -370,9 +372,9 @@ been removed by executing the command <code>sudo yum remove boost*</code> before
 proceeding.</p>
 <pre class="highlight"><code>sudo yum install libssh2-devel
 <span class="nb">pushd</span> /tmp
-wget http://sourceforge.net/projects/boost/files/boost/1.59.0/boost_1_59_0.tar.gz/download -O boost_1_59_0.tar.gz
-tar xzf boost_1_59_0.tar.gz
-<span class="nb">pushd </span>boost_1_59_0
+wget http://sourceforge.net/projects/boost/files/boost/1.63.0/boost_1_63_0.tar.gz/download -O boost_1_63_0.tar.gz
+tar xzf boost_1_63_0.tar.gz
+<span class="nb">pushd </span>boost_1_63_0
 ./bootstrap.sh --with-libraries<span class="o">=</span>atomic,chrono,system,thread,test
 sudo ./b2 <span class="nv">cxxflags</span><span class="o">=</span><span class="s2">"-fPIC"</span> install
 <span class="nb">popd
@@ -392,9 +394,9 @@ it is not a supported Boost compiler.</p>
 these can be easily installed from source.</p>
 <pre class="highlight"><code>sudo apt-get install libssh2-1-dev
 <span class="nb">pushd</span> /tmp
-wget http://sourceforge.net/projects/boost/files/boost/1.59.0/boost_1_59_0.tar.gz/download -O boost_1_59_0.tar.gz
-tar xzf boost_1_59_0.tar.gz
-<span class="nb">pushd </span>boost_1_59_0
+wget http://sourceforge.net/projects/boost/files/boost/1.63.0/boost_1_63_0.tar.gz/download -O boost_1_63_0.tar.gz
+tar xzf boost_1_63_0.tar.gz
+<span class="nb">pushd </span>boost_1_63_0
 ./bootstrap.sh --with-libraries<span class="o">=</span>atomic,chrono,system,thread,test
 sudo ./b2 install
 <span class="nb">popd
@@ -536,7 +538,7 @@ driver dependencies will also be copied (e.g. C:\myproject\dependencies\libs)</p
 order to build the unit and integration tests.</p>
 
 <p>To simplify the process; pre-built binaries can be obtained
-<a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.59.0/">here</a>.
+<a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.63.0/">here</a>.
 Ensure the proper Visual Studio (or Windows SDK) version and architecture is
 obtained and select from the following list:</p>
 
@@ -544,28 +546,28 @@ obtained and select from the following list:</p>
 <li>Visual Studio 2010 (Windows SDK 7.1)
 
 <ul>
-<li>Boost v1.59 <a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.59.0/boost_1_59_0-msvc-10.0-32.exe/download">32-bit</a>/<a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.59.0/boost_1_59_0-msvc-10.0-64.exe/download">64-bit</a>
+<li>Boost v1.63.0 <a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.63.0/boost_1_63_0-msvc-10.0-32.exe/download">32-bit</a>/<a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.63.0/boost_1_63_0-msvc-10.0-64.exe/download">64-bit</a>
 </li>
 </ul>
 </li>
 <li>Visual Studio 2012 (Windows SDK 8.0)
 
 <ul>
-<li>Boost v1.59 <a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.59.0/boost_1_59_0-msvc-11.0-32.exe/download">32-bit</a>/<a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.59.0/boost_1_59_0-msvc-11.0-64.exe/download">64-bit</a>
+<li>Boost v1.63.0 <a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.63.0/boost_1_63_0-msvc-11.0-32.exe/download">32-bit</a>/<a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.63.0/boost_1_63_0-msvc-11.0-64.exe/download">64-bit</a>
 </li>
 </ul>
 </li>
 <li>Visual Studio 2013 (Windows SDK 8.1)
 
 <ul>
-<li>Boost v1.59 <a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.59.0/boost_1_59_0-msvc-12.0-32.exe/download">32-bit</a>/<a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.59.0/boost_1_59_0-msvc-12.0-64.exe/download">64-bit</a>
+<li>Boost v1.63.0 <a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.63.0/boost_1_63_0-msvc-12.0-32.exe/download">32-bit</a>/<a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.63.0/boost_1_63_0-msvc-12.0-64.exe/download">64-bit</a>
 </li>
 </ul>
 </li>
 <li>Visual Studio 2015 (Windows SDK 10.0)
 
 <ul>
-<li>Boost v1.59 <a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.59.0/boost_1_59_0-msvc-14.0-32.exe/download">32-bit</a>/<a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.59.0/boost_1_59_0-msvc-14.0-64.exe/download">64-bit</a>
+<li>Boost v1.63.0 <a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.63.0/boost_1_63_0-msvc-14.0-32.exe/download">32-bit</a>/<a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.63.0/boost_1_63_0-msvc-14.0-64.exe/download">64-bit</a>
 </li>
 </ul>
 </li>
@@ -575,7 +577,7 @@ obtained and select from the following list:</p>
 </h4>
 <pre><code class="dos">VC_BUILD.BAT --STATIC --ENABLE-TESTS &lt;ABSOLUTE-PATH-TO-BOOST&gt;
 
-[e.g. C:\local\boost_1_59_0]
+[e.g. C:\local\boost_1_63_0]
 </code></pre>
 <p><strong>NOTE:</strong> When enabling tests, –USE-BOOST-ATOMIC will use the Boost atomic
  implementation supplied by <absolute-path-to-boost></absolute-path-to-boost></p>

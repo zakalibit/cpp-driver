@@ -41,12 +41,14 @@
               <span class="text-warning">Attention:</span> Viewing documentation for version
               <div class="btn-group">
                 <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  2.5
+                  2.6
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li class="disabled"><a href="./">2.5</a></li>
+                  <li class="disabled"><a href="./">2.6</a></li>
+                
+                  <li><a href="../../2.5/api/struct.CassTuple/">2.5</a></li>
                 
                   <li><a href="../../2.4/api/struct.CassTuple/">2.4</a></li>
                 
@@ -68,7 +70,7 @@
           <div class="col-md-4">
             <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
               <div class="form-group has-feedback">
-                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.5')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.6')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
               </div>
               <ul class="dropdown-menu search-results" role="menu">
                 <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
@@ -495,7 +497,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="./">CassTuple</a> *</code> <h3 id="function-cass_tuple_new" class="target">cass_tuple_new<a class="anchor" href="#function-cass_tuple_new" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>size_t</code> item_count <big>)</big>
+</h3> <big>(</big>  item_count <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new tuple.</p>
@@ -514,7 +516,7 @@
 <td>
 <small>in</small> <var>item_count</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td>
 <p>The number of items in the tuple.</p>
 </td>
@@ -541,7 +543,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="./">CassTuple</a> *</code> <h3 id="function-cass_tuple_new_from_data_type" class="target">cass_tuple_new_from_data_type<a class="anchor" href="#function-cass_tuple_new_from_data_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code>const <a href="../struct.CassDataType/">CassDataType</a> *</code> data_type <big>)</big>
+</h3> <big>(</big>  data_type <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Creates a new tuple from an existing data type.</p>
@@ -560,7 +562,7 @@
 <td>
 <small>in</small> <var>data_type</var>
 </td>
-<td><code>const <a href="../struct.CassDataType/">CassDataType</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -586,7 +588,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code>void</code> <h3 id="function-cass_tuple_free" class="target">cass_tuple_free<a class="anchor" href="#function-cass_tuple_free" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassTuple</a> *</code> tuple <big>)</big>
+</h3> <big>(</big>  tuple <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Frees a tuple instance.</p>
@@ -605,7 +607,7 @@
 <td>
 <small>in</small> <var>tuple</var>
 </td>
-<td><code><a href="./">CassTuple</a> *</code></td>
+<td></td>
 <td></td>
 </tr></tbody>
 </table></dd>
@@ -615,7 +617,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_tuple_set_null" class="target">cass_tuple_set_null<a class="anchor" href="#function-cass_tuple_set_null" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassTuple</a> *</code> tuple, <code>size_t</code> index <big>)</big>
+</h3> <big>(</big>  tuple,  index <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets an null in a tuple at the specified index.</p>
@@ -635,14 +637,14 @@
 <td>
 <small>in</small> <var>tuple</var>
 </td>
-<td><code><a href="./">CassTuple</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -666,7 +668,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_tuple_set_int8" class="target">cass_tuple_set_int8<a class="anchor" href="#function-cass_tuple_set_int8" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassTuple</a> *</code> tuple, <code>size_t</code> index, <code><a href="../cassandra.h/#type-cass_int8_t">cass_int8_t</a></code> value <big>)</big>
+</h3> <big>(</big>  tuple,  index,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets a “tinyint” in a tuple at the specified index.</p>
@@ -686,21 +688,21 @@
 <td>
 <small>in</small> <var>tuple</var>
 </td>
-<td><code><a href="./">CassTuple</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_int8_t">cass_int8_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -724,7 +726,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_tuple_set_int16" class="target">cass_tuple_set_int16<a class="anchor" href="#function-cass_tuple_set_int16" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassTuple</a> *</code> tuple, <code>size_t</code> index, <code><a href="../cassandra.h/#type-cass_int16_t">cass_int16_t</a></code> value <big>)</big>
+</h3> <big>(</big>  tuple,  index,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets an “smallint” in a tuple at the specified index.</p>
@@ -744,21 +746,21 @@
 <td>
 <small>in</small> <var>tuple</var>
 </td>
-<td><code><a href="./">CassTuple</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_int16_t">cass_int16_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -782,7 +784,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_tuple_set_int32" class="target">cass_tuple_set_int32<a class="anchor" href="#function-cass_tuple_set_int32" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassTuple</a> *</code> tuple, <code>size_t</code> index, <code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a></code> value <big>)</big>
+</h3> <big>(</big>  tuple,  index,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets an “int” in a tuple at the specified index.</p>
@@ -802,21 +804,21 @@
 <td>
 <small>in</small> <var>tuple</var>
 </td>
-<td><code><a href="./">CassTuple</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -840,7 +842,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_tuple_set_uint32" class="target">cass_tuple_set_uint32<a class="anchor" href="#function-cass_tuple_set_uint32" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassTuple</a> *</code> tuple, <code>size_t</code> index, <code><a href="../cassandra.h/#type-cass_uint32_t">cass_uint32_t</a></code> value <big>)</big>
+</h3> <big>(</big>  tuple,  index,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets a “date” in a tuple at the specified index.</p>
@@ -860,21 +862,21 @@
 <td>
 <small>in</small> <var>tuple</var>
 </td>
-<td><code><a href="./">CassTuple</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_uint32_t">cass_uint32_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -898,7 +900,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_tuple_set_int64" class="target">cass_tuple_set_int64<a class="anchor" href="#function-cass_tuple_set_int64" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassTuple</a> *</code> tuple, <code>size_t</code> index, <code><a href="../cassandra.h/#type-cass_int64_t">cass_int64_t</a></code> value <big>)</big>
+</h3> <big>(</big>  tuple,  index,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets a “bigint”, “counter”, “timestamp” or “time” in a tuple at the specified index.</p>
@@ -918,21 +920,21 @@
 <td>
 <small>in</small> <var>tuple</var>
 </td>
-<td><code><a href="./">CassTuple</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_int64_t">cass_int64_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -956,7 +958,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_tuple_set_float" class="target">cass_tuple_set_float<a class="anchor" href="#function-cass_tuple_set_float" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassTuple</a> *</code> tuple, <code>size_t</code> index, <code><a href="../cassandra.h/#type-cass_float_t">cass_float_t</a></code> value <big>)</big>
+</h3> <big>(</big>  tuple,  index,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets a “float” in a tuple at the specified index.</p>
@@ -976,21 +978,21 @@
 <td>
 <small>in</small> <var>tuple</var>
 </td>
-<td><code><a href="./">CassTuple</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_float_t">cass_float_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1014,7 +1016,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_tuple_set_double" class="target">cass_tuple_set_double<a class="anchor" href="#function-cass_tuple_set_double" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassTuple</a> *</code> tuple, <code>size_t</code> index, <code><a href="../cassandra.h/#type-cass_double_t">cass_double_t</a></code> value <big>)</big>
+</h3> <big>(</big>  tuple,  index,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets a “double” in a tuple at the specified index.</p>
@@ -1034,21 +1036,21 @@
 <td>
 <small>in</small> <var>tuple</var>
 </td>
-<td><code><a href="./">CassTuple</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_double_t">cass_double_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1072,7 +1074,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_tuple_set_bool" class="target">cass_tuple_set_bool<a class="anchor" href="#function-cass_tuple_set_bool" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassTuple</a> *</code> tuple, <code>size_t</code> index, <code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code> value <big>)</big>
+</h3> <big>(</big>  tuple,  index,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets a “boolean” in a tuple at the specified index.</p>
@@ -1092,21 +1094,21 @@
 <td>
 <small>in</small> <var>tuple</var>
 </td>
-<td><code><a href="./">CassTuple</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../cassandra.h/#enum-cass_bool_t">cass_bool_t</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1130,7 +1132,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_tuple_set_string" class="target">cass_tuple_set_string<a class="anchor" href="#function-cass_tuple_set_string" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassTuple</a> *</code> tuple, <code>size_t</code> index, <code>const char *</code> value <big>)</big>
+</h3> <big>(</big>  tuple,  index,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets an “ascii”, “text” or “varchar” in a tuple at the specified index.</p>
@@ -1150,21 +1152,21 @@
 <td>
 <small>in</small> <var>tuple</var>
 </td>
-<td><code><a href="./">CassTuple</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td>
 <p>The value is copied into the tuple object; the memory pointed to by this parameter can be freed after this call.</p>
 </td>
@@ -1190,7 +1192,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_tuple_set_string_n" class="target">cass_tuple_set_string_n<a class="anchor" href="#function-cass_tuple_set_string_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassTuple</a> *</code> tuple, <code>size_t</code> index, <code>const char *</code> value, <code>size_t</code> value_length <big>)</big>
+</h3> <big>(</big>  tuple,  index,  value,  value_length <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_tuple_set_string">CassTuple::cass_tuple_set_string</a></code>, but with lengths for string parameters.</p>
@@ -1210,28 +1212,28 @@
 <td>
 <small>in</small> <var>tuple</var>
 </td>
-<td><code><a href="./">CassTuple</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1258,7 +1260,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_tuple_set_bytes" class="target">cass_tuple_set_bytes<a class="anchor" href="#function-cass_tuple_set_bytes" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassTuple</a> *</code> tuple, <code>size_t</code> index, <code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code> value, <code>size_t</code> value_size <big>)</big>
+</h3> <big>(</big>  tuple,  index,  value,  value_size <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets a “blob”, “varint” or “custom” in a tuple at the specified index.</p>
@@ -1278,21 +1280,21 @@
 <td>
 <small>in</small> <var>tuple</var>
 </td>
-<td><code><a href="./">CassTuple</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code></td>
+<td></td>
 <td>
 <p>The value is copied into the tuple object; the memory pointed to by this parameter can be freed after this call.</p>
 </td>
@@ -1301,7 +1303,7 @@
 <td>
 <small>in</small> <var>value_size</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1325,7 +1327,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_tuple_set_custom" class="target">cass_tuple_set_custom<a class="anchor" href="#function-cass_tuple_set_custom" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassTuple</a> *</code> tuple, <code>size_t</code> index, <code>const char *</code> class_name, <code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code> value, <code>size_t</code> value_size <big>)</big>
+</h3> <big>(</big>  tuple,  index,  class_name,  value,  value_size <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets a “custom” in a tuple at the specified index.</p>
@@ -1343,28 +1345,28 @@
 <td>
 <small>in</small> <var>tuple</var>
 </td>
-<td><code><a href="./">CassTuple</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>class_name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code></td>
+<td></td>
 <td>
 <p>The value is copied into the tuple object; the memory pointed to by this parameter can be freed after this call.</p>
 </td>
@@ -1373,7 +1375,7 @@
 <td>
 <small>in</small> <var>value_size</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1397,7 +1399,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_tuple_set_custom_n" class="target">cass_tuple_set_custom_n<a class="anchor" href="#function-cass_tuple_set_custom_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassTuple</a> *</code> tuple, <code>size_t</code> index, <code>const char *</code> class_name, <code>size_t</code> class_name_length, <code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code> value, <code>size_t</code> value_size <big>)</big>
+</h3> <big>(</big>  tuple,  index,  class_name,  class_name_length,  value,  value_size <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Same as <code><a href="#function-cass_tuple_set_custom">CassTuple::cass_tuple_set_custom</a></code>, but with lengths for string parameters.</p>
@@ -1415,42 +1417,42 @@
 <td>
 <small>in</small> <var>tuple</var>
 </td>
-<td><code><a href="./">CassTuple</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>class_name</var>
 </td>
-<td><code>const char *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>class_name_length</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value_size</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1476,7 +1478,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_tuple_set_uuid" class="target">cass_tuple_set_uuid<a class="anchor" href="#function-cass_tuple_set_uuid" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassTuple</a> *</code> tuple, <code>size_t</code> index, <code><a href="../struct.CassUuid/">CassUuid</a></code> value <big>)</big>
+</h3> <big>(</big>  tuple,  index,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets a “uuid” or “timeuuid” in a tuple at the specified index.</p>
@@ -1496,21 +1498,21 @@
 <td>
 <small>in</small> <var>tuple</var>
 </td>
-<td><code><a href="./">CassTuple</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../struct.CassUuid/">CassUuid</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1534,7 +1536,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_tuple_set_inet" class="target">cass_tuple_set_inet<a class="anchor" href="#function-cass_tuple_set_inet" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassTuple</a> *</code> tuple, <code>size_t</code> index, <code><a href="../struct.CassInet/">CassInet</a></code> value <big>)</big>
+</h3> <big>(</big>  tuple,  index,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets an “inet” in a tuple at the specified index.</p>
@@ -1554,21 +1556,21 @@
 <td>
 <small>in</small> <var>tuple</var>
 </td>
-<td><code><a href="./">CassTuple</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code><a href="../struct.CassInet/">CassInet</a></code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1592,7 +1594,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_tuple_set_decimal" class="target">cass_tuple_set_decimal<a class="anchor" href="#function-cass_tuple_set_decimal" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassTuple</a> *</code> tuple, <code>size_t</code> index, <code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code> varint, <code>size_t</code> varint_size, <code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a></code> scale <big>)</big>
+</h3> <big>(</big>  tuple,  index,  varint,  varint_size,  scale <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets a “decimal” in a tuple at the specified index.</p>
@@ -1612,21 +1614,21 @@
 <td>
 <small>in</small> <var>tuple</var>
 </td>
-<td><code><a href="./">CassTuple</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>varint</var>
 </td>
-<td><code>const <a href="../cassandra.h/#type-cass_byte_t">cass_byte_t</a> *</code></td>
+<td></td>
 <td>
 <p>The value is copied into the tuple object; the memory pointed to by this parameter can be freed after this call.</p>
 </td>
@@ -1635,14 +1637,86 @@
 <td>
 <small>in</small> <var>varint_size</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>scale</var>
 </td>
-<td><code><a href="../cassandra.h/#type-cass_int32_t">cass_int32_t</a></code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_tuple_set_duration" class="target">cass_tuple_set_duration<a class="anchor" href="#function-cass_tuple_set_duration" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  tuple,  index,  months,  days,  nanos <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets a “duration” in a tuple at the specified index.</p>
+
+<p><strong>Requires Cassandra:</strong> 3.10+</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>tuple</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>index</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>months</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>days</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>nanos</var>
+</td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1666,7 +1740,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_tuple_set_collection" class="target">cass_tuple_set_collection<a class="anchor" href="#function-cass_tuple_set_collection" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassTuple</a> *</code> tuple, <code>size_t</code> index, <code>const <a href="../struct.CassCollection/">CassCollection</a> *</code> value <big>)</big>
+</h3> <big>(</big>  tuple,  index,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets a “list”, “map” or “set” in a tuple at the specified index.</p>
@@ -1686,21 +1760,21 @@
 <td>
 <small>in</small> <var>tuple</var>
 </td>
-<td><code><a href="./">CassTuple</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="../struct.CassCollection/">CassCollection</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1724,7 +1798,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_tuple_set_tuple" class="target">cass_tuple_set_tuple<a class="anchor" href="#function-cass_tuple_set_tuple" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassTuple</a> *</code> tuple, <code>size_t</code> index, <code>const <a href="./">CassTuple</a> *</code> value <big>)</big>
+</h3> <big>(</big>  tuple,  index,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets a “tuple” in a tuple at the specified index.</p>
@@ -1744,21 +1818,21 @@
 <td>
 <small>in</small> <var>tuple</var>
 </td>
-<td><code><a href="./">CassTuple</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="./">CassTuple</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1782,7 +1856,7 @@
   <div class="panel panel-default member-definition">
     <div class="panel-heading function-heading">
       <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_tuple_set_user_type" class="target">cass_tuple_set_user_type<a class="anchor" href="#function-cass_tuple_set_user_type" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big> <code><a href="./">CassTuple</a> *</code> tuple, <code>size_t</code> index, <code>const <a href="../struct.CassUserType/">CassUserType</a> *</code> value <big>)</big>
+</h3> <big>(</big>  tuple,  index,  value <big>)</big>
     </div>
     <div class="panel-body function-body">
       <p>Sets a “udt” in a tuple at the specified index.</p>
@@ -1802,21 +1876,21 @@
 <td>
 <small>in</small> <var>tuple</var>
 </td>
-<td><code><a href="./">CassTuple</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>index</var>
 </td>
-<td><code>size_t</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>
 <small>in</small> <var>value</var>
 </td>
-<td><code>const <a href="../struct.CassUserType/">CassUserType</a> *</code></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
