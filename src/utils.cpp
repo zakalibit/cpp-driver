@@ -23,6 +23,12 @@
 #include <functional>
 #include <sstream>
 
+#if (defined(WIN32) || defined(_WIN32))
+  #include <windows.h>
+#else
+  #include <unistd.h>
+#endif
+
 namespace cass {
 
 std::string opcode_to_string(int opcode) {
@@ -155,6 +161,15 @@ std::string& to_cql_id(std::string& str) {
     return str.erase(str.length() - 1, 1).erase(0, 1);
   }
   return str;
+}
+
+int32_t get_pid()
+{
+#if (defined(WIN32) || defined(_WIN32))
+  return static_cast<int32_t>(GetCurrentProcessId());
+#else
+  return static_cast<int32_t>(getpid());
+#endif
 }
 
 } // namespace cass

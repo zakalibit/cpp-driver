@@ -465,4 +465,93 @@ BOOST_AUTO_TEST_CASE(randomized_contact_points)
   BOOST_CHECK_EQUAL(starting_host, get_executing_host(session));
 }
 
+/**
+ * Control connection is properly closed when invalid DC is used in LBP.
+ *
+ * This test will create a session using a DC aware LBP where the assigned DC is
+ * invalid (e.g. does not exist) and ensure the driver does not "hang" and
+ * terminates the control connection.
+ *
+ * @since 2.6.0
+ * @test_category control_connection
+ * @jira_ticket CPP-398
+ * @expected_result Driver will not hang and session/control connection will
+ *                  terminate; CASS_ERROR_LIB_NO_HOSTS_AVAILABLE
+ */
+BOOST_AUTO_TEST_CASE(invalid_dc)
+{
+  // Create the CCM cluster if it does not already exist (2 DCs)
+  if (ccm->create_cluster(1, 1)) {
+    ccm->start_cluster();
+  }
+
+  {
+    // Create the cluster instance and LBP with invalid local DC
+    test_utils::CassClusterPtr cluster(cass_cluster_new());
+    test_utils::initialize_contact_points(cluster.get(), ip_prefix, 1);
+    cass_cluster_set_load_balance_dc_aware(cluster.get(), "invalid_dc", 0, cass_false);
+
+    // Establish the connection using invalid DC (ensure no hosts available)
+    test_utils::CassSessionPtr session(cass_session_new());
+    test_utils::CassFuturePtr connect_future(cass_session_connect(session.get(), cluster.get()));
+    CassError error_code = cass_future_error_code(connect_future.get());
+    BOOST_CHECK_EQUAL(error_code, CASS_ERROR_LIB_NO_HOSTS_AVAILABLE);
+
+    // Verify the future error message
+    CassString message;
+    cass_future_error_message(connect_future.get(), &message.data, &message.length);
+    BOOST_CHECK_EQUAL("No hosts available for connection using the current load balancing policy", message.data);
+  }
+}
+
+/**
+ * Control connection is properly closed with error using multiple  IO threads.
+ *
+ * This test will create a session using more than one IO thread multiple times
+ * ensuring each time that the driver properly terminates when using an invalid
+ * keyspace name during the session connection. The invalid keyspace is being
+ * used to tease out a previous bug that was fixed in v2.3.0; however was not
+ * tested using multiple IO threads which caused the driver to "hang" which was
+ * the direct result of the control connection not closing properly.
+ *
+ * @since 2.6.0
+ * @test_category control_connection
+ * @jira_ticket CPP-384
+ * @expected_result Driver will not hang and session/control connection will
+ *                  terminate with error
+ */
+BOOST_AUTO_TEST_CASE(terminated_using_multiple_io_threads_with_error)
+{
+  // Create the CCM cluster if it does not already exist
+  if (ccm->create_cluster()) {
+    ccm->start_cluster();
+  }
+
+  {
+    // Create multiple session connection while incrementing the IO threads used
+    for (int i = 2; i <= 16; ++i) {
+      // Create the cluster instance (with IO threads))
+      test_utils::CassClusterPtr cluster(cass_cluster_new());
+      test_utils::initialize_contact_points(cluster.get(), ip_prefix, 1);
+      cass_cluster_set_num_threads_io(cluster.get(), i);
+
+      // Create the session and add the log messages to check for
+      test_utils::CassSessionPtr session(cass_session_new());
+      std::stringstream message;
+      message << "Creating " << i << " IO worker threads";
+      test_utils::CassLog::reset(message.str());
+      message.str("");
+      message << "Connection ready on host " << ip_prefix << "1";
+      test_utils::CassLog::add(message.str());
+      test_utils::CassLog::add("Session is disconnected");
+
+      // Establish the connection using invalid keyspace
+      test_utils::CassFuturePtr connect_future(cass_session_connect_keyspace(session.get(), cluster.get(), "invalid"));
+      CassError code = cass_future_error_code(connect_future.get());
+      BOOST_CHECK_EQUAL(code, CASS_ERROR_LIB_UNABLE_TO_SET_KEYSPACE);
+      BOOST_CHECK_EQUAL(3ul, test_utils::CassLog::message_count());
+    }
+  }
+}
+
 BOOST_AUTO_TEST_SUITE_END()

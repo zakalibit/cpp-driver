@@ -42,8 +42,8 @@ typedef struct _LIBSSH2_CHANNEL LIBSSH2_CHANNEL;
 #endif
 
 // Default values
-#define DEFAULT_CASSANDRA_VERSION CassVersion("3.9")
-#define DEFAULT_DSE_VERSION DseVersion("5.0.3")
+#define DEFAULT_CASSANDRA_VERSION CassVersion("3.10")
+#define DEFAULT_DSE_VERSION DseVersion("5.0.5")
 #define DEFAULT_USE_GIT false
 #define DEFAULT_USE_INSTALL_DIR false
 #define DEFAULT_USE_DSE false
@@ -310,7 +310,16 @@ namespace CCM {
     bool is_cluster_up();
 
     /**
-     * Alias for stop_cluster(true)
+     * "Hang up" the active Cassandra cluster (SIGHUP)
+     *
+     * @return True if cluster is down; false otherwise
+     */
+    bool hang_up_cluster();
+
+    /**
+     * Kill the active Cassandra cluster (SIGKILL)
+     *
+     * @return True if cluster is down; false otherwise
      */
     bool kill_cluster();
 
@@ -486,8 +495,17 @@ namespace CCM {
     void execute_cql_on_node(unsigned int node, const std::string& cql);
 
     /**
-     * Alias for stop_node(node, true)
+     * "Hang up" a node on the active Cassandra cluster (SIGHUP)
      *
+     * @param node Node send SIGHUP signal to
+     * @return True if node is down; false otherwise
+     */
+    bool hang_up_node(unsigned int node);
+
+    /**
+     * Kill a node on the active Cassandra cluster (SIGKILL)
+     *
+     * @param node Node to kill
      * @return True if node is down; false otherwise
      */
     bool kill_node(unsigned int node);

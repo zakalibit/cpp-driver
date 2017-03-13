@@ -21,6 +21,7 @@
 #include "macros.hpp"
 
 #include <stddef.h>
+#include <stdint.h>
 #include <string>
 #include <string.h>
 #include <vector>
@@ -90,6 +91,44 @@ bool is_valid_cql_id(const std::string& str);
 std::string& to_cql_id(std::string& str);
 
 std::string& escape_id(std::string& str);
+
+inline size_t num_leading_zeros(int64_t value) {
+  if (value == 0)
+    return 64;
+
+#if defined(_MSC_VER)
+  unsigned long index;
+#  if defined(_M_AMD64)
+  _BitScanReverse64(&index, value);
+#  else
+  // On 32-bit this needs to be split into two operations
+  char isNonzero = _BitScanReverse(&index, (unsigned long)(value >> 32));
+
+  if (isNonzero)
+    // The most significant 4 bytes has a bit set, and our index is relative to that.
+    // Add 32 to account for the lower 4 bytes that make up our 64-bit number.
+    index += 32;
+  else {
+    // Scan the last 32 bits by truncating the 64-bit value
+    _BitScanReverse(&index, (unsigned long) value);
+  }
+#  endif
+  // index is the (zero based) index, counting from lsb, of the most-significant 1 bit.
+  // For example, a value of 12 (b1100) would return 3. The 4th bit is set, so there are
+  // 60 leading zeros.
+  return 64 - index - 1;
+#else
+  return __builtin_clzll(value);
+#endif
+}
+
+inline size_t vint_size(int64_t value) {
+  // | with 1 to ensure magnitude <= 63, so (63 - 1) / 7 <= 8
+  size_t magnitude = num_leading_zeros(value | 1);
+  return magnitude ? (9 - ((magnitude - 1) / 7)) : 9;
+}
+
+int32_t get_pid();
 
 } // namespace cass
 
