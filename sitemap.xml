@@ -3,2797 +3,3193 @@
 
   <url>
     <loc>http://datastax.github.io/cpp-driver//index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/basics/batches/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/basics/binding_parameters/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/basics/client_side_timestamps/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/basics/consistency/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/basics/data_types/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/basics/date_and_time/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/basics/futures/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/basics/handling_results/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/basics/keyspaces/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/basics/prepared_statements/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/basics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/basics/schema_metadata/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/basics/tuples/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/basics/user_defined_types/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/basics/uuids/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/building/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/configuration/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/configuration/retry_policies/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/faq/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/logging/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/metrics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/security/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/security/ssl/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/testing/ccm/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/testing/configuration/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/testing/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//topics/testing/running/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/cassandra.h/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassAggregateMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassAuthenticator/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassAuthenticatorCallbacks/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassBatch/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassCluster/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassCollection/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassColumnMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassCustomPayload/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassDataType/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassErrorResult/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassFunctionMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassFuture/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassIndexMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassInet/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassIterator/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassKeyspaceMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassLogMessage/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassMaterializedViewMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassMetrics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassPrepared/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassResult/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassRetryPolicy/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassRow/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassSchemaMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassSession/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassSsl/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassStatement/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassTableMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassTimestampGen/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassTuple/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassUserType/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassUuid/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassUuidGen/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassValue/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/struct.CassVersion/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//api/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>http://datastax.github.io/cpp-driver//2.5/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <loc>http://datastax.github.io/cpp-driver//2.6/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/basics/batches/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/basics/binding_parameters/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/basics/client_side_timestamps/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/basics/consistency/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/basics/data_types/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/basics/date_and_time/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/basics/futures/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/basics/handling_results/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/basics/keyspaces/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/basics/prepared_statements/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/basics/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/basics/schema_metadata/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/basics/tuples/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/basics/user_defined_types/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/basics/uuids/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/building/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/configuration/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/configuration/retry_policies/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/faq/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/logging/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/metrics/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/security/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/security/ssl/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/testing/ccm/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/testing/configuration/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/testing/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/topics/testing/running/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/cassandra.h/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassAggregateMeta/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassAuthenticator/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassAuthenticatorCallbacks/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassBatch/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassCluster/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassCollection/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassColumnMeta/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassCustomPayload/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassDataType/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassErrorResult/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassFunctionMeta/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassFuture/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassIndexMeta/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassInet/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassIterator/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassKeyspaceMeta/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassLogMessage/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassMaterializedViewMeta/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassMetrics/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassPrepared/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassResult/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassRetryPolicy/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassRow/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassSchemaMeta/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassSession/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassSsl/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassStatement/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassTableMeta/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassTimestampGen/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassTuple/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassUserType/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassUuid/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassUuidGen/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassValue/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/struct.CassVersion/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.6/api/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>http://datastax.github.io/cpp-driver//2.5/index.html</loc>
+    <lastmod>2017-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/basics/batches/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/basics/binding_parameters/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/basics/client_side_timestamps/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/basics/consistency/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/basics/data_types/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/basics/date_and_time/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/basics/futures/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/basics/handling_results/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/basics/keyspaces/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/basics/prepared_statements/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/basics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/basics/schema_metadata/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/basics/tuples/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/basics/user_defined_types/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/basics/uuids/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/building/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/configuration/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/configuration/retry_policies/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/faq/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/logging/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/metrics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/security/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/security/ssl/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/testing/ccm/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/testing/configuration/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/testing/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/topics/testing/running/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/cassandra.h/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassAggregateMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassAuthenticator/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassAuthenticatorCallbacks/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassBatch/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassCluster/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassCollection/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassColumnMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassCustomPayload/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassDataType/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassErrorResult/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassFunctionMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassFuture/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassIndexMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassInet/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassIterator/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassKeyspaceMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassLogMessage/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassMaterializedViewMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassMetrics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassPrepared/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassResult/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassRetryPolicy/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassRow/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassSchemaMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassSession/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassSsl/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassStatement/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassTableMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassTimestampGen/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassTuple/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassUserType/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassUuid/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassUuidGen/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassValue/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/struct.CassVersion/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.5/api/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/basics/batches/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/basics/binding_parameters/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/basics/client_side_timestamps/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/basics/consistency/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/basics/data_types/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/basics/date_and_time/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/basics/futures/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/basics/handling_results/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/basics/keyspaces/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/basics/prepared_statements/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/basics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/basics/schema_metadata/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/basics/tuples/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/basics/user_defined_types/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/basics/uuids/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/building/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/configuration/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/configuration/retry_policies/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/faq/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/logging/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/metrics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/security/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/security/ssl/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/testing/ccm/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/testing/configuration/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/testing/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/topics/testing/running/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/cassandra.h/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassAggregateMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassAuthenticator/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassAuthenticatorCallbacks/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassBatch/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassCluster/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassCollection/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassColumnMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassCustomPayload/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassDataType/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassErrorResult/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassFunctionMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassFuture/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassIndexMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassInet/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassIterator/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassKeyspaceMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassLogMessage/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassMaterializedViewMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassMetrics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassPrepared/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassResult/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassRetryPolicy/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassRow/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassSchemaMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassSession/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassSsl/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassStatement/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassTableMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassTimestampGen/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassTuple/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassUserType/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassUuid/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassUuidGen/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassValue/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/struct.CassVersion/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.4/api/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/basics/batches/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/basics/binding_parameters/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/basics/client_side_timestamps/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/basics/consistency/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/basics/data_types/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/basics/date_and_time/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/basics/futures/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/basics/handling_results/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/basics/keyspaces/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/basics/prepared_statements/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/basics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/basics/schema_metadata/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/basics/tuples/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/basics/user_defined_types/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/basics/uuids/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/building/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/configuration/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/configuration/retry_policies/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/faq/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/logging/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/metrics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/security/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/security/ssl/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/testing/ccm/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/testing/configuration/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/testing/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/topics/testing/running/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/cassandra.h/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassAggregateMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassBatch/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassCluster/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassCollection/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassColumnMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassCustomPayload/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassDataType/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassErrorResult/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassFunctionMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassFuture/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassIndexMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassInet/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassIterator/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassKeyspaceMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassLogMessage/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassMaterializedViewMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassMetrics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassPrepared/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassResult/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassRetryPolicy/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassRow/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassSchemaMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassSession/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassSsl/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassStatement/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassTableMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassTimestampGen/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassTuple/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassUserType/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassUuid/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassUuidGen/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassValue/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/struct.CassVersion/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.3/api/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/basics/batches/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/basics/binding_parameters/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/basics/client_side_timestamps/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/basics/consistency/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/basics/data_types/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/basics/date_and_time/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/basics/futures/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/basics/handling_results/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/basics/keyspaces/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/basics/prepared_statements/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/basics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/basics/schema_metadata/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/basics/tuples/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/basics/user_defined_types/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/basics/uuids/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/building/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/configuration/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/configuration/retry_policies/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/faq/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/logging/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/metrics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/security/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/security/ssl/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/testing/ccm/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/testing/configuration/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/testing/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/topics/testing/running/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/cassandra.h/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassAggregateMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassBatch/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassCluster/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassCollection/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassColumnMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassCustomPayload/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassDataType/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassErrorResult/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassFunctionMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassFuture/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassInet/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassIterator/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassKeyspaceMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassLogMessage/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassMetrics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassPrepared/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassResult/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassRetryPolicy/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassRow/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassSchemaMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassSession/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassSsl/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassStatement/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassTableMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassTimestampGen/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassTuple/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassUserType/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassUuid/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassUuidGen/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/struct.CassValue/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.2/api/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/basics/batches/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/basics/binding_parameters/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/basics/client_side_timestamps/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/basics/consistency/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/basics/data_types/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/basics/futures/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/basics/handling_results/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/basics/keyspaces/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/basics/prepared_statements/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/basics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/basics/schema_metadata/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/basics/tuples/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/basics/user_defined_types/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/basics/uuids/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/building/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/configuration/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/configuration/retry_policies/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/faq/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/logging/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/metrics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/security/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/security/ssl/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/testing/ccm/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/testing/configuration/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/testing/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/topics/testing/running/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/cassandra.h/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/struct.CassBatch/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/struct.CassCluster/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/struct.CassCollection/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/struct.CassDataType/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/struct.CassErrorResult/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/struct.CassFuture/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/struct.CassInet/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/struct.CassIterator/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/struct.CassLogMessage/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/struct.CassMetrics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/struct.CassPrepared/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/struct.CassResult/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/struct.CassRetryPolicy/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/struct.CassRow/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/struct.CassSchema/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/struct.CassSchemaMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/struct.CassSchemaMetaField/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/struct.CassSession/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/struct.CassSsl/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/struct.CassStatement/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/struct.CassTimestampGen/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/struct.CassTuple/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/struct.CassUserType/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/struct.CassUuid/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/struct.CassUuidGen/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/struct.CassValue/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.1/api/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.30000000000000004</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/topics/basics/batches/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/topics/basics/binding_parameters/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/topics/basics/consistency/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/topics/basics/futures/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/topics/basics/handling_results/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/topics/basics/keyspaces/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/topics/basics/prepared_statements/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/topics/basics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/topics/basics/schema_metadata/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/topics/basics/uuids/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/topics/building/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/topics/configuration/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/topics/faq/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/topics/logging/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/topics/metrics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/topics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/topics/security/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/topics/security/ssl/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/topics/testing/ccm/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/topics/testing/configuration/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/topics/testing/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/topics/testing/running/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/api/cassandra.h/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/api/struct.CassBatch/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/api/struct.CassCluster/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/api/struct.CassCollection/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/api/struct.CassFuture/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/api/struct.CassInet/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/api/struct.CassIterator/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/api/struct.CassLogMessage/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/api/struct.CassMetrics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/api/struct.CassPrepared/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/api/struct.CassResult/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/api/struct.CassRow/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/api/struct.CassSchema/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/api/struct.CassSchemaMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/api/struct.CassSchemaMetaField/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/api/struct.CassSession/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/api/struct.CassSsl/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/api/struct.CassStatement/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/api/struct.CassUuid/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/api/struct.CassUuidGen/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/api/struct.CassValue/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//2.0/api/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.19999999999999996</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/topics/basics/batches/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/topics/basics/binding_parameters/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/topics/basics/consistency/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/topics/basics/futures/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/topics/basics/handling_results/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/topics/basics/keyspaces/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/topics/basics/prepared_statements/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/topics/basics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/topics/basics/schema_metadata/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/topics/basics/uuids/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/topics/building/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/topics/configuration/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/topics/faq/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/topics/logging/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/topics/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/topics/security/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/topics/security/ssl/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/api/cassandra.h/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/api/struct.CassBatch/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/api/struct.CassBytes/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/api/struct.CassCluster/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/api/struct.CassCollection/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/api/struct.CassDecimal/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/api/struct.CassFuture/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/api/struct.CassInet/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/api/struct.CassIterator/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/api/struct.CassLogMessage/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/api/struct.CassPrepared/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/api/struct.CassResult/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/api/struct.CassRow/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/api/struct.CassSchema/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/api/struct.CassSchemaMeta/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/api/struct.CassSchemaMetaField/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/api/struct.CassSession/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/api/struct.CassSsl/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/api/struct.CassStatement/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/api/struct.CassString/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/api/struct.CassUuid/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/api/struct.CassUuidGen/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/api/struct.CassValue/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
   <url>
     <loc>http://datastax.github.io/cpp-driver//1.0/api/index.html</loc>
-    <lastmod>2017-03-09</lastmod>
+    <lastmod>2017-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.09999999999999998</priority>
   </url>
