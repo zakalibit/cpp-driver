@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="DataStax C++ Driver for Apache Cassandra Documentation">
+    <meta name="author" content="DataStax">
+
+    <title>DataStax C/C++ Driver - Building</title>
+
+    <link rel="icon" href="../../../favicon.ico">
+    <link rel="apple-touch-icon" href="../../../favicon.png">
+    <link href="../../../css/style.css" rel="stylesheet">
+    <link href="../../../css/pygments.css" rel="stylesheet">
+    <link href="../../../css/hotkeys.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body ng-app="docs">
+    <div class="navbar">
+      <div class="container-fluid">
+        <div class="row row-offcanvas row-offcanvas-left">
+          <div class="col-sm-3 text-center">
+            <a class="ds-home" href="../../"><img alt="Brand" src="../../../img/logo.png"></a>
+            <ul class="list-inline ds-sites" role="nav">
+              <li><a href="https://academy.datastax.com/" class="navbar-link">DataStax Academy</a></li>
+              <li><a href="http://www.datastax.com/dev/blog" class="navbar-link">Tech Blog</a></li>
+              <li><a href="http://www.datastax.com/what-we-offer/products-services/support" class="navbar-link">Support</a></li>
+            </ul>
+          </div>
+          <div class="col-md-5">
+            <p class="lead pubtitle">DataStax C/C++ Driver</p>
+            
+            <div class="text-info">
+              <span class="text-warning">Attention:</span> Viewing documentation for version
+              <div class="btn-group">
+                <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  2.7
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
+                
+                  <li><a href="../../../topics/building/">2.8</a></li>
+                
+                  <li class="disabled"><a href="./">2.7</a></li>
+                
+                  <li><a href="../../../2.6/topics/building/">2.6</a></li>
+                
+                  <li><a href="../../../2.5/topics/building/">2.5</a></li>
+                
+                  <li><a href="../../../2.4/topics/building/">2.4</a></li>
+                
+                  <li><a href="../../../2.3/topics/building/">2.3</a></li>
+                
+                  <li><a href="../../../2.2/topics/building/">2.2</a></li>
+                
+                  <li><a href="../../../2.1/topics/building/">2.1</a></li>
+                
+                  <li><a href="../../../2.0/topics/building/">2.0</a></li>
+                
+                  <li><a href="../../../1.0/topics/building/">1.0</a></li>
+                
+                </ul>
+              </div>
+            </div>
+            
+          </div>
+          <div class="col-md-4">
+            <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
+              <div class="form-group has-feedback">
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.7')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+              </div>
+              <ul class="dropdown-menu search-results" role="menu">
+                <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
+              </ul>
+            </form>
+            <a href="http://www.datastax.com/download" class="btn btn-primary btn-sm">Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid" id="content">
+      <div class="row">
+        <div class="col-md-3">
+          <div id="navigation" class="side-nav" role="tablist" aria-multiselectable="true">
+            <h3><a href="../../">Contents</a></h3>
+            <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li>
+    <a href="../../changelog/">
+      Changelog <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li class="active">
+    <a href="../">
+      Getting Started <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-minus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li class="active">
+    <a href="./" class="current">
+      Building <small>page</small>
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../basics/">
+      Basics <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../security/">
+      Security <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../logging/">
+      Logging <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../configuration/">
+      Configuration <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../faq/">
+      FAQ <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../metrics/">
+      Metrics <small>page</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../testing/">
+      Testing <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../../api/">
+      API docs <small>index</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+          </div>
+        </div>
+        <div class="col-md-9 content">
+          <div class="crumbs-wrapper">
+            <nav id="crumbs" data-spy="affix" data-offset-top="130">
+              <ol class="breadcrumb">
+                
+                
+                
+                <li><a href="../../">Home</a></li>
+                
+                
+                
+                
+                
+                <li><a href="../">Getting Started</a></li>
+                
+                
+                
+                
+                
+                <li class="active">Building</li>
+                
+                
+                
+              </ol>
+            </nav>
+          </div>
+          
+
+<h1 id="building" class="target">Building<a class="anchor" href="#building" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>The C/C++ driver will build on most standard Unix-like and Microsoft Windows
+platforms. Packages are available for the following platforms:</p>
+
+<ul>
+<li><a href="http://downloads.datastax.com/cpp-driver/centos/6/cassandra">CentOS 6</a></li>
+<li><a href="http://downloads.datastax.com/cpp-driver/centos/7/cassandra">CentOS 7</a></li>
+<li><a href="http://downloads.datastax.com/cpp-driver/ubuntu/14.04/cassandra">Ubuntu 14.04 LTS</a></li>
+<li><a href="http://downloads.datastax.com/cpp-driver/ubuntu/16.04/cassandra">Ubuntu 16.04 LTS</a></li>
+<li><a href="http://downloads.datastax.com/cpp-driver/windows/cassandra">Windows</a></li>
+</ul>
+
+<p><strong>NOTE</strong>: The build procedures only need to be performed for driver development
+          or if your system doesn’t have packages available for download and
+          installation.</p>
+
+<h2 id="compatibility" class="target">Compatibility<a class="anchor" href="#compatibility" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Architectures: 32-bit (x86) and 64-bit (x64)</li>
+<li>Compilers: GCC 4.1.2+ Clang 3.4+, and MSVC 2010/2012/2013/2015/2017</li>
+</ul>
+
+<h2 id="dependencies" class="target">Dependencies<a class="anchor" href="#dependencies" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>The C/C++ driver depends on the following software:</p>
+
+<ul>
+<li>
+<a href="http://www.cmake.org/download">CMake</a> v2.6.4+</li>
+<li>
+<a href="http://libuv.org">libuv</a> 1.x</li>
+<li>
+<a href="https://www.openssl.org">OpenSSL</a> v1.0.x</li>
+</ul>
+
+<h2 id="linux-mac-os" class="target">Linux/Mac OS<a class="anchor" href="#linux-mac-os" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>The driver is known to build on CentOS/RHEL 6/7, Mac OS X 10.10/10.11 (Yosemite
+and El Capitan), Mac OS 10.12 (Sierra), and Ubuntu 14.04/16.04 LTS.</p>
+
+<p><strong>NOTE</strong>: The driver will also build on most standard Unix-like systems using
+          GCC 4.1.2+ or Clang 3.4+.</p>
+
+<h3 id="installing-dependencies" class="target">Installing dependencies<a class="anchor" href="#installing-dependencies" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+
+<h4 id="initial-environment-setup" class="target">Initial environment setup<a class="anchor" href="#initial-environment-setup" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h4>
+
+<h5 id="centos-rhel-yum" class="target">CentOS/RHEL (Yum)<a class="anchor" href="#centos-rhel-yum" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h5>
+<pre class="highlight"><code>yum install automake cmake gcc-c++ git libtool
+</code></pre>
+<h5 id="ubuntu-apt" class="target">Ubuntu (APT)<a class="anchor" href="#ubuntu-apt" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h5>
+<pre class="highlight"><code>apt-get update
+apt-get install build-essential cmake git
+</code></pre>
+<h5 id="mac-os-brew" class="target">Mac OS (Brew)<a class="anchor" href="#mac-os-brew" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h5>
+
+<p><a href="https://brew.sh">Homebrew</a> (or brew) is a free and open-source software package
+management system that simplifies the installation of software on the Mac OS
+operating system. Ensure <a href="https://brew.sh">Homebrew is installed</a> before proceeding.</p>
+<pre class="highlight"><code>brew update
+brew upgrade
+brew install autoconf automake cmake libtool
+</code></pre>
+<h4 id="libuv" class="target">libuv<a class="anchor" href="#libuv" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h4>
+
+<p>libuv v1.x should be used in order to ensure all features of the C/C++ driver
+are available. When using a package manager for your operating system make sure
+you install v1.x; if available.</p>
+
+<h5 id="centos-rhel-and-ubuntu-packages" class="target">CentOS/RHEL and Ubuntu packages<a class="anchor" href="#centos-rhel-and-ubuntu-packages" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h5>
+
+<p>Packages are available from our <a href="http://downloads.datastax.com">download server</a>:</p>
+
+<ul>
+<li><a href="http://downloads.datastax.com/cpp-driver/centos/6/dependencies/libuv">CentOS 6</a></li>
+<li><a href="http://downloads.datastax.com/cpp-driver/centos/7/dependencies/libuv">CentOS 7</a></li>
+<li><a href="http://downloads.datastax.com/cpp-driver/ubuntu/14.04/dependencies/libuv">Ubuntu 14.04 LTS</a></li>
+<li><a href="http://downloads.datastax.com/cpp-driver/ubuntu/16.04/dependencies/libuv">Ubuntu 16.04 LTS</a></li>
+</ul>
+
+<h5 id="mac-os-brew" class="target">Mac OS (Brew)<a class="anchor" href="#mac-os-brew" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h5>
+<pre class="highlight"><code>brew install libuv
+</code></pre>
+<h5 id="manually-build-and-install" class="target">Manually build and install<a class="anchor" href="#manually-build-and-install" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h5>
+
+<p><u>The following procedures should be performed if packages are not available for
+your system.</u></p>
+<pre class="highlight"><code><span class="nb">pushd</span> /tmp
+wget http://dist.libuv.org/dist/v1.14.0/libuv-v1.14.0.tar.gz
+tar xzf libuv-v1.14.0.tar.gz
+<span class="nb">pushd </span>libuv-v1.14.0
+sh autogen.sh
+./configure
+make install
+<span class="nb">popd
+popd</span>
+</code></pre>
+<h4 id="openssl" class="target">OpenSSL<a class="anchor" href="#openssl" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h4>
+
+<p>The DataStax C/C++ driver requires OpenSSL v1.0.x; v1.1.x+ is not currently
+supported by the driver. Ensure that you are installing and using a compatible
+version of OpenSSL.</p>
+
+<h5 id="centos-yum" class="target">CentOS (Yum)<a class="anchor" href="#centos-yum" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h5>
+<pre class="highlight"><code>yum install openssl-devel
+</code></pre>
+<h5 id="ubuntu-apt" class="target">Ubuntu (APT)<a class="anchor" href="#ubuntu-apt" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h5>
+<pre class="highlight"><code>apt-get install libssl-dev
+</code></pre>
+<h5 id="mac-os-brew" class="target">Mac OS (Brew)<a class="anchor" href="#mac-os-brew" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h5>
+<pre class="highlight"><code>brew install openssl
+</code></pre>
+<p><strong>Note</strong>: For Mac OS X 10.11 (El Capitan) and Mac OS 10.12 (Sierra) a link
+          needs to be created in order to make OpenSSL available to the
+          building libraries:</p>
+<pre class="highlight"><code>brew link --force openssl
+</code></pre>
+<h5 id="manually-build-and-install" class="target">Manually build and install<a class="anchor" href="#manually-build-and-install" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h5>
+<pre class="highlight"><code><span class="nb">pushd</span> /tmp
+wget --no-check-certificate https://www.openssl.org/source/openssl-1.0.2l.tar.gz
+tar xzf openssl-1.0.2l.tar.gz
+<span class="nb">pushd </span>openssl-1.0.2l
+<span class="nv">CFLAGS</span><span class="o">=</span>-fpic ./config shared
+make
+make install
+<span class="nb">popd
+popd</span>
+</code></pre>
+<h3 id="building-and-installing-the-c-c-driver" class="target">Building and installing the C/C++ driver<a class="anchor" href="#building-and-installing-the-c-c-driver" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+<pre class="highlight"><code>mkdir build
+<span class="nb">pushd </span>build
+cmake ..
+make
+make install
+<span class="nb">popd</span>
+</code></pre>
+<h4 id="building-examples-optional" class="target">Building examples (optional)<a class="anchor" href="#building-examples-optional" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h4>
+
+<p>Examples are not built by default and need to be enabled. Update your <a href="http://www.cmake.org/download">CMake</a>
+line to build examples.</p>
+<pre class="highlight"><code>cmake -DCASS_BUILD_EXAMPLES<span class="o">=</span>On ..
+</code></pre>
+<h4 id="building-tests-optional" class="target">Building tests (optional)<a class="anchor" href="#building-tests-optional" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h4>
+
+<p>Tests (integration and unit) are not built by default and need to be enabled.
+Before proceeding <a href="http://www.boost.org">Boost</a> v1.59.0+ must be installed to properly configure and
+build the integration and unit tests.</p>
+
+<p>Once <a href="http://www.boost.org">Boost</a> is installed, update your CMake line to build tests.</p>
+
+<h5 id="boost" class="target">Boost<a class="anchor" href="#boost" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h5>
+
+<h6 id="centos-rhel-and-ubuntu" class="target">CentOS/RHEL and Ubuntu<a class="anchor" href="#centos-rhel-and-ubuntu" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h6>
+
+<p>CentOS/RHEL and Ubuntu do not contain Boost v1.59+ libraries in its
+repositories; however the following steps will install Boost from source:</p>
+
+<p><strong>Note</strong>: Ensure previous version of Boost has been removed before proceeding.</p>
+<pre class="highlight"><code><span class="nb">pushd</span> /tmp
+wget http://sourceforge.net/projects/boost/files/boost/1.64.0/boost_1_64_0.tar.gz/download -O boost_1_64_0.tar.gz
+tar xzf boost_1_64_0.tar.gz
+<span class="nb">pushd </span>boost_1_64_0
+./bootstrap.sh --with-libraries<span class="o">=</span>atomic,chrono,system,thread,test
+sudo ./b2 <span class="nv">cxxflags</span><span class="o">=</span><span class="s2">"-fPIC"</span> install
+<span class="nb">popd
+popd</span>
+</code></pre>
+<h6 id="mac-os" class="target">Mac OS<a class="anchor" href="#mac-os" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h6>
+<pre class="highlight"><code>brew install boost
+</code></pre>
+<h5 id="integration-tests" class="target">Integration tests<a class="anchor" href="#integration-tests" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h5>
+<pre class="highlight"><code>cmake -DCASS_BUILD_INTEGRATION_TESTS<span class="o">=</span>On ..
+</code></pre>
+<h5 id="unit-tests" class="target">Unit tests<a class="anchor" href="#unit-tests" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h5>
+<pre class="highlight"><code>cmake -DCASS_BUILD_UNIT_TESTS<span class="o">=</span>On ..
+</code></pre>
+<h2 id="windows" class="target">Windows<a class="anchor" href="#windows" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>We provide a self-contained <a href="https://github.com/datastax/cpp-driver/blob/master/vc_build.bat">batch script</a> for building the C/C++ driver and
+all of its dependencies. In order to run it, you have to install the build
+dependencies and clone the repository with the DataStax C/C++ driver for
+DataStax Enterprise.</p>
+
+<h3 id="obtaining-build-dependencies" class="target">Obtaining build dependencies<a class="anchor" href="#obtaining-build-dependencies" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+
+<ul>
+<li>Download and install <a href="http://gnuwin32.sourceforge.net/downlinks/bison.php">Bison</a>
+
+<ul>
+<li>Make sure Bison is in your system PATH and not installed in a directory with
+spaces (e.g. <code>%SYSTEMDRIVE%\GnuWin32</code>)</li>
+</ul>
+</li>
+<li>Download and install <a href="http://www.cmake.org/download">CMake</a>
+
+<ul>
+<li>Make sure to select the option “Add CMake to the system PATH for all users”
+or “Add CMake to the system PATH for current user”</li>
+</ul>
+</li>
+<li>Download and install <a href="http://git-scm.com/download/win">Git</a>
+
+<ul>
+<li>Make sure to select the option “Use Git from Windows Command Prompt” or
+manually add the git executable to the system PATH.</li>
+</ul>
+</li>
+<li>Download and install <a href="https://www.perl.org/get.html#win32">ActiveState Perl</a>
+
+<ul>
+<li>Make sure to select the option “Add Perl to PATH environment variable”</li>
+</ul>
+</li>
+<li>Download and install <a href="https://www.python.org/downloads">Python v2.7.x</a>
+
+<ul>
+<li>Make sure to select/install the feature “Add python.exe to Path”</li>
+</ul>
+</li>
+<li>Download and install <a href="http://www.boost.org">Boost</a> (Optional: Tests only)
+
+<ul>
+<li>Visual Studio 2010: <a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.64.0/boost_1_64_0-msvc-10.0-32.exe/download">32-bit</a>/<a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.64.0/boost_1_64_0-msvc-10.0-64.exe/download">64-bit</a>
+</li>
+<li>Visual Studio 2012: <a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.64.0/boost_1_64_0-msvc-11.0-32.exe/download">32-bit</a>/<a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.64.0/boost_1_64_0-msvc-11.0-64.exe/download">64-bit</a>
+</li>
+<li>Visual Studio 2013: <a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.64.0/boost_1_64_0-msvc-12.0-32.exe/download">32-bit</a>/<a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.64.0/boost_1_64_0-msvc-12.0-64.exe/download">64-bit</a>
+</li>
+<li>Visual Studio 2015: <a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.64.0/boost_1_64_0-msvc-14.0-32.exe/download">32-bit</a>/<a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.64.0/boost_1_64_0-msvc-14.0-64.exe/download">64-bit</a>
+</li>
+<li>Visual Studio 2015: <a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.64.0/boost_1_64_0-msvc-14.1-32.exe/download">32-bit</a>/<a href="http://sourceforge.net/projects/boost/files/boost-binaries/1.64.0/boost_1_64_0-msvc-14.1-64.exe/download">64-bit</a>
+</li>
+</ul>
+</li>
+</ul>
+
+<h3 id="building-the-driver" class="target">Building the driver<a class="anchor" href="#building-the-driver" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3>
+
+<p>The <a href="https://github.com/datastax/cpp-driver/blob/master/vc_build.bat">batch script</a> detects installed versions of Visual Studio to simplify the
+build process on Windows and select the correct version of Visual Studio when
+compiling the driver.</p>
+
+<p>First you will need to open a “Command Prompt” to execute the batch script.
+Running the batch script without any arguments will build the driver for C/C++
+driver for the current system architecture (e.g. x64).</p>
+
+<p>To perform advanced build configuration, execute the batch script with the
+<code>--HELP</code> argument to display the options available.</p>
+<pre><code class="dos">Usage: VC_BUILD.BAT [OPTION...]
+
+    --DEBUG                           Enable debug build
+    --RELEASE                         Enable release build (default)
+    --DISABLE-CLEAN                   Disable clean build
+    --DEPENDENCIES-ONLY               Build dependencies only
+    --TARGET-COMPILER [version]       141, 140, 120, 110, or 100
+    --DISABLE-OPENSSL                 Disable OpenSSL support
+    --ENABLE-EXAMPLES                 Enable example builds
+    --ENABLE-PACKAGES [version]       Enable package generation (*)
+    --ENABLE-ZLIB                     Enable zlib
+    --GENERATE-SOLUTION               Generate Visual Studio solution (**)
+    --INSTALL-DIR [install-dir]       Override installation directory
+    --SHARED                          Build shared library (default)
+    --STATIC                          Build static library
+    --ENABLE-SHARED-OPENSSL           Force shared OpenSSL library
+    --X86                             Target 32-bit build (***)
+    --X64                             Target 64-bit build (***)
+    --USE-BOOST-ATOMIC                Use Boost atomic
+
+    Testing Arguments
+
+    --ENABLE-TESTS
+         [boost-root-dir]             Enable integration and unit tests build
+    --ENABLE-INTEGRATION-TESTS
+         [boost-root-dir]             Enable integration tests build
+    --ENABLE-UNIT-TESTS
+         [boost-root-dir]             Enable unit tests build
+    --ENABLE-LIBSSH2                  Enable libssh2 (remote server testing)
+
+    --HELP                            Display this message
+
+*   Packages are only generated using detected installations of Visual Studio
+**  Dependencies are built before generation of Visual Studio solution
+*** Default target architecture is determined based on system architecture
+</code></pre>
+<p><strong>Note</strong>: When overriding installation directory using <code>--INSTALL-DIR</code>, the
+          driver dependencies will also be copied (e.g.
+          C:\myproject\dependencies\libs)</p>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script src="../../../js/jquery.js"></script>
+    <script src="../../../js/bootstrap.js"></script>
+    <script src="../../../js/angular.js"></script>
+    <script src="../../../js/mousetrap.js"></script>
+    <script src="../../../js/hotkeys.js"></script>
+    <script src="../../../js/ZeroClipboard.js"></script>
+    <script src="../../../js/lunr.js"></script>
+    <script src="../../../js/app.js"></script>
+  </body>
+</html>

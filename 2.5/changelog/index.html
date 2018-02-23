@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="DataStax C++ Driver for Apache Cassandra Documentation">
+    <meta name="author" content="DataStax">
+
+    <title>DataStax C/C++ Driver - Changelog</title>
+
+    <link rel="icon" href="../../favicon.ico">
+    <link rel="apple-touch-icon" href="../../favicon.png">
+    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/pygments.css" rel="stylesheet">
+    <link href="../../css/hotkeys.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body ng-app="docs">
+    <div class="navbar">
+      <div class="container-fluid">
+        <div class="row row-offcanvas row-offcanvas-left">
+          <div class="col-sm-3 text-center">
+            <a class="ds-home" href="../"><img alt="Brand" src="../../img/logo.png"></a>
+            <ul class="list-inline ds-sites" role="nav">
+              <li><a href="https://academy.datastax.com/" class="navbar-link">DataStax Academy</a></li>
+              <li><a href="http://www.datastax.com/dev/blog" class="navbar-link">Tech Blog</a></li>
+              <li><a href="http://www.datastax.com/what-we-offer/products-services/support" class="navbar-link">Support</a></li>
+            </ul>
+          </div>
+          <div class="col-md-5">
+            <p class="lead pubtitle">DataStax C/C++ Driver</p>
+            
+            <div class="text-info">
+              <span class="text-warning">Attention:</span> Viewing documentation for version
+              <div class="btn-group">
+                <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  2.5
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
+                
+                  <li><a href="../../changelog/">2.8</a></li>
+                
+                  <li><a href="../../2.7/changelog/">2.7</a></li>
+                
+                  <li><a href="../../2.6/changelog/">2.6</a></li>
+                
+                  <li class="disabled"><a href="./">2.5</a></li>
+                
+                  <li><a href="../../2.4/changelog/">2.4</a></li>
+                
+                  <li><a href="../../2.3/changelog/">2.3</a></li>
+                
+                  <li><a href="../../2.2/changelog/">2.2</a></li>
+                
+                  <li><a href="../../2.1/changelog/">2.1</a></li>
+                
+                  <li><a href="../../2.0/changelog/">2.0</a></li>
+                
+                  <li><a href="../../1.0/changelog/">1.0</a></li>
+                
+                </ul>
+              </div>
+            </div>
+            
+          </div>
+          <div class="col-md-4">
+            <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
+              <div class="form-group has-feedback">
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.5')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+              </div>
+              <ul class="dropdown-menu search-results" role="menu">
+                <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
+              </ul>
+            </form>
+            <a href="http://www.datastax.com/download" class="btn btn-primary btn-sm">Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid" id="content">
+      <div class="row">
+        <div class="col-md-3">
+          <div id="navigation" class="side-nav" role="tablist" aria-multiselectable="true">
+            <h3><a href="../">Contents</a></h3>
+            <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li class="active">
+    <a href="./" class="current">
+      Changelog <small>page</small>
+      
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+  
+</ul>
+
+  </li>
+  
+  
+  <li>
+    <a href="../topics/">
+      Getting Started <small>page</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../api/">
+      API docs <small>index</small>
+      
+      
+      <span class="glyphicon glyphicon-plus-sign pull-right" aria-hidden="true"></span>
+      
+      
+    </a>
+    
+  </li>
+  
+</ul>
+
+          </div>
+        </div>
+        <div class="col-md-9 content">
+          <div class="crumbs-wrapper">
+            <nav id="crumbs" data-spy="affix" data-offset-top="130">
+              <ol class="breadcrumb">
+                
+                
+                
+                <li><a href="../">Home</a></li>
+                
+                
+                
+                
+                
+                <li class="active">Changelog</li>
+                
+                
+                
+              </ol>
+            </nav>
+          </div>
+          
+
+<h1 id="2-5-0" class="target">2.5.0<a class="anchor" href="#2-5-0" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>October 20, 2016</p>
+
+<h2 id="features" class="target">Features<a class="anchor" href="#features" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Added constant specultive exectution which preemptively runs mutiple of the
+same query in an effort to smooth out latency spikes.</li>
+<li>Added idempotent queries to support speculative execution and allow automatic
+retries. Use <code>cass_statement_set_is_idempotent()</code> or
+<code>cass_batch_set_is_idempotent()</code>.</li>
+<li>SSL can be now be used without initializing the underlying implmentation
+(e.g. OpenSSL). Use <code>cass_ssl_new_no_lib_init()</code>.</li>
+</ul>
+
+<h2 id="other" class="target">Other<a class="anchor" href="#other" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Fixed an issue where a connection is incorrectly marked READY after it’’s
+already been marked DEFUNCT (CPP-401)</li>
+<li>Fixed pointer aliasing issues in <code>cass::Address</code> (CPP-406)</li>
+<li>Fixed an issue where random partitioner hash values were being incorrectly
+generated (CPP-403)</li>
+</ul>
+
+<h1 id="2-4-3" class="target">2.4.3<a class="anchor" href="#2-4-3" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>August 22, 2016</p>
+
+<h2 id="features" class="target">Features<a class="anchor" href="#features" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Contact points are now randomized by default (CPP-193)</li>
+<li>Token-aware routing can be used without enabling schema metadata (CPP-387)</li>
+<li>Multiple IP addresses can be resolved from a single domain (CPP-364)</li>
+</ul>
+
+<h2 id="other" class="target">Other<a class="anchor" href="#other" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Fixed issue that would cause quadradic ring processing with invalid
+replilcation factors (CPP-298)</li>
+<li>Fixed issue where schema change handler could hang if an error is returned by
+Cassandra (CPP-381)</li>
+<li>Fixed crash caused by connecting seperate sessions in multiple threads
+(CPP-385)</li>
+<li>Fixed issue where the control connection could timeout as a result of schema
+or token map processing (CPP-388)</li>
+<li>Greatly improved the performance of building the token map for token aware
+routing (CPP-389)</li>
+<li>Fixed issue where heartbeats were restarted on unresponseive connections and
+prevented the connection from being terminated (CPP-392)</li>
+</ul>
+
+<h1 id="2-4-2" class="target">2.4.2<a class="anchor" href="#2-4-2" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>June 24, 2016</p>
+
+<h2 id="features" class="target">Features<a class="anchor" href="#features" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Added the per-request timeouts to statement and batch</li>
+<li>Added the ability to remove custom payload items</li>
+</ul>
+
+<h2 id="other" class="target">Other<a class="anchor" href="#other" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Fixed issue where cass_date_time_to_epoch() unable to handle dates before
+Cassandra date epoch (value: 2147483648)</li>
+</ul>
+
+<h1 id="2-4-1" class="target">2.4.1<a class="anchor" href="#2-4-1" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>June 9, 2016</p>
+
+<h2 id="other" class="target">Other<a class="anchor" href="#other" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Fixed issue where <code>cass_future_get_result()</code> and similiar methods would
+dereference a NULL pointer if a future is set to an error.</li>
+</ul>
+
+<h1 id="2-4-0" class="target">2.4.0<a class="anchor" href="#2-4-0" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>June 1, 2016</p>
+
+<h2 id="features" class="target">Features<a class="anchor" href="#features" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Added the ability to add a custom SASL authenticator</li>
+<li>Added reverse DNS lookup for IP addresses which can be enabled using
+<code>cass_cluster_set_use_hostname_resolution()</code>.</li>
+<li>Added a DNS resolve timeout that can be set using
+<code>cass_cluster_set_resolve_timeout()</code>.</li>
+<li>Added the ability for SSL peer identity to be verified by hostname.
+(<code>CASS_SSL_VERIFY_PEER_IDENTITY_DNS</code>)</li>
+<li>Added the ability to bind/set/append custom types with a class name.</li>
+<li>Added <code>CassStatement</code> function to clear/resize parameters
+<code>cass_statement_reset_parameters()</code>.</li>
+</ul>
+
+<h2 id="other" class="target">Other<a class="anchor" href="#other" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Fixed crash caused by tables with the same name in adjacent keyspaces.</li>
+<li>Fixed an invalid memory read in processing strategy options metadata.</li>
+<li>Fixed issue where <code>null</code> values didn’’t have proper datatypes.</li>
+<li>Fixed issue where an “UP” event could cause the session connection process
+to hang.</li>
+<li>Reduced reconnection log chatter at the <code>CASS_LOG_ERROR</code> level. A failed
+reconnection attempt is only logged one time as an error.</li>
+</ul>
+
+<h1 id="2-3-0" class="target">2.3.0<a class="anchor" href="#2-3-0" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>March 14, 2016</p>
+
+<h2 id="features" class="target">Features<a class="anchor" href="#features" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Added support for materialized view schema metadata.</li>
+<li>Added support for secondary index schema metadata.</li>
+<li>Added cluster key order to table schema metadata via
+<code>cass_table_meta_clustering_key_order()</code>.</li>
+<li>Added frozen flag to <code>CassDataType</code> via <code>cass_data_type_is_frozen()</code>.</li>
+<li>Added support getting the connected cluster’’s Cassandra version via
+<code>cass_schema_meta_version()</code>.</li>
+<li>Added blacklist, whitelist DC, and blacklist DC load balancing policies.
+Thanks to Walid Aitamer (waitamer).</li>
+</ul>
+
+<h2 id="other" class="target">Other<a class="anchor" href="#other" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Fixed the control connection to only become “ready” during the initial
+connection process.</li>
+<li>Fixed assertion in data type comparison for collection/tuple types.</li>
+<li>Fixed reference count issue in <code>cass_collection_new_from_data_type()</code>
+</li>
+<li>Fixed retry consistency levels for batches. Batches now correctly use the
+downgraded consistency levels supplied from retry policies.</li>
+<li>Fixed function name typo: <code>cass_data_sub_type_count()</code> to
+<code>cass_data_type_sub_type_count()</code>. The old spelling is still present, but
+deprecated.</li>
+<li>Fixed <code>cass::VersionNumber</code> to handle tick-tock release version where only
+“major.minor” are provided.</li>
+<li>Fixed function <code>cass_session_connect_keyspace()</code> to correctly return an error
+when the keyspace is invalid.</li>
+<li>Fixed invalid logic in schema metadata swap method which could cause unecessary
+copy-on-writes.</li>
+<li>Fixed bottleneck in <code>cass::Session</code> by using copy-on-write instead of a
+highly contended lock to track the current keyspace.</li>
+<li>Changed “major/minor” to “major_version/minor_version” in <code>cass::VersionNumber</code> to
+avoid naming conflicts on some platforms.</li>
+</ul>
+
+<h1 id="2-2-2" class="target">2.2.2<a class="anchor" href="#2-2-2" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>December 14, 2015</p>
+
+<h2 id="features" class="target">Features<a class="anchor" href="#features" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Added basic support for Cassandra 3.0. The driver supports Cassandra 3.0
+schema metadata for keyspaces, tables, columns, user types, functions, and
+aggregates.</li>
+</ul>
+
+<h2 id="other" class="target">Other<a class="anchor" href="#other" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Changed the default consistency from <code>CASS_CONSISTENCY_LOCAL_QUORUM</code> to
+<code>CASS_CONSISTENCY_LOCAL_ONE</code>
+</li>
+</ul>
+
+<h1 id="2-2-1" class="target">2.2.1<a class="anchor" href="#2-2-1" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>November 19, 2015</p>
+
+<h2 id="other" class="target">Other<a class="anchor" href="#other" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Fixed issue where cass_data_type_sub_data_type() was always referencing a
+NULL pointer</li>
+<li>Fixed cass::Atomic (intrinsic) for 32-bit MSVC</li>
+</ul>
+
+<h1 id="2-2-0" class="target">2.2.0<a class="anchor" href="#2-2-0" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>October 29, 2015</p>
+
+<h2 id="features" class="target">Features<a class="anchor" href="#features" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Refactored the schema metadata API (<code>CassSchema</code>) to use concrete types
+(<code>CassKeyspaceMeta</code>, <code>CassTableMeta</code>, etc.) instead of the single
+<code>CassSchemaMeta</code> type.</li>
+<li>Added support for UDF/UDA schema metadata</li>
+<li>Added support for whitelist filtering i.e. whitelist load balancing policy</li>
+</ul>
+
+<h2 id="other" class="target">Other<a class="anchor" href="#other" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Fixed <code>Address::compare()</code> issue that cause invalid comparisons for IPv4</li>
+<li>Fixed issue that caused <code>StreamManager</code> to generate invalid stream IDs in
+Windows release builds.</li>
+<li>Fixed issue where <code>cass_cluster_set_protocol_version()</code> would return an error
+for protocol versions higher than v3</li>
+<li>Changed the default consistency from <code>CASS_CONSISTENCY_ONE</code> to
+<code>CASS_CONSISTENCY_LOCAL_QUORUM</code>
+</li>
+<li>When using prepared statements with protocol v4 (and higher) the driver will
+use partition key metadata returned in the prepared response instead of using
+schema metadata.</li>
+<li>Improved the performance of UUID to string and UUID from string conversions</li>
+</ul>
+
+<h1 id="2-2-0-beta1" class="target">2.2.0-beta1<a class="anchor" href="#2-2-0-beta1" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>September 21, 2015</p>
+
+<h2 id="features" class="target">Features<a class="anchor" href="#features" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Added support for Cassandra 2.2 data types <code>tinyint</code> and <code>smallint</code>
+(<code>cass_int8_t</code> and <code>cass_int16_t</code>)</li>
+<li>Added <code>cass_uint32_t</code> support for the Cassandra 2.2 <code>date</code> data type</li>
+<li>Added functions to convert from Unix Epoch time (in seconds) to and from the
+Cassandra <code>date</code> and <code>time</code> types</li>
+<li>Added support for sending and recieving custom payloads to and from Cassandra</li>
+<li>Added support for server-side warnings</li>
+<li>Added new error response functions to handle the ‘Read_failure’, &#8216;Write_failure’,
+&#8216;Function_failure’, and &#8216;Already_exists’ errors</li>
+</ul>
+
+<h2 id="other" class="target">Other<a class="anchor" href="#other" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Fixed SSL ring buffer memory leak</li>
+<li>Fixed potential memory issue caused by using named parameters</li>
+<li>Fixed hanging issue when calling <code>cass_session_get_metrics()</code>
+</li>
+<li>Fixed hanging issue caused by <code>cass::MPMCQueue</code> memory race</li>
+<li>Fixed invalid state assertion in <code>cass::Handler</code>
+</li>
+<li>Fixed UDTs with <code>text</code> fields</li>
+<li>A value of <code>null</code> is no longer implictly used for unbound statement
+parameters. An error is returned (<code>CASS_ERROR_LIB_PARAMETER_UNSET</code>) for
+Cassandra 2.1 and earlier or the UNSET value is used for Cassandra 2.2 and
+later</li>
+</ul>
+
+<h1 id="2-1-0" class="target">2.1.0<a class="anchor" href="#2-1-0" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>August 11, 2015</p>
+
+<h2 id="features" class="target">Features<a class="anchor" href="#features" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Added support for retry policies</li>
+<li>Added support for client-side timestamps</li>
+<li>Exposed raw paging state token via <code>cass_result_paging_state_token()</code>
+and it can be added to a statement using
+<code>cass_statement_set_paging_state_token()</code>
+</li>
+<li>Added support for enabling/disabling schema metadata using
+<code>cass_cluster_set_use_schema()</code>
+</li>
+</ul>
+
+<h2 id="other" class="target">Other<a class="anchor" href="#other" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Connections that timeout will not disconnect an entire conneciton pool</li>
+<li>
+<code>TCP_NODELAY</code> is enabled by default</li>
+<li>Connections now support using 32,767 stream IDs when using the CQL Native
+Protocol v3</li>
+<li>
+<code>cass_uuid_min_from_time()</code> and <code>cass_uuid_max_from_time()</code> now correctly
+considers the time parameter as epoch time</li>
+</ul>
+
+<h1 id="2-1-0-beta" class="target">2.1.0-beta<a class="anchor" href="#2-1-0-beta" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>July 7, 2015</p>
+
+<h2 id="features" class="target">Features<a class="anchor" href="#features" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Added support for tuples and UDTs</li>
+<li>Added support for nested collections</li>
+<li>Added support for named parameters when using simple queries (non-prepared)</li>
+<li>Added support for protocol version 3 (and schema changes)</li>
+</ul>
+
+<h2 id="other" class="target">Other<a class="anchor" href="#other" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Fixed SSL error handling</li>
+<li>Added libuv read buffer caching in cass::Connection</li>
+</ul>
+
+<h1 id="2-0-1" class="target">2.0.1<a class="anchor" href="#2-0-1" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>May 15, 2015</p>
+
+<h2 id="other" class="target">Other<a class="anchor" href="#other" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Removed logging thread. <code>cass_log_cleanup()</code> and <code>cass_log_set_queue_size()</code>
+are now deprecated. A logging callback registered with
+<code>cass_log_set_callback()</code> will now be called on mulitple threads concurrently.</li>
+<li>Fixed an issue where the driver might crash/hang when <code>system.local</code> contains
+no entries</li>
+<li>Fixed an issue where the driver might hang under high-load due to missing
+memory fence before <code>uv_async_send()</code> in <code>cass::AsyncQueue::enqueue()</code>
+</li>
+</ul>
+
+<h1 id="2-0-0" class="target">2.0.0<a class="anchor" href="#2-0-0" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>April 23, 2015</p>
+
+<h2 id="features" class="target">Features<a class="anchor" href="#features" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Added latency-aware load balancing. To enable use:
+<code>cass_cluster_set_latency_aware_routing()</code>
+</li>
+<li>Added performance metrics. To get metrics use:
+<code>cass_session_get_metrics()</code>
+</li>
+<li>Added <code>CassInet</code> string conversion functions:
+<code>cass_inet_string()</code> and <code>cass_inet_to_string()</code>
+</li>
+</ul>
+
+<h2 id="other" class="target">Other<a class="anchor" href="#other" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Removed internal dependency on Boost. Optional: Boost Atomic can still be used
+as an implementation for internal atomic operations and memory fences.</li>
+<li>Removed wrapper types <code>CassString</code>, <code>CassBytes</code> and <code>CassDecimal</code>
+</li>
+<li>Added string length functions (functions with the suffix “_n”) for all
+functions that previously took a null-terminated or <code>CassString</code> parameter.</li>
+<li>Added missing <code>cass_statement_bind_null_by_name()</code> function</li>
+<li>Fixed issue where time-based UUIDs (<code>CassUuid</code> v4) had the incorrect time on
+32-bit systems</li>
+</ul>
+
+<h1 id="1-0-1" class="target">1.0.1<a class="anchor" href="#1-0-1" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>Mar 2, 2015</p>
+
+<h2 id="other" class="target">Other<a class="anchor" href="#other" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Added testing documentation</li>
+<li>Added docmentation for the <code>varint</code> data type</li>
+<li>Added a contributing document</li>
+<li>Added version defines to <code>cassandra.h</code>
+</li>
+<li>Fixed an issue where connections were attempted against decommissioned nodes</li>
+<li>Fixed an issue where an invalid key index was used for a single entry
+token-aware routing key</li>
+<li>Improved build error output when an incompatabile version of Boost is used to
+build the driver</li>
+</ul>
+
+<h1 id="1-0-0" class="target">1.0.0<a class="anchor" href="#1-0-0" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>Feb 2, 2015</p>
+
+<h2 id="features" class="target">Features<a class="anchor" href="#features" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Libuv 1.x supported</li>
+</ul>
+
+<h2 id="other" class="target">Other<a class="anchor" href="#other" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>
+<code>cass_cluster_set_num_threads_io()</code> now returns an error code</li>
+<li>Fixed an issue where a node in a remote DC could reconnect even if it
+was supposed to be ignored.</li>
+<li>Reduced the defaults for IO worker threads (1), core connections (1), and
+max connections (2).</li>
+<li>Fixed crash caused by a null token-aware key value.</li>
+</ul>
+
+<h1 id="1-0-0-rc1" class="target">1.0.0-rc1<a class="anchor" href="#1-0-0-rc1" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>Dec 22, 2014</p>
+
+<h2 id="features" class="target">Features<a class="anchor" href="#features" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Added global logging. Logging is no longer configured per session.</li>
+<li>DC-aware load balancing policy is now the default and uses the DC of the first
+connected contact point. The DC-aware policy now has settings to control the
+number of remote hosts used in each DC (after exhausting the hosts in the
+local DC) and whether to ignore local consistency levels.</li>
+<li>Added socket options for TCP nodelay and keepalive:
+<code>cass_cluster_set_tcp_nodelay()</code> and <code>cass_cluster_set_tcp_keepalive()</code>.</li>
+</ul>
+
+<h2 id="other" class="target">Other<a class="anchor" href="#other" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>
+<code>CassSession</code> objects must now be explictly allocated/freed using
+<code>cass_session_new()</code> and <code>cass_session_free()</code>. <code>cass_cluster_connect()</code> has been
+removed and replaced by <code>cass_session_connect()</code>.</li>
+<li>SIGPIPE is ignored on driver threads</li>
+<li>Connection timeout now covers the entire connection handshake instead of just
+the socket connection.</li>
+<li>UUID API has been updated to use explict state via <code>CassUuidGen</code> instead of
+using internal global state. See <code>cass_uuid_gen_new()</code> and corresponding functions.</li>
+</ul>
+
+<h1 id="1-0-0-beta5" class="target">1.0.0-beta5<a class="anchor" href="#1-0-0-beta5" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>Nov 20, 2014</p>
+
+<h2 id="features" class="target">Features<a class="anchor" href="#features" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Added SSL support</li>
+<li>Added token-aware load balancing. It’s enable by default. It can
+be disable using <code>cass_cluster_set_token_aware_routing()</code>.</li>
+<li>Added functions to get schema metadata, <code>cass_session_get_schema()</code> can
+be use to get a snapshot of the schema metadata and <code>cass_meta_*()</code> functions
+can be used to retrieve detailed information about keyspaces, tables, and columns.</li>
+</ul>
+
+<h2 id="other" class="target">Other<a class="anchor" href="#other" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Significantly improved request throughput by batching socket writes.
+Batch sizes can be configured using the function
+<code>cass_cluster_set_max_requests_per_flush()</code>. The default is 128 because
+the maximum write size is bounded by the number of pipelined requests
+per connection (for version 1 and 2 of the native protocol).</li>
+<li>Added backpressure mechanism that can be configured for by the
+number of outstanding bytes and the number of requests on a connection. These can
+be configured using <code>cass_cluster_set_write_bytes_high_water_mark()</code>,
+<code>cass_cluster_set_write_bytes_low_water_mark()</code>,
+<code>cass_cluster_set_pending_requests_high_water_mark()</code>, and
+<code>cass_cluster_set_pending_requests_low_water_mark()</code>.</li>
+<li>Fixed a crash caused by a request timing out followed by a
+call to the conneciton read callback then the write callback.</li>
+<li>Fixed an issue that prevented the driver from recovering from
+a full cluster outage.</li>
+<li>Fixed an issue that allowed <code>uv_queue_work()</code> to be called from an
+application thread.</li>
+<li>Added logic to prevent redundant node refreshes when estabilishing
+a new connection from multiple IO workers.</li>
+<li>Fixed a crash caused by Cassandra 2.1.0 not returning metadata on
+execute requests.</li>
+<li>Fixed a memory leak that could leak request handlers if the control
+connection ran out of stream ids.</li>
+<li>Fixed a crash caused by calling an invalid timeout callback
+when waiting for connection to become available in a pool.</li>
+<li>Build will use an external version of Boost if present.</li>
+</ul>
+
+<h1 id="1-0-0-beta4" class="target">1.0.0-beta4<a class="anchor" href="#1-0-0-beta4" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>Sep 11, 2014</p>
+
+<h2 id="features" class="target">Features<a class="anchor" href="#features" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Added node discovery and now handle topology/status change events</li>
+<li>Queries that modify schema wait for cluster schema agreement</li>
+<li>Added DC aware load balancing policy. The default policy is set to
+round robin.</li>
+<li>Added new methods to configure the load balancing policy,
+<code>cass_cluster_set_load_balance_round_robin()</code> and
+<code>cass_cluster_set_load_balance_dc_aware()</code>
+</li>
+<li>It is now possible for a session future to return an error when
+connecting to a cluster. This can occur when the driver is unable to connect
+to any contact points or the provided authentication credentials are invalid.</li>
+</ul>
+
+<h1 id="1-0-0-beta3" class="target">1.0.0-beta3<a class="anchor" href="#1-0-0-beta3" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>Aug 13, 2014</p>
+
+<h2 id="features" class="target">Features<a class="anchor" href="#features" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Added callbacks to futures, <code>cass_future_set_callback()</code>
+</li>
+<li>Added plaintext authentication support, <code>cass_cluster_set_credentials()</code>
+</li>
+<li>Added map iterator, <code>cass_iterator_from_map()</code>, key and value pairs can be
+retreived using <code>cass_iterator_get_map_key()</code> and <code>cass_iterator_get_map_value()</code>
+</li>
+<li>Values can be bound by name (statements created from prepared statments only)</li>
+<li>Values can be retreived by name from result sets</li>
+</ul>
+
+<h2 id="other" class="target">Other<a class="anchor" href="#other" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Reduced overhead of prepared statements</li>
+<li>Small performance improvement for all queries via reduced allocations</li>
+</ul>
+
+<h1 id="1-0-0-beta2" class="target">1.0.0-beta2<a class="anchor" href="#1-0-0-beta2" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>Jul 17, 2014</p>
+
+<h2 id="features" class="target">Features<a class="anchor" href="#features" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Removed C++1x dependency</li>
+<li>Support for Cassandra 1.2 (native protocol version 1)</li>
+<li>Support for automatic paging</li>
+<li>Added method to set serial consistency on statement</li>
+<li>Added batch type to batches</li>
+<li>Exposed options <code>cass_cluster_set_max_pending_requests()</code>,
+<code>cass_cluster_set_max_simultaneous_creation()</code>, and
+<code>cass_cluster_set_max_simultaneous_requests_threshold()</code>
+</li>
+<li>Added <code>cass_result_column_name()</code> to get column name from a result set</li>
+</ul>
+
+<h2 id="bug-fixes" class="target">Bug Fixes<a class="anchor" href="#bug-fixes" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Fixed <code>StreamManager</code> so it no longer causes stack corruption</li>
+<li>Fixed issue where connections would log “&#8217;Timed out during startup’ error on startup for …”
+when a Session was closed while a connection was during its startup process</li>
+<li>Fixed Row and collections iterator so they return the first and last item properly</li>
+<li>Improved logic for creating new connections so it’s based request throughput</li>
+</ul>
+
+<h2 id="other" class="target">Other<a class="anchor" href="#other" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Removed the <code>setopt</code> method added set methods for all options</li>
+<li>Removed the <code>getopt</code> method</li>
+<li>
+<code>cass_batch_new()</code> and <code>cass_collection_new()</code> no longer take a consistency parameter</li>
+<li>
+<code>cass_collection_new()</code> now requires a colleciton type parameter</li>
+<li>
+<code>is_map</code> parameter removed from <code>cass_statement_bind_collection()</code>
+</li>
+</ul>
+
+<h1 id="1-0-0-beta1" class="target">1.0.0-beta1<a class="anchor" href="#1-0-0-beta1" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h1>
+
+<p>Jun 16, 2014</p>
+
+<h2 id="features" class="target">Features<a class="anchor" href="#features" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<ul>
+<li>Support for Cassandra 2.0 (native protocol version 2)</li>
+<li>Support for prepared and batch statements</li>
+<li>Support for collections</li>
+</ul>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.js"></script>
+    <script src="../../js/angular.js"></script>
+    <script src="../../js/mousetrap.js"></script>
+    <script src="../../js/hotkeys.js"></script>
+    <script src="../../js/ZeroClipboard.js"></script>
+    <script src="../../js/lunr.js"></script>
+    <script src="../../js/app.js"></script>
+  </body>
+</html>
