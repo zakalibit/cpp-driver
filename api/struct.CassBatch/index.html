@@ -41,12 +41,14 @@
               <span class="text-warning">Attention:</span> Viewing documentation for version
               <div class="btn-group">
                 <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  2.7
+                  2.8
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li class="disabled"><a href="./">2.7</a></li>
+                  <li class="disabled"><a href="./">2.8</a></li>
+                
+                  <li><a href="../../2.7/api/struct.CassBatch/">2.7</a></li>
                 
                   <li><a href="../../2.6/api/struct.CassBatch/">2.6</a></li>
                 
@@ -72,7 +74,7 @@
           <div class="col-md-4">
             <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
               <div class="form-group has-feedback">
-                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.7')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.8')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
               </div>
               <ul class="dropdown-menu search-results" role="menu">
                 <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
@@ -90,6 +92,15 @@
           <div id="navigation" class="side-nav" role="tablist" aria-multiselectable="true">
             <h3><a href="../../">Contents</a></h3>
             <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li>
+    <a href="../../changelog/">
+      Changelog <small>page</small>
+      
+    </a>
+    
+  </li>
   
   
   <li>
@@ -364,15 +375,6 @@
   
   
   <li>
-    <a href="../struct.CassTableMeta/">
-      CassTableMeta <small>struct</small>
-      
-    </a>
-    
-  </li>
-  
-  
-  <li>
     <a href="../struct.CassTimestampGen/">
       CassTimestampGen <small>struct</small>
       
@@ -409,6 +411,24 @@
   
   
   <li>
+    <a href="../cassandra.h/">
+      cassandra.h <small>file</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassTableMeta/">
+      CassTableMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
     <a href="../struct.CassUuidGen/">
       CassUuidGen <small>struct</small>
       
@@ -429,15 +449,6 @@
   <li>
     <a href="../struct.CassVersion/">
       CassVersion <small>struct</small>
-      
-    </a>
-    
-  </li>
-  
-  
-  <li>
-    <a href="../cassandra.h/">
-      cassandra.h <small>file</small>
       
     </a>
     
@@ -568,6 +579,115 @@
 <td></td>
 </tr></tbody>
 </table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_batch_set_keyspace" class="target">cass_batch_set_keyspace<a class="anchor" href="#function-cass_batch_set_keyspace" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  batch,  keyspace <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets the batch’s keyspace. When using protocol v5 or greater it overrides the session’s keyspace for the batch.</p>
+
+<p><strong>Note:</strong> If not set explicitly then the batch will inherit the keyspace of the first child statement with a non-empty keyspace.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>batch</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>keyspace</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_batch_set_keyspace_n" class="target">cass_batch_set_keyspace_n<a class="anchor" href="#function-cass_batch_set_keyspace_n" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  batch,  keyspace,  keyspace_length <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Same as <code><a href="#function-cass_batch_set_keyspace">CassBatch::cass_batch_set_keyspace</a></code>, but with lengths for string parameters.</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>batch</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>keyspace</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>keyspace_length</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>same as <code><a href="#function-cass_batch_set_keyspace">CassBatch::cass_batch_set_keyspace</a></code></p>
+</td>
+</tr></tbody>
+</table></dd>
+<dt class="tag-title">See Also:</dt>
+<dd class="tag-content"><ul class="see"><li><code><a href="#function-cass_batch_set_keyspace">CassBatch::cass_batch_set_keyspace</a></code></li></ul></dd>
 </dl>
     </div>
   </div>

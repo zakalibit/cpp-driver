@@ -41,12 +41,14 @@
               <span class="text-warning">Attention:</span> Viewing documentation for version
               <div class="btn-group">
                 <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  2.7
+                  2.8
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li class="disabled"><a href="./">2.7</a></li>
+                  <li class="disabled"><a href="./">2.8</a></li>
+                
+                  <li><a href="2.7/">2.7</a></li>
                 
                   <li><a href="2.6/">2.6</a></li>
                 
@@ -72,7 +74,7 @@
           <div class="col-md-4">
             <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
               <div class="form-group has-feedback">
-                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.7')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.8')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
               </div>
               <ul class="dropdown-menu search-results" role="menu">
                 <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
@@ -90,6 +92,15 @@
           <div id="navigation" class="side-nav" role="tablist" aria-multiselectable="true">
             <h3><a href="./">Contents</a></h3>
             <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li>
+    <a href="changelog/">
+      Changelog <small>page</small>
+      
+    </a>
+    
+  </li>
   
   
   <li>
@@ -143,35 +154,45 @@
 <p><a href="https://travis-ci.org/datastax/cpp-driver"><img src="https://travis-ci.org/datastax/cpp-driver.svg?branch=master" alt="Build Status: Linux"></a>
 <a href="https://ci.appveyor.com/project/DataStax/cpp-driver"><img src="https://ci.appveyor.com/api/projects/status/ec0x0vuk59as28r6/branch/master?svg=true" alt="Build Status: Windows"></a></p>
 
-<p>A modern, <a href="#features">feature-rich</a>, and highly tunable C/C++ client library for
-Apache Cassandra (1.2+) and DataStax Enterprise (3.1+) using exclusively
-Cassandra’s native protocol and Cassandra Query Language v3.</p>
+<p>A modern, feature-rich] and highly tunable C/C++ client library for
+<a href="http://cassandra.apache.org">Apache Cassandra</a> 2.1+ using exclusively Cassandra’s binary protocol and
+Cassandra Query Language v3. <strong>Use the <a href="http://docs.datastax.com/en/developer/cpp-driver-dse/latest">DSE C/C++ driver</a> for better
+compatibility and support for <a href="http://www.datastax.com/products/datastax-enterprise">DataStax Enterprise</a></strong>.</p>
+
+<h2 id="getting-the-driver" class="target">Getting the Driver<a class="anchor" href="#getting-the-driver" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
+
+<p>Binary versions of the driver, available for multiple operating systems and
+multiple architectures, can be obtained from our <a href="http://downloads.datastax.com/cpp-driver">download server</a>. The
+source code is made available via <a href="https://github.com/datastax/cpp-driver">GitHub</a>. <strong>If using <a href="http://www.datastax.com/products/datastax-enterprise">DataStax Enterprise</a>
+use the <a href="http://docs.datastax.com/en/developer/cpp-driver-dse/latest">DSE C/C++ driver</a> instead</strong>.</p>
+
+<p>Packages for the driver’s dependencies, libuv (1.x)
+and OpenSSL, are also provided under the <code>dependencies</code> directory for each
+platform (if applicable). <strong>Note</strong>: CentOS and Ubuntu use the version of OpenSSL
+provided with the distribution:</p>
 
 <ul>
-<li>Code: <a href="https://github.com/datastax/cpp-driver">https://github.com/datastax/cpp-driver</a>
-</li>
-<li>Binaries: <a href="http://downloads.datastax.com/cpp-driver/">http://downloads.datastax.com/cpp-driver/</a>
-</li>
-<li>Docs: <a href="http://datastax.github.io/cpp-driver">http://datastax.github.io/cpp-driver</a>
-</li>
-<li>JIRA: <a href="https://datastax-oss.atlassian.net/browse/CPP">https://datastax-oss.atlassian.net/browse/CPP</a>
-</li>
-<li>Mailing List: <a href="https://groups.google.com/a/lists.datastax.com/forum/#!forum/cpp-driver-user">https://groups.google.com/a/lists.datastax.com/forum/#!forum/cpp-driver-user</a>
-</li>
-<li>IRC: <a href="http://webchat.freenode.net/?channels=datastax-drivers">#datastax-drivers on <code>irc.freenode.net &lt;http://freenode.net&gt;</code></a>
-</li>
+<li><a href="http://downloads.datastax.com/cpp-driver/centos/6/dependencies">CentOS 6</a></li>
+<li><a href="http://downloads.datastax.com/cpp-driver/centos/7/dependencies">CentOS 7</a></li>
+<li><a href="http://downloads.datastax.com/cpp-driver/ubuntu/14.04/dependencies">Ubuntu 14.04</a></li>
+<li><a href="http://downloads.datastax.com/cpp-driver/ubuntu/16.04/dependencies">Ubuntu 16.04</a></li>
+<li><a href="http://downloads.datastax.com/cpp-driver/windows/dependencies">Windows</a></li>
 </ul>
+
+<p><strong>Note</strong>: DataStax products do not support big-endian systems.</p>
 
 <h2 id="what-s-new-in-2-5-2-6" class="target">What’s New in 2.5/2.6<a class="anchor" href="#what-s-new-in-2-5-2-6" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
 <ul>
-<li>Support for <a href="https://github.com/datastax/cpp-driver/tree/2.6.0/examples/duration/duration.c"><code>duration</code></a>
+<li>Support for <a href="https://github.com/datastax/cpp-driver/blob/master/examples/duration/duration.c"><code>duration</code></a>
 </li>
 <li><a href="topics/configuration/#speculative-execution">Speculative execution</a></li>
 <li><a href="topics/configuration/#query-idempotence">Idempotent statements</a></li>
 <li>
-<a href="topics/security/ssl/">SSL</a> can be enabled without re-initializing the underlying library (e.g. OpenSSL)</li>
+<a href="topics/security/ssl/">SSL</a> can be enabled without re-initializing the underlying library
+(e.g. OpenSSL)</li>
 </ul>
 
 <p>More information about features included in 2.3 can be found in this <a href="http://www.datastax.com/dev/blog/datastax-c-driver-2-3-ga-released">blog
@@ -233,37 +254,51 @@ new schema metadata API can be found in this
 <h2 id="compatibility" class="target">Compatibility<a class="anchor" href="#compatibility" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>This release is compatible with Apache Cassandra 1.2, 2.0, 2.1, 2.2 and 3.0.</p>
+<p>This driver works exclusively with the Cassandra Query Language v3 (CQL3) and
+Cassandra’s native protocol. The current version works with:</p>
 
-<p>A complete compatibility matrix for both Apache Cassandra and DataStax
-Enterprise can be found
-<a href="https://docs.datastax.com/en/developer/driver-matrix/doc/common/driverMatrix.html?scroll=driverMatrix__cpp-driver-matrix">here</a>.</p>
+<ul>
+<li>Apache Cassandra versions 2.1, 2.2 and 3.0+</li>
+<li>Architectures: 32-bit (x86) and 64-bit (x64)</li>
+<li>Compilers: GCC 4.1.2+, Clang 3.4+, and MSVC 2010/2012/2013/2015/2017</li>
+</ul>
 
-<h2 id="installation" class="target">Installation<a class="anchor" href="#installation" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+<p>If using <a href="http://www.datastax.com/products/datastax-enterprise">DataStax Enterprise</a> the <a href="http://docs.datastax.com/en/developer/cpp-driver-dse/latest">DSE C/C++ driver</a> provides more features and
+better compatibility. A complete compatibility matrix for both Apache Cassandra
+and DataStax Enterprise can be found <a href="https://docs.datastax.com/en/developer/driver-matrix/doc/cppDrivers.html#cpp-drivers">here</a>.</p>
+
+<h2 id="documentation" class="target">Documentation<a class="anchor" href="#documentation" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>Binary packages are <a href="http://downloads.datastax.com/cpp-driver/">available</a> for
-CentOS, Ubuntu and Windows. Packages for the driver’s dependencies, libuv (1.x)
-and OpenSSL, are also provided under the <code>dependencies</code> directory for each
-platform e.g. <a href="http://downloads.datastax.com/cpp-driver/centos/7/dependencies/">CentOS 7</a>,
-<a href="http://downloads.datastax.com/cpp-driver/ubuntu/14.04/dependencies/">Ubuntu 14.04</a>,
-<a href="http://downloads.datastax.com/cpp-driver/windows/dependencies/">Windows</a>.</p>
+<ul>
+<li><a href="http://docs.datastax.com/en/developer/cpp-driver/latest">Home</a></li>
+<li><a href="http://docs.datastax.com/en/developer/cpp-driver/latest/api">API</a></li>
+<li><a href="http://docs.datastax.com/en/developer/cpp-driver/latest/topics">Getting Started</a></li>
+<li><a href="http://docs.datastax.com/en/developer/cpp-driver/latest/topics/building">Building</a></li>
+</ul>
 
-<p><em>Note</em>: CentOS and Ubuntu use the version of OpenSSL provided with the
-distribution.</p>
+<h2 id="getting-help" class="target">Getting Help<a class="anchor" href="#getting-help" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h2>
 
-<p>The driver can also be <a href="topics/building/">built from
-source</a>.</p>
+<ul>
+<li>JIRA: <a href="https://datastax-oss.atlassian.net/browse/CPP">https://datastax-oss.atlassian.net/browse/CPP</a>
+</li>
+<li>Mailing List: <a href="https://groups.google.com/a/lists.datastax.com/forum/#!forum/cpp-driver-user">https://groups.google.com/a/lists.datastax.com/forum/#!forum/cpp-driver-user</a>
+</li>
+<li>DataStax Academy via Slack: <a href="https://academy.datastax.com/slack">https://academy.datastax.com/slack</a>
+</li>
+</ul>
 
 <h2 id="feedback-requested" class="target">Feedback Requested<a class="anchor" href="#feedback-requested" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p><strong>Help us focus our efforts!</strong> <a href="http://goo.gl/forms/ihKC5uEQr6">Provide your input</a> on the C/C++ Driver Platform and Runtime Survey (we kept it short).</p>
+<p><strong>Help us focus our efforts!</strong> <a href="http://goo.gl/forms/ihKC5uEQr6">Provide your input</a> on the C/C++ Driver Platform
+and Runtime Survey (we kept it short).</p>
 
 <h2 id="examples" class="target">Examples<a class="anchor" href="#examples" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>There are several examples provided here: <a href="https://github.com/datastax/cpp-driver/tree/1.0/examples">examples</a>.</p>
+<p>The driver includes several examples in the <a href="https://github.com/datastax/cpp-driver/blob/master/examples/">examples</a> directory.</p>
 
 <h2 id="a-simple-example" class="target">A Simple Example<a class="anchor" href="#a-simple-example" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
@@ -343,7 +378,7 @@ source</a>.</p>
 <h2 id="license" class="target">License<a class="anchor" href="#license" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
 </h2>
 
-<p>Copyright © 2014-2016 DataStax</p>
+<p>Copyright © DataStax, Inc.</p>
 
 <p>Licensed under the Apache License, Version 2.0 (the “License”);
 you may not use this file except in compliance with the License.

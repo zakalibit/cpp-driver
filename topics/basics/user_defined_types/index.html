@@ -41,12 +41,14 @@
               <span class="text-warning">Attention:</span> Viewing documentation for version
               <div class="btn-group">
                 <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  2.7
+                  2.8
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li class="disabled"><a href="./">2.7</a></li>
+                  <li class="disabled"><a href="./">2.8</a></li>
+                
+                  <li><a href="../../../2.7/topics/basics/user_defined_types/">2.7</a></li>
                 
                   <li><a href="../../../2.6/topics/basics/user_defined_types/">2.6</a></li>
                 
@@ -72,7 +74,7 @@
           <div class="col-md-4">
             <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
               <div class="form-group has-feedback">
-                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.7')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.8')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
               </div>
               <ul class="dropdown-menu search-results" role="menu">
                 <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
@@ -90,6 +92,15 @@
           <div id="navigation" class="side-nav" role="tablist" aria-multiselectable="true">
             <h3><a href="../../../">Contents</a></h3>
             <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li>
+    <a href="../../../changelog/">
+      Changelog <small>page</small>
+      
+    </a>
+    
+  </li>
   
   
   <li class="active">
@@ -398,9 +409,9 @@ describe Cassandra types including UDTs, tuples, collections and all basic types
 <pre class="highlight"><code><span class="k">const</span> <span class="nc">CassSchemaMeta</span><span class="o">*</span> <span class="n">schema_meta</span> <span class="o">=</span> <span class="nb">cass_session_get_schema_meta</span><span class="p">(</span><span class="n">session</span><span class="p">);</span>
 
 <span class="k">const</span> <span class="nc">CassKeyspaceMeta</span><span class="o">*</span> <span class="n">keyspace_meta</span> <span class="o">=</span>
-  <span class="nb">cass_schema_meta_keyspace_by_name</span><span class="p">(</span><span class="s">"keyspace"</span><span class="p">);</span>
+  <span class="nb">cass_schema_meta_keyspace_by_name</span><span class="p">(</span><span class="n">schema_meta</span><span class="p">,</span> <span class="s">"keyspace"</span><span class="p">);</span>
 
-<span class="k">const</span> <span class="n">DataType</span><span class="o">*</span> <span class="n">data_type</span> <span class="o">=</span>
+<span class="k">const</span> <span class="nc">CassDataType</span><span class="o">*</span> <span class="n">data_type</span> <span class="o">=</span>
   <span class="nb">cass_keyspace_meta_user_type_by_name</span><span class="p">(</span><span class="n">keyspace_meta</span><span class="p">,</span> <span class="s">"typename"</span><span class="p">);</span>
 
 <span class="nc">CassUserType</span><span class="o">*</span> <span class="n">user_type</span> <span class="o">=</span> <span class="nb">cass_user_type_new_from_data_type</span><span class="p">(</span><span class="n">data_type</span><span class="p">);</span>
@@ -440,7 +451,7 @@ to the way collections or tuples are consumed.</p>
 <span class="k">const</span> <span class="nc">CassValue</span><span class="o">*</span> <span class="n">udt_value</span> <span class="o">=</span> <span class="nb">cass_row_get_column_by_name</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="s">"value1"</span><span class="p">);</span>
 
 <span class="cm">/* Create an iterator for the UDT value */</span>
-<span class="nc">CassIterator</span><span class="o">*</span> <span class="n">udt_iterator</span> <span class="o">=</span> <span class="nb">cass_iterator_from_user_type</span><span class="p">(</span><span class="n">udt_value</span><span class="p">);</span>
+<span class="nc">CassIterator</span><span class="o">*</span> <span class="n">udt_iterator</span> <span class="o">=</span> <span class="nb">cass_iterator_fields_from_user_type</span><span class="p">(</span><span class="n">udt_value</span><span class="p">);</span>
 
 <span class="cm">/* Iterate over the UDT fields */</span>
 <span class="k">while</span> <span class="p">(</span><span class="nb">cass_iterator_next</span><span class="p">(</span><span class="n">udt_iterator</span><span class="p">))</span> <span class="p">{</span>

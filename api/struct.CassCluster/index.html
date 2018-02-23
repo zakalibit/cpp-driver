@@ -41,12 +41,14 @@
               <span class="text-warning">Attention:</span> Viewing documentation for version
               <div class="btn-group">
                 <button id="current-version" class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  2.7
+                  2.8
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="current-version">
                 
-                  <li class="disabled"><a href="./">2.7</a></li>
+                  <li class="disabled"><a href="./">2.8</a></li>
+                
+                  <li><a href="../../2.7/api/struct.CassCluster/">2.7</a></li>
                 
                   <li><a href="../../2.6/api/struct.CassCluster/">2.6</a></li>
                 
@@ -72,7 +74,7 @@
           <div class="col-md-4">
             <form id="search" class="form-search dropdown visible-lg-inline-block" ng-controller="search" ng-class="{open: hasResults}" role="search" ng-submit="submit()" data-spy="affix" data-offset-top="130">
               <div class="form-group has-feedback">
-                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.7')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
+                <input type="search" class="form-control input-sm mousetrap" placeholder="Search..." ng-model="q" ng-change="search('2.8')" ng-disabled="!searchReady" disabled data-hotkey="{down: moveDown, up: moveUp, esc: reset}" data-search>
               </div>
               <ul class="dropdown-menu search-results" role="menu">
                 <li ng-repeat="result in results" ng-class="{'bg-warning': $index == current}"><a ng-href="{{basePath}}{{result.path}}"><span ng-bind-html="summary(result)"></span></a></li>
@@ -90,6 +92,15 @@
           <div id="navigation" class="side-nav" role="tablist" aria-multiselectable="true">
             <h3><a href="../../">Contents</a></h3>
             <ul class="nav nav-pills nav-stacked">
+  
+  
+  <li>
+    <a href="../../changelog/">
+      Changelog <small>page</small>
+      
+    </a>
+    
+  </li>
   
   
   <li>
@@ -364,15 +375,6 @@
   
   
   <li>
-    <a href="../struct.CassTableMeta/">
-      CassTableMeta <small>struct</small>
-      
-    </a>
-    
-  </li>
-  
-  
-  <li>
     <a href="../struct.CassTimestampGen/">
       CassTimestampGen <small>struct</small>
       
@@ -409,6 +411,24 @@
   
   
   <li>
+    <a href="../cassandra.h/">
+      cassandra.h <small>file</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
+    <a href="../struct.CassTableMeta/">
+      CassTableMeta <small>struct</small>
+      
+    </a>
+    
+  </li>
+  
+  
+  <li>
     <a href="../struct.CassUuidGen/">
       CassUuidGen <small>struct</small>
       
@@ -429,15 +449,6 @@
   <li>
     <a href="../struct.CassVersion/">
       CassVersion <small>struct</small>
-      
-    </a>
-    
-  </li>
-  
-  
-  <li>
-    <a href="../cassandra.h/">
-      cassandra.h <small>file</small>
       
     </a>
     
@@ -819,7 +830,7 @@
     <div class="panel-body function-body">
       <p>Sets the protocol version. This will automatically downgrade to the lowest supported protocol version.</p>
 
-<p><strong>Default:</strong> 4</p>
+<p><strong>Default:</strong> CASS_PROTOCOL_VERSION_V4</p>
 
       <dl class="tags">
 <dt class="tag-title">Parameters:</dt>
@@ -870,7 +881,7 @@
 </h3> <big>(</big>  cluster,  enable <big>)</big>
     </div>
     <div class="panel-body function-body">
-      <p>Use the newest beta protocol version. This currently enables the use of protocol version 5.</p>
+      <p>Use the newest beta protocol version. This currently enables the use of protocol version v5 (CASS_PROTOCOL_VERSION_V5).</p>
 
 <p><strong>Default:</strong> cass_false</p>
 
@@ -898,6 +909,108 @@
 <td>
 <p>if false the highest non-beta protocol version will be used</p>
 </td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_cluster_set_consistency" class="target">cass_cluster_set_consistency<a class="anchor" href="#function-cass_cluster_set_consistency" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  cluster,  consistency <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets default consistency level of statement.</p>
+
+<p><strong>Default:</strong> CASS_CONSISTENCY_LOCAL_ONE</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>cluster</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>consistency</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred.</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_cluster_set_serial_consistency" class="target">cass_cluster_set_serial_consistency<a class="anchor" href="#function-cass_cluster_set_serial_consistency" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  cluster,  consistency <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Sets default serial consistency level of statement.</p>
+
+<p><strong>Default:</strong> CASS_CONSISTENCY_ANY</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<small>in</small> <var>cluster</var>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<small>in</small> <var>consistency</var>
+</td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table></dd>
@@ -1026,57 +1139,6 @@
     </div>
     <div class="panel-body function-body">
       <p>Sets the size of the fixed size queue that stores events.</p>
-
-<p><strong>Default:</strong> 8192</p>
-
-      <dl class="tags">
-<dt class="tag-title">Parameters:</dt>
-<dd class="tag-content"><table class="table table-striped param">
-<thead><tr>
-<th class="name">Name</th>
-<th class="type">Type</th>
-<th class="details">Details</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>
-<small>in</small> <var>cluster</var>
-</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>
-<small>in</small> <var>queue_size</var>
-</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table></dd>
-<dt class="tag-title">Returns:</dt>
-<dd class="tag-content"><table class="table table-striped return">
-<thead><tr>
-<th class="type">Type</th>
-<th class="details">Details</th>
-</tr></thead>
-<tbody><tr>
-<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
-<td>
-<p>CASS_OK if successful, otherwise an error occurred.</p>
-</td>
-</tr></tbody>
-</table></dd>
-</dl>
-    </div>
-  </div>
-  <div class="panel panel-default member-definition">
-    <div class="panel-heading function-heading">
-      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_cluster_set_queue_size_log" class="target">cass_cluster_set_queue_size_log<a class="anchor" href="#function-cass_cluster_set_queue_size_log" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
-</h3> <big>(</big>  cluster,  queue_size <big>)</big>
-    </div>
-    <div class="panel-body function-body">
-      <p>Sets the size of the fixed size queue that stores log messages.</p>
 
 <p><strong>Default:</strong> 8192</p>
 
@@ -1424,6 +1486,10 @@
 
 <p><strong>Default:</strong> 64 KB</p>
 
+<p><strong>Deprecated</strong>:</p>
+
+<p>This is no longer useful and does nothing. Expect this to be removed in a future release.</p>
+
       <dl class="tags">
 <dt class="tag-title">Parameters:</dt>
 <dd class="tag-content"><table class="table table-striped param">
@@ -1474,6 +1540,10 @@
       <p>Sets the low water mark for number of bytes outstanding on a connection. After exceeding high water mark bytes, writes will only resume once the number of bytes fall below this value.</p>
 
 <p><strong>Default:</strong> 32 KB</p>
+
+<p><strong>Deprecated</strong>:</p>
+
+<p>This is no longer useful and does nothing. Expect this to be removed in a future release.</p>
 
       <dl class="tags">
 <dt class="tag-title">Parameters:</dt>
@@ -1526,6 +1596,10 @@
 
 <p><strong>Default:</strong> 256</p>
 
+<p><strong>Deprecated</strong>:</p>
+
+<p>This is no longer useful and does nothing. Expect this to be removed in a future release.</p>
+
       <dl class="tags">
 <dt class="tag-title">Parameters:</dt>
 <dd class="tag-content"><table class="table table-striped param">
@@ -1576,6 +1650,10 @@
       <p>Sets the low water mark for the number of requests queued waiting for a connection in a connection pool. After exceeding high water mark requests, writes to a host will only resume once the number of requests fall below this value.</p>
 
 <p><strong>Default:</strong> 128</p>
+
+<p><strong>Deprecated</strong>:</p>
+
+<p>This is no longer useful and does nothing. Expect this to be removed in a future release.</p>
 
       <dl class="tags">
 <dt class="tag-title">Parameters:</dt>
@@ -2594,9 +2672,9 @@
 </h3> <big>(</big>  cluster,  enabled <big>)</big>
     </div>
     <div class="panel-body function-body">
-      <p>Enable/Disable Nagel’s algorithm on connections.</p>
+      <p>Enable/Disable Nagle’s algorithm on connections.</p>
 
-<p><strong>Default:</strong> cass_true (disables Nagel’s algorithm).</p>
+<p><strong>Default:</strong> cass_true (disables Nagle’s algorithm).</p>
 
       <dl class="tags">
 <dt class="tag-title">Parameters:</dt>
@@ -3071,6 +3149,53 @@
 <td></td>
 <td></td>
 </tr></tbody>
+</table></dd>
+<dt class="tag-title">Returns:</dt>
+<dd class="tag-content"><table class="table table-striped return">
+<thead><tr>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody><tr>
+<td><code><a href="../cassandra.h/#enum-CassError">CassError</a></code></td>
+<td>
+<p>CASS_OK if successful, otherwise an error occurred</p>
+</td>
+</tr></tbody>
+</table></dd>
+</dl>
+    </div>
+  </div>
+  <div class="panel panel-default member-definition">
+    <div class="panel-heading function-heading">
+      <code><a href="../cassandra.h/#enum-CassError">CassError</a></code> <h3 id="function-cass_cluster_set_prepare_on_all_hosts" class="target">cass_cluster_set_prepare_on_all_hosts<a class="anchor" href="#function-cass_cluster_set_prepare_on_all_hosts" aria-hidden="true"><span class="glyphicon glyphicon-link"></span></a>
+</h3> <big>(</big>  cluster,  enabled <big>)</big>
+    </div>
+    <div class="panel-body function-body">
+      <p>Prepare statements on all available hosts.</p>
+
+<p><strong>Default:</strong> cass_true</p>
+
+      <dl class="tags">
+<dt class="tag-title">Parameters:</dt>
+<dd class="tag-content"><table class="table table-striped param">
+<thead><tr>
+<th class="name">Name</th>
+<th class="type">Type</th>
+<th class="details">Details</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><var>cluster</var></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><var>enabled</var></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
 </table></dd>
 <dt class="tag-title">Returns:</dt>
 <dd class="tag-content"><table class="table table-striped return">
