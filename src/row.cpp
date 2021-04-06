@@ -49,8 +49,7 @@ const CassValue* cass_row_get_column_by_name_n(const CassRow* row, const char* n
 
 namespace datastax { namespace internal { namespace core {
 
-bool decode_row(Decoder& decoder, const ResultResponse* result,
-                OutputValueVec& output) {
+bool decode_row(Decoder& decoder, const ResultResponse* result, OutputValueVec& output) {
   output.clear();
   const int column_count = result->column_count();
   if (column_count > 0) {
@@ -59,9 +58,10 @@ bool decode_row(Decoder& decoder, const ResultResponse* result,
     for (int i = 0; i < column_count; ++i) {
       const ColumnDefinition& def = metadata->get_column_definition(i);
       Value value = decoder.decode_value(def.data_type);
-      if (value.data_type()) {
+      if (value.is_valid()) {
         output.push_back(value);
-      } else return false;
+      } else
+        return false;
     }
   }
   return true;
