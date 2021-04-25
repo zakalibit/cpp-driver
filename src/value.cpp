@@ -200,7 +200,7 @@ Value::Value(const DataType::ConstPtr& data_type, Decoder decoder)
     , decoder_(decoder)
     , is_null_(false) {
 
-  switch(value_type()) {
+  switch(data_type->value_type()) {
   case CASS_VALUE_TYPE_TUPLE: {
     SharedRefPtr<const CompositeType> composite_type(data_type);
     count_ = composite_type->types().size();
