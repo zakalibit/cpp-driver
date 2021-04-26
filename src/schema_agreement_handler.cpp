@@ -54,6 +54,7 @@ bool SchemaAgreementHandler::on_set(const ChainedRequestCallback::Ptr& callback)
     if (!v->is_null()) {
       current_version = v->to_string_ref();
     }
+
   } else {
     LOG_DEBUG("No row found in %s's local system table", host()->address_string().c_str());
   }
