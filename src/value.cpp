@@ -195,7 +195,7 @@ CassValueType cass_value_secondary_sub_type(const CassValue* collection) {
 const DataType::ConstPtr Value::empty_data_type_;
 
 Value::Value(const DataType::ConstPtr& data_type, Decoder decoder)
-    : data_type_(data_type)
+    : data_type_(&data_type)
     , count_(0)
     , decoder_(decoder)
     , is_null_(false) {

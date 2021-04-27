@@ -17,7 +17,6 @@
 #ifndef DATASTAX_INTERNAL_VALUE_HPP
 #define DATASTAX_INTERNAL_VALUE_HPP
 
-#include <functional>
 #include "cassandra.h"
 #include "decoder.hpp"
 #include "external.hpp"
@@ -34,7 +33,7 @@ public:
 
   // Used for "null" values
   Value(const DataType::ConstPtr& data_type)
-      : data_type_(data_type)
+      : data_type_(&data_type)
       , count_(0)
       , is_null_(true) {}
 
@@ -43,7 +42,7 @@ public:
 
   // Used for collections and schema metadata collections (converted from JSON)
   Value(const DataType::ConstPtr& data_type, int32_t count, Decoder decoder)
-      : data_type_(data_type)
+      : data_type_(&data_type)
       , count_(count)
       , decoder_(decoder)
       , is_null_(false) {}
@@ -61,7 +60,7 @@ public:
     return CASS_VALUE_TYPE_UNKNOWN;
   }
 
-  const DataType::ConstPtr& data_type() const { return data_type_.get(); }
+  const DataType::ConstPtr& data_type() const { return *data_type_; }
 
   CassValueType primary_value_type() const {
     const DataType::ConstPtr& primary(primary_data_type());
@@ -135,7 +134,7 @@ public:
 
 private:
   static const DataType::ConstPtr empty_data_type_;
-  std::reference_wrapper<const DataType::ConstPtr> data_type_ = std::ref(empty_data_type_);
+  const DataType::ConstPtr* data_type_ = &empty_data_type_;
   int32_t count_;
   Decoder decoder_;
   bool is_null_;
